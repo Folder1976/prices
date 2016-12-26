@@ -1,0 +1,423 @@
+<?
+session_start();
+header("Content-Type: text/html; charset=utf-8");
+
+define('A2', true);
+define('A2_CNFG', true);
+
+
+include("../a2_config.php");
+$db=mysql_connect($db_host,$db_username,$db_password) or die('Mysql cant connect to server!');
+mysql_select_db($db_name,$db) or die('Mysql cant select DB!');
+mysql_query("SET NAMES 'utf8'");
+
+
+
+include("../a2_functions.php");
+include("../parts/tpl_functions.a2.php");
+
+
+$gtconfig=setconfig();
+$dater=date("Y-m-d");  
+$timer=date("H:i:s");
+$sizeofget=sizeof($_GET);
+
+
+
+set_time_limit(0);
+
+
+if($_GET['changebrendcash']){
+	mysql_query("update tempfolder set brendid=".intval($_GET['brid'])." where id=".$_GET['changebrendcash']);
+}
+elseif($_GET['addbrend']){
+	$name=mysql_real_escape_string(urldecode(str_replace('--PLUS--','+',$_GET['addbrend'])));
+
+
+	if(!queryresult("select id from brend where name='$name'",'id')){
+		mysql_query("insert into brend(name,status,secretkey) values('$name','1','$name')") or die(mysql_error());
+	}
+	exit();
+}
+elseif($_GET['savetogroups']){
+	$pid=intval($_GET['pid']);
+	$groupname=mysql_real_escape_string(urldecode(str_replace('--PLUS--','+',$_GET['savetogroups'])));
+	if($groupname=='')exit();
+	if(!$pid)exit();
+	
+	$groupid=queryresult("select id from products_modification where name='$groupname'",'id');
+	
+	if(!$groupid){
+		mysql_query("insert into products_modification(modifications,name) values('$pid','$groupname')");
+		$groupid=queryresult("select id from products_modification where name='$groupname'",'id');
+	}
+	else{
+		$mods=queryresult("select modifications from products_modification where id=".$groupid,'modifications');
+		$old=explode(',',$mods);
+		if(!in_array($pid,$old)){
+			array_push($old,$pid);
+			$newarray=implode(',',$old);
+			mysql_query("update products_modification set modifications='$newarray' where id=".$groupid);
+			
+			mysql_query("update products set modification=1 where id=".$pid);
+		}
+	}
+	mysql_query("update products set modificationid=$groupid where id=".$pid);
+	exit();
+}
+elseif($_GET['todopname']){
+	$pid=intval($_GET['pid']);
+	$groupname=mysql_real_escape_string(str_replace('--PLUS--','+',urldecode($_GET['todopname'])));
+	$groupnamex=mysql_real_escape_string(str_replace('--PLUS--','+',urldecode($_GET['todopnamex'])));
+	if($groupname=='')exit();
+	if($groupnamex=='')exit();
+	if($pid=='')exit();
+	
+
+
+	$groupid=queryresult("select id from products where name='$groupnamex'",'id');
+	$dopname=queryresult("select name from products where id=$pid",'name');
+	
+	if(!$groupid){
+		mysql_query("update products set name='$groupnamex' where id=$pid");
+		$groupid=$pid;
+	}
+	elseif($pid!=$groupid){
+		mysql_query("update productdopnames set productid=$groupid where productid=$pid");
+		mysql_query("update products_compare set productid=$groupid where productid=$pid");
+		mysql_query("update comentary set productid=$groupid where productid=$pid");
+		mysql_query("update product_fotos set productid=$groupid where productid=$pid");
+		mysql_query("update product_prices set productid=$groupid where productid=$pid");
+		//mysql_query("delete from products where id=$pid");
+	}
+	
+	if($dopname!=$groupname){
+		if(!queryresult("select id from productdopnames where productid=$groupid and name='$dopname'",'id')){
+
+$main=($pid==$groupid)?1:0;
+
+			mysql_query("insert into productdopnames(productid,dopname,ident,`main`) 
+values('$groupid','$dopname','$pid','$main')");
+		}
+	}
+	
+	exit();
+}
+elseif($_GET['addfoto']){
+	$pid=intval($_GET['pid']);
+	if(!queryresult("select id from product_fotos where productid=$pid and image='".urldecode($_GET['addfoto'])."'",'id')){
+		mysql_query("insert into product_fotos(productid,image,status) values('$pid','".urldecode($_GET['addfoto'])."','1')") or die(mysql_error());
+		mysql_query("update products set imageok=1 where id=$pid");
+	}
+	exit();
+}
+elseif($_GET['changemenuidall']){
+	$pid=intval($_GET['pid']);
+	mysql_query("update products set wmotmenuid=".intval($_GET['changemenuidall'])." where id=$pid");
+	exit();
+}
+elseif($_GET['brchangemenuidall']){
+	$pid=intval($_GET['pid']);
+	mysql_query("update products set brendid=".intval($_GET['brchangemenuidall'])." where id=$pid");
+	exit();
+}
+elseif($_GET['addcategory']){
+	if(!queryresult("select id from menu where name='".urldecode($_GET['addcategory'])."'",'id')){
+		$mid=intval($_GET['mid']);
+		$tip=intval($_GET['tip']);
+		mysql_query("insert into menu(name,status,wmotmenuid,tip) values('".urldecode($_GET['addcategory'])."','1','$mid','$tip')") or die(mysql_error());
+	}
+	exit();
+}
+elseif($_GET['addcategoryas']){
+	$mid=intval($_GET['mid']);
+	$name=urldecode(str_replace('--PLUS--','+',$_GET['addcategoryas']));
+
+$name=str_replace('`',"''",$name);
+
+	if(!queryresult("select id from menudopnames where wmotmenuid=$mid and name='$name'",'id')){
+		mysql_query("insert into menudopnames(wmotmenuid,name) values('$mid','$name')");
+	}
+
+	exit();
+}
+elseif($_GET['mid']){
+	$mid=intval($_GET['mid']);
+	$data=querytoarray("select * from menu where wmotmenuid=$mid and status=1 order by name");
+	if($data['rows']){
+		echo '<option value="0">Выберите категорию</option>';
+	}
+	for($i=0;$i<$data['rows'];$i++){
+		echo '<option value="'.$data[$i]['id'].'">'.$data[$i]['name'].'('.queryresult("select count(*) as total from menu where status=1 and wmotmenuid=".$data[$i]['id'],'total').')</option>';
+	}
+	exit();
+}
+
+a2tpl_header();
+?>
+<script type="text/javascript" src="<?=$config['aw_path']?>js/jquery.js"></script>
+<script>
+function addbrend(name,id){
+	alert(name);
+	$.ajax({
+        type: "GET", 
+        url: "init.php?addbrend="+encodeURIComponent(name)+"&r="+Math.floor(Math.random()*5000),
+        beforeSend: function() {
+            $('#addbrendid'+id).html('<img src="dizain/loading.gif">');
+			$('#categoryblokno'+id).html('');
+        },
+        success: function( data ) {
+
+            $('#addbrendid'+id).html('');
+        }
+    });
+}
+function changebrendcash(id,bid){
+	
+	$.ajax({
+        type: "GET", 
+        url: "init.php?changebrendcash="+id+"&brid="+bid+"&r="+Math.floor(Math.random()*5000),
+        beforeSend: function(){},
+        success: function(data){}
+    });
+}
+
+function addfoto(img){
+	$('.products').each(function(index, element) {
+		if($(this).attr('checked')==true){
+			$.ajax({
+				type: "GET", 
+				url: "init.php?addfoto="+encodeURIComponent($(img).attr('src'))+"&pid="+$(this).val()+"&r="+Math.floor(Math.random()*5000),
+				beforeSend: function() {
+					
+				},
+				success: function( data ) {
+				   $(img).hide();
+				}
+			});	
+		}
+    });
+}
+
+function saveasoneproducts(){
+	$('.products').each(function(index, element) {
+		if($(this).attr('checked')==true){
+			$.ajax({
+				type: "GET", 
+				url: "init.php?todopname="+encodeURIComponent($('#searchindatabaseint').val())+"&todopnamex="+encodeURIComponent($('#searchindatabaseintx').val())+"&pid="+$(this).val()+"&r="+Math.floor(Math.random()*5000),
+				beforeSend: function() {
+					
+				},
+				success: function( data ) {
+				
+				}
+			});	
+		}
+    });
+	
+	alert("Выбранные товары совмещены и отмечены как один товар! Нажмите поиск");
+}
+
+function savetogroups(){
+	$('.products').each(function(index, element) {
+		if($(this).attr('checked')==true){
+			$.ajax({
+				type: "GET", 
+				url: "init.php?savetogroups="+encodeURIComponent($('#searchindatabaseint').val())+"&pid="+$(this).val()+"&r="+Math.floor(Math.random()*5000),
+				beforeSend: function() {
+					
+				},
+				success: function( data ) {
+					
+				}
+			});	
+		}
+    });
+	
+	alert("Выбранные товары объеденены в одну группу!");
+}
+
+function changemenuidall(id){
+	$('.products').each(function(index, element) {
+		if($(this).attr('checked')==true){
+			var pid=$(this).val();
+			$.ajax({
+				type: "GET", 
+				url: "init.php?changemenuidall="+id+"&pid="+pid+"&r="+Math.floor(Math.random()*5000),
+				beforeSend: function() {
+					
+				},
+				success: function( data ) {
+					selected_state(pid,id);
+				}
+			});	
+		}
+    });
+}
+
+function brchangemenuidall(id){
+	$('.products').each(function(index, element) {
+		if($(this).attr('checked')==true){
+			var pid=$(this).val();
+			$.ajax({
+				type: "GET", 
+				url: "init.php?brchangemenuidall="+id+"&pid="+pid+"&r="+Math.floor(Math.random()*5000),
+				beforeSend: function() {
+					
+				},
+				success: function( data ) {
+					selected_state(pid,id);
+				}
+			});	
+		}
+    });
+}
+
+function selected_state(id,sel){
+    $("#menuidselectno"+id+" option").each(function(){
+        if($(this).val() == sel){
+            $(this).attr("selected","selected");
+            return false;
+        }
+    });
+}
+
+function setnewlist(id,tip,mid){
+	$.ajax({
+        type: "GET", 
+        url: "init.php?mid="+mid+"&r="+Math.floor(Math.random()*5000),
+        beforeSend: function() {
+            
+        },
+        success: function( data ) {
+            $('#set_subcategory'+tip+'_'+id).html(data);
+			
+			if(tip==2){
+				 $('#set_subcategory3_'+id).html('');
+				 $('#set_subcategory4_'+id).html('');
+			}
+			else if(tip==1){
+				 $('#set_subcategory2_'+id).html('');
+				 $('#set_subcategory3_'+id).html('');
+				 $('#set_subcategory4_'+id).html('');
+			}
+        }
+    });
+}
+
+function addcategoryas(name,id){
+	var mid=0;
+	var tip=0;
+	
+	if($('#set_subcategory4_'+id).find("option:selected").val()){
+		mid=$('#set_subcategory4_'+id).find("option:selected").val();
+		tip=4;
+		if(mid=='0'){
+			tip=3;
+			mid=$('#set_subcategory3_'+id).find("option:selected").val();
+		}
+	}
+	else if($('#set_subcategory3_'+id).find("option:selected").val()){
+		mid=$('#set_subcategory3_'+id).find("option:selected").val();
+		tip=3;
+		if(mid=='0'){tip=2;
+			mid=$('#set_subcategory2_'+id).find("option:selected").val();
+		}
+	}
+	else if($('#set_subcategory2_'+id).find("option:selected").val()){
+		mid=$('#set_subcategory2_'+id).find("option:selected").val();
+		tip=2;
+		if(mid==0){tip=1;
+			mid=$('#set_subcategory1_'+id).find("option:selected").val();
+		}
+	}
+	else if($('#set_subcategory1_'+id).find("option:selected").val()){
+		mid=$('#set_subcategory1_'+id).find("option:selected").val();
+		tip=1;
+		
+		if(mid==0){
+			mid=$('#set_subcategory0_'+id).find("option:selected").val();
+			if(mid==0){tip=0;}
+			else{tip=1;}
+		}
+	}
+	else if($('#set_subcategory0_'+id).find("option:selected").val()){
+		mid=$('#set_subcategory0_'+id).find("option:selected").val();
+		tip=0;
+	}
+	
+	$.ajax({
+        type: "GET", 
+        url: "init.php?addcategoryas="+encodeURIComponent(name)+"&mid="+mid+"&tip="+tip+"&r="+Math.floor(Math.random()*5000),
+        beforeSend: function() {
+            $('#categoryblokno'+id).html('<img src="dizain/loading.gif">');
+			$('#addbrendid'+id).html('');
+        },
+        success: function( data ) {
+            $('#categoryblokno'+id).html('');
+        }
+    });
+}
+
+function addcategory(name,id){
+	var mid=0;
+	var tip=0;
+	
+	if($('#set_subcategory4_'+id).find("option:selected").val()){
+		mid=$('#set_subcategory4_'+id).find("option:selected").val();
+		tip=4;
+		if(mid=='0'){
+			tip=3;
+			mid=$('#set_subcategory3_'+id).find("option:selected").val();
+		}
+	}
+	else if($('#set_subcategory3_'+id).find("option:selected").val()){
+		mid=$('#set_subcategory3_'+id).find("option:selected").val();
+		tip=3;
+		if(mid=='0'){tip=2;
+			mid=$('#set_subcategory2_'+id).find("option:selected").val();
+		}
+	}
+	else if($('#set_subcategory2_'+id).find("option:selected").val()){
+		mid=$('#set_subcategory2_'+id).find("option:selected").val();
+		tip=2;
+		if(mid==0){tip=1;
+			mid=$('#set_subcategory1_'+id).find("option:selected").val();
+		}
+	}
+	else if($('#set_subcategory1_'+id).find("option:selected").val()){
+		mid=$('#set_subcategory1_'+id).find("option:selected").val();
+		tip=1;
+		
+		if(mid==0){
+			mid=$('#set_subcategory0_'+id).find("option:selected").val();
+			if(mid==0){tip=0;}
+			else{tip=1;}
+		}
+	}
+	else if($('#set_subcategory0_'+id).find("option:selected").val()){
+		mid=$('#set_subcategory0_'+id).find("option:selected").val();
+		tip=0;
+	}
+	
+	
+	$.ajax({
+        type: "GET", 
+        url: "init.php?addcategory="+encodeURIComponent(name)+"&mid="+mid+"&tip="+tip+"&r="+Math.floor(Math.random()*5000),
+        beforeSend: function() {
+            $('#categoryblokno'+id).html('<img src="dizain/loading.gif">');
+			$('#addbrendid'+id).html('');
+        },
+        success: function( data ) {
+            $('#categoryblokno'+id).html('');
+        }
+    });
+}
+</script>
+<a href="cron_updatecounters.php">RECOUNT PRODUCTS</a> <===>
+<a href="groups.php">ADD GROUPS</a> <===>
+<a href="groupbrends.php">BREND GROUPS</a> <===>
+<a href="import_chars.php">IMPORT CHARASTERISTICS</a> <===>
+<a href="import_images.php">IMPORT IMAGES</a> <===>
+<a href="m.ua.php">IMPORT CHARASTERISTICS</a> <===>
+<a href="parser_products.php">IMPORT PRODUCTS</a>
