@@ -8,7 +8,7 @@ class ControllerProductCategory extends Controller {
 	}
 	
 	public function index() {
-	
+
 		
 		$this->load->language('product/category');
 
@@ -232,12 +232,24 @@ class ControllerProductCategory extends Controller {
 			$data['manufacturer_main_category'] = true;
 			$this->load->model('catalog/information'); 
 			$category_info = $this->model_catalog_information->getInformation(24); // id 23 = страница для бренда
-			$category_info['name'] = $category_info['title'];
+			
+			$data['breadcrumbs'][] = array(
+				'text' => $category_info['title'],
+				'href' => TMP_URL.$data['language_href'].'brands'
+			);
+			
+			$category_info = $manufacturer_info = $this->model_catalog_manufacturer->getManufacturer((int)$this->request->get['manufacturer_id']);
+			$selected_attributes_alias = $manufacturer_info['keyword'];
+			
 			$category_info['category_id'] = $category_id;
 			$category_info['image'] = array();
+			$category_info['href'] = $category_info['keyword'];
 			
-			$manufacturer_info = $this->model_catalog_manufacturer->getManufacturer((int)$this->request->get['manufacturer_id']);
-			$selected_attributes_alias = $manufacturer_info['keyword'];
+			$data['breadcrumbs'][] = array(
+				'text' => $category_info['name'],
+				'href' => TMP_URL.$data['language_href'].''.$category_info['href']
+			);
+				
 	
 		//Если это полная выборка по разпродаже
 		}elseif (isset($this->request->get['main_sale'])) {
@@ -416,18 +428,21 @@ class ControllerProductCategory extends Controller {
 				$data['thumb'] = '';
 
 			}else{
+				
 				//Для конечной категории
-				if($no_index > 0){
-					$data['breadcrumbs'][] = array(
-						'text' => $category_info['name'],
-						'href' => TMP_URL.$data['language_href'].$this->model_catalog_category->getCategoryAlias((int)$category_info['category_id']),
-						'as_link' => true
-					);
-				}else{
-					$data['breadcrumbs'][] = array(
-						'text' => $category_info['name'],
-						'href' => TMP_URL.$data['language_href'].$this->model_catalog_category->getCategoryAlias((int)$category_info['category_id'])
-					);
+				if($category_info['category_id'] > 0){
+					if($no_index > 0){
+						$data['breadcrumbs'][] = array(
+							'text' => '1'.$category_info['name'],
+							'href' => TMP_URL.$data['language_href'].$this->model_catalog_category->getCategoryAlias((int)$category_info['category_id']),
+							'as_link' => true
+						);
+					}else{
+						$data['breadcrumbs'][] = array(
+							'text' => $category_info['name'],
+							'href' => TMP_URL.$data['language_href'].$this->model_catalog_category->getCategoryAlias((int)$category_info['category_id'])
+						);
+					}
 				}
 	
 				if ($category_info['image']) {

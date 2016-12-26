@@ -1,0 +1,1701 @@
+<!DOCTYPE html>
+<html lang="ru-RU">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-sczle=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Товар</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700&amp;subset=cyrillic,cyrillic-ext" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
+
+  <link href="js/lib/jquery-ui/jquery-ui.css" rel="stylesheet">
+  <link href="js/lib/jquery-ui/jquery-ui.theme.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="css/owl.carousel.css" />
+
+  <link rel="stylesheet" type="text/css" href="css/style.css" />
+
+  <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+<!-- 
+  <link rel="shortcut icon" href="img/favicon.png" type="image/png">
+  <link rel="shortcut icon" href="img/favicon.gif" type="image/gif">
+-->
+
+</head>
+<body class="">
+
+<div class="b-popup b-account-popup js-popup-account mfp-hide">
+  <div class="b-popup__title">Авторизация</div>
+  <div class="b-popup__content">
+    <div class="b-auth-form">
+      <form action="#" method="post">
+        <div class="f-group">
+          <div class="f-field-wrapper">
+            <input type="text" class="f-input" name="login" value="" placeholder="Логин">
+          </div>
+        </div>
+        <div class="f-group">
+          <div class="f-field-wrapper">
+            <input type="password" class="f-input" name="password" value="" placeholder="Пароль">
+          </div>
+        </div>
+        <div class="b-auth-social">
+          <div class="b-auth-social__title">Через соц сети</div>
+          <div class="b-auth-social__content">
+            <span class="ic-fb"></span>
+            <span class="ic-ok"></span>
+            <span class="ic-gp"></span>
+            <span class="ic-vk"></span>
+          </div>
+        </div>
+        <div class="f-group b-auth-form__button-wrap">
+          <button class="f-button" type="submit">Войти</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="b-popup__footer">
+    <span class="g-span-link_dotted">Регистрация</span>
+    <span class="g-span-link_dotted">Напомнить пароль</span>
+  </div>
+</div>
+
+
+  <div class="page-wrapper">
+
+    <header class="b-header">
+      <div class="b-header__top-line"></div>
+
+      <div class="b-header-top">
+        <div class="g-container g-flex-container">
+
+          <div class="b-header-account g-tablet-show js-open-popup-link" data-mfp-src=".js-popup-account">
+            <span class="ic-account"></span>
+            <span class="b-header-account__title">Профиль</span>
+          </div>
+
+          <a href="/"><img src="img/logo.png" alt="Prices.md"></a>
+
+          <div class="b-header-top__setings g-tablet-hidden">
+            <div class="b-header-top__setings-lang">
+              <select name="lang" id="lang" class="b-select">
+                <option value="ru">RU</option>
+                <option value="en">EN</option>
+                <option value="ua">UA</option>
+              </select>
+            </div>
+            <div class="b-header-top__setings-cur">
+              <select name="cur" id="cur" class="b-select">
+                <option value="usd">USD</option>
+                <option value="ru">р.</option>
+                <option value="ua">грн</option>
+              </select>
+            </div>
+          </div>
+
+          <ul class="b-header-top__menu g-tablet-hidden">
+            <li><a href="#">Магазины</a></li>
+            <li><a href="#">Производители</a></li>
+            <li><a href="#">Контакты</a></li>
+            <li><a href="#">Избранное</a></li>
+          </ul>
+
+          <div class="b-header-cart g-tablet-show">
+            <span class="b-header-cart__quantity">2</span>
+            <span class="ic-cart"></span>
+            <span class="b-header-cart__title">Корзина</span>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="b-header__news">
+        <div class="g-container">
+          <div class="b-header__news-text">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="b-header__middle">
+        <div class="b-location">
+          <span class="ic-location"></span>
+          <span class="b-location__city">Киев</span>
+        </div>
+        <div class="b-weather">
+          <img src="img/weather.png" alt="weather">
+        </div>
+      </div>
+
+      <div class="b-header__bottom">
+        <div class="g-container">
+          <div class="g-col-left b-menu js-mob-menu">
+            <div class="b-button-nav">
+              <div class="b-button-nav__wrap">
+                <span class="ic-menu"></span>
+                <span class="b-button-nav__title">Категирии</span>
+                <span class="ic-arrow-down"></span>
+              </div>
+            </div>
+            <nav class="b-nav-level-1 js-nav-level-1">
+              <div class="b-nav__mob-header">
+                <div class="b-nav__mob-header-title">
+                  <span class="ic-mob-menu-home"></span>Главная
+                </div>
+                <div class="b-nav__mob-tabs js-nav__mob-tabs">
+                  <span class="active" data-tabs=".b-nav__mob-tabs-1">Категории</span>
+                  <span data-tabs=".b-nav__mob-tabs-2">Настройки</span>
+                </div>
+                <hr>
+              </div>
+              <div class="b-nav__mob-tabs-1">
+                <ul>
+                  <li>
+                    <div class="b-nav__item">Одежда для женщин</div>
+                    <div class="b-nav-level-2">
+                      <div class="b-nav-level-2__title">
+                        Роутеры
+                      </div>
+                      <div class="b-nav-level-2__list">
+                          <ul>
+                            <li><a href="category.html">Видеонаблюдение</a></li>
+                            <li><a href="category.html">Датчики и сигнализации</a></li>
+                            <li><a href="category.html">Аварийные наборы</a></li>
+                            <li><a href="category.html">Устройства хранения</a></li>
+                            <li><a href="category.html">USB флэшки</a></li>
+                          </ul>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="b-nav__item">Одежда для мужчин</div>
+                    <div class="b-nav-level-2">
+                      <div class="b-nav-level-2__title">
+                        Роутеры
+                      </div>
+                      <div class="b-nav-level-2__list">
+                          <ul>
+                            <li><a href="category.html">Видеонаблюдение</a></li>
+                            <li><a href="category.html">Датчики и сигнализации</a></li>
+                            <li><a href="category.html">Аварийные наборы</a></li>
+                            <li><a href="category.html">Устройства хранения</a></li>
+                            <li><a href="category.html">USB флэшки</a></li>
+                            <li><a href="category.html">Карты памяти</a></li>
+                            <li><a href="category.html">Внешние жесткие диски</a></li>
+                            <li><a href="category.html">Корпуса для жестких дисков</a></li>
+                            <li><a href="category.html">SSD</a></li>
+                            <li><a href="category.html">Сеть</a></li>
+                          </ul>
+                          <ul>
+                            <li><a href="gategory.html">Карты памяти</a></li>
+                            <li><a href="gategory.html">Внешние жесткие диски</a></li>
+                            <li><a href="gategory.html">Корпуса для жестких дисков</a></li>
+                            <li><a href="gategory.html">SSD</a></li>
+                          </ul>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="b-nav__item">Все для детей</div>
+                    <div class="b-nav-level-2">
+                      <div class="b-nav-level-2__title">
+                        Роутеры
+                      </div>
+                      <div class="b-nav-level-2__list">
+                          <ul>
+                            <li><a href="category.html">Видеонаблюдение</a></li>
+                            <li><a href="category.html">Датчики и сигнализации</a></li>
+                            <li><a href="category.html">Аварийные наборы</a></li>
+                            <li><a href="category.html">Устройства хранения</a></li>
+                            <li><a href="category.html">USB флэшки</a></li>
+                            <li><a href="category.html">Карты памяти</a></li>
+                            <li><a href="category.html">Внешние жесткие диски</a></li>
+                            <li><a href="category.html">Корпуса для жестких дисков</a></li>
+                            <li><a href="category.html">SSD</a></li>
+                            <li><a href="category.html">Сеть</a></li>
+                          </ul>
+                          <ul>
+                            <li><a href="gategory.html">Карты памяти</a></li>
+                            <li><a href="gategory.html">Внешние жесткие диски</a></li>
+                            <li><a href="gategory.html">Корпуса для жестких дисков</a></li>
+                            <li><a href="gategory.html">SSD</a></li>
+                            <li><a href="gategory.html">Карты памяти</a></li>
+                            <li><a href="gategory.html">Внешние жесткие диски</a></li>
+                            <li><a href="gategory.html">Корпуса для жестких дисков</a></li>
+                            <li><a href="gategory.html">SSD</a></li>
+                            <li><a href="gategory.html">Карты памяти</a></li>
+                            <li><a href="gategory.html">Внешние жесткие диски</a></li>
+                          </ul>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="b-nav__item">Телефоны и аксессуары</div>
+                    <div class="b-nav-level-2">
+                      <div class="b-nav-level-2__title">
+                        Роутеры
+                      </div>
+                      <div class="b-nav-level-2__list">
+                          <ul>
+                            <li><a href="category.html">Видеонаблюдение</a></li>
+                            <li><a href="category.html">Датчики и сигнализации</a></li>
+                            <li><a href="category.html">Аварийные наборы</a></li>
+                            <li><a href="category.html">Устройства хранения</a></li>
+                            <li><a href="category.html">USB флэшки</a></li>
+                            <li><a href="category.html">Карты памяти</a></li>
+                            <li><a href="category.html">Внешние жесткие диски</a></li>
+                            <li><a href="category.html">Корпуса для жестких дисков</a></li>
+                            <li><a href="category.html">SSD</a></li>
+                            <li><a href="category.html">Сеть</a></li>
+                          </ul>
+                          <ul>
+                            <li><a href="gategory.html">Карты памяти</a></li>
+                            <li><a href="gategory.html">Внешние жесткие диски</a></li>
+                            <li><a href="gategory.html">Корпуса для жестких дисков</a></li>
+                            <li><a href="gategory.html">SSD</a></li>
+                            <li><a href="gategory.html">Карты памяти</a></li>
+                            <li><a href="gategory.html">Внешние жесткие диски</a></li>
+                            <li><a href="gategory.html">Корпуса для жестких дисков</a></li>
+                            <li><a href="gategory.html">SSD</a></li>
+                            <li><a href="gategory.html">Карты памяти</a></li>
+                            <li><a href="gategory.html">Внешние жесткие диски</a></li>
+                          </ul>
+                          <ul>
+                            <li><a href="gategory.html">Карты памяти</a></li>
+                            <li><a href="gategory.html">Внешние жесткие диски</a></li>
+                            <li><a href="gategory.html">Корпуса для жестких дисков</a></li>
+                          </ul>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="b-nav__item">Компьютерная техника</div>
+                    <div class="b-nav-level-2">
+                      <div class="b-nav-level-2__title">
+                        Роутеры
+                      </div>
+                      <div class="b-nav-level-2__list">
+                          <ul>
+                            <li><a href="category.html">Видеонаблюдение</a></li>
+                            <li><a href="category.html">Датчики и сигнализации</a></li>
+                            <li><a href="category.html">Аварийные наборы</a></li>
+                            <li><a href="category.html">Устройства хранения</a></li>
+                            <li><a href="category.html">USB флэшки</a></li>
+                          </ul>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="b-nav__item">Автотовары</div>
+                    <div class="b-nav-level-2">
+                      <div class="b-nav-level-2__title">
+                        Роутеры
+                      </div>
+                      <div class="b-nav-level-2__list">
+                          <ul>
+                            <li><a href="category.html">Видеонаблюдение</a></li>
+                            <li><a href="category.html">Датчики и сигнализации</a></li>
+                            <li><a href="category.html">Аварийные наборы</a></li>
+                            <li><a href="category.html">Устройства хранения</a></li>
+                            <li><a href="category.html">USB флэшки</a></li>
+                          </ul>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="b-nav__item">Бижутерия и часы</div>
+                    <div class="b-nav-level-2">
+                      <div class="b-nav-level-2__title">
+                        Роутеры
+                      </div>
+                      <div class="b-nav-level-2__list">
+                          <ul>
+                            <li><a href="category.html">Видеонаблюдение</a></li>
+                            <li><a href="category.html">Датчики и сигнализации</a></li>
+                            <li><a href="category.html">Аварийные наборы</a></li>
+                            <li><a href="category.html">Устройства хранения</a></li>
+                            <li><a href="category.html">USB флэшки</a></li>
+                          </ul>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="b-nav__item">Сумки и обувь</div>
+                    <div class="b-nav-level-2">
+                      <div class="b-nav-level-2__title">
+                        Роутеры
+                      </div>
+                      <div class="b-nav-level-2__list">
+                          <ul>
+                            <li><a href="category.html">Видеонаблюдение</a></li>
+                            <li><a href="category.html">Датчики и сигнализации</a></li>
+                            <li><a href="category.html">Аварийные наборы</a></li>
+                            <li><a href="category.html">Устройства хранения</a></li>
+                            <li><a href="category.html">USB флэшки</a></li>
+                          </ul>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="b-nav__item">Для дома и сада</div>
+                    <div class="b-nav-level-2">
+                      <div class="b-nav-level-2__title">
+                        Роутеры
+                      </div>
+                      <div class="b-nav-level-2__list">
+                          <ul>
+                            <li><a href="category.html">Видеонаблюдение</a></li>
+                            <li><a href="category.html">Датчики и сигнализации</a></li>
+                            <li><a href="category.html">Аварийные наборы</a></li>
+                            <li><a href="category.html">Устройства хранения</a></li>
+                            <li><a href="category.html">USB флэшки</a></li>
+                          </ul>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="b-nav__item">Электронника</div>
+                    <div class="b-nav-level-2">
+                      <div class="b-nav-level-2__title">
+                        Роутеры
+                      </div>
+                      <div class="b-nav-level-2__list">
+                          <ul>
+                            <li><a href="category.html">Видеонаблюдение</a></li>
+                            <li><a href="category.html">Датчики и сигнализации</a></li>
+                            <li><a href="category.html">Аварийные наборы</a></li>
+                            <li><a href="category.html">Устройства хранения</a></li>
+                            <li><a href="category.html">USB флэшки</a></li>
+                          </ul>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="b-nav__item">Красота и здоровье</div>
+                    <div class="b-nav-level-2">
+                      <div class="b-nav-level-2__title">
+                        Роутеры
+                      </div>
+                      <div class="b-nav-level-2__list">
+                          <ul>
+                            <li><a href="category.html">Видеонаблюдение</a></li>
+                            <li><a href="category.html">Датчики и сигнализации</a></li>
+                            <li><a href="category.html">Аварийные наборы</a></li>
+                            <li><a href="category.html">Устройства хранения</a></li>
+                            <li><a href="category.html">USB флэшки</a></li>
+                          </ul>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="b-nav__item">Спорт и развлечения</div>
+                    <div class="b-nav-level-2">
+                      <div class="b-nav-level-2__title">
+                        Роутеры
+                      </div>
+                      <div class="b-nav-level-2__list">
+                          <ul>
+                            <li><a href="category.html">Видеонаблюдение</a></li>
+                            <li><a href="category.html">Датчики и сигнализации</a></li>
+                            <li><a href="category.html">Аварийные наборы</a></li>
+                            <li><a href="category.html">Устройства хранения</a></li>
+                            <li><a href="category.html">USB флэшки</a></li>
+                          </ul>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="b-nav__item">Техника и инструменты</div>
+                    <div class="b-nav-level-2">
+                      <div class="b-nav-level-2__title">
+                        Роутеры
+                      </div>
+                      <div class="b-nav-level-2__list">
+                          <ul>
+                            <li><a href="category.html">Видеонаблюдение</a></li>
+                            <li><a href="category.html">Датчики и сигнализации</a></li>
+                            <li><a href="category.html">Аварийные наборы</a></li>
+                            <li><a href="category.html">Устройства хранения</a></li>
+                            <li><a href="category.html">USB флэшки</a></li>
+                          </ul>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                      <div class="b-nav__item b-nav__item_link">
+                          <a href="#">Акции</a>
+                      </div>
+                  </li>
+                  <li>
+                      <div class="b-nav__item b-nav__item_link">
+                          <a href="#">Скидки</a>
+                      </div>
+                  </li>
+                </ul>
+                <ul class="g-tablet-show">
+                  <li>
+                    <div class="b-nav__item b-nav__item_link">
+                      <a href="#">Магазины</a>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="b-nav__item b-nav__item_link">
+                      <a href="#">Производители</a>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="b-nav__item b-nav__item_link">
+                      <a href="#">Контакты</a>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="b-nav__item b-nav__item_link">
+                      <a href="#">Избранное</a>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+              <div class="b-nav__mob-tabs-2 b-nav__mob-setings">
+                <div class="b-nav__mob-setings-item">
+                  <div class="b-nav__mob-setings-item-title">Выбор языка</div>
+                  <div class="f-group-wrap_3col">
+
+                    <div class="f-group">
+                      <div class="f-field-wrapper f-field-wrapper_radio">
+                        <div class="f-field">
+                          <input type="radio"
+                                 name="lang"
+                                 id="lang_ru"
+                                 value="" 
+                                 class="f-radio">
+                          <div class="f-label">
+                            <label for="lang_ru">RUS</label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="f-group">
+                      <div class="f-field-wrapper f-field-wrapper_radio">
+                        <div class="f-field">
+                          <input type="radio"
+                                 name="lang"
+                                 id="lang_en"
+                                 value="" 
+                                 class="f-radio">
+                          <div class="f-label">
+                            <label for="lang_en">ENG</label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="f-group">
+                      <div class="f-field-wrapper f-field-wrapper_radio">
+                        <div class="f-field">
+                          <input type="radio"
+                                 name="lang"
+                                 id="lang_lt"
+                                 value="" 
+                                 class="f-radio">
+                          <div class="f-label">
+                            <label for="lang_lt">LTV</label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+                <div class="b-nav__mob-setings-item">
+                  <div class="b-nav__mob-setings-item-title">Выбор валюты</div>
+                  <div class="f-group-wrap_3col">
+
+                    <div class="f-group">
+                      <div class="f-field-wrapper f-field-wrapper_radio">
+                        <div class="f-field">
+                          <input type="radio"
+                                 name="cur"
+                                 id="cur_rub"
+                                 value="" 
+                                 class="f-radio">
+                          <div class="f-label">
+                            <label for="cur_rub">RUB</label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="f-group">
+                      <div class="f-field-wrapper f-field-wrapper_radio">
+                        <div class="f-field">
+                          <input type="radio"
+                                 name="cur"
+                                 id="cur_eur"
+                                 value="" 
+                                 class="f-radio">
+                          <div class="f-label">
+                            <label for="cur_eur">EUR</label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="f-group">
+                      <div class="f-field-wrapper f-field-wrapper_radio">
+                        <div class="f-field">
+                          <input type="radio"
+                                 name="cur"
+                                 id="cur_usd"
+                                 value="" 
+                                 class="f-radio">
+                          <div class="f-label">
+                            <label for="cur_usd">USD</label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+            </nav>
+          </div>
+
+          <div class="g-col-center">
+            <div class="b-search">
+              <form action="#" method="post">
+                <div class="f-form-wrap">
+                  <div class="g-span-select b-search__select js-span-select js-span-select-search">
+                    <span class="g-span-select__title">Все</span>
+                    <ul class="g-span-select__ul g-span-select__hidden js-popup-sort">
+                      <li class="active" data-value="1">Все</li>
+                      <li data-value="2">Одежда для женщин</li>
+                      <li data-value="3">Одежда для мужчин</li>
+                      <li data-value="4">Все для детей</li>
+                    </ul>
+                  </div>
+                  <input type="text" class="b-search__input" name="search_input" value="">
+                  <button class="b-search__button" type="submit"><span class="ic-search"></span></button>
+                </div>
+              </form>
+            </div>
+          </div>
+
+          <div class="g-col-right">
+            <div class="b-header-box-cart-account">
+              <div class="b-header-cart">
+                <span class="b-header-cart__quantity">2</span>
+                <span class="ic-cart"></span>
+                <span class="g-tablet-hidden b-header-cart__title">Корзина</span>
+              </div>
+              <div class="b-header-account js-open-popup-link" data-mfp-src=".js-popup-account">
+                <span class="ic-account"></span>
+                <span class="g-tablet-hidden b-header-account__title">Профиль</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="g-clear"></div>
+        </div>
+      </div>
+
+      <div class="g-clear"></div>
+
+    </header>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="b-popup b-prod-img-popup js-popup-prod-img mfp-hide">
+  <div class="b-prod-img-popup__title">
+    <h2 class="b-prod-info__title">Original Letv Le 1 Pro  5.5 2560x1440 Snapdragon 810 Octa Core Mobile Phone 4G RAM 64GB ROM 13MP 4G LTE international Version</h2>
+    <div class="b-prod-info__block-price">
+      <span>657.00 - 1106.55 MDL</span>
+      <div class="b-prod-info__btn-buy">
+        <a href="#" class="g-btn">Где купить ></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="b-prod-img-popup__content">
+    <div class="b-prod-img">
+
+      <div class="b-prod-img__brand">
+        <img src="img/brands/brand_acer.png" alt="">
+      </div>
+
+      <div class="b-prod-img__main-image">
+        <img src="img/product/samsung-sm-g925-camera.png" alt="" class="js-main-image">
+      </div>
+
+      <div class="b-prod-img__thumb-list-wrapper">
+        <div class="b-prod-img__thumb-list js-prod_popup-thumb-list"></div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+
+    <main class="b-product">
+      <div class="b-breadcrumb">
+        <a href="index.html"><span class="ic-home"></span></a><span>&nbsp;>&nbsp;</span>
+        <a href="category.html">Комплектующие</a><span>&nbsp;>&nbsp;</span>
+        <a href="category.html">Материнские платы</a><span>&nbsp;>&nbsp;</span>
+        <a href="product.html">Original Letv Le 1 Pro 5.5</a>
+      </div>
+
+      <div class="g-container">
+
+          <div class="g-col-left g-col-left_prod">
+            <div class="g-row">
+              <div class="b-prod-img">
+
+                <h2 class="b-prod-img__title">Original Letv Le 1 Pro  5.5 2560x1440 Snapdragon 810 Octa Core Mobile Phone 4G RAM 64GB ROM 13MP 4G LTE international Version</h2>
+
+                <div class="b-prod-img__main-image js-open-popup-link" data-mfp-src=".js-popup-prod-img">
+                  <div class="b-prod-img__brand">
+                    <img src="img/brands/brand_acer.png" alt="">
+                  </div>
+                  <img src="img/product/samsung-sm-g925-camera.png" alt="" class="js-main-image">
+                </div>
+
+                <div class="b-prod-img__carousel owl-carousel js-prod_owl-carousel js-prod_thumb-list">
+                  <div class="b-prod-img__item">
+                    <img src="img/product/samsung-sm-g925-camera.png" alt="" data-img="img/product/samsung-sm-g925-camera.png">
+                  </div>
+                  <div class="b-prod-img__item">
+                    <img src="img/product/2_600.png" alt="" data-img="img/product/2_600.png">
+                  </div>
+                  <div class="b-prod-img__item">
+                    <img src="img/product/7384-02.png" alt="" data-img="img/product/7384-02.png">
+                  </div>
+                  <div class="b-prod-img__item">
+                    <img src="img/product_test/1.jpg" alt="" data-img="img/product_test/1.jpg">
+                  </div>
+                  <div class="b-prod-img__item">
+                    <img src="img/product_test/2.jpg" alt="" data-img="img/product_test/2.jpg">
+                  </div>
+                  <div class="b-prod-img__item">
+                    <img src="img/product_test/3.jpg" alt="" data-img="img/product_test/3.jpg">
+                  </div>
+                  <div class="b-prod-img__item">
+                    <img src="img/product_test/4.jpg" alt="" data-img="img/product_test/4.jpg">
+                  </div>
+                  <div class="b-prod-img__item">
+                    <img src="img/product_test/5.jpg" alt="" data-img="img/product_test/5.jpg">
+                  </div>
+                  <div class="b-prod-img__item">
+                    <img src="img/product_test/6.jpg" alt="" data-img="img/product_test/6.jpg">
+                  </div>
+                  <div class="b-prod-img__item">
+                    <img src="img/product_test/7.jpg" alt="" data-img="img/product_test/7.jpg">
+                  </div>
+                  <div class="b-prod-img__item">
+                    <img src="img/product_test/8.jpg" alt="" data-img="img/product_test/8.jpg">
+                  </div>
+                </div>
+
+              </div>
+            </div>  <!-- end g-row -->
+            <div class="g-row">
+              <div class="b-col-left-prod__bottom">
+                <a href="#"><span class="ic-fb-grey"></span></a>
+                <a href="#"><span class="ic-twitter-grey"></span></a>
+                <a href="#"><span class="ic-linked-in-grey"></span></a>
+                <a href="#"><span class="ic-pininterest-grey"></span></a>
+                <div class="b-compare-btn">
+                  <a href="#">Сравнить</a>
+                </div>
+              </div>
+            </div>
+          </div>  <!-- end g-col-left_prod -->
+
+          <div class="g-col-right g-col-right_prod">
+
+              <div class="b-prod-info">
+
+                <h2 class="b-prod-info__title">Original Letv Le 1 Pro  5.5 2560x1440 Snapdragon 810 Octa Core Mobile Phone 4G RAM 64GB ROM 13MP 4G LTE international Version</h2>
+
+                <div class="b-prod-info__block">
+                  <div class="b-prod-info__block-price">
+                    <span>657.00 - 1106.55 MDL</span>
+                    <div class="b-rating" data-count_r="5" data-width_star="10">
+                      <div style="width: 70%"></div>
+                    </div>
+                  </div>
+                  <div class="b-prod-info__block-summary">
+                    <span class="b-offers">40 предложений</span>
+                    <span class="b-recall">1 отзыв</span>
+                    <span class="b-send-recall">Оставить отзыв</span>
+                  </div>
+                </div>  <!-- end b-prod-info__block -->
+
+                <div class="b-prod-info__content">
+                  <div class="g-row">
+                    <div class="b-prod-info__content-key">ДРУГИЕ ХАРАКЕРИСТКИ</div>
+                    <div class="b-prod-info__content-val"></div>
+                  </div>
+                  <div class="g-row">
+                    <div class="b-prod-info__content-key">Hyper-Threading (HT):</div>
+                    <div class="b-prod-info__content-val">-</div>
+                  </div>
+                  <div class="g-row">
+                    <div class="b-prod-info__content-key">Коеффициент умножения:</div>
+                    <div class="b-prod-info__content-val">26</div>
+                  </div>
+                  <div class="g-row">
+                    <div class="b-prod-info__content-key">Максимальная полоса пропускания памяти:</div>
+                    <div class="b-prod-info__content-val">17 Гб/c</div>
+                  </div>
+                  <div class="g-row">
+                    <div class="b-prod-info__content-key">Сокет:</div>
+                    <div class="b-prod-info__content-val">LGA1155</div>
+                  </div>
+                  <div class="g-row">
+                    <div class="b-prod-info__content-key">Тепловыделение:</div>
+                    <div class="b-prod-info__content-val">65 Вт</div>
+                  </div>
+                  <div class="g-row">
+                    <div class="b-prod-info__content-key">Техпроцесс</div>
+                    <div class="b-prod-info__content-val">32нм</div>
+                  </div>
+
+                  <div class="b-prod-info__content-more js-prod-info__content-more">Ещё</div>
+
+                  <div class="g-row">
+                    <div class="b-prod-info__content-key">Максимальная полоса пропускания памяти:</div>
+                    <div class="b-prod-info__content-val">17 Гб/c</div>
+                  </div>
+                  <div class="g-row">
+                    <div class="b-prod-info__content-key">Сокет:</div>
+                    <div class="b-prod-info__content-val">LGA1155</div>
+                  </div>
+                  <div class="g-row">
+                    <div class="b-prod-info__content-key">Тепловыделение:</div>
+                    <div class="b-prod-info__content-val">65 Вт</div>
+                  </div>
+                  <div class="g-row">
+                    <div class="b-prod-info__content-key">Техпроцесс</div>
+                    <div class="b-prod-info__content-val">32нм</div>
+                  </div>
+                </div>  <!-- end b-prod-info__content -->
+
+                <div class="b-prod-info__btn-buy">
+                  <a href="#" class="g-btn">Где купить ></a>
+                </div>
+              </div>
+
+          </div>  <!-- end g-col-right_prod -->
+
+          <div class="g-clear"></div>
+
+        <div class="b-prod-other-info">
+          <ul>
+            <li>
+              <span class="ic-delivery"></span>
+              <h4>Доставка</h4>
+              <p>По Кишиневу</p>
+            </li>
+            <li>
+              <span class="ic-piggy-bank"></span>
+              <h4>Оплата</h4>
+              <p>Наличными, Безналичним</p>
+            </li>
+            <li>
+            <span class="ic-trolley"></span>
+              <h4>В регионах</h4>
+              <p>Cамовывоз из точки выдачи</p>
+            </li>
+            <li>
+            <span class="ic-medal"></span>
+              <h4>Гарантия</h4>
+              <p>12 месяцев официальной</p>
+            </li>
+          </ul>
+        </div>  <!-- end b-prod-other-info -->
+
+        <div class="g-row">
+          <div class="b-block-product">
+            <div class="b-block-product__title">
+              <span>Похожие товары</span>
+            </div>
+            <div class="b-block-product__content">
+              <div class="b-product-carousel owl-carousel js-product_owl-carousel">
+
+                <div class="b-product-carousel__item">
+                  <div class="b-product-carousel__img">
+                    <img src="img/product/foto1.png" alt="">
+                  </div>
+                  <a href="product.html" class="b-product-carousel__link">Оригинал ONDA V820w X86 Intel Z3735F Quad Core 2 ГБ 32 ГБ Оригинал ONDA V820w X86 Intel Z3735F Quad Core 2 ГБ 32 ГБ Оригинал ONDA V820w X86 Intel Z3735F Quad Core 2 ГБ 32 ГБ</a>
+                  <span class="b-product-carousel__price">$ 39.99</span>
+                </div>
+
+                <div class="b-product-carousel__item">
+                  <div class="b-product-carousel__img">
+                    <img src="img/product/foto2.png" alt="">
+                  </div>
+                  <a href="product.html" class="b-product-carousel__link">Оригинал Teclast X98 Air/X98 Plus II 9.7 дюймов Intel Cherry Trail</a>
+                  <span class="b-product-carousel__price">$ 42.99</span>
+                </div>
+
+                <div class="b-product-carousel__item">
+                  <div class="b-product-carousel__img">
+                    <img src="img/product/foto3.png" alt="">
+                  </div>
+                  <a href="product.html" class="b-product-carousel__link">14 дюймов 8 ГБ оперативной памяти и 256 ГБ SSD ноутбук ноутбука с Intel Celeron</a>
+                  <span class="b-product-carousel__price">$ 75.99</span>
+                </div>
+
+                <div class="b-product-carousel__item">
+                  <div class="b-product-carousel__img">
+                    <img src="img/product/foto4.png" alt="">
+                  </div>
+                  <a href="product.html" class="b-product-carousel__link">14 дюймов 8 ГБ оперативной памяти и 256 ГБ SSD ноутбук ноутбука с Intel Celeron</a>
+                  <span class="b-product-carousel__price">$ 75.99</span>
+                </div>
+
+                <div class="b-product-carousel__item">
+                  <div class="b-product-carousel__img">
+                    <img src="img/product/foto1.png" alt="">
+                  </div>
+                  <a href="product.html" class="b-product-carousel__link">Оригинал ONDA V820w X86 Intel Z3735F Quad Core 2 ГБ 32 ГБ</a>
+                  <span class="b-product-carousel__price">$ 39.99</span>
+                </div>
+
+                <div class="b-product-carousel__item">
+                  <div class="b-product-carousel__img">
+                    <img src="img/product/foto2.png" alt="">
+                  </div>
+                  <a href="product.html" class="b-product-carousel__link">Оригинал Teclast X98 Air/X98 Plus II 9.7 дюймов Intel Cherry Trail</a>
+                  <span class="b-product-carousel__price">$ 42.99</span>
+                </div>
+
+                <div class="b-product-carousel__item">
+                  <div class="b-product-carousel__img">
+                    <img src="img/product/foto3.png" alt="">
+                  </div>
+                  <a href="product.html" class="b-product-carousel__link">14 дюймов 8 ГБ оперативной памяти и 256 ГБ SSD ноутбук ноутбука с Intel Celeron</a>
+                  <span class="b-product-carousel__price">$ 75.99</span>
+                </div>
+
+                <div class="b-product-carousel__item">
+                  <div class="b-product-carousel__img">
+                    <img src="img/product/foto4.png" alt="">
+                  </div>
+                  <a href="product.html" class="b-product-carousel__link">14 дюймов 8 ГБ оперативной памяти и 256 ГБ SSD ноутбук ноутбука с Intel Celeron</a>
+                  <span class="b-product-carousel__price">$ 75.99</span>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>  <!-- end g-row -->
+
+        <div class="b-prod__tabs js-prod_tabs">
+          <ul>
+            <li><a href="#js-block-product_tabs-1">Характеристики</a></li>
+            <li><a href="#js-block-product_tabs-2">Предложения</a></li>
+            <li><a href="#js-block-product_tabs-3">Отзывы 173</a></li>
+            <li><a href="#js-block-product_tabs-4">Вопросы и ответы</a></li>
+          </ul>
+
+          <!-- Характеристики -->
+          <div id="js-block-product_tabs-1" class="b-tab-characteristics">
+            <ul>
+              <li class="title">Графика</li>
+              <li><span class="key">Графическое ядро</span><span class="val">Intel HD graphics</span></li>
+              <li><span class="key">Интегрированное графическое ядро</span><span class="val">+</span></li>
+              <li><span class="key">Интегрированное графическое ядро</span><span class="val">+</span></li>
+              <li class="title">Графика</li>
+              <li><span class="key">ИКоличество ядер</span><span class="val">2</span></li>
+              <li><span class="key">Частота процессора</span><span class="val">2600 мгц</span></li>
+              <li><span class="key">Частота процессора</span><span class="val">2600 мгц</span></li>
+              <li class="title">Графика</li>
+              <li><span class="key">Графическое ядро</span><span class="val">Intel HD graphics</span></li>
+              <li><span class="key">Интегрированное графическое ядро</span><span class="val">+</span></li>
+              <li><span class="key">Интегрированное графическое ядро</span><span class="val">+</span></li>
+              <li class="title">Графика</li>
+              <li><span class="key">ИКоличество ядер</span><span class="val">2</span></li>
+              <li><span class="key">ИКоличество ядер</span><span class="val">2</span></li>
+              <li><span class="key">Частота процессора</span><span class="val">2600 мгц</span></li>
+            </ul>
+          </div>  <!-- end Характеристики -->
+
+          <!-- Предложения -->
+          <div id="js-block-product_tabs-2" class="b-tab-prices">
+            <div class="b-table__row_title">
+              <div class="b-col__shop">Магазин</div>
+              <div class="b-col__description">Описание</div>
+              <div class="b-col__price">Цена</div>
+              <div class="b-col__delivery">Доставка</div>
+              <div class="b-col__distance">От центра</div>
+              <div class="b-col__button">&nbsp;</div>
+            </div>
+
+            <div class="b-table__row">
+              <div class="b-col__shop">
+                <img src="img/product/shop.png" alt="">
+              </div>
+              <div class="b-col__description">
+                <span class="b-color" style="background: #474747;"></span>
+                <p>Original Letv Le 1 Pro  5.5 2560x1440 Snapdragon 810</p>
+              </div>
+              <div class="b-col__price">
+                <div class="b-price">
+                  <span class="b-price__number">25 000</span> <span class="b-price__currency">руб</span>
+                </div>
+                <div class="b-phone-number">
+                  <span class="ic-phone"></span><span class="b-show-number js-remove-this">Показать номер</span> <span class="b-number">123-45-67</span>
+                </div>
+              </div>
+              <div class="b-col__delivery">
+                <span class="ic-delivery2"></span>&nbsp;<span>400р</span>
+              </div>
+              <div class="b-col__distance">20 км</div>
+              <div class="b-col__button">
+                <a href="#">Заказать</a>
+              </div>
+            </div>  <!-- end b-table__row -->
+
+            <div class="b-table__row">
+              <div class="b-col__shop">
+                <img src="img/product/shop.png" alt="">
+              </div>
+              <div class="b-col__description">
+                <span class="b-color" style="background: #474747;"></span>
+                <p>Original Letv Le 1 Pro  5.5 2560x1440 Snapdragon 810</p>
+              </div>
+              <div class="b-col__price">
+                <div class="b-price">
+                  <span class="b-price__number">25 000</span> <span class="b-price__currency">руб</span>
+                </div>
+                <div class="b-phone-number">
+                  <span class="ic-phone"></span><span class="b-show-number js-remove-this">Показать номер</span> <span class="b-number">123-45-67</span>
+                </div>
+              </div>
+              <div class="b-col__delivery">
+                <span class="ic-delivery2"></span>&nbsp;<span>400р</span>
+              </div>
+              <div class="b-col__distance">20 км</div>
+              <div class="b-col__button">
+                <a href="#">Заказать</a>
+              </div>
+            </div>  <!-- end b-table__row -->
+
+            <div class="b-table__row">
+              <div class="b-col__shop">
+                <img src="img/product/shop.png" alt="">
+              </div>
+              <div class="b-col__description">
+                <span class="b-color" style="background: #474747;"></span>
+                <p>Original Letv Le 1 Pro  5.5 2560x1440 Snapdragon 810</p>
+              </div>
+              <div class="b-col__price">
+                <div class="b-price">
+                  <span class="b-price__number">25 000</span> <span class="b-price__currency">руб</span>
+                </div>
+                <div class="b-phone-number">
+                  <span class="ic-phone"></span><span class="b-show-number js-remove-this">Показать номер</span> <span class="b-number">123-45-67</span>
+                </div>
+              </div>
+              <div class="b-col__delivery">
+                <span class="ic-delivery2"></span>&nbsp;<span>400р</span>
+              </div>
+              <div class="b-col__distance">20 км</div>
+              <div class="b-col__button">
+                <a href="#">Заказать</a>
+              </div>
+            </div>  <!-- end b-table__row -->
+          </div>  <!-- end Предложения -->
+
+          <!-- Отзывы -->
+          <div id="js-block-product_tabs-3" class="b-tab-reviews">
+
+            <div class="b-reviews">
+              <div class="b-reviews__date">01 сентября 2016</div>
+              <div class="b-reviews__author">
+                <div class="b-reviews__author-foto_mob"><img src="img/reviews/man-mob.jpg" alt=""></div>
+                <div class="b-reviews__author-name">Sergei ddd</div>
+                <div class="b-reviews__author-foto"><img src="img/reviews/man-dark-avatar-318-9118.png" alt=""></div>
+              </div>
+              <div class="b-reviews__content">
+                <div class="b-reviews__rating">
+                  <div class="b-rating" data-count_r="5" data-width_star="14">
+                    <div style="width: 70%"></div>
+                  </div>
+                </div>
+                <div class="b-reviews__message_plus">
+                <div class="b-reviews__message-title"><h4>Достоинства</h4> <span class="ic-reviews_plus_mob"></span></div>
+                  <p>Безусловно, камера: в дневное время снимает на уровне Флагманов 15-16 года, в ночное уже похуже;</p>
+                </div>
+                <div class="b-reviews__message_minus">
+                  <div class="b-reviews__message-title"><h4>Недостатки</h4> <span class="ic-reviews_minus_mob"></span></div>
+                  <p>Динамик, Звук на слабую 4-ку. было бы здорово, если было два динамика (где-то читал, что можно через root сделать верхний динамик рабочим не только для звонков, а, например, для прослушивания музыки, но я не стал этого делать); гигабйтов, доступ</p>
+                </div>
+              </div>
+              <div class="b-reviews__buttons">
+                <a href="#" class="b-reviews__answer">Ответить</a>
+              </div>
+              <div class="g-clear"></div>
+              <div class="b-reviews__bottom">
+              <p>Отзыв полезен? <a href="#" class="b-reviews__answer-useful">Да</a> / <a href="#" class="b-reviews__answer-not-useful">Нет</a></p>
+              </div>
+            </div>  <!-- end b-reviews -->
+
+            <div class="b-reviews">
+              <div class="b-reviews__date">01 сентября 2016</div>
+              <div class="b-reviews__author">
+                <div class="b-reviews__author-foto_mob"><img src="img/reviews/man-mob.jpg" alt=""></div>
+                <div class="b-reviews__author-name">Sergei ddd</div>
+                <div class="b-reviews__author-foto"><img src="img/reviews/man-dark-avatar-318-9118.png" alt=""></div>
+              </div>
+              <div class="b-reviews__content">
+                <div class="b-reviews__rating">
+                  <div class="b-rating" data-count_r="5" data-width_star="14">
+                    <div style="width: 80%"></div>
+                  </div>
+                </div>
+                <div class="b-reviews__message_plus">
+                  <div class="b-reviews__message-title"><h4>Достоинства</h4> <span class="ic-reviews_plus_mob"></span></div>
+                  <p>Безусловно, камера: в дневное время снимает на уровне Флагманов 15-16 года, в ночное уже похуже;</p>
+                </div>
+                <div class="b-reviews__message_minus">
+                  <div class="b-reviews__message-title"><h4>Недостатки</h4> <span class="ic-reviews_minus_mob"></span></div>
+                  <p>Динамик, Звук на слабую 4-ку. было бы здорово, если было два динамика (где-то читал, что можно через root сделать верхний динамик рабочим не только для звонков, а, например, для прослушивания музыки, но я не стал этого делать); гигабйтов, доступ</p>
+                </div>
+              </div>
+              <div class="b-reviews__buttons">
+                <a href="#" class="b-reviews__answer">Ответить</a>
+              </div>
+              <div class="g-clear"></div>
+              <div class="b-reviews__bottom">
+                <p>Отзыв полезен? <a href="#" class="b-reviews__answer-useful">Да</a> / <a href="#" class="b-reviews__answer-not-useful">Нет</a></p>
+              </div>
+            </div>  <!-- end b-reviews -->
+
+            <div class="b-add-message">
+
+              <form action="">
+                <div class="f-field-wrapper f-field-wrapper_textarea">
+                  <textarea name="question_reviews" class="f-textarea" placeholder="Добавить отзыв"></textarea>
+                </div>
+                <div class="f-group">
+                  <button type="submit" class="f-button">Добавить отзыв</button>
+                </div>
+              </form>
+
+            </div>  <!-- end b-add-message -->
+
+          </div>  <!-- end Отзывы -->
+
+          <!-- Вопросы и ответы -->
+          <div id="js-block-product_tabs-4" class="b-tab-reviews b-tab-questions">
+
+            <div class="b-question">
+              <div class="b-question__question-block">
+                <p>Безусловно, камера: в дневное время снимает на уровне Флагманов 15-16 года, в ночное уже похуже;</p>
+                <div class="b-reviews__buttons">
+                  <a href="#" class="b-reviews__answer">Ответить</a>
+                </div>
+              </div>
+
+              <div class="b-question__answer-block">
+                <div class="b-question__answer-message">
+                  <p>Динамик, Звук на слабую 4-ку. было бы здорово, если было два динамика (где-то читал, что можно через root сделать верхний динамик рабочим не только для звонков, а, например, для прослушивания музыки, но я не стал этого делать); гигабйтов, доступ</p>
+                  <div class="b-question__answer-message-bottom">
+                    <a href="javascript:void(0)" class="b-question__answer-all-message js-show-all-answer">
+                      <span class="ic-two-arrow-down"></span>Показать ещё ответы (2)
+                    </a>
+                    <div class="b-reviews__bottom">
+                      <p>Отзыв полезен? <a href="#" class="b-reviews__answer-useful">Да</a> / <a href="#" class="b-reviews__answer-not-useful">Нет</a></p>
+                    </div>
+                    <div class="b-reviews__date">01 сентября 2016</div>
+                  </div>
+                </div>
+                <div class="b-reviews__author">
+                  <div class="b-reviews__author-name">Sergei ddd</div>
+                  <div class="b-reviews__author-foto"><img src="img/reviews/man-dark-avatar-318-9118.png" alt=""></div>
+                </div>
+              </div>  <!-- end b-question__answer-block -->
+
+              <div class="b-question__answer-block g-hidden">
+                <div class="b-question__answer-message">
+                  <p>Динамик, Звук на слабую 4-ку. было бы здорово, если было два динамика (где-то читал, что можно через root сделать верхний динамик рабочим не только для звонков, а, например, для прослушивания музыки, но я не стал этого делать); гигабйтов, доступ</p>
+                  <div class="b-question__answer-message-bottom">
+                    <div class="b-reviews__bottom">
+                      <p>Отзыв полезен? <a href="#" class="b-reviews__answer-useful">Да</a> / <a href="#" class="b-reviews__answer-not-useful">Нет</a></p>
+                    </div>
+                    <div class="b-reviews__date">01 сентября 2016</div>
+                  </div>
+                </div>
+                <div class="b-reviews__author">
+                  <div class="b-reviews__author-name">Sergei ddd</div>
+                  <div class="b-reviews__author-foto"><img src="img/reviews/man-dark-avatar-318-9118.png" alt=""></div>
+                </div>
+              </div>  <!-- end b-question__answer-block -->
+
+              <div class="b-question__answer-block g-hidden">
+                <div class="b-question__answer-message">
+                  <p>Динамик, Звук на слабую 4-ку. было бы здорово, если было два динамика (где-то читал, что можно через root сделать верхний динамик рабочим не только для звонков, а, например, для прослушивания музыки, но я не стал этого делать); гигабйтов, доступ</p>
+                  <div class="b-question__answer-message-bottom">
+                    <div class="b-reviews__bottom">
+                      <p>Отзыв полезен? <a href="#" class="b-reviews__answer-useful">Да</a> / <a href="#" class="b-reviews__answer-not-useful">Нет</a></p>
+                    </div>
+                    <div class="b-reviews__date">01 сентября 2016</div>
+                  </div>
+                </div>
+                <div class="b-reviews__author">
+                  <div class="b-reviews__author-name">Sergei ddd</div>
+                  <div class="b-reviews__author-foto"><img src="img/reviews/man-dark-avatar-318-9118.png" alt=""></div>
+                </div>
+              </div>  <!-- end b-question__answer-block -->
+
+              <div class="b-reviews__buttons">
+                <a href="#" class="b-reviews__answer">Ответить</a>
+              </div>
+            </div>  <!-- end b-question -->
+
+            <div class="b-question">
+              <div class="b-question__question-block">
+                <p>Безусловно, камера: в дневное время снимает на уровне Флагманов 15-16 года, в ночное уже похуже;</p>
+                <div class="b-reviews__buttons">
+                  <a href="#" class="b-reviews__answer">Ответить</a>
+                </div>
+              </div>
+
+              <div class="b-question__answer-block">
+                <div class="b-question__answer-message">
+                  <p>Динамик, Звук на слабую 4-ку. было бы здорово, если было два динамика (где-то читал, что можно через root сделать верхний динамик рабочим не только для звонков, а, например, для прослушивания музыки, но я не стал этого делать); гигабйтов, доступ</p>
+                  <div class="b-question__answer-message-bottom">
+                    <a href="javascript:void(0)" class="b-question__answer-all-message js-show-all-answer">
+                      <span class="ic-two-arrow-down"></span>Показать ещё ответы (2)
+                    </a>
+                    <div class="b-reviews__bottom">
+                      <p>Отзыв полезен? <a href="#" class="b-reviews__answer-useful">Да</a> / <a href="#" class="b-reviews__answer-not-useful">Нет</a></p>
+                    </div>
+                    <div class="b-reviews__date">01 сентября 2016</div>
+                  </div>
+                </div>
+                <div class="b-reviews__author">
+                  <div class="b-reviews__author-name">Sergei ddd</div>
+                  <div class="b-reviews__author-foto"><img src="img/reviews/man-dark-avatar-318-9118.png" alt=""></div>
+                </div>
+              </div>  <!-- end b-question__answer-block -->
+
+              <div class="b-question__answer-block g-hidden">
+                <div class="b-question__answer-message">
+                  <p>Динамик, Звук на слабую 4-ку. было бы здорово, если было два динамика (где-то читал, что можно через root сделать верхний динамик рабочим не только для звонков, а, например, для прослушивания музыки, но я не стал этого делать); гигабйтов, доступ</p>
+                  <div class="b-question__answer-message-bottom">
+                    <div class="b-reviews__bottom">
+                      <p>Отзыв полезен? <a href="#" class="b-reviews__answer-useful">Да</a> / <a href="#" class="b-reviews__answer-not-useful">Нет</a></p>
+                    </div>
+                    <div class="b-reviews__date">01 сентября 2016</div>
+                  </div>
+                </div>
+                <div class="b-reviews__author">
+                  <div class="b-reviews__author-name">Sergei ddd</div>
+                  <div class="b-reviews__author-foto"><img src="img/reviews/man-dark-avatar-318-9118.png" alt=""></div>
+                </div>
+              </div>  <!-- end b-question__answer-block -->
+
+              <div class="b-question__answer-block g-hidden">
+                <div class="b-question__answer-message">
+                  <p>Динамик, Звук на слабую 4-ку. было бы здорово, если было два динамика (где-то читал, что можно через root сделать верхний динамик рабочим не только для звонков, а, например, для прослушивания музыки, но я не стал этого делать); гигабйтов, доступ</p>
+                  <div class="b-question__answer-message-bottom">
+                    <div class="b-reviews__bottom">
+                      <p>Отзыв полезен? <a href="#" class="b-reviews__answer-useful">Да</a> / <a href="#" class="b-reviews__answer-not-useful">Нет</a></p>
+                    </div>
+                    <div class="b-reviews__date">01 сентября 2016</div>
+                  </div>
+                </div>
+                <div class="b-reviews__author">
+                  <div class="b-reviews__author-name">Sergei ddd</div>
+                  <div class="b-reviews__author-foto"><img src="img/reviews/man-dark-avatar-318-9118.png" alt=""></div>
+                </div>
+              </div>  <!-- end b-question__answer-block -->
+
+              <div class="b-reviews__buttons">
+                <a href="#" class="b-reviews__answer">Ответить</a>
+              </div>
+            </div>  <!-- end b-question -->
+
+            <div class="b-question">
+              <div class="b-question__question-block">
+                <p>Безусловно, камера: в дневное время снимает на уровне Флагманов 15-16 года, в ночное уже похуже;</p>
+                <div class="b-reviews__buttons">
+                  <a href="#" class="b-reviews__answer">Ответить</a>
+                </div>
+                <div class="b-question__no-answer">0 ответов</div>
+              </div>
+
+              <div class="b-reviews__buttons">
+                <a href="#" class="b-reviews__answer">Ответить</a>
+              </div>
+            </div>  <!-- end b-question -->
+
+            <div class="b-question">
+              <div class="b-question__question-block">
+                <p>Безусловно, камера: в дневное время снимает на уровне Флагманов 15-16 года, в ночное уже похуже;</p>
+                <div class="b-reviews__buttons">
+                  <a href="#" class="b-reviews__answer">Ответить</a>
+                </div>
+                <div class="b-question__no-answer">0 ответов</div>
+              </div>
+
+              <div class="b-reviews__buttons">
+                <a href="#" class="b-reviews__answer">Ответить</a>
+              </div>
+            </div>  <!-- end b-question -->
+
+            <div class="b-add-message">
+
+              <form action="">
+                <div class="f-field-wrapper f-field-wrapper_textarea">
+                  <textarea name="question_message" class="f-textarea" placeholder="Добавить вопрос"></textarea>
+                </div>
+                <div class="f-group">
+                  <button type="submit" class="f-button">Добавить вопрос</button>
+                </div>
+              </form>
+
+            </div>  <!-- end b-add-message -->
+
+          </div>  <!-- end Вопросы и ответы -->
+
+        </div>  <!-- end b-prod__tabs -->
+
+        <div class="g-row">
+          <div class="b-block-product">
+            <div class="b-block-product__title">
+              <span>Популярные телефоны</span>
+            </div>
+            <div class="b-block-product__content">
+              <div class="b-product-carousel owl-carousel js-product_owl-carousel">
+
+                <div class="b-product-carousel__item">
+                  <div class="b-product-carousel__img">
+                    <img src="img/product/foto1.png" alt="">
+                  </div>
+                  <a href="product.html" class="b-product-carousel__link">Оригинал ONDA V820w X86 Intel Z3735F Quad Core 2 ГБ 32 ГБ</a>
+                  <span class="b-product-carousel__price">$ 39.99</span>
+                </div>
+
+                <div class="b-product-carousel__item">
+                  <div class="b-product-carousel__img">
+                    <img src="img/product/foto2.png" alt="">
+                  </div>
+                  <a href="product.html" class="b-product-carousel__link">Оригинал Teclast X98 Air/X98 Plus II 9.7 дюймов Intel Cherry Trail</a>
+                  <span class="b-product-carousel__price">$ 42.99</span>
+                </div>
+
+                <div class="b-product-carousel__item">
+                  <div class="b-product-carousel__img">
+                    <img src="img/product/foto3.png" alt="">
+                  </div>
+                  <a href="product.html" class="b-product-carousel__link">14 дюймов 8 ГБ оперативной памяти и 256 ГБ SSD ноутбук ноутбука с Intel Celeron</a>
+                  <span class="b-product-carousel__price">$ 75.99</span>
+                </div>
+
+                <div class="b-product-carousel__item">
+                  <div class="b-product-carousel__img">
+                    <img src="img/product/foto4.png" alt="">
+                  </div>
+                  <a href="product.html" class="b-product-carousel__link">14 дюймов 8 ГБ оперативной памяти и 256 ГБ SSD ноутбук ноутбука с Intel Celeron</a>
+                  <span class="b-product-carousel__price">$ 75.99</span>
+                </div>
+
+                <div class="b-product-carousel__item">
+                  <div class="b-product-carousel__img">
+                    <img src="img/product/foto1.png" alt="">
+                  </div>
+                  <a href="product.html" class="b-product-carousel__link">Оригинал ONDA V820w X86 Intel Z3735F Quad Core 2 ГБ 32 ГБ</a>
+                  <span class="b-product-carousel__price">$ 39.99</span>
+                </div>
+
+                <div class="b-product-carousel__item">
+                  <div class="b-product-carousel__img">
+                    <img src="img/product/foto2.png" alt="">
+                  </div>
+                  <a href="product.html" class="b-product-carousel__link">Оригинал Teclast X98 Air/X98 Plus II 9.7 дюймов Intel Cherry Trail</a>
+                  <span class="b-product-carousel__price">$ 42.99</span>
+                </div>
+
+                <div class="b-product-carousel__item">
+                  <div class="b-product-carousel__img">
+                    <img src="img/product/foto3.png" alt="">
+                  </div>
+                  <a href="product.html" class="b-product-carousel__link">14 дюймов 8 ГБ оперативной памяти и 256 ГБ SSD ноутбук ноутбука с Intel Celeron</a>
+                  <span class="b-product-carousel__price">$ 75.99</span>
+                </div>
+
+                <div class="b-product-carousel__item">
+                  <div class="b-product-carousel__img">
+                    <img src="img/product/foto4.png" alt="">
+                  </div>
+                  <a href="product.html" class="b-product-carousel__link">14 дюймов 8 ГБ оперативной памяти и 256 ГБ SSD ноутбук ноутбука с Intel Celeron</a>
+                  <span class="b-product-carousel__price">$ 75.99</span>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>  <!-- end g-row -->
+
+        <div class="g-row">
+          <div class="b-block-product b-block-product_brands">
+            <div class="b-block-product__title">
+              <span>Популярные бренды</span>
+            </div>
+            <div class="b-block-product__content">
+              <div class="b-product-carousel owl-carousel js-brand_owl-carousel">
+
+                <div class="b-product-carousel__item">
+                  <div class="b-product-carousel__img">
+                    <img src="img/brands/apple.png" alt="">
+                  </div>
+                </div>
+
+                <div class="b-product-carousel__item">
+                  <div class="b-product-carousel__img">
+                    <img src="img/brands/brand_acer.png" alt="">
+                  </div>
+                </div>
+
+                <div class="b-product-carousel__item">
+                  <div class="b-product-carousel__img">
+                    <img src="img/brands/brand_asus.png" alt="">
+                  </div>
+                </div>
+
+                <div class="b-product-carousel__item">
+                  <div class="b-product-carousel__img">
+                    <img src="img/brands/brand_canon.png" alt="">
+                  </div>
+                </div>
+
+                <div class="b-product-carousel__item">
+                  <div class="b-product-carousel__img">
+                    <img src="img/brands/brand_d-link.png" alt="">
+                  </div>
+                </div>
+
+                <div class="b-product-carousel__item">
+                  <div class="b-product-carousel__img">
+                    <img src="img/brands/brand_lenovo.png" alt="">
+                  </div>
+                </div>
+
+                <div class="b-product-carousel__item">
+                  <div class="b-product-carousel__img">
+                    <img src="img/brands/brand_samsung.png" alt="">
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>  <!-- end g-row -->
+
+      </div>  <!-- end g-container -->
+
+    </main>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="page-buffer"></div>
+  </div>  <!-- end page-wrapper -->
+
+  <footer class="b-footer">
+
+    <div class="b-footer-fixed">
+      <div class="g-container">
+
+        <ul class="b-footer-fixed__col_left">
+
+          <li>
+            <div class="b-footer-fixed__text js-custom-toggler"
+                 data-slide=".js-footer-popup-location"
+                 data-toggle-class="g-minimized"
+                 data-toggle-elem-class="g-popup-open"
+                 data-close-element=".js-footer-popup-close">
+              <span>Вся Украина</span><span class="ic-popup-link"></span>
+            </div>
+            <div class="b-footer-popup g-minimized js-footer-popup-location">
+              <div class="b-footer-popup__header">
+                <h3 class="b-footer-popup__title">Вся Украина</h3>
+                <div class="b-footer-popup__btn-close js-footer-popup-close"><span class="ic-popup-close"></span></div>
+                <div class="b-footer-popup__btn-clear"><span class="ic-clear"></span> Очистить</div>
+              </div>
+              <div class="b-footer-popup__content">
+                test content
+              </div>
+            </div>
+          </li>
+
+          <li>
+            <div class="b-footer-fixed__text js-custom-toggler"
+                 data-slide=".js-footer-popup-history"
+                 data-toggle-class="g-minimized"
+                 data-toggle-elem-class="g-popup-open"
+                 data-close-element=".js-footer-popup-close">
+              <span class="ic-history"></span><span>1 история</span><span class="ic-popup-link"></span>
+            </div>
+            <div class="b-footer-popup b-footer-popup_history g-minimized js-footer-popup-history">
+              <div class="b-footer-popup__header">
+                <h3 class="b-footer-popup__title">Недавно просмотренные модели</h3>
+                <div class="b-footer-popup__btn-close js-footer-popup-close"><span class="ic-popup-close"></span></div>
+                <div class="b-footer-popup__btn-clear"><span class="ic-clear"></span> Очистить</div>
+              </div>
+              <div class="b-footer-popup__content">
+
+                <div class="b-footer-popup__content-block">
+                  <div class="b-footer-popup__content-block-img">
+                    <img src="img/product/foto1.png" alt="">
+                  </div>
+                  <div class="b-footer-popup__content-block-title">
+                    <a href="product.html">Оригинал МИ Xiaomi Redmi</a>
+                  </div>
+                  <ul class="b-footer-popup__content-block-list">
+                    <li><span>4 920грн</span><a href="#">ACER</a></li>
+                    <li><span>4 920грн</span><a href="#">ACER</a></li>
+                    <li><span>4 920грн</span><a href="#">ACER</a></li>
+                  </ul>
+                </div>
+
+                <div class="b-footer-popup__content-block">
+                  <div class="b-footer-popup__content-block-img">
+                    <img src="img/product/foto1.png" alt="">
+                  </div>
+                  <div class="b-footer-popup__content-block-title">
+                    <a href="product.html">Оригинал МИ Xiaomi Redmi</a>
+                  </div>
+                  <ul class="b-footer-popup__content-block-list">
+                    <li><span>4 920грн</span><a href="#">ACER</a></li>
+                    <li><span>4 920грн</span><a href="#">ACER</a></li>
+                    <li><span>4 920грн</span><a href="#">ACER</a></li>
+                  </ul>
+                </div>
+
+                <div class="b-footer-popup__content-block">
+                  <div class="b-footer-popup__content-block-img">
+                    <img src="img/product/foto1.png" alt="">
+                  </div>
+                  <div class="b-footer-popup__content-block-title">
+                    <a href="product.html">Оригинал МИ Xiaomi Redmi</a>
+                  </div>
+                  <ul class="b-footer-popup__content-block-list">
+                    <li><span>4 920грн</span><a href="#">ACER</a></li>
+                    <li><span>4 920грн</span><a href="#">ACER</a></li>
+                    <li><span>4 920грн</span><a href="#">ACER</a></li>
+                  </ul>
+                </div>
+
+                <div class="b-footer-popup__content-block">
+                  <div class="b-footer-popup__content-block-img">
+                    <img src="img/product/foto1.png" alt="">
+                  </div>
+                  <div class="b-footer-popup__content-block-title">
+                    <a href="product.html">Оригинал МИ Xiaomi Redmi</a>
+                  </div>
+                  <ul class="b-footer-popup__content-block-list">
+                    <li><span>4 920грн</span><a href="#">ACER</a></li>
+                    <li><span>4 920грн</span><a href="#">ACER</a></li>
+                    <li><span>4 920грн</span><a href="#">ACER</a></li>
+                  </ul>
+                </div>
+
+                <div class="b-footer-popup__content-block">
+                  <div class="b-footer-popup__content-block-img">
+                    <img src="img/product/foto1.png" alt="">
+                  </div>
+                  <div class="b-footer-popup__content-block-title">
+                    <a href="product.html">Оригинал МИ Xiaomi Redmi</a>
+                  </div>
+                  <ul class="b-footer-popup__content-block-list">
+                    <li><span>4 920грн</span><a href="#">ACER</a></li>
+                    <li><span>4 920грн</span><a href="#">ACER</a></li>
+                    <li><span>4 920грн</span><a href="#">ACER</a></li>
+                  </ul>
+                </div>
+
+              </div>
+            </div>
+          </li>
+
+          <li>
+            <div class="b-footer-fixed__text js-custom-toggler"
+                 data-slide=".js-footer-popup-compare"
+                 data-toggle-class="g-minimized"
+                 data-toggle-elem-class="g-popup-open"
+                 data-close-element=".js-footer-popup-close">
+              <span class="ic-refresh"></span><span>Сравнение моделей</span><span class="ic-popup-link"></span>
+            </div>
+            <div class="b-footer-popup g-minimized js-footer-popup-compare">
+              <div class="b-footer-popup__header">
+                <h3 class="b-footer-popup__title">Сравнение моделей</h3>
+                <div class="b-footer-popup__btn-close js-footer-popup-close"><span class="ic-popup-close"></span></div>
+                <div class="b-footer-popup__btn-clear"><span class="ic-clear"></span> Очистить</div>
+              </div>
+              <div class="b-footer-popup__content">
+                test content
+              </div>
+            </div>
+          </li>
+        </ul>
+
+        <ul class="b-footer-fixed__col_right">
+          <li>
+            <div class="b-footer-fixed__text">
+              <span class="ic-unknown-topic"></span>
+            </div>
+          </li>
+          <li>
+            <div class="b-footer-fixed__text">
+              <span class="ic-x"></span>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="g-container">
+      <ul class="b-footer-nav">
+
+        <li class="b-footer-nav__block">
+          <div class="b-footer-nav__block-title">
+            <span>Product</span>
+          </div>
+          <ul>
+            <li><a href="#">Popular</a></li>
+            <li><a href="#">Trending</a></li>
+            <li><a href="#">Catalog</a></li>
+            <li><a href="#">Features</a></li>
+          </ul>
+        </li>
+
+        <li class="b-footer-nav__block">
+          <div class="b-footer-nav__block-title">
+            <span>Info</span>
+          </div>
+          <ul>
+            <li><a href="#">Support</a></li>
+            <li><a href="#">Developers</a></li>
+            <li><a href="#">Service</a></li>
+            <li><a href="#">Ger Started </a></li>
+          </ul>
+        </li>
+
+        <li class="b-footer-nav__block">
+          <div class="b-footer-nav__block-title">
+            <span>Company</span>
+          </div>
+          <ul>
+            <li><a href="#">Press Releases</a></li>
+            <li><a href="#">Mission</a></li>
+            <li><a href="#">Strategy</a></li>
+            <li><a href="#">Works</a></li>
+          </ul>
+        </li>
+
+        <li class="b-footer-nav__block">
+          <div class="b-footer-nav__block-title">
+            <span>Contact</span>
+          </div>
+          <ul>
+            <li><a href="#">Popular</a></li>
+            <li><a href="#">Trending</a></li>
+            <li><a href="#">Catalog</a></li>
+            <li><a href="#">Features</a></li>
+          </ul>
+        </li>
+
+        <li class="b-footer-nav__block">
+          <div class="b-footer-nav__block-title">
+            <span>Learn More</span>
+          </div>
+          <ul>
+            <li><a href="#">Support</a></li>
+            <li><a href="#">Developers</a></li>
+            <li><a href="#">Service</a></li>
+            <li><a href="#">Ger Started </a></li>
+          </ul>
+        </li>
+
+      </ul>
+
+      <div class="b-footer__bottom">
+        <span>&copy; 2016 <a href="/">Prices</a>. All rights reserved.</span>
+      </div>
+    </div>
+  </footer> 
+
+
+<!-- подключаем jQuery -->
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script type="text/javascript">
+if (typeof jQuery == 'undefined') {
+  document.write(unescape("%3Cscript src='js/lib/jquery-3.1.0.min.js' type='text/javascript'%3E%3C/script%3E"));
+}
+</script>
+
+
+<script src="js/lib/jquery-ui/jquery-ui.js"></script>
+<script src="js/lib/owl.carousel.js"></script>
+<script src="js/lib/jquery.magnific-popup.min.js"></script>
+
+<script src="js/scripts.js" type="text/javascript"></script>
+
+</body></html>

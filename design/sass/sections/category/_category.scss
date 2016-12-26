@@ -1,0 +1,146 @@
+.b-product-carousel-wrapper {
+    width: 91%;
+    margin: 0 auto;
+    padding-bottom: 35px;
+    border-bottom: 1px solid rgba(71,71,71,.18);
+    .b-product-carousel {
+        &__img {
+            height: 85px;
+        }
+        &__price {
+            font-size: 16px;
+        }
+        & .owl-controls .owl-nav .owl-prev {
+            left: -4%;
+            display: block !important;
+        }
+        & .owl-controls .owl-nav .owl-next {
+            right: -4%;
+            display: block !important;
+        }
+        & .owl-dots {
+            text-align: center;
+            position: relative;
+            bottom: 5px;
+            height: 0;
+        }
+        & .owl-dot {
+            padding: 10px;
+            display: inline-block;
+            & span {
+                width: 8px;
+                height: 8px;
+                display: inline-block;
+                background: #ccc;
+                border-radius: 4px;
+                background: #c1c1c1;
+            }
+            &.active span,
+            &:hover span {
+                background: #f00;
+            }
+        }
+    }
+}
+
+.b-business-card {
+    margin: 30px 0;
+    & .ic-location-big {
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+    &__top {
+        overflow: hidden;
+        min-height: 55px;
+    }
+    &__schedule {
+        padding-left: 7%;
+        width: (100% / 3);
+        float: left;
+        & p {
+            padding-left: 60px;
+            line-height: 1.2em;
+            color: #515151;
+            &:first-child {
+                color: #000;
+                font-weight: 600;
+                position: relative;
+            }
+        }
+    }
+    &__btn-send-message {
+        padding-right: 7%;
+        width: (100% / 3);
+        float: right;
+        padding-top: 18px;
+        & a {
+            padding: 11px 23px;
+            background: #595959;
+            vertical-align: middle;
+            color: #fff;
+            border: 1px solid #595959;
+            transition: all 1s;
+            &:hover {
+                text-decoration: none;
+                background-color: transparent;
+                color: #595959;
+            }
+        }
+    }
+    &__name {
+        width: (100% / 3);
+        text-align: center;
+        margin: 10px auto;
+        color: #697aa8;
+        font-size: 30px;
+        font-weight: 600;
+    }
+    &__phone-number {
+        text-align: center;
+        min-height: 22px;
+        line-height: 22px;
+        overflow: hidden;
+        &:before,
+        &:after {
+            content: '';
+            display: inline-block;
+            vertical-align: middle;
+            width: 100%;
+            height: 1px;
+            background: rgba(66, 66, 66, .11);
+            border: solid #FFF;
+            border-width: 0 25px;
+        }
+        &:before {
+            margin-left: -100%;
+        }
+        &:after {
+            margin-right: -100%;
+        }
+    }
+    &__number {
+        font-size: 16px;
+        color: #F2BA00;
+        font-weight: 600;
+    }
+    &__show-number {
+        cursor: pointer;
+        text-decoration: underline;
+    }
+    &__show-number + &__number {
+        display: none;
+    }
+}
+
+.b-seo-text {
+    text-align: justify;
+    line-height: 1.3em;
+    font-size: 13px;
+    padding-left: 10px;
+    padding-right: 10px;
+    p {
+        margin-bottom: 15px;
+    }
+}
+

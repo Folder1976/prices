@@ -1,0 +1,312 @@
+/* Header */
+.b-header {
+    background: #fff;
+
+    &__top-line {
+        height: 14px;
+        background: $color_blue;
+        position: relative;
+        &::after {
+            content: '';
+            position: absolute;
+            border: 38px solid transparent;
+            border-top: 25px solid $color_blue;
+            margin-left: -38px;
+            left: 50%;
+            top: 13px;
+        }
+    }
+
+    &-top {
+        border-bottom: 1px solid $color_blue;
+        margin-top: 37px;
+        padding-bottom: 30px;
+    
+        &__menu {
+            width: 45%;
+            display: flex;
+            justify-content: space-between;
+            font-size: 16px;
+            & li {
+                & a {
+                    padding: 10px 0;
+                }
+            }
+        }
+        &__setings > div {
+            display: inline-block;
+            padding: 0 20px;
+        }
+        &__setings-lang select,
+        &__setings-cur select{
+            font-size: 16px;
+            font-weight: bold;
+            color: #2c2c2c;
+        }
+    }
+
+    &__news {
+        margin: 30px 0 22px;
+        &-text {
+            width: 90%;
+            margin: 0 auto;
+            text-align: center;
+            background: $color_blue_gray;
+            padding: 10px 60px;
+            color: #fff
+        }
+    }
+
+    &__middle {
+        text-align: left;
+        margin: 15px auto 5px;
+        max-width: 1170px;
+        padding-left: #{$width_col_left + 16px}; //286px
+    }
+
+    &__bottom {
+        & .g-container {
+            margin-bottom: 20px;
+        }
+    }
+}
+
+.b-location,
+.b-weather {
+    display: inline-block;
+    vertical-align: middle;
+}
+.b-location {
+    min-width: 130px;
+    margin-right: 35px;
+}
+.b-weather img {
+    width: 100%;
+}
+
+.b-search {
+    position: relative;
+    .f-form-wrap {
+        border: 1px solid #697aa8;
+        display: flex;
+    }
+    &__select {
+        background-image: url("../img/select-arrow.png");
+        background-position: right center;
+        background-repeat: no-repeat;
+        position: relative;
+        padding: 0 18px 0 10px;
+        z-index: 10;
+        line-height: 43px;
+        opacity: 0.8;
+        .g-span-select__ul {
+            line-height: 32px;
+            top: 0;
+            left: 0;
+            right: auto;
+        }
+    }
+    &__input {
+        height: 45px;
+        flex-grow: 1;
+        padding: 0 86px 0 5px;
+    }
+    &__button {
+        width: 81px;
+        height: 46px;
+        padding: 0;
+        border: none;
+        box-sizing: border-box;
+        cursor: pointer;
+        background: #697aa8;
+        position: absolute;
+        top: 0;
+        right: 0;
+        &:hover {
+            opacity: 0.7;
+        }
+    }
+}
+
+
+.b-header-box-cart-account {
+    padding: 7px 0 7px 10px;
+}
+.b-header-cart,
+.b-header-account {
+    a {
+        padding: 0 5px;
+        text-decoration: underline;
+    }
+    .g-span-link {
+        padding: 0 5px;
+    }
+}
+.b-header-cart {
+    width: 50%;
+    float: left;
+    position: relative;
+    cursor: pointer;
+    &:hover {
+        opacity: .8;
+    }
+    &__title {
+        text-decoration: underline;
+    }
+    &__quantity {
+        position: absolute;
+        top: -6px;
+        left: -6px;
+        background: #ff0000;
+        border-radius: 10px;
+        height: 20px;
+        width: 20px;
+        text-align: center;
+        line-height: 20px;
+        color: #fff;
+    }
+}
+.b-header-account {
+    width: 50%;
+    float: right;
+    text-align: right;
+    cursor: pointer;
+    &:hover {
+        opacity: .8;
+    }
+    &__title {
+        text-decoration: underline;
+    }
+}
+
+// popup account
+.b-account-popup {
+    & .mfp-close {
+        display: none;
+    }
+    & .b-popup__footer .g-span-link_dotted {
+        padding-bottom: 6px;
+        &:nth-of-type(2n+1) {
+            float: left;
+        }
+        &:nth-of-type(2n) {
+            float: right;
+        }
+    }
+}
+.b-auth-form {
+    &__button-wrap {
+        margin-bottom: 20px;
+        padding-bottom: 16px;
+        border-bottom: 1px solid #c1c1c1;
+        & .f-button {
+            width: 100%;
+        }
+    }
+}
+.b-auth-social {
+    &__title {
+        color: #697aa8;
+        margin: 30px 0 17px;
+    }
+    &__content {
+        margin-bottom: 18px;
+        & [class*="ic-"] {
+            cursor: pointer;
+            margin: 0 5px;
+            &:hover {
+                opacity: 0.7;
+            }
+        }
+    }
+}
+// popup account END
+
+
+
+
+@media screen and (max-width: 1190px) {
+    .b-header__middle { padding: 0 10px 0 #{$width_col_left + 16px + 10px}; }
+    .b-search__select { display: none; }
+} // end max-width: 1190px
+
+
+@media screen and (max-width: 900px) {
+    .b-header-top {
+        padding-bottom: 15px;
+        .g-flex-container {
+            justify-content: space-around;
+        }
+        .b-header-account,
+        .b-header-cart {
+            width: auto;
+        }
+    }
+    .b-header__news {
+        margin: 0;
+        &-text {
+            width: 100%;
+            padding: 10px;
+        }
+        .g-container {
+            padding: 0;
+        }
+    }
+    .b-header__middle {
+        padding: 0 10px;
+        text-align: center;
+    }
+    .b-header__bottom {
+        .g-col-center {
+            width: calc(100% - 270px);
+        }
+        .g-col-right {
+           display: none;
+        }
+    }
+} // end max-width: 900px
+
+@media screen and (max-width: 700px) {
+    .b-header__bottom {
+        .g-col-left {
+            width: 50px;
+        }
+        .g-col-center {
+            width: calc(100% - 50px);
+        }
+    }
+} // end max-width: 700px
+
+@media screen and (max-width: 600px) {
+    .b-location { display: none; }
+} // end max-width: 600px
+
+@media screen and (max-width: 500px) {
+    .b-header-top { border: none; }
+    .b-search {
+        &__select {
+            line-height: 22px;
+            height: 22px;
+        }
+        &__input {
+            height: 24px;
+            width: calc(100% - 38px);
+        }
+        &__button {
+            width: 38px;
+            height: 24px;
+        }
+    }
+} // end max-width: 500px
+
+@media screen and (max-width: 400px) {
+    .b-header-top {
+        .b-header-account__title,
+        .b-header-cart__title {
+            display: none;
+        }
+    }
+} // end max-width: 400px
+
+
+/* Header END */
