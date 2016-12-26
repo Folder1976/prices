@@ -1,0 +1,1 @@
+ALTER TABLE  `fash_citys` ADD  `is_domain` ENUM(  '0',  '1' ) NOT NULL DEFAULT  '1' AFTER  `Domain` ;

@@ -1,0 +1,270 @@
+
+
+@media screen and (max-width: 767px) {
+
+    .wrapper {
+        padding: 68px 0 0;
+    }
+
+    .logo img {
+        width: 118px;
+    }
+
+    .head-menu {
+        padding: 5px 0 0 5px;
+    }
+
+    .menu-button {
+        width: 25px;
+        overflow: hidden;
+        padding: 0 0 0 25px;
+    }
+
+    .search {
+        margin: 0 5px 0 0;
+        position: relative;
+        bottom: 3px;
+    }
+
+    .header-section {
+        width: 100%;
+        margin: 0;
+        position: fixed;
+        top: 0; left: 0;
+        z-index: 1000;
+    }
+
+    .header-section .like-button {
+        margin: 6px 0 0 10px;
+    }
+
+    .content-section .inner-block {
+        margin-top: 0px;
+    }
+    .private-office {
+        padding: 0 0 0 5px;
+    }
+
+    .header-section .view-button {
+        margin: 8px 0 0;
+    }
+
+    .jspHorizontalBar {
+        display: none !important;
+    }
+
+    .inner-special-box.special {
+        padding: 60px 0 0;
+    }
+
+    .menu-tablet-line {
+        margin: 15px 0 0;
+        overflow-x: scroll;
+    }
+
+    .menu-tablet-line-section {
+        width: 100%;
+        padding: 0 15px;
+        position: fixed;
+        top: 68px; left: 0;
+        overflow-x: scroll;
+        z-index: 1000;
+        border-bottom: 1px solid #ECECEC;
+        background: #fff;
+    }
+
+    .filter-drop .top-line .title {
+        display: block;
+    }
+
+    .menu-tablet-line .inner {
+        position: relative;
+    }
+
+    .sort-select-line .title {
+        display: none;
+    }
+
+    .sort-section .big-title {
+        display: none;
+    }
+
+    .sort-section .product,
+    .sort-section .product .inner,
+    .product,
+    .product .inner {
+        width: 230px;
+        padding: 0;
+        border: none;
+    }
+
+    .sort-section .product.long,
+    .sort-section .product.long .inner,
+    .product.long,
+    .product.long .inner {
+        width: 285px;
+    }
+
+    .sort-section .product .inner {
+        position: relative;
+    }
+
+    .product .love-button {
+        right: 0;
+    }
+
+    .product .discount,
+    .product:hover .discount {
+        top: 10px; left: 0;
+    }
+
+    .product {
+        margin: 0 5px 20px 0;
+    }
+
+    .product .size {
+        display: none !important;
+    }
+
+    .product .info-button {
+        top: auto; bottom: 5px;
+    }
+
+    .product figure {
+        padding: 25px 0 15px;
+        height: auto;
+    }
+
+    .product figure img {
+        width: 226px;
+    }
+
+    .sort-mobile-box {
+        display: block;
+    }
+
+    .sort-mobile-box a {
+        width: 19px;
+        height: 17px;
+        display: block;
+        margin: 0 5px 0 0;
+    }
+
+    .sort-mobile-box a.item-1 {
+        background: url("../image/btn/sort-btn1.png") no-repeat;
+    }
+
+    .sort-mobile-box a.item-2 {
+        margin: 0;
+        background: url("../image/btn/sort-btn2.png") no-repeat;
+    }
+
+    .sort-mobile-box a.item-1.active {
+        background: url("../image/btn/sort-btn1-active.png") no-repeat;
+    }
+
+    .sort-mobile-box a.item-2.active {
+        background: url("../image/btn/sort-btn2-active.png") no-repeat;
+    }
+
+    .navigation-line {
+        display: none;
+    }
+
+    .footer-section,
+    .footer-spacer {
+        display: none;
+    }
+
+    .tab-link2 a {
+        margin: 0 2px;
+    }
+
+    .tab-cont2 .left-side {
+        width: auto;
+        float: none;
+        border: none;
+    }
+
+    .tab-cont2 .right-side {
+        width: auto;
+        display: none;
+        float: none;
+        border: none;
+    }
+
+    .banners {
+        margin: 0 -10px;
+        overflow: hidden;
+    }
+
+    .banners .banner:last-child {
+        display: none;
+    }
+
+    .banners .banner {
+        width: 100%;
+    }
+
+    .banners .banner span {
+        display: none;
+    }
+
+    .special-row.special.mobile-none .sidebar {
+        display: none;
+    }
+
+    .special-row.special.mobile-none .cont {
+        width: auto;
+        float: none;
+        margin: 0;
+    }
+
+    .alphabet-line {
+        display: none;
+    }
+
+    .alphabet-section .big-title {
+        padding: 0;
+    }
+
+    .alphabet-list .column {
+        width: auto;
+        float: none;
+    }
+
+    .add-store-form form {
+        width: auto;
+    }
+
+    .fonTypeFile {
+        width: 280px;
+        background-size: 100% 100%;
+    }
+
+    .inputFileVal {
+        width: 179px !important;
+    }
+
+    .mobile-off {
+        display: none;
+    }
+    
+    .drop-filter-box{
+        width: 300px;
+        margin-left: 20px;
+        background-color: bisque;
+        left: -15%;
+    }
+
+}
+
+@media screen and (max-width: 500px) {
+
+    .sort-section .product, .sort-section .product .inner, .product, .product .inner{
+        width: 100%;
+    }
+    .product figure img {
+        width: 100%;
+    }
+}

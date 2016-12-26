@@ -1,0 +1,114 @@
+<price>
+<date>2016-06-10 17:00</date>
+<firmName>shop.ua</firmName>
+<categories>
+<category>
+<id>1</id>
+<name>Женская одежда</name>
+<id>2</id>
+<name>Женская обувь</name>
+<id>3</id>
+<name>Женское нижнее белье</name>
+<id>4</id>
+<name>Женские аксессуары</name>
+<id>5</id>
+<name>Женские сумки</name>
+<id>6</id>
+<name>Женская верхняя одежда</name>
+<id>20</id>
+<name>Мужская одежда</name>
+</category>
+<category>
+<id>101</id>
+<parentId>1</parentId>
+<name>Женские футболки, топы</name>
+<id>102</id>
+<parentId>1</parentId>
+<name>Женские платья</name>
+<id>103</id>
+<parentId>1</parentId>
+<name>Женские юбки</name>
+<id>104</id>
+<parentId>1</parentId>
+<name>Женские джинсы</name>
+<id>201</id>
+<parentId>20</parentId>
+<name>Мужские джинсы</name>
+<id>202</id>
+<parentId>20</parentId>
+<name>Мужские рубашки</name>
+</category>
+</categories>
+<items>
+<item>
+<id>3276</id>
+<categoryId>101</categoryId>
+<group_id>127</group_id>
+<code>11111_605</code>
+<vendor>Nike</vendor>
+<name>Женская футболка</name>
+<description>
+Женская футболка с длинными рукавами, отложной воротник рубашечного типа, центральная застежка на пуговицах.
+</description>
+<url>http://shop.ua/1/2/3278.html</url>
+<image>http://shop.ua/img/1/2/picture3278-1.jpg</image>
+<image>http://shop.ua/img/1/2/picture3278-2.jpg</image>
+<image>http://shop.ua/img/1/2/picture3278-3.jpg</image>
+<image>http://shop.ua/img/1/2/picture3278-4.jpg</image>
+<priceRUAH>100</priceRUAH>
+<oldprice>120</oldprice>
+<stock>В наличии</stock>
+<param name="Размер" unit="UA">42, 44, 46, 48</param>
+<param name="Цвет">Синий</param>
+<param name="Материал">Хлопок 80%, ПЭ 20%</param>
+<param name="Страна изготовления">Швеция</param>
+</item>
+
+    <item>
+        <id>3277</id>
+<categoryId>101</categoryId>
+<group_id>127</group_id>
+<code>111111_605</code>
+<vendor>Adidas</vendor>
+<name>Красная футболка</name>
+<description>
+Женская футболка с длинными рукавами, отложной воротник рубашечного типа, центральная застежка на пуговицах.
+</description>
+<url>http://shop.ua/1/2/3278.html</url>
+<image>http://shop.ua/img/1/2/picture3278-1.jpg</image>
+<image>http://shop.ua/img/1/2/picture3278-2.jpg</image>
+<image>http://shop.ua/img/1/2/picture3278-3.jpg</image>
+<image>http://shop.ua/img/1/2/picture3278-4.jpg</image>
+<priceRUAH>100</priceRUAH>
+<oldprice>120</oldprice>
+<stock>В наличии</stock>
+<param name="Размер" unit="INTER">S, M, L, XL</param>
+<param name="Цвет">Красный</param>
+<param name="Материал">Кожа 55%, трикотаж 25%, лен 20%</param>
+<param name="Страна изготовления">Китай</param>
+</item>
+<item>
+<id>3278</id>
+<categoryId>101</categoryId>
+<group_id>127</group_id>
+<code>176543_605</code>
+<vendor>Zara</vendor>
+<name>Летняя футболка</name>
+<description>
+Женская футболка с длинными рукавами, отложной воротник рубашечного типа, центральная застежка на пуговицах.
+</description>
+<url>http://shop.ua/1/2/3278.html</url>
+<image>http://shop.ua/img/1/2/picture3278-1.jpg</image>
+<image>http://shop.ua/img/1/2/picture3278-2.jpg</image>
+<image>http://shop.ua/img/1/2/picture3278-3.jpg</image>
+<image>http://shop.ua/img/1/2/picture3278-4.jpg</image>
+<priceRUAH>100</priceRUAH>
+<oldprice>120</oldprice>
+<stock>В наличии</stock>
+<param name="Размер" unit="EUR">34, 36, 38</param>
+<param name="Цвет">Красный</param>
+<param name="Материал">Лен 100%</param>
+<param name="Страна изготовления">Бельгия</param>
+</item>
+</items>
+</price>

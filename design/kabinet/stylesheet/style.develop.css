@@ -1,0 +1,244 @@
+.hidden_object{
+    display: none;
+}
+
+.__large2{
+    font-weight: bold;
+    font-size: 16px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+.category-menu ul{
+    margin-top: 10px;
+}
+.active_categ{
+    border-left: 2px solid #F8AA1C;
+    padding-left: 5px;
+}
+
+/*div href link*/
+.links:hover{
+    cursor: pointer;
+}
+.links_blank:hover{
+    cursor: pointer;
+}
+.link_style_1{
+    font-size: 14px;
+    color: #787777;
+}
+.link_style_1:hover{
+    cursor: pointer;
+    text-decoration: underline;
+}
+/* end div href link*/
+
+#filter_information{
+        position: absolute;
+        width: 320px;
+        font-size: 12px;
+        color: white;
+        opacity: 0.9;
+        margin-top: 60px;
+        background-color: #5B5B5B;
+        margin-left: 150px;
+        padding: 3px 10px 3px 10px;
+        border-radius: 5px;
+        display: none;
+        line-height: 1.4;
+        z-index: 101;
+}
+.form-registration-drop-button{
+    height: 66px;
+    float: right;
+    width: 140px;
+    margin-top: -15px;
+    
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 20px;
+    background-color: #DBDBDB;
+    text-align: center;
+    font-size: 15px;
+    color: #2B2B2B;
+
+}
+.form-registration-drop-button:hover{
+  background-color: #EFEFEF;
+}
+
+.private-office:hover #registration{display: none}
+.private-office:hover #forgotten{display: none}
+
+#toTop {
+    width:60px;
+    /*border:1px solid #ccc;
+    background:#f7f7f7;*/
+    text-align:center;
+    padding:5px;
+    position:fixed;
+    bottom:30px; /* отступ кнопки от нижнего края страницы*/
+    right:20px;
+    cursor:pointer;
+    display:none;
+    color:#333;
+    font-family:verdana;
+    font-size:11px;
+    z-index: 99;
+}
+.fixed_position{
+    z-index: 99;
+    width: 100%;
+    top:67px;
+    left: 0;
+    position: fixed;
+    padding-left: 20px;
+    background-color: #fff;
+    border-bottom: 2px solid #F1F1F1;
+}
+.love-button img{
+    width:28px;
+    height: 29px;
+    margin-left: 3px;
+    margin-top: 4px;
+}
+
+ .filter_selected{
+    background-color: #EDEDED;
+    color: #1C3052;
+    border-radius: 5px;
+}
+.filter_selected a{
+    color: #1C3052;
+}
+.selected_filter_list{
+    padding-right: 3px;
+    padding-left: 7px;
+}
+.drop-filter-box a{
+    color: #1C3052;
+}
+.drop-filter-box label{
+    color: #1C3052;
+}
+.btn-sale {
+    display: none;
+}
+@media screen and (min-width: 1298px) {
+.wrap-drop-filter-box {
+    max-height: 240px;
+    overflow-y: auto;
+}
+.wrap-drop-filter-box-min {
+    min-height: 115px;
+}
+.filter-box-wrap {
+    width: 100%;
+    height: 28px;
+    position: relative;
+    left: 75px;
+}
+.fixed_position .filter-box-wrap {
+    width: 90%;
+}
+.fixed_position .filter-box-wrap2 {
+    width: 80%;
+}
+.fixed_position.filter-line {
+    padding-bottom: 0;
+}
+.filter-box-wrap2 {
+    position: absolute;
+    width: 75%;
+    height: 400px;
+    overflow: hidden;
+    padding: 0 10px;
+    left: 20px;
+}
+.filter-box-wrap3 {
+    white-space: nowrap;
+    width: 2000px;
+    height: 28px;
+    position: absolute;
+}
+.filter-box-wrap3 > div{
+    display:inline-block;
+}
+.filter-box-wrap-arrow-left,
+.filter-box-wrap-arrow-right {
+    position: absolute;
+    display: block;
+    top: 8px;
+    width: 13px;
+    height: 10px;
+    cursor: pointer;
+}
+.filter-box-wrap-arrow-left {
+    left: 0px;
+    background: url("/catalog/view/theme/FA/image/btn/filter-prev-button.png") no-repeat;
+}
+.filter-box-wrap-arrow-right {
+    right: 175px;
+    background: url("/catalog/view/theme/FA/image/btn/filter-next-button.png") no-repeat;
+}
+.drop-filter-box__left {
+    left: 0px;
+    right: auto;
+}
+.drop-filter-box__left::after {
+    left: 30px;
+    right: auto;
+}
+.drop-filter-box__right {
+    left: auto;
+    right: 0px;
+}
+.drop-filter-box__right::after {
+    left: auto;
+    right: 30px;
+}
+.btn-sale {
+    display: block;
+    padding: 20px 30px 5px 30px;
+    color: #1C3052;
+    margin: 1px;
+    font-size: 14px;
+    font-weight: 700;
+}
+.btn-sale:hover {
+    color: red;
+}
+
+
+}
+
+.dell_filter{
+    padding-left: 6px;
+    padding-right: 6px;
+    border-right: 1px solid white;
+    border-left: 1px solid white;
+    margin-left: 2px;
+    font-size: 19px;
+    margin-top: -13px;
+    display: inline;
+    cursor: pointer;
+}
+span:last-of-type{
+    border-right: none;
+    padding-right: 0;
+}
+ .filter_description{
+    /*margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #BFBFBF; */
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+    border-bottom: 0px solid #BFBFBF; 
+}
+.viewed_date{
+    width: 100%;
+    font-size: 20px;
+    margin-top: 70px;
+    padding-bottom: 10px; 
+    border-bottom: 1px solid gray;
+}

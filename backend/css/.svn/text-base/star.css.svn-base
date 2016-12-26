@@ -1,0 +1,90 @@
+ dl.star-rating ol {
+                margin: 0;
+                padding: 0;
+                list-style: none;
+                width: 100px;
+                height: 20px;
+                position: relative;
+                background: url(/img/star_full.png) no-repeat;
+        }
+        dl.star-rating li {
+                float: left;
+                margin: 0;
+                padding: 0;
+        }
+        dl.star-rating li a {
+                display: block;
+                width: 20px;
+                height: 20px;
+                text-indent: -9999px;
+                position: absolute;
+                text-decoration: none;
+                z-index: 10;
+        }
+        dl.star-rating li a:hover {
+
+                left: 0;
+                z-index: 2;
+        }
+        dl.star-rating a.star1 {
+                left: 0;
+        }
+        dl.star-rating a.star1:hover {
+                width: 20px;
+                background: url(/img/star_full.png) 0px -20px no-repeat;
+
+        }
+        dl.star-rating a.star2 {
+                left: 20px;
+        }
+        dl.star-rating a.star2:hover {
+                width: 40px;
+                background: url(/img/star_full.png) 0px -20px no-repeat;
+
+        }
+        dl.star-rating a.star3 {
+                left: 40px;
+        }
+        dl.star-rating a.star3:hover {
+                width: 60px;
+                background: url(/img/star_full.png) 0px -20px no-repeat;
+
+        }
+        dl.star-rating a.star4 {
+                left: 60px;
+        }
+        dl.star-rating a.star4:hover {
+                width: 80px;
+                background: url(/img/star_full.png) 0px -20px no-repeat;
+
+        }
+        dl.star-rating a.star5 {
+                left: 80px;
+        }
+        dl.star-rating a.star5:hover {
+                width: 100px;
+                background: url(/img/star_full.png) 0px -20px no-repeat;
+
+        }
+        dl.star-rating li.current {
+                background: url(/img/star_full.png) 0% 100% no-repeat;
+                height: 20px;
+                z-index: 1;
+        }
+
+        dl.star-rating ol>li a:hover{
+                text-indent: 110px;
+        }
+
+.ratiostarmessage_thanks,
+.ratiostarmessage_voted_again,
+.ratiostarmessage_please_register{
+    height: 20px;
+    background: url(/img/star_cancel.gif) 0% 30% no-repeat;
+    padding-left: 20px;
+    color: #b8c0b8;
+}
+.ratiostarmessage_thanks{
+    background: url(/img/star_ok.gif) 0% 30% no-repeat;
+    color: #4dd257;
+}

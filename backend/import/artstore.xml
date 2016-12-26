@@ -1,0 +1,2776 @@
+<price>
+<date>2016-07-16 17:00</date>
+<firmName>Магазин подарков ArtStore</firmName> 
+<items>
+
+<item>
+    <id>1047</id>
+    <url>http://artstore.com.ua/naruchnye-chasy-all-you-need-is-love/</url>
+    <priceRUAH>550.00</priceRUAH> 
+        
+        <image>http://artstore.com.ua/wa-data/public/shop/products/47/10/1047/images/2522/2522.970.jpg</image>
+        <image>http://artstore.com.ua/wa-data/public/shop/products/47/10/1047/images/2523/2523.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        
+        <param name="Страна изготовления">Украина</param>
+        
+        <name>Наручные часы All you need is love</name>
+        <param name="Размер" unit="INTER">S, M, L, XL</param>
+        <description>Наручные часы с надписью All you need is love в серых градиентных тонах. Надпись выполнена  каллиграфическим шрифтом, в качестве меток используются точки</description>
+        
+        <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+</item>
+  
+      <item>
+<id>1045</id>
+        <url>http://artstore.com.ua/naruchnye-chasy-pustota/</url>
+        <priceRUAH>600.00</priceRUAH> 
+        <image>http://artstore.com.ua/wa-data/public/shop/products/45/10/1045/images/2518/2518.970.jpg</image>
+        <image>http://artstore.com.ua/wa-data/public/shop/products/45/10/1045/images/2519/2519.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Наручные часы Пустота</name>
+        <description>Женские наручные часы с пустым циферблатом белого цвета.</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param>
+             <param name="Размер" unit="INTER">S, M, L, XL</param>
+ 
+      </item>
+      <item>
+<id>1042</id>
+        <url>http://artstore.com.ua/naruchnye-chasy-flamingo/</url>
+        <priceRUAH>475.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/42/10/1042/images/2514/2514.970.jpg</image>
+        <image>http://artstore.com.ua/wa-data/public/shop/products/42/10/1042/images/2513/2513.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Наручные часы Фламинго</name>
+        <description>Часы в стиле сюрреализм с розовыми фламинго и треугольниками</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>1040</id>
+        <url>http://artstore.com.ua/black-cat-wristwatch/</url>
+        <priceRUAH>540.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/40/10/1040/images/2510/2510.970.jpg</image>
+        <image>http://artstore.com.ua/wa-data/public/shop/products/40/10/1040/images/2509/2509.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Наручные часы Чёрный кот</name>
+        <description>Аниме часы на черном хендмейд ремешке из натуральной кожи с чёрным котом на циферблате</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>1035</id>
+        <url>http://artstore.com.ua/naruchnye-chasy-memphis-7700/</url>
+        <priceRUAH>650.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/35/10/1035/images/2488/2488.970.jpg</image>
+        <image>http://artstore.com.ua/wa-data/public/shop/products/35/10/1035/images/2487/2487.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Наручные часы Memphis</name>
+        <description>Эксклюзивные наручные часы c рисунком в стиле мемфис на черном лакированном ремешке</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>1033</id>
+        <url>http://artstore.com.ua/naruchnye-chasy-danger-science/</url>
+        <priceRUAH>650.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/33/10/1033/images/2473/2473.970.jpg</image>
+        <image>http://artstore.com.ua/wa-data/public/shop/products/33/10/1033/images/2474/2474.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Наручные часы Danger Science</name>
+        <description>Эксклюзивные наручные часы в стиле стимпанк на черном кожаном ремешке из натуральной кожи.</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>993</id>
+        <url>http://artstore.com.ua/naruchnye-chasy-verano/</url>
+        <priceRUAH>550.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/93/09/993/images/2385/2385.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Наручные часы Verano</name>
+        <description>Новые эксклюзивные наручные часы с цветочным рисунком на циферблате в теплых терракотовых оттенках на кожаном ремешке ручной работы</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>987</id>
+        <url>http://artstore.com.ua/derevyannye-naruchnye-chasy-alaska-ot-feel-wood/</url>
+        <priceRUAH>1940.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/87/09/987/images/2358/2358.970.jpg</image>
+        <image>http://artstore.com.ua/wa-data/public/shop/products/87/09/987/images/2361/2361.970.jpg</image>
+        <image>http://artstore.com.ua/wa-data/public/shop/products/87/09/987/images/2359/2359.970.jpg</image>
+        <image>http://artstore.com.ua/wa-data/public/shop/products/87/09/987/images/2360/2360.970.jpg</image>
+        <image>http://artstore.com.ua/wa-data/public/shop/products/87/09/987/images/2362/2362.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Деревянные наручные часы Alaska от Feel Wood</name>
+        <description>В поиске эксклюзивных часов? Деревянные часы Alaska отличное решение для этих целей. Гипоаллергенный корпус и ремешок, отличное качество японского механизма Miyota и привлекательный дизайн делает часы Alaska хорошим подарком премиум класса за небольшие деньги.</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>985</id>
+        <url>http://artstore.com.ua/naruchnye-chasy-13-hours/</url>
+        <priceRUAH>550.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/85/09/985/images/2357/2357.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Наручные часы 13hours</name>
+        <description>Новые эксклюзивные наручные часы с 13 часовым циферблатом на классическом кожаном ремешке ручной работы с контрастной прошивкой</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>966</id>
+        <url>http://artstore.com.ua/antichasy-vice-versa/</url>
+        <priceRUAH>675.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/66/09/966/images/2252/2252.970.jpg</image>
+        <image>http://artstore.com.ua/wa-data/public/shop/products/66/09/966/images/2251/2251.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Античасы Vice Versa</name>
+        <description>Винтажные античасы Vice Versa с стилизованным под старину циферблатом в гранжевых черно коричневых тонах с подтеками и разводами. Оснащены японским механизмом, отличаются от обычных часов  обратным ходом.</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>960</id>
+        <url>http://artstore.com.ua/naruchnye-chasy-atomflowers/</url>
+        <priceRUAH>550.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/60/09/960/images/2226/2226.970.jpg</image>
+        <image>http://artstore.com.ua/wa-data/public/shop/products/60/09/960/images/2227/2227.970.jpg</image>
+        <image>http://artstore.com.ua/wa-data/public/shop/products/60/09/960/images/2228/2228.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Наручные часы Атомные цветы</name>
+        <description>Новые эксклюзивные наручные часы Атомные цветы с паттенрном из атомов в нордическом черно-белом стиле</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>959</id>
+        <url>http://artstore.com.ua/naruchnye-chasy-foggy-forest/</url>
+        <priceRUAH>450.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/59/09/959/images/2223/2223.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Наручные часы Foggy Forest</name>
+        <description>Минимализм, черный с белым, скандинавский стиль все такое - это про вас? Вам уже подходят эти часы. Наручные часы Туманный лес без цифр с минимумом красок с максимумом безмятежности на 3 квадратных сантиметрах вашего запястья.</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>958</id>
+        <url>http://artstore.com.ua/naruchnye-chasy-who-cares/</url>
+        <priceRUAH>450.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/58/09/958/images/2222/2222.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Наручные часы Who cares</name>
+        <description>Наручные часы Who Cares на красном ремешке с цветными цифрами и веселым дизайном.</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>956</id>
+        <url>http://artstore.com.ua/naruchnye-chasy-busy/</url>
+        <priceRUAH>450.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/56/09/956/images/2203/2203.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Наручные часы Busy</name>
+        <description>Наручные часы на белом ремешке с абстракцией на циферблате в мятных тонах.</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>951</id>
+        <url>http://artstore.com.ua/naruchnye-chasy-meduza/</url>
+        <priceRUAH>520.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/51/09/951/images/2184/2184.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Наручные часы Медуза</name>
+        <description>Дизайнерские недорогие часы Медуза с белым плетеным ремешком из натуральной кожи на кнопках</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>950</id>
+        <url>http://artstore.com.ua/naruchnye-chasy-skelet-bliznetsov/</url>
+        <priceRUAH>520.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/50/09/950/images/2180/2180.970.jpg</image>
+        <image>http://artstore.com.ua/wa-data/public/shop/products/50/09/950/images/2179/2179.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Наручные часы Скелет близнецов</name>
+        <description>Оригинальные наручные часы со скелетом в винтажном стиле на широком ремешке из кожи.</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>905</id>
+        <url>http://artstore.com.ua/eksklyuzivnye-chasy-fuck-eat/</url>
+        <priceRUAH>520.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/05/09/905/images/2019/2019.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Эксклюзивные часы Фак Ит</name>
+        <description>Прикольные дизайнерские часы с минималистичным циферблатом в черно белых тонах. Вместо цифр использованы слова fuck, eat, drink и т.д., чтобы вы всегда могли заниматься своим любимым делом соблюдая расписание</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>898</id>
+        <url>http://artstore.com.ua/eksklyuzivnye-chasy-deer/</url>
+        <priceRUAH>520.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/98/08/898/images/2005/2005.970.jpg</image>
+        <image>http://artstore.com.ua/wa-data/public/shop/products/98/08/898/images/2004/2004.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Эксклюзивные часы Deer</name>
+        <description>Классные хипстерские часы с оленем, вернее с головой оленя в классических черно-белых тонах на эксклюзивном кожаном ремешке с узкими лямками</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>676</id>
+        <url>http://artstore.com.ua/naruchnye-chasy-zdes-i-seychas-pikselnye/</url>
+        <priceRUAH>450.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/76/06/676/images/1618/1618.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Наручные часы Здесь и сейчас (пиксельные)</name>
+        <description>Прикольные хитовые наручные часы Здесь и сейчас в стиле пиксельной графики, в отличии от прошлой версии на цифербрате также напечатана шкала времени</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>675</id>
+        <url>http://artstore.com.ua/naruchnye-chasy-triangulyatsiya/</url>
+        <priceRUAH>450.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/75/06/675/images/1616/1616.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Наручные часы Триангуляция</name>
+        <description>Часы в стиле модерн с цветным узором на циферблате из множества треугольников</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>674</id>
+        <url>http://artstore.com.ua/naruchnye-chasy-gigantoman/</url>
+        <priceRUAH>450.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/74/06/674/images/1615/1615.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Наручные часы Гигантоман</name>
+        <description>Прикольные наручные часы с огромными цифрами, которые не вмещаются в циферблат.</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>673</id>
+        <url>http://artstore.com.ua/naruchnye-chasy-modcat/</url>
+        <priceRUAH>450.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/73/06/673/images/1614/1614.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Наручные часы Modcat</name>
+        <description>Часы с бирюзовым циферблатом и рисунком кошки на нем.</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>664</id>
+        <url>http://artstore.com.ua/eksklyuzivnye-chasy-void/</url>
+        <priceRUAH>550.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/64/06/664/images/1596/1596.970.jpg</image>
+        <image>http://artstore.com.ua/wa-data/public/shop/products/64/06/664/images/1595/1595.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Эксклюзивные часы Void</name>
+        <description>Эксклюзивные наручные часы с пустым белым циферблатов, лимитированная партия.</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>658</id>
+        <url>http://artstore.com.ua/naruchnye-antichasy-retro-motus/</url>
+        <priceRUAH>660.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/58/06/658/images/1582/1582.970.jpg</image>
+        <image>http://artstore.com.ua/wa-data/public/shop/products/58/06/658/images/1581/1581.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Наручные античасы Retro Motus</name>
+        <description>Retro Motus - классические часы с обратным ходом на оригинальном кожаном ремешке с подкладкой под корпус часов.</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>657</id>
+        <url>http://artstore.com.ua/naruchnye-chasy-radiometr/</url>
+        <priceRUAH>550.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/57/06/657/images/1580/1580.970.jpg</image>
+        <image>http://artstore.com.ua/wa-data/public/shop/products/57/06/657/images/1579/1579.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Наручные часы Радиометр</name>
+        <description>Новые оригинальные наручные часы с рисунком радиометра на циферблате могут быть креативным подарком физикам-ядерщикам:)</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>656</id>
+        <url>http://artstore.com.ua/naruchnye-chasy-urban/</url>
+        <priceRUAH>550.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/56/06/656/images/1577/1577.970.jpg</image>
+        <image>http://artstore.com.ua/wa-data/public/shop/products/56/06/656/images/1578/1578.970.jpg</image>
+        <image>http://artstore.com.ua/wa-data/public/shop/products/56/06/656/images/1576/1576.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Наручные часы Urban</name>
+        <description>Если вы в поиске мужских часов в подарок, чтобы они были не просто часами, а еще и ярким аксессуаром. Считайте, что вы их нашли - стандартные часы с минималистичным циферблатом на эксклюзивном кожаном ремне с двумя пряжками</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>649</id>
+        <url>http://artstore.com.ua/antichasy-nichosi-gift/</url>
+        <priceRUAH>570.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/49/06/649/images/1553/1553.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Античасы Ничоси</name>
+        <description>Ничоси - сувенирные часы с функцией обратного хода и зеркальными цифрами  на черном классическом ремешке</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>646</id>
+        <url>http://artstore.com.ua/naruchnye-chasy-fox/</url>
+        <priceRUAH>500.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/46/06/646/images/1549/1549.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Наручные часы Fox</name>
+        <description>Оригинальные женские часики с рисунком лисы. Маленький корпус 30 мм на белом ремешке.</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>643</id>
+        <url>http://artstore.com.ua/eksklyuzivnye-chasy-rock/</url>
+        <priceRUAH>550.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/43/06/643/images/1542/1542.970.jpg</image>
+        <image>http://artstore.com.ua/wa-data/public/shop/products/43/06/643/images/1541/1541.970.jpg</image>
+        <image>http://artstore.com.ua/wa-data/public/shop/products/43/06/643/images/1540/1540.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Эксклюзивные часы Rock</name>
+        <description>Яркие хендмейд часы Rock на двухцветном кожаном браслете ручной работы с гитарами и черепом на цифеблате. Все в стиле олдскул</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>635</id>
+        <url>http://artstore.com.ua/naruchnye-chasy-you-are-offline/</url>
+        <priceRUAH>520.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/35/06/635/images/1529/1529.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Наручные часы You are offline</name>
+        <description>Прикольные наручные часы для подарка интернет зависимым людям, вебмастерам и другим людям, которые в восторге от технологии интернет. Часы напомнят им, что они сейчас оффлайн!</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>634</id>
+        <url>http://artstore.com.ua/eksklyuzivnye-chasy-the-war/</url>
+        <priceRUAH>550.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/34/06/634/images/1527/1527.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Эксклюзивные часы The War</name>
+        <description>Наручные часы в стиле Grunge на военном кожаном ремешке Military Stitch из дублированной кожи. На циферблате рисунок солдата в противогазе.</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>633</id>
+        <url>http://artstore.com.ua/eksklyuzivnye-chasy-ahs/</url>
+        <priceRUAH>550.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/33/06/633/images/1526/1526.970.jpg</image>
+        <image>http://artstore.com.ua/wa-data/public/shop/products/33/06/633/images/1524/1524.970.jpg</image>
+        <image>http://artstore.com.ua/wa-data/public/shop/products/33/06/633/images/1525/1525.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Эксклюзивные часы AHS</name>
+        <description>Сувенирные наручные часы для фанатов сериала Американская история ужасов по мотивам 4 сезона (Цирк Уродов)</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>507</id>
+        <url>http://artstore.com.ua/eksklyuzivnye-chasy-magicheskaya-doska/</url>
+        <priceRUAH>520.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/07/05/507/images/1177/1177.970.jpg</image>
+        <image>http://artstore.com.ua/wa-data/public/shop/products/07/05/507/images/1176/1176.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Эксклюзивные часы Магическая доска</name>
+        <description>Эксклюзивные часы на кожаном браслете с хольнитенами на кнопках. Циферблат стилизован под магическую доску Уиджа с латинскими буквами. Если стрелки на часах вдруг начнут посылать вам сообщения из потустороннего мира, то мы тут не причем.</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>506</id>
+        <url>http://artstore.com.ua/eksklyuzivnye-chasy-goroskop-keltov/</url>
+        <priceRUAH>520.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/06/05/506/images/1175/1175.970.jpg</image>
+        <image>http://artstore.com.ua/wa-data/public/shop/products/06/05/506/images/1174/1174.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Эксклюзивные часы Гороскоп Кельтов</name>
+        <description>Вы встали на путь медиума? Разговариваете с загадочными существами, вызываете духов и предсказываете судьбу? У вас уже должно сложиться ощущение неполного образа без наших эксклюзивных часов с гороскопом кельтов на эксклюзивном кнопочном браслете из натуральной кожи.</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>505</id>
+        <url>http://artstore.com.ua/naruchnye-chasy-5-minut/</url>
+        <priceRUAH>520.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/05/05/505/images/1172/1172.970.jpg</image>
+        <image>http://artstore.com.ua/wa-data/public/shop/products/05/05/505/images/1173/1173.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Наручные часы 5 минут</name>
+        <description>Часы 5 минут в запасе на нейлоновом ремешке цвета хаки для людей, которые переводят часы вперед для запаса времени.</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>494</id>
+        <url>http://artstore.com.ua/naruchnye-chasy-trizub/</url>
+        <priceRUAH>520.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/94/04/494/images/1153/1153.970.jpg</image>
+        <image>http://artstore.com.ua/wa-data/public/shop/products/94/04/494/images/1152/1152.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Наручные часы Тризуб</name>
+        <description>Классические наручные часы с украинским тризубом в серебряном цвете на черном фоне. Циферблат с римскими цифрами на циферблате.</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>483</id>
+        <url>http://artstore.com.ua/eksklyuzivnye-chasy-winter-is-coming/</url>
+        <priceRUAH>570.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/83/04/483/images/1171/1171.970.jpg</image>
+        <image>http://artstore.com.ua/wa-data/public/shop/products/83/04/483/images/1167/1167.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Эксклюзивные часы Winter is coming</name>
+        <description>Новые сувенирные наручные часы Winter is coming по мотивам серии книг "Песнь льда и пламени" с винтажным циферблатом на серебряном фоне. Ремешок часов выполнен из натуральной кожи, окрашенной в темно синий цвет.</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>482</id>
+        <url>http://artstore.com.ua/chasy-s-odnoy-strelkoy-jumper-black-jp/</url>
+        <priceRUAH>650.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/82/04/482/images/1129/1129.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Часы с одной стрелкой Jumper Black JP</name>
+        <description>Отличные часы на подарок неординарной избалованной личности, а также хороший способ удивить юбиляра. Это часы с одной стрелкой на основе японского кварцевого механизма на ретро ремешке ручной работы</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>481</id>
+        <url>http://artstore.com.ua/jumper-jp-chasy-s-odnoy-strelkoy/</url>
+        <priceRUAH>650.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/81/04/481/images/2485/2485.970.jpg</image>
+        <image>http://artstore.com.ua/wa-data/public/shop/products/81/04/481/images/2484/2484.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Jumper JP часы с одной стрелкой</name>
+        <description>Часы с одной стрелкой ручной сборки на основе японского механизма с оригинальным хендмейд ремешком из натуральной кожи, прошитым по контуру</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>475</id>
+        <url>http://artstore.com.ua/chasy-dvoichnye-s-ciframi-v-dvoichnom-kode/</url>
+        <priceRUAH>520.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/75/04/475/images/1104/1104.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Эксклюзивные часы Двоичная система</name>
+        <description>Прикольные наручные часы Двоичная система с цифрами в двоичном коде на циферблате на широком кожаном браслете ручной работы в темных тонах. Черный циферблат и  ремешок.</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>473</id>
+        <url>http://artstore.com.ua/naruchnye-chasy-tree-of-life-na-nato-remeshke/</url>
+        <priceRUAH>520.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/73/04/473/images/1102/1102.970.jpg</image>
+        <image>http://artstore.com.ua/wa-data/public/shop/products/73/04/473/images/1101/1101.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Наручные часы Tree of Life на НАТО ремешке</name>
+        <description>Женские наручные часы с рисунков дерева жизни. Оснащены черным нейлоновым ремешком НАТО.</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>472</id>
+        <url>http://artstore.com.ua/eksklyuzivnye-chasy-da-frant-vintage/</url>
+        <priceRUAH>550.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/72/04/472/images/1100/1100.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Эксклюзивные часы da Frant Vintage</name>
+        <description>Новые часы в коллекции da Frant от ArtStore, на этот раз использован длинный ремешок Duo коричневого цвета и циферблат под "золото".</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>471</id>
+        <url>http://artstore.com.ua/eksklyuzivnye-chasy-mre-et-enfant/</url>
+        <priceRUAH>520.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/71/04/471/images/1099/1099.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Эксклюзивные часы Mère et enfant</name>
+        <description>Часы Mère et enfant на эксклюзивном кожаном широком браслете цвета охры с двумя пряжками.</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>470</id>
+        <url>http://artstore.com.ua/chasy-darkness-classic/</url>
+        <priceRUAH>450.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/70/04/470/images/1098/1098.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Наручные часы Darkness Classic</name>
+        <description>Оригинальные наручные часы  Darkness Classic со взрослым рисунком на циферблате в стиле скетч.</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>469</id>
+        <url>http://artstore.com.ua/eksklyuzivnye-chasy-darkness-consumes/</url>
+        <priceRUAH>520.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/69/04/469/images/1097/1097.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Эксклюзивные часы Darkness Consumes</name>
+        <description>Эксклюзивные наручные часы Darkness Consumes, когда темнота вас поглощает. Очень интересный циферблат.</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>468</id>
+        <url>http://artstore.com.ua/eksklyuzivnye-chasy-ukraine-srest/</url>
+        <priceRUAH>520.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/68/04/468/images/1095/1095.970.jpg</image>
+        <image>http://artstore.com.ua/wa-data/public/shop/products/68/04/468/images/1096/1096.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Эксклюзивные часы Ukraine Сrest</name>
+        <description>Эксклюзивные наручные часы Ukraine Сrest на широком ремешке, циферблат часов с гербом Украины на фоне флага Украины.</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>467</id>
+        <url>http://artstore.com.ua/eksklyuzivnye-chasy-8ball/</url>
+        <priceRUAH>520.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/67/04/467/images/1093/1093.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Эксклюзивные часы 8ball</name>
+        <description>Эксклюзивные наручные часы Шар предсказаний 8 на широком кожаном ремешке ручной работы.</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>466</id>
+        <url>http://artstore.com.ua/naruchnye-chasy-rusalki/</url>
+        <priceRUAH>450.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/66/04/466/images/1092/1092.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Наручные часы Русалки</name>
+        <description>Наручные часы с рисунком Русалок.</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>463</id>
+        <url>http://artstore.com.ua/naruchnye-chasy-ukrainskiy-gerb-we/</url>
+        <priceRUAH>450.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/63/04/463/images/1090/1090.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Наручные часы Украинский Герб WE</name>
+        <description>Наручные часы с гербом Украины и крупными арабскими цифрами на белом или черном классическом ремешке</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>462</id>
+        <url>http://artstore.com.ua/naruchnye-chasy-zdes-i-seychas-s-metkami/</url>
+        <priceRUAH>450.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/62/04/462/images/1088/1088.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Наручные часы Здесь и сейчас с метками</name>
+        <description>Часы на классическом ремешке с принтом Здесь и сейчас и метками времени. Это вторая версия популярных часов из нашего каталога.</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>461</id>
+        <url>http://artstore.com.ua/naruchnye-chasy-bilyardnyy-shar/</url>
+        <priceRUAH>450.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/61/04/461/images/1089/1089.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Наручные часы Бильярдный шар</name>
+        <description>Наручные часы с рисунком бильярдного шара предсказаний (8ка) на класическом черном ремешке</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>460</id>
+        <url>http://artstore.com.ua/naruchnye-chasy-gerb-ukrainy-tsvetochnyy/</url>
+        <priceRUAH>450.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/60/04/460/images/1086/1086.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Наручные часы Герб Украины Цветочный</name>
+        <description>Наручные часы с национальным гербом в цветочном оформлении на черном классическом ремешке.</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>459</id>
+        <url>http://artstore.com.ua/naruchnye-chasy-derevo-zhizni/</url>
+        <priceRUAH>450.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/59/04/459/images/1085/1085.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Наручные часы Дерево жизни</name>
+        <description>Часы на оранжевом ремешке с рисунком дерева жизни на циферблате.</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>449</id>
+        <url>http://artstore.com.ua/eksklyuzivnye-chasy-renaissance/</url>
+        <priceRUAH>520.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/49/04/449/images/1062/1062.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Эксклюзивные часы Renaissance</name>
+        <description>Наручные часы на широком черном браслете с принтом в стиле ренессанс.</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>446</id>
+        <url>http://artstore.com.ua/chasy-s-dvumya-mekhanizmami-duotime/</url>
+        <priceRUAH>800.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/46/04/446/images/1049/1049.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Часы с двумя механизмами DuoTime</name>
+        <description>Большие квадратные часы с двумя независимыми механизмами для путешественников и офисных белых воротничков.</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>445</id>
+        <url>http://artstore.com.ua/chasy-sokol-na-nato-remeshke/</url>
+        <priceRUAH>520.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/45/04/445/images/1046/1046.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Часы Сокол на НАТО ремешке</name>
+        <description>Наручные часы на популярном ремешке НАТО черного цвета с изображением пикирующего сокола на циферблате в виде герба Украины.</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>443</id>
+        <url>http://artstore.com.ua/eksklyuzivnye-chasy-cherep/</url>
+        <priceRUAH>520.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/43/04/443/images/1040/1040.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Эксклюзивные часы Череп</name>
+        <description>Эксклюзивные наручные часы с черепом на циферблате в темных тонах на черном ремешке.</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>442</id>
+        <url>http://artstore.com.ua/eksklyuzivnye-chasy-zz-top/</url>
+        <priceRUAH>550.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/42/04/442/images/1039/1039.970.jpg</image>
+        <image>http://artstore.com.ua/wa-data/public/shop/products/42/04/442/images/1041/1041.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Эксклюзивные часы ZZ Top</name>
+        <description>Эксклюзивные наручные часы с музыкальной тематикой в стиле рок. На циферблате эмблема легендарной рок-группы ZZ Top</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>440</id>
+        <url>http://artstore.com.ua/naruchnye-antichasy-alisa-v-strane-chudes/</url>
+        <priceRUAH>660.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/40/04/440/images/1034/1034.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Наручные античасы Алиса в стране чудес</name>
+        <description>Кто хочет попрать все постулаты логики и здравого смысла может обратить свой взор на эти античасы. Кроме обратного хода часов, цифры на часах изображены в зеркальном виде.</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>438</id>
+        <url>http://artstore.com.ua/khendmeyd-chasy-vintazh/</url>
+        <priceRUAH>700.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/38/04/438/images/1030/1030.970.jpg</image>
+        <image>http://artstore.com.ua/wa-data/public/shop/products/38/04/438/images/1031/1031.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Хендмейд часы Винтаж</name>
+        <description>Эксклюзивные наручные часы Винтаж со швейцарским механизмом на ретро ремешке ручной работы из цельной натуральной кожи.</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>433</id>
+        <url>http://artstore.com.ua/naruchnye-chasy-sleza/</url>
+        <priceRUAH>520.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/33/04/433/images/1007/1007.970.jpg</image>
+        <image>http://artstore.com.ua/wa-data/public/shop/products/33/04/433/images/1006/1006.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Наручные часы Дзен</name>
+        <description>Наручные часы в стиле дзен с пустым белым циферблатом без цифр, логотипов и других атрибутов на белом кожаном ремешке.</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>426</id>
+        <url>http://artstore.com.ua/insomnia-exclusive-handmade-belt-watches/</url>
+        <priceRUAH>550.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/26/04/426/images/2198/2198.970.jpg</image>
+        <image>http://artstore.com.ua/wa-data/public/shop/products/26/04/426/images/2199/2199.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Insomnia Exclusive</name>
+        <description>Наручные часы Insomnia на коричневом хендмейд ремешке с оригинальной игловой застежкой в классическом форм-факторе.</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>422</id>
+        <url>http://artstore.com.ua/naruchnye-antichasy-insomnia/</url>
+        <priceRUAH>580.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/22/04/422/images/1528/1528.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Наручные античасы Insomnia</name>
+        <description>Классические наручные античасы Insomnia на кожаном ремешке. Сдержанный стильный дизайн циферблата в серо-стальных оттенках.</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>420</id>
+        <url>http://artstore.com.ua/naruchnye-chasy-life-is-short/</url>
+        <priceRUAH>450.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/20/04/420/images/978/978.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Наручные часы Life is short</name>
+        <description>Прикольные наручные часы с мотивационной надписью Life is too short to wait - ещё одна модель к линейке часов Now</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>419</id>
+        <url>http://artstore.com.ua/naruchnye-chasy-color-mixer/</url>
+        <priceRUAH>450.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/19/04/419/images/977/977.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Наручные часы Color Mixer</name>
+        <description>Яркие наручные часы для подарка дизайнерам с цветовым миксером на циферблате на белом кожаном ремешке.</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>417</id>
+        <url>http://artstore.com.ua/naruchnye-chasy-insomnia-vintage/</url>
+        <priceRUAH>450.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/17/04/417/images/975/975.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Наручные часы Insomnia Vintage</name>
+        <description>Наручные часы с римскими цифрами Insomnia Vintage. Аккуратный педантичный дизайн циферблата в желто-золотых тонах. Классический кожаный ремешок с текстурой ящерицы</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>416</id>
+        <url>http://artstore.com.ua/naruchnye-chasy-insomnia/</url>
+        <priceRUAH>450.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/16/04/416/images/974/974.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Наручные часы Insomnia</name>
+        <description>Наручные часы с римскими цифрами. Модель  с минималистичным дизайном циферблата в серо-стальных тонах. Классический кожаный ремешок черного цвета.</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>415</id>
+        <url>http://artstore.com.ua/naruchnye-chasy-gerb-ukrainy/</url>
+        <priceRUAH>450.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/15/04/415/images/973/973.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Наручные часы Герб Украины</name>
+        <description>Классические наручные часы с гербом Украины на черном ремешке в стиле минимализм.</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>413</id>
+        <url>http://artstore.com.ua/chasy-natsionalnnye-s-gerbom-i-flagom-ukrainy/</url>
+        <priceRUAH>450.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/13/04/413/images/941/941.970.JPG</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Наручные часы Национальные</name>
+        <description>Наручные часы с гербом Украины на фоне национального флага на циферблате на голубом классическом ремешке из серии Flat</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>399</id>
+        <url>http://artstore.com.ua/prostoy-yakor-zhenskie-chasy/</url>
+        <priceRUAH>500.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/99/03/399/images/912/912.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Наручные часы Якорь</name>
+        <description>Женские наручные часы с якорем на классическом черном ремешке из кожи. Минималистичный дизайн, маленький легкий корпус.</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>400</id>
+        <url>http://artstore.com.ua/aqua-flowers-chasy/</url>
+        <priceRUAH>500.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/00/04/400/images/913/913.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Наручные часы Акварели</name>
+        <description>Женские наручные часы с рисунком цветов в акварельном стиле. Маленький корпус, удобный кожаный ремешок.</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>401</id>
+        <url>http://artstore.com.ua/small-vintage-watches/</url>
+        <priceRUAH>500.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/01/04/401/images/914/914.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Наручные часы Vintage SM</name>
+        <description>Маленькие женские наручные часы с винтажным циферблатом. Классический форм-фактор, оригинальный циферблат.</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>402</id>
+        <url>http://artstore.com.ua/ejik-malenkie-chasy/</url>
+        <priceRUAH>500.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/02/04/402/images/915/915.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Наручные часы Ежик</name>
+        <description>Женские маленькие часы для девушек с Ежиком не в тумане на циферблате. Классика и поп-арт в одном флаконе.</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>403</id>
+        <url>http://artstore.com.ua/black-clockface-small-watches/</url>
+        <priceRUAH>500.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/03/04/403/images/916/916.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Наручные часы Murk SM</name>
+        <description>Оригинальные женские часы с абсолютно черным циферблатом. Минималистичный дизайн, классический форм фактор, удобный незаметный размер.</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>404</id>
+        <url>http://artstore.com.ua/small-music-female-watches/</url>
+        <priceRUAH>500.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/04/04/404/images/917/917.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Наручные часы Pink Floyd</name>
+        <description>Маленькие женские наручные часы с темным циферблатом Пинк Флойд.</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>405</id>
+        <url>http://artstore.com.ua/small-lady-watches-vignette/</url>
+        <priceRUAH>500.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/05/04/405/images/918/918.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Наручные часы Vignette SM</name>
+        <description>Женские наручные часы с розами на циферблате в винтажном стиле.</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>394</id>
+        <url>http://artstore.com.ua/naruchnye-chasy-simple-cat/</url>
+        <priceRUAH>450.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/94/03/394/images/981/981.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Наручные часы Simple Cat</name>
+        <description>Наручные часы с котом на циферблате на белом кожаном ремешке. Кот изображен в стиле минимал, а усы используются в виде отметок времени.</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>392</id>
+        <url>http://artstore.com.ua/naruchnye-chasy-butterfly-effect/</url>
+        <priceRUAH>450.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/92/03/392/images/2216/2216.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Наручные часы Butterfly Effect</name>
+        <description>Наручные часы c бабочкой на циферблате в винтажном стиле. Оснащены классическим кожаным ремешком и японским механизмом.</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>391</id>
+        <url>http://artstore.com.ua/antichasy-mvitruvius/</url>
+        <priceRUAH>650.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/91/03/391/images/898/898.970.jpg</image>
+        <image>http://artstore.com.ua/wa-data/public/shop/products/91/03/391/images/897/897.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Античасы M.Vitruvius</name>
+        <description>Наручные античасы Витрувианский человек с обратным ходом в винтажном стиле на широком ремешке ручной работы. Оригинальный рисунок витрувианского человека Леонардо Да Винчи.</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>390</id>
+        <url>http://artstore.com.ua/naruchnye-chasy-steam-power/</url>
+        <priceRUAH>520.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/90/03/390/images/895/895.970.jpg</image>
+        <image>http://artstore.com.ua/wa-data/public/shop/products/90/03/390/images/894/894.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Наручные часы Steam Power</name>
+        <description>Оригинальные молодежные  наручные часы на винтажном кожаном ремешке в стиле ретро, сделанным вручную. На циферблате изображен дирижабль на паровой тяге в стиле стимпанк.</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>386</id>
+        <url>http://artstore.com.ua/impossible/</url>
+        <priceRUAH>550.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/86/03/386/images/882/882.970.jpg</image>
+        <image>http://artstore.com.ua/wa-data/public/shop/products/86/03/386/images/881/881.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Наручные часы Impossible</name>
+        <description>Яркие оригинальные наручные часы Impossible на рокерском кожаном браслете с множеством кнопок. Контрастный мотив, оригинальный циферблат, внешний вид как у длинных ремешков.</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>380</id>
+        <url>http://artstore.com.ua/naruchnye-chasy-camouflage/</url>
+        <priceRUAH>520.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/80/03/380/images/868/868.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Наручные часы Camouflage</name>
+        <description>Оригинальные наручные часы с ремешком НАТО цвета хаки с камуфляжным циферблатом.</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>374</id>
+        <url>http://artstore.com.ua/naruchnye-chasy-mozaika/</url>
+        <priceRUAH>450.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/74/03/374/images/838/838.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Наручные часы Мозаика</name>
+        <description>Наручные часы Мозаика Пенроуза с гранжевым декоративным циферблатом. Отличный подарок на день рождения или просто так.</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>373</id>
+        <url>http://artstore.com.ua/antichasy-mozaika/</url>
+        <priceRUAH>580.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/73/03/373/images/837/837.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Античасы Мозаика</name>
+        <description>Наручные Античасы Мозаика Пенроуза. Эксклюзивный принт, броский дизайн и функции античасов. Отличный подарок на день рождения или просто так.</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>372</id>
+        <url>http://artstore.com.ua/antichasy-lemniscata/</url>
+        <priceRUAH>580.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/72/03/372/images/2218/2218.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Античасы Lemniscata</name>
+        <description>Женские наручные античасы Lemniscata со знаком бесконечности и  цветами роз на ярком малиновом фоне. Эксклюзивный принт, броский дизайн и функции античасов, а также белый ремешок и яркие насыщенные цвета не оставят вашу девушку равнодушной.</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>370</id>
+        <url>http://artstore.com.ua/naruchnye-chasy-lemniscata/</url>
+        <priceRUAH>450.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/70/03/370/images/2217/2217.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Наручные часы Lemniscata</name>
+        <description>Женские наручные часы Lemniscata со знаком бесконечности и цветами роз. Нежный бежевый ремешок, яркие насыщенные цвета.</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>369</id>
+        <url>http://artstore.com.ua/naruchnye-chasy-baroque/</url>
+        <priceRUAH>550.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/69/03/369/images/1077/1077.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Наручные часы Baroque</name>
+        <description>Винтажные наручные часы Baroque с циферблатом в стиле барокко.  Часы поставляются на эксклюзивном ремешке из натуральной кожи (хендмейд).</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>368</id>
+        <url>http://artstore.com.ua/naruchnye-chasy-pinch-pipe/</url>
+        <priceRUAH>520.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/68/03/368/images/830/830.970.jpg</image>
+        <image>http://artstore.com.ua/wa-data/public/shop/products/68/03/368/images/831/831.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Наручные часы Pitch Pipe</name>
+        <description>Рокерские наручные часы Pitch Pipe для музыкантов и, в частности, гитаристов с оригинальным циферблатом в виде легендарного духового камертона. Часы поставляются на эксклюзивном чёрном ремешке из натуральной кожи сделанным вручную.</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>365</id>
+        <url>http://artstore.com.ua/vignette-classic/</url>
+        <priceRUAH>450.00</priceRUAH> 
+              <categoryId type="Own">19</categoryId>
+        <image>http://artstore.com.ua/wa-data/public/shop/products/65/03/365/images/2219/2219.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Наручные часы Vignette Classic</name>
+        <description>Винтажные наручные часы с розами на классическом белом ремешке. Яркий дизайн, модный вид, японский механизм.</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>364</id>
+        <url>http://artstore.com.ua/vintazhnye-chasy-vignette/</url>
+        <priceRUAH>520.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/64/03/364/images/823/823.970.jpg</image>
+        <image>http://artstore.com.ua/wa-data/public/shop/products/64/03/364/images/839/839.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Винтажные часы Vignette</name>
+        <description>Винтажные наручные часы Vignette с красивыми розами на циферблате для любимых девушек, мам и сестричек. Широкий эксклюзивный ремешок из натуральной кожи и гарантия на 1 год</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>358</id>
+        <url>http://artstore.com.ua/chasy-na-remeshke-nato-courage/</url>
+        <priceRUAH>520.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/58/03/358/images/792/792.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Наручные часы Courage на ремешке Nato</name>
+        <description>Оригинальные наручные часы с рисунком орла на циферблате на прочном современном ремешке НАТО.</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>357</id>
+        <url>http://artstore.com.ua/polygon-chasy-remeshkom-nato/</url>
+        <priceRUAH>520.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/57/03/357/images/791/791.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Наручные часы Polygon на ремешке Nato</name>
+        <description>Модные наручные часы с необычным рисунком на циферблате в стиле псевдо 3d. Часы оснащены современным нейлоновым ремешком НАТО формата.</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>356</id>
+        <url>http://artstore.com.ua/naruchnye-chasy-ukrainskie/</url>
+        <priceRUAH>450.00</priceRUAH> 
+              <categoryId type="Own">19</categoryId>
+        <image>http://artstore.com.ua/wa-data/public/shop/products/56/03/356/images/920/920.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Наручные часы Украинские</name>
+        <description>Наручные часы на классическом ремешке с украинским этническим орнаментом традиционных вышиванок</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>355</id>
+        <url>http://artstore.com.ua/chasy-ukrainskie-tradicii/</url>
+        <priceRUAH>520.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/55/03/355/images/789/789.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Годинник Українські традиції</name>
+        <description>Наручний годинник з українською символікою вишиванок на ексклюзивному широкому браслеті зі шкіри</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>352</id>
+        <url>http://artstore.com.ua/military-replica-chasy-naruchnye/</url>
+        <priceRUAH>520.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/52/03/352/images/775/775.970.jpg</image>
+        <image>http://artstore.com.ua/wa-data/public/shop/products/52/03/352/images/776/776.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Наручные часы Military Replica</name>
+        <description>Оригинальные наручные часы в стиле милитари на длинном нейлоновом ремешке НАТО в цвете хаки.</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>351</id>
+        <url>http://artstore.com.ua/windrose-chasy-s-risunkom-kompasa/</url>
+        <priceRUAH>520.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/51/03/351/images/773/773.970.jpg</image>
+        <image>http://artstore.com.ua/wa-data/public/shop/products/51/03/351/images/774/774.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Наручные часы Windrose</name>
+        <description>Наручные часы с рисунком компаса на циферблате с нейлоновым ремешком НАТО в стиле милитари.</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>350</id>
+        <url>http://artstore.com.ua/roza-vetrov-chasy-naruchnye-s-remeshkom-nato/</url>
+        <priceRUAH>520.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/50/03/350/images/771/771.970.jpg</image>
+        <image>http://artstore.com.ua/wa-data/public/shop/products/50/03/350/images/772/772.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Наручные часы Роза ветров</name>
+        <description>Наручные часы на ремешке НАТО в стиле милитари с символом стилизованной Розы ветров.</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>347</id>
+        <url>http://artstore.com.ua/chasy-na-armeyskom-remeshke-nato-varyag/</url>
+        <priceRUAH>520.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/47/03/347/images/768/768.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Наручные часы Варяг</name>
+        <description>Наручные часы в стиле милитари на нейлоновом армейском ремешке нато с изображением флага крейсера-героя Варяга в стиле гранж.</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>342</id>
+        <url>http://artstore.com.ua/zhenskie-antichasy-kakaya-raznitsa/</url>
+        <priceRUAH>600.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/42/03/342/images/751/751.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Женские античасы Какая разница</name>
+        <description>Маленькие женские античасы Какая разница со строгим дизайном на черном ремешке</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>337</id>
+        <url>http://artstore.com.ua/chasy-music-life/</url>
+        <priceRUAH>450.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/37/03/337/images/730/730.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Наручные часы Music Life</name>
+        <description>Оригинальные наручные часы с клавишами пианино на циферблате. Строгий дизайн циферблата с римскими цифрами уравновешен творческими эффектами в стиле гранж.</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>230</id>
+        <url>http://artstore.com.ua/new-limited-bracelet-for-watch-with-watch/</url>
+        <priceRUAH>520.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/30/02/230/images/417/417.970.jpg</image>
+        <image>http://artstore.com.ua/wa-data/public/shop/products/30/02/230/images/416/416.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Наручные часы Дирижабль</name>
+        <description>Наручные часы винтажный Дирижабль на лимитированном браслете</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>227</id>
+        <url>http://artstore.com.ua/Vintage-collection-classicheskie-chasy/</url>
+        <priceRUAH>450.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/27/02/227/images/386/386.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Наручные часы Vintage Collection</name>
+        <description>Наручные часы на классическом ремешке с винтажным циферблатом</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>217</id>
+        <url>http://artstore.com.ua/chasy-so-sbegauschim-ciferblatom/</url>
+        <priceRUAH>450.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/17/02/217/images/381/381.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Наручные часы TimeFlies</name>
+        <description>Прикольные наручные часы с улетающим циферблатом</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>218</id>
+        <url>http://artstore.com.ua/chasy-s-formulami-matematiki-novye/</url>
+        <priceRUAH>450.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/18/02/218/images/345/345.970.jpg</image>
+        <image>http://artstore.com.ua/wa-data/public/shop/products/18/02/218/images/346/346.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Наручные часы Высшая математика</name>
+        <description>Молодёжные наручные часы с формулами высшей математики</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>219</id>
+        <url>http://artstore.com.ua/da-kakaya-raznica-naruchney-chasy-s-dostavkoy/</url>
+        <priceRUAH>450.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/19/02/219/images/349/349.970.jpg</image>
+        <image>http://artstore.com.ua/wa-data/public/shop/products/19/02/219/images/391/391.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Наручные часы Да какая разница?!</name>
+        <description>Прикольные наручные часы Да какая разница</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>220</id>
+        <url>http://artstore.com.ua/naruchnye-chasy-zdes-i-seichas/</url>
+        <priceRUAH>450.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/20/02/220/images/348/348.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Наручные часы Здесь и сейчас</name>
+        <description>Наручные часы Здесь и сейчас в классическом форм-факторе</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>221</id>
+        <url>http://artstore.com.ua/nedorogie-naruchnye-chasy-s-ciframi-kandzi/</url>
+        <priceRUAH>450.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/21/02/221/images/341/341.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Наручные часы Кандзи</name>
+        <description>Наручные часы с японскими цифрами Кандзи</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>222</id>
+        <url>http://artstore.com.ua/skripichnyi-kluch-chasy-na-klassicheskom-remeshke/</url>
+        <priceRUAH>450.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/22/02/222/images/368/368.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Наручные часы Скрипичный ключ</name>
+        <description>Оригинальные наручные часы Скрипичный ключ на классическом ремешке</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>223</id>
+        <url>http://artstore.com.ua/chasy-spiral-vremeni-neobychnye/</url>
+        <priceRUAH>450.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/23/02/223/images/378/378.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Наручные часы Спираль времени</name>
+        <description>Оригинальные наручные часы Спираль времени</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>224</id>
+        <url>http://artstore.com.ua/vintage-old-fregat-classic-watch/</url>
+        <priceRUAH>450.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/24/02/224/images/1492/1492.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Наручные часы Старый фрегат</name>
+        <description>Оригинальные наручные часы Фрегат в стиле ретро</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>225</id>
+        <url>http://artstore.com.ua/chasy-noty-na-kozhanom-remeshke/</url>
+        <priceRUAH>450.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/25/02/225/images/343/343.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Наручные часы Часы Ноты</name>
+        <description>Прикольные наручные часы Ноты на коричневом ремешке</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>226</id>
+        <url>http://artstore.com.ua/chasy-eifeleva-bashnya-naruchnye/</url>
+        <priceRUAH>450.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/26/02/226/images/364/364.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Наручные часы Часы Эйфелевая башня</name>
+        <description>Оригинальные наручные часы Эйфелевая башня</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>204</id>
+        <url>http://artstore.com.ua/sphynx-classic-watch-gift-interesting-clockface/</url>
+        <priceRUAH>450.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/04/02/204/images/402/402.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Наручные часы Sphynx Clock</name>
+        <description>Лимитированная серия часов с черным циферблатом  Sphinx</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>205</id>
+        <url>http://artstore.com.ua/chasy-so-spiraliu-vintajnye/</url>
+        <priceRUAH>450.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/05/02/205/images/379/379.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Наручные часы Spiral Vintage</name>
+        <description>Эксклюзивные наручные часы Винтажная Спираль</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>206</id>
+        <url>http://artstore.com.ua/star-kiss-watch-standart-belt-black/</url>
+        <priceRUAH>450.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/06/02/206/images/387/387.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Наручные часы Star Kiss</name>
+        <description>Оригинальные наручные часы Космический поцелуй</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>207</id>
+        <url>http://artstore.com.ua/swallow-souvenir-watches-with-roses/</url>
+        <priceRUAH>450.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/07/02/207/images/942/942.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Наручные часы Swallow</name>
+        <description>Оригинальные наручные женские часы с розами на голубом фоне и цветном классическом ремешке.</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>208</id>
+        <url>http://artstore.com.ua/telephone-classic-watch/</url>
+        <priceRUAH>450.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/08/02/208/images/403/403.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Наручные часы Telephone</name>
+        <description>Часы наручные Telephone</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>209</id>
+        <url>http://artstore.com.ua/vintage-stlouis-classic-watch/</url>
+        <priceRUAH>450.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/09/02/209/images/412/412.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Наручные часы Vintage Classic</name>
+        <description>Оригинальные классические часы Винтаж  (унисекс часы)</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>210</id>
+        <url>http://artstore.com.ua/whatever-im-late-anyways-watch/</url>
+        <priceRUAH>450.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/10/02/210/images/370/370.970.jpg</image>
+        <image>http://artstore.com.ua/wa-data/public/shop/products/10/02/210/images/372/372.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Наручные часы I am late anyways</name>
+        <description>Хитовые наручные часы "I am late anyway"</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>211</id>
+        <url>http://artstore.com.ua/gerber-classic-watch/</url>
+        <priceRUAH>450.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/11/02/211/images/2214/2214.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Наручные часы Wildflowers</name>
+        <description>Женские наручные часы Полевые цветы (Wildflowers)</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>212</id>
+        <url>http://artstore.com.ua/zig-zag-chasy-s-cvetnym-ciferblatom/</url>
+        <priceRUAH>450.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/12/02/212/images/373/373.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Наручные часы ZigZag</name>
+        <description>Яркие женские часы с цветным циферблатом Зигзаг</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>213</id>
+        <url>http://artstore.com.ua/antiwatch-anytime-handmade/</url>
+        <priceRUAH>620.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/13/02/213/images/375/375.970.jpg</image>
+        <image>http://artstore.com.ua/wa-data/public/shop/products/13/02/213/images/405/405.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Античасы Anytime</name>
+        <description>Наручные античасы Anytime на хендмейд ремешке</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>214</id>
+        <url>http://artstore.com.ua/antichasy-timeback-machine-klassica/</url>
+        <priceRUAH>580.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/14/02/214/images/385/385.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Античасы Timeback Machine</name>
+        <description>Наручные античасы Timeback Machine</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>215</id>
+        <url>http://artstore.com.ua/antiwatches-kakaya-raznica/</url>
+        <priceRUAH>580.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/15/02/215/images/374/374.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Античасы Какая разница</name>
+        <description>Наручные античасы Какая разница с обратным ходом</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>216</id>
+        <url>http://artstore.com.ua/antichasy-spiral-vremeny/</url>
+        <priceRUAH>580.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/16/02/216/images/384/384.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Античасы Спираль времени</name>
+        <description>Наручные античасы Спираль Времени на классическом ремешке</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>189</id>
+        <url>http://artstore.com.ua/originalnye-chasy-s-osminogom-morskaya-tematika/</url>
+        <priceRUAH>450.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/89/01/189/images/376/376.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Наручные часы Осьминог</name>
+        <description>Наручные часы с осьминогом в ретро стиле</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>190</id>
+        <url>http://artstore.com.ua/one-life-original-watch-unisex/</url>
+        <priceRUAH>450.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/90/01/190/images/359/359.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Наручные часы OneLife</name>
+        <description>Оригинальные наручные часы с мотоциклом Одна Жизнь</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>191</id>
+        <url>http://artstore.com.ua/owl-love-watch-on-white-band-to-the-moon/</url>
+        <priceRUAH>450.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/91/01/191/images/358/358.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Наручные часы Owl</name>
+        <description>Подарочные наручные часы с совой на белом кожаном ремешке</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>192</id>
+        <url>http://artstore.com.ua/paris-souvenir-wrist-watches-miyota/</url>
+        <priceRUAH>450.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/92/01/192/images/365/365.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Наручные часы Paris</name>
+        <description>Яркие сувенирные наручные часы Paris</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>193</id>
+        <url>http://artstore.com.ua/thewall-classic-watch/</url>
+        <priceRUAH>450.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/93/01/193/images/362/362.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Наручные часы Wall</name>
+        <description>Оригинальные наручные часы  Стена для любителей музыки</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>194</id>
+        <url>http://artstore.com.ua/pinup-classic-watches/</url>
+        <priceRUAH>450.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/94/01/194/images/366/366.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Наручные часы Pinup</name>
+        <description>Яркие оригинальные наручные часы Pinup</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>195</id>
+        <url>http://artstore.com.ua/polka-dot-watch-on-brown-band/</url>
+        <priceRUAH>450.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/95/01/195/images/413/413.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Наручные часы Polka Dot</name>
+        <description>Наручные часы в стиле Polka Dot (в горошек)</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>196</id>
+        <url>http://artstore.com.ua/prisma_unisex-classic-wrist-watches/</url>
+        <priceRUAH>450.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/96/01/196/images/367/367.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Наручные часы Prisma</name>
+        <description>Яркие оригинальные наручные часы унисекс Prisma</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>197</id>
+        <url>http://artstore.com.ua/original-wrist-watches-bright-clockface-classic/</url>
+        <priceRUAH>450.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/97/01/197/images/363/363.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Наручные часы Rainbow Classic</name>
+        <description>Яркие оригинальные наручные часы унисекс</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>198</id>
+        <url>http://artstore.com.ua/watches-with-raven-on-narrow-standart-belt/</url>
+        <priceRUAH>450.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/98/01/198/images/352/352.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Наручные часы Raven</name>
+        <description>Оригинальные наручные часы Черный Ворон</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>199</id>
+        <url>http://artstore.com.ua/replica-gift-classic-watch/</url>
+        <priceRUAH>450.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/99/01/199/images/399/399.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Наручные часы Replica</name>
+        <description>Лимитированная серия подарочных часов с винтажным циферблатом Replica</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>200</id>
+        <url>http://artstore.com.ua/chasy-s-tremya-rozami-na-classicheskom-remeshke/</url>
+        <priceRUAH>450.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/00/02/200/images/347/347.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Наручные часы Roses</name>
+        <description>Наручные часы с розами на циферблате</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>201</id>
+        <url>http://artstore.com.ua/naruchnye-chasy-sator/</url>
+        <priceRUAH>450.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/01/02/201/images/380/380.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Наручные часы Sator</name>
+        <description>Наручные часы хендмейд  Печать Соломона Sator</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>203</id>
+        <url>http://artstore.com.ua/skull-gift-watch-classic-format/</url>
+        <priceRUAH>450.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/03/02/203/images/401/401.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Наручные часы Skull</name>
+        <description>Подарочные наручные часы с черепом в стиле реализм</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>175</id>
+        <url>http://artstore.com.ua/moustache-watch-without-numerals-for-gentelmen/</url>
+        <priceRUAH>450.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/75/01/175/images/392/392.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Наручные часы Esquire</name>
+        <description>Лимитированная серия наручных часов с усами и котелком "Esquire"</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>179</id>
+        <url>http://artstore.com.ua/chasy-keep-on-going-hipster-style/</url>
+        <priceRUAH>450.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/79/01/179/images/404/404.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Наручные часы Keep On</name>
+        <description>Хендмейд часы Keep on going в хипстер стиле</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>181</id>
+        <url>http://artstore.com.ua/girl-surreal-print-classic-watch/</url>
+        <priceRUAH>450.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/81/01/181/images/400/400.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Наручные часы Lilia Nake Line</name>
+        <description>Молодёжные классические часы с принтом "Lilia Nake Line"</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>182</id>
+        <url>http://artstore.com.ua/mexico-skull-watch-on-leather-band/</url>
+        <priceRUAH>450.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/82/01/182/images/360/360.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Наручные часы Mexico</name>
+        <description>Наручные часы "Мексиканский череп"</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>184</id>
+        <url>http://artstore.com.ua/mustang-new-realism-watch/</url>
+        <priceRUAH>450.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/84/01/184/images/396/396.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Наручные часы Mustang</name>
+        <description>Наручные часы с лошадью Mustang на циферблате в черной гамме</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>185</id>
+        <url>http://artstore.com.ua/nautica-originalnye-chasy-s-risunkom-parusnika/</url>
+        <priceRUAH>450.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/85/01/185/images/2221/2221.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Наручные часы Nautical</name>
+        <description>Наручные часы хендмейд с рисунком парусника</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>186</id>
+        <url>http://artstore.com.ua/zhenskie-chasy-s-cvetami-na-temnom-ciferblate/</url>
+        <priceRUAH>450.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/86/01/186/images/361/361.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Наручные часы Night Flowers</name>
+        <description>Женские часы с цветами на темном фоне</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>187</id>
+        <url>http://artstore.com.ua/chasy-now-na-chernom/</url>
+        <priceRUAH>450.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/87/01/187/images/344/344.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Наручные часы Now</name>
+        <description>Унисекс часы Now на черном ремешке</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>188</id>
+        <url>http://artstore.com.ua/sea-girl-classic-watch/</url>
+        <priceRUAH>450.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/88/01/188/images/406/406.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Наручные часы Ocean Dream Classic</name>
+        <description>Лимитированная серия часов Ocean Dream Classic</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>167</id>
+        <url>http://artstore.com.ua/chasy-s-yakorem-born-free-classicheskie/</url>
+        <priceRUAH>450.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/67/01/167/images/382/382.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Наручные часы Born Free</name>
+        <description>Оригинальные наручные часы с якорем в стиле скетч</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>168</id>
+        <url>http://artstore.com.ua/brahma-print-unisex-classic-watch/</url>
+        <priceRUAH>450.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/68/01/168/images/388/388.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Наручные часы Brahma</name>
+        <description>Наручные часы с богом Брахма на циферблате</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>169</id>
+        <url>http://artstore.com.ua/british-flag-junior-classic-watch/</url>
+        <priceRUAH>450.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/69/01/169/images/389/389.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Наручные часы British Aquarelle</name>
+        <description>Наручные часы с британским флагом на классическом ремешке</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>170</id>
+        <url>http://artstore.com.ua/carnival-watch-on-standart-belt/</url>
+        <priceRUAH>450.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/70/01/170/images/2220/2220.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Наручные часы Carnival Never Stop</name>
+        <description>Оригинальные наручные часы Карнавал</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>171</id>
+        <url>http://artstore.com.ua/cross-water-resistant-classic-watch/</url>
+        <priceRUAH>450.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/71/01/171/images/398/398.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Наручные часы Cross 21Th</name>
+        <description>Наручные часы с крестом Cross 21Th</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>172</id>
+        <url>http://artstore.com.ua/skripichnyiy-klyuch/</url>
+        <priceRUAH>450.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/72/01/172/images/712/712.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Наручные часы Das Auto</name>
+        <description>Оригинальные наручные часы Das Auto cо спидометром и  автомобилем на циферблате</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>173</id>
+        <url>http://artstore.com.ua/naruchnye-chasy-ny-circul-hipster-stil/</url>
+        <priceRUAH>450.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/73/01/173/images/377/377.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Наручные часы Dividers</name>
+        <description>Хипстерские хендмейд часы NY Dividers с циркулем</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>166</id>
+        <url>http://artstore.com.ua/Anchor-for-life/</url>
+        <priceRUAH>450.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/66/01/166/images/339/339.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Наручные часы Anchor for life</name>
+        <description>Лимитированная серия молодёжных часов с якорем  Anchor for life</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>88</id>
+        <url>http://artstore.com.ua/fairy-tale-original-watch-stitched/</url>
+        <priceRUAH>550.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/88/00/88/images/87/87.970.jpg</image>
+        <image>http://artstore.com.ua/wa-data/public/shop/products/88/00/88/images/89/89.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Эксклюзивные часы Fairy Tale</name>
+        <description>Оригинальные наручные часы на широком кожаном ремешке Fairy Tale</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>89</id>
+        <url>http://artstore.com.ua/Rosa-Majalis-watches-provence-style/</url>
+        <priceRUAH>520.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/89/00/89/images/88/88.970.jpg</image>
+        <image>http://artstore.com.ua/wa-data/public/shop/products/89/00/89/images/91/91.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Эксклюзивные часы Rosa Majalis</name>
+        <description>Наручные часы в стиле Прованс Rosa Majalis  на широком кожаном браслете</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>87</id>
+        <url>http://artstore.com.ua/watches-wide-belt-vintage/</url>
+        <priceRUAH>520.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/87/00/87/images/93/93.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Эксклюзивные часы Angel</name>
+        <description>Angel - наручные часы на широком кожаном ремешке с винтажным ангелом в викторианском стиле.</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>85</id>
+        <url>http://artstore.com.ua/watches-wide-tripple-belt-rome/</url>
+        <priceRUAH>550.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/85/00/85/images/92/92.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Эксклюзивные часы Saint</name>
+        <description>Часы с винтажным римским циферблатом на широком ремешке с заклёпками Saint</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>78</id>
+        <url>http://artstore.com.ua/belle-eiffel-paris-with-wide-leather-belt-vintage-print/</url>
+        <priceRUAH>550.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/78/00/78/images/2200/2200.970.jpg</image>
+        <image>http://artstore.com.ua/wa-data/public/shop/products/78/00/78/images/2202/2202.970.jpg</image>
+        <image>http://artstore.com.ua/wa-data/public/shop/products/78/00/78/images/2201/2201.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Эксклюзивные часы Belle Eiffel (Винтаж)</name>
+        <description>Наручные подарочные часы с широким ремешком  и винтажным циферблатом  Belle Eiffel</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>79</id>
+        <url>http://artstore.com.ua/just-vintage-wide-leather-belt-watch-citizen-miyota/</url>
+        <priceRUAH>520.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/79/00/79/images/71/71.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Эксклюзивные часы Just Vintage</name>
+        <description>Just Vintage  - наручные часы с винтажным циферблатом на широком ремешке коричневого цвета в старом стиле часов</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>80</id>
+        <url>http://artstore.com.ua/Mountain-Crew-watch-leather-bracelet/</url>
+        <priceRUAH>550.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/80/00/80/images/81/81.970.jpg</image>
+        <image>http://artstore.com.ua/wa-data/public/shop/products/80/00/80/images/76/76.970.jpg</image>
+        <image>http://artstore.com.ua/wa-data/public/shop/products/80/00/80/images/75/75.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Эксклюзивные часы Mountain Crew</name>
+        <description>Наручные часы на кожаном широком эксклюзивном браслете Mountain Crew</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>81</id>
+        <url>http://artstore.com.ua/big-ben-watches-on-wide-cuff/</url>
+        <priceRUAH>520.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/81/00/81/images/55/55.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Эксклюзивные часы Big Ben</name>
+        <description>Наручные часы Big Ben в винтажном стиле на широком кожаном браслете</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>82</id>
+        <url>http://artstore.com.ua/avion-watches-on-leather-cuff/</url>
+        <priceRUAH>550.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/82/00/82/images/53/53.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Эксклюзивные часы Avion</name>
+        <description>Купить кварцевые часы с изображением самолёта Avion на широком ремешке</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>83</id>
+        <url>http://artstore.com.ua/Dirigible-japan-kvarz-watches-on-belt/</url>
+        <priceRUAH>550.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/83/00/83/images/116/116.970.jpg</image>
+        <image>http://artstore.com.ua/wa-data/public/shop/products/83/00/83/images/65/65.970.jpg</image>
+        <image>http://artstore.com.ua/wa-data/public/shop/products/83/00/83/images/141/141.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Эксклюзивные часы Dirigible</name>
+        <description>Часы Dirigible - кварцевые часы с изображением дирижабля в винтажном стиле на широком ремешке с доставкой</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>84</id>
+        <url>http://artstore.com.ua/inda-music-guitar-watches-exclusive/</url>
+        <priceRUAH>550.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/84/00/84/images/70/70.970.jpg</image>
+        <image>http://artstore.com.ua/wa-data/public/shop/products/84/00/84/images/72/72.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Эксклюзивные часы Inda Music</name>
+        <description>Кварцевые часы с гитарой на широком браслете Inda Music</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>57</id>
+        <url>http://artstore.com.ua/kiss-the-rocket-watches-on-leather-belt/</url>
+        <priceRUAH>520.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/57/00/57/images/42/42.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Эксклюзивные часы Kiss the rocket</name>
+        <description>Оригинальные наручные часы в стиле сюрреализм на широком браслете с заклёпками</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>58</id>
+        <url>http://artstore.com.ua/music-clef-wristband-watches-on-red-leather-belt/</url>
+        <priceRUAH>550.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/58/00/58/images/47/47.970.jpg</image>
+        <image>http://artstore.com.ua/wa-data/public/shop/products/58/00/58/images/48/48.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Эксклюзивные часы Clef</name>
+        <description>Оригинальные наручные часы с декоративным циферблатом "Музыкальный ключ" на красном кожаном браслете</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>59</id>
+        <url>http://artstore.com.ua/vintage-flowers-watches-on-rivets-bracelet-leather/</url>
+        <priceRUAH>520.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/59/00/59/images/1071/1071.970.jpg</image>
+        <image>http://artstore.com.ua/wa-data/public/shop/products/59/00/59/images/1072/1072.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Эксклюзивные часы Flowers</name>
+        <description>Красивые часы с цветами роз на циферблате и необычным широким браслетом для девушек и женщин</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>60</id>
+        <url>http://artstore.com.ua/vintage-map-watch-on-leather-perforate-bracelet/</url>
+        <priceRUAH>520.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/60/00/60/images/37/37.970.jpg</image>
+        <image>http://artstore.com.ua/wa-data/public/shop/products/60/00/60/images/135/135.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Эксклюзивные часы Travellers</name>
+        <description>Наручные часы с винтажной картой мира в стиле винтаж</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>61</id>
+        <url>http://artstore.com.ua/scream-spiral-watch-on-wide-black-leather-band/</url>
+        <priceRUAH>550.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/61/00/61/images/781/781.970.png</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Эксклюзивные часы Scream</name>
+        <description>Прикольные  наручные часы в стиле сюрреализм со спиралью на циферблате</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>62</id>
+        <url>http://artstore.com.ua/chasy-v-goroshek-na-kozhanom-braslete/</url>
+        <priceRUAH>520.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/62/00/62/images/97/97.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Эксклюзивные часы Polka</name>
+        <description>Женские эксклюзивные наручные часы Polka в горошек</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>63</id>
+        <url>http://artstore.com.ua/vintage_paris_watch_on_exclusive_leather_belt/</url>
+        <priceRUAH>550.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/63/00/63/images/777/777.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Эксклюзивные часы Vintage Paris</name>
+        <description>Наручные часы винтажный Париж на эксклюзивном кожаном браслете с клёпками</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>64</id>
+        <url>http://artstore.com.ua/paisley_watch_on_orange_leather_wide_bracelet/</url>
+        <priceRUAH>520.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/64/00/64/images/125/125.970.jpg</image>
+        <image>http://artstore.com.ua/wa-data/public/shop/products/64/00/64/images/126/126.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Эксклюзивные часы Paisley</name>
+        <description>Женские эксклюзивные наручные часы Пейсли на ярком кожаном браслете с двумя лямками</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>65</id>
+        <url>http://artstore.com.ua/buddha-watch-on-wide-leather-bracelet/</url>
+        <priceRUAH>520.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/65/00/65/images/30/30.970.jpg</image>
+        <image>http://artstore.com.ua/wa-data/public/shop/products/65/00/65/images/29/29.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Эксклюзивные часы Buddha Watch</name>
+        <description>Наручные часы с изображением Будды на эксклюзивном кожаном браслете с бронзовыми клепками.</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>66</id>
+        <url>http://artstore.com.ua/fashn-watch-kanji-on-leather-bracelet/</url>
+        <priceRUAH>520.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/66/00/66/images/118/118.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Эксклюзивные часы Kanji</name>
+        <description>Наручные часы с японским циферблатом Кандзи на широком белом кожаном браслете</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>67</id>
+        <url>http://artstore.com.ua/vintage-notes-wristband-watches/</url>
+        <priceRUAH>520.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/67/00/67/images/139/139.970.jpg</image>
+        <image>http://artstore.com.ua/wa-data/public/shop/products/67/00/67/images/140/140.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Эксклюзивные часы Винтажные нотки</name>
+        <description>Наручные часы с винтажными нотами и клавишами пианино на узком кожаном ремешке с перфорацией</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>68</id>
+        <url>http://artstore.com.ua/chasy-s-rozamy-na-cifeblate/</url>
+        <priceRUAH>520.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/68/00/68/images/35/35.970.jpg</image>
+        <image>http://artstore.com.ua/wa-data/public/shop/products/68/00/68/images/1059/1059.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Эксклюзивные часы inRoses</name>
+        <description>Яркие наручные часы с розами в стиле oldschool на новом кожаном браслете черного цвета</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>69</id>
+        <url>http://artstore.com.ua/flora-chasy-s-cvetami-na-belom-braslete/</url>
+        <priceRUAH>520.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/69/00/69/images/167/167.970.jpg</image>
+        <image>http://artstore.com.ua/wa-data/public/shop/products/69/00/69/images/166/166.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Эксклюзивные часы Flora</name>
+        <description>Наручные часы с цветами Flora на классном кожаном браслете белого цвета.</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>70</id>
+        <url>http://artstore.com.ua/chasy-s-keksikom-na-belom-kozhanom-braslete/</url>
+        <priceRUAH>520.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/70/00/70/images/33/33.970.jpg</image>
+        <image>http://artstore.com.ua/wa-data/public/shop/products/70/00/70/images/108/108.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Эксклюзивные часы Pikabu Cake</name>
+        <description>Наручные часы с ярким кексиком на циферблате на белом кожаном браслете</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>71</id>
+        <url>http://artstore.com.ua/chasy-dlya-literatorov-na-klassicheskom-handmade-remeshke/</url>
+        <priceRUAH>520.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/71/00/71/images/788/788.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Эксклюзивные часы Часы Пушкин</name>
+        <description>Наручные часы Пушкин на классическом хендмейд ремешке из натуральной кожи</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>72</id>
+        <url>http://artstore.com.ua/chasy-kot-filosof-na-shirokom-remeshke-sssr/</url>
+        <priceRUAH>520.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/72/00/72/images/32/32.970.jpg</image>
+        <image>http://artstore.com.ua/wa-data/public/shop/products/72/00/72/images/41/41.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Эксклюзивные часы Кот Философ</name>
+        <description>Наручные часы Кот Философ на широком ремешке из натуральной кожи со строчкой</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>74</id>
+        <url>http://artstore.com.ua/keep-going-exclusivnye-chasy/</url>
+        <priceRUAH>520.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/74/00/74/images/143/143.970.jpg</image>
+        <image>http://artstore.com.ua/wa-data/public/shop/products/74/00/74/images/144/144.970.jpg</image>
+        <image>http://artstore.com.ua/wa-data/public/shop/products/74/00/74/images/1058/1058.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Эксклюзивные часы Keep on going</name>
+        <description>Эксклюзивные наручные часы в хипстерском стиле на на широком ремешке</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>75</id>
+        <url>http://artstore.com.ua/chasy-retro-spiral-na-shirokom-remeshke/</url>
+        <priceRUAH>520.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/75/00/75/images/145/145.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Эксклюзивные часы Retro Spiral</name>
+        <description>Эксклюзивные наручные часы Ретро Спираль на широком ремешке с двумя пряжками на широкой основе в 6 см традиционного коричневого цвета</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>76</id>
+        <url>http://artstore.com.ua/exclusivnye-naruchnye-chasy-parusnik/</url>
+        <priceRUAH>550.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/76/00/76/images/1491/1491.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Эксклюзивные часы Парусник</name>
+        <description>Эксклюзивные наручные часы Парусник на широком ремешке</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>77</id>
+        <url>http://artstore.com.ua/jeune-retro-chasy/</url>
+        <priceRUAH>520.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/77/00/77/images/148/148.970.jpg</image>
+        <image>http://artstore.com.ua/wa-data/public/shop/products/77/00/77/images/147/147.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Эксклюзивные часы Jeune</name>
+        <description>Jeune - наручные часы на ретро ремешке с прошивкой</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>31</id>
+        <url>http://artstore.com.ua/we_are_all_made_of_Stars_exclusive_watches/</url>
+        <priceRUAH>520.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/31/00/31/images/779/779.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Эксклюзивные часы We are all made of Stars</name>
+        <description>Эксклюзивные наручные часы на широком браслете с заклёпками We are all made of Stars</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>32</id>
+        <url>http://artstore.com.ua/alice-in-wonderland-watches-on-white-bracelet/</url>
+        <priceRUAH>550.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/32/00/32/images/51/51.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Эксклюзивные часы Alice in Wonderland</name>
+        <description>Необычные наручные часы на эксклюзивном браслете  Alice in Wonderland</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>33</id>
+        <url>http://artstore.com.ua/wisdom-owl-vintage-woman-watches-on-white-wide-bracelet/</url>
+        <priceRUAH>520.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/33/00/33/images/85/85.970.jpg</image>
+        <image>http://artstore.com.ua/wa-data/public/shop/products/33/00/33/images/149/149.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Эксклюзивные часы Wisdom Owl</name>
+        <description>Женские наручные часы на белом широком кожаном ремешке с совой Wisdom Owl</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>34</id>
+        <url>http://artstore.com.ua/epatage-watches/</url>
+        <priceRUAH>520.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/34/00/34/images/1061/1061.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Эксклюзивные часы Epatage</name>
+        <description>Эпатажные наручные часы с крестом на циферблате на черном кожаном браслете в стиле наручей с перфорацией.</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>35</id>
+        <url>http://artstore.com.ua/eagle-classic-watches/</url>
+        <priceRUAH>550.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/35/00/35/images/66/66.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Эксклюзивные часы Eagle</name>
+        <description>Кварцевые часы на широком кожаном ремешке Eagle</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>36</id>
+        <url>http://artstore.com.ua/old-house-vintage-watches/</url>
+        <priceRUAH>550.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/36/00/36/images/162/162.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Эксклюзивные часы Old House</name>
+        <description>Наручные часы в стиле винтаж на необычном кожаном браслете с заклёпками Old House</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>37</id>
+        <url>http://artstore.com.ua/bright-original-wrist-watches-small-on-narrow-bracelet/</url>
+        <priceRUAH>520.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/37/00/37/images/163/163.970.jpg</image>
+        <image>http://artstore.com.ua/wa-data/public/shop/products/37/00/37/images/164/164.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Эксклюзивные часы Rainbow</name>
+        <description>Красивые женские часы Rainbow на длинном браслете белого цвета</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>38</id>
+        <url>http://artstore.com.ua/small-women-wrist-watches-provence-style/</url>
+        <priceRUAH>520.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/38/00/38/images/79/79.970.jpg</image>
+        <image>http://artstore.com.ua/wa-data/public/shop/products/38/00/38/images/80/80.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Эксклюзивные часы Provance Art</name>
+        <description>Оригинальные маленькие женские наручные часы в стиле Прованс на оригинальном браслете</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>39</id>
+        <url>http://artstore.com.ua/color-prisma-woman-small-wrist-watches/</url>
+        <priceRUAH>530.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/39/00/39/images/78/78.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Эксклюзивные часы Color Prisma</name>
+        <description>Оригинальные женские наручные часы на длинном кожаном ремешке</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>40</id>
+        <url>http://artstore.com.ua/butterlies-wrist-watches-unisex/</url>
+        <priceRUAH>550.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/40/00/40/images/34/34.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Эксклюзивные часы Butterfly</name>
+        <description>Сувенирные наручные часы с бабочками на циферблате Butterfly</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>41</id>
+        <url>http://artstore.com.ua/fortuna-greek-watches/</url>
+        <priceRUAH>550.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/41/00/41/images/165/165.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Эксклюзивные часы Fortuna</name>
+        <description>Сувенирные наручные часы с необычным греческим циферблатом "Богиня Fortuna"</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>42</id>
+        <url>http://artstore.com.ua/pinup-wrist-watches-exclusive/</url>
+        <priceRUAH>550.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/42/00/42/images/111/111.970.jpg</image>
+        <image>http://artstore.com.ua/wa-data/public/shop/products/42/00/42/images/112/112.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Эксклюзивные часы Gooday</name>
+        <description>Сувенирные наручные часы в стиле пинап Gooday</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>44</id>
+        <url>http://artstore.com.ua/black-vintage-watches-on-uno-strap-leather/</url>
+        <priceRUAH>520.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/44/00/44/images/26/26.970.jpg</image>
+        <image>http://artstore.com.ua/wa-data/public/shop/products/44/00/44/images/27/27.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Эксклюзивные часы Dark Vintage</name>
+        <description>Оригинальные наручные часы с тёмным циферблатом Dark Vintage (Dart Weider одобряет)</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>46</id>
+        <url>http://artstore.com.ua/dispersion-black-wacthes-on-bracelet-leather/</url>
+        <priceRUAH>550.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/46/00/46/images/40/40.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Эксклюзивные часы Dispersion</name>
+        <description>Наручные часы унисекс с черным циферблатом и иллюстрацией дисперсии света на широком браслете из кожи</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>47</id>
+        <url>http://artstore.com.ua/chasy-na-troynom-kozhanom-braclete-s-britanskim-flagom/</url>
+        <priceRUAH>520.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/47/00/47/images/142/142.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Эксклюзивные часы Британский флаг</name>
+        <description>Оригинальные маленькие женские наручные часы на длинном кожаном ремешке с британским флагом</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>48</id>
+        <url>http://artstore.com.ua/de-rose-vintage-watches-on-leather-bracelet-with-rivets/</url>
+        <priceRUAH>550.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/48/00/48/images/778/778.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Эксклюзивные часы De Rose</name>
+        <description>Яркие наручные часы на кожаном коричневом  браслете с заклёпками De Rose</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>49</id>
+        <url>http://artstore.com.ua/vinyl-plate-watches-on-leather-band/</url>
+        <priceRUAH>520.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/49/00/49/images/50/50.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Эксклюзивные часы Vinyl</name>
+        <description>Эксклюзивные наручные часы Vinyl с виниловой пластинкой</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>50</id>
+        <url>http://artstore.com.ua/Senteurs-De-Rose/</url>
+        <priceRUAH>520.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/50/00/50/images/132/132.970.jpg</image>
+        <image>http://artstore.com.ua/wa-data/public/shop/products/50/00/50/images/133/133.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Эксклюзивные часы Vintage</name>
+        <description>Маленькие  женские часы Винтаж на узком тройном браслете с заклёпками</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>51</id>
+        <url>http://artstore.com.ua/white-rabbit-watches-on-leather-cuff/</url>
+        <priceRUAH>550.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/51/00/51/images/136/136.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Эксклюзивные часы White Rabbit</name>
+        <description>Эксклюзивные наручные часы с рисунком по мотивам рассказа Алиса в стране чудес</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>52</id>
+        <url>http://artstore.com.ua/the-wall-original-wristwatch-on-black-bracelet/</url>
+        <priceRUAH>550.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/52/00/52/images/169/169.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Эксклюзивные часы The Wall</name>
+        <description>Оригинальные наручные часы на черном кожаном браслете с рисунком Pink Floyd The Wall</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>53</id>
+        <url>http://artstore.com.ua/da-vinci-wristband-watches-on-leather-belt/</url>
+        <priceRUAH>520.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/53/00/53/images/38/38.970.jpg</image>
+        <image>http://artstore.com.ua/wa-data/public/shop/products/53/00/53/images/113/113.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Эксклюзивные часы Da Vinci Code</name>
+        <description>Наручные часы Код Да Винчи с широким браслетом из кожи и викторианским циферблатом</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>54</id>
+        <url>http://artstore.com.ua/anchor-watches-on-leather-bracelet-black/</url>
+        <priceRUAH>520.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/54/00/54/images/25/25.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Эксклюзивные часы Anchor</name>
+        <description>Яркие наручные часы с якорем на циферблате для современных модников и моряков</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>55</id>
+        <url>http://artstore.com.ua/original-wristband-watches-on-leather-bracelet-motobike/</url>
+        <priceRUAH>520.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/55/00/55/images/43/43.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Эксклюзивные часы 1Life</name>
+        <description>Оригинальные наручные часы с мотоциклом на широком кожаном браслете</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>56</id>
+        <url>http://artstore.com.ua/dark-raven-watches-on-wide-leather-bracelet/</url>
+        <priceRUAH>550.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/56/00/56/images/39/39.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Эксклюзивные часы Dark Raven</name>
+        <description>Оригинальные наручные часы с вороном на широком кожаном ремешке</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>19</id>
+        <url>http://artstore.com.ua/british-white-wide-belt-watches/</url>
+        <priceRUAH>520.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/19/00/19/images/57/57.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Эксклюзивные часы British Flag Watch</name>
+        <description>Наручные часы с британским акварельным флагом на широком белом браслете из натуральной кожи под заказ с доставкой по Украине</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>20</id>
+        <url>http://artstore.com.ua/da-frant-accessories-vintage-watch-with-wide-bracelet/</url>
+        <priceRUAH>550.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/20/00/20/images/713/713.970.jpg</image>
+        <image>http://artstore.com.ua/wa-data/public/shop/products/20/00/20/images/138/138.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Эксклюзивные часы da Frant</name>
+        <description>Наручные часы в винтажном стиле da Frant на широком кожаном ремешке</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>21</id>
+        <url>http://artstore.com.ua/britain-flag-wide-belt-leather-watches/</url>
+        <priceRUAH>520.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/21/00/21/images/1060/1060.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Эксклюзивные часы British Flag Oldschool</name>
+        <description>Наручные часы с британским флагом на широком кожаном браслете</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>22</id>
+        <url>http://artstore.com.ua/wide-belt-white-girl-sea-watch-hipster/</url>
+        <priceRUAH>520.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/22/00/22/images/82/82.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Эксклюзивные часы Ocean Dream Wide Belt</name>
+        <description>Молодёжные наручные часы на широком белом ремешке с заклёпками и авторским хипстерским принтом девушки  Ocean Dream</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>23</id>
+        <url>http://artstore.com.ua/keep-calm-exclusive-watch/</url>
+        <priceRUAH>520.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/23/00/23/images/73/73.970.jpg</image>
+        <image>http://artstore.com.ua/wa-data/public/shop/products/23/00/23/images/74/74.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Эксклюзивные часы Keep Calm</name>
+        <description>Молодёжные наручные часы с эксклюзивным широким ремешком "Keep Calm"</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>24</id>
+        <url>http://artstore.com.ua/brahma-Hindi-wide-belt-classic-watch/</url>
+        <priceRUAH>520.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/24/00/24/images/54/54.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Эксклюзивные часы Brahma Watch</name>
+        <description>Лимитированная серия часов с широким ремешком и принтом бога Брахмы "Brahma Watch"</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>25</id>
+        <url>http://artstore.com.ua/eye-of-providnce-black-wide-belt-watch/</url>
+        <priceRUAH>520.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/25/00/25/images/60/60.970.jpg</image>
+        <image>http://artstore.com.ua/wa-data/public/shop/products/25/00/25/images/61/61.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Эксклюзивные часы Mason Triangle</name>
+        <description>Новая серия часов на широком кожаном ремешке с принтом глаза в треугольнике (лучезарная дельта)  "Mason Triangle"</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>26</id>
+        <url>http://artstore.com.ua/carnival-never-stop-grand-vintage-collection-watches/</url>
+        <priceRUAH>550.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/26/00/26/images/59/59.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Эксклюзивные часы Carnival Never Stop</name>
+        <description>Необычные подарочные часы на широком ремешке с заклёпками  Carnival Never Stop</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>27</id>
+        <url>http://artstore.com.ua/who-are-you-watch-on-exclusive-leather-wide-belt/</url>
+        <priceRUAH>550.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/27/00/27/images/86/86.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Эксклюзивные часы Who are you now?</name>
+        <description>Необычные подарочные часы на эксклюзивном кожаном ремешке  Who are you now?</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>28</id>
+        <url>http://artstore.com.ua/gentle-provence-style-watch-on-wide-cuff/</url>
+        <priceRUAH>520.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/28/00/28/images/69/69.970.jpg</image>
+        <image>http://artstore.com.ua/wa-data/public/shop/products/28/00/28/images/68/68.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Эксклюзивные часы Gentle</name>
+        <description>Женские наручные часы на широком кожаном браслете Gentle</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>29</id>
+        <url>http://artstore.com.ua/sparrow-watch-on-leather-cuff/</url>
+        <priceRUAH>520.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/29/00/29/images/840/840.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Эксклюзивные часы Sparrow</name>
+        <description>Молодёжные часы на широком кожаном браслете с кнопками и рисунком воробья Sparrow</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+      <item>
+<id>30</id>
+        <url>http://artstore.com.ua/elephant-man-exclusive-watches-on-leather-cuff-with-rivets/</url>
+        <priceRUAH>520.00</priceRUAH> 
+               <image>http://artstore.com.ua/wa-data/public/shop/products/30/00/30/images/67/67.970.jpg</image>
+ 
+        <vendor>ArtStore</vendor>
+        <param name="Страна изготовления">Украина</param>
+        <name>Эксклюзивные часы Elephant Man</name>
+        <description>Оригинальные наручные часы со слоном на циферблате на широком кожаном браслете с заклёпками</description>
+       <param name="Материал">Сплав с покрытием, натуральная кожа, японский механизм, стекло</param> 
+      </item>
+
+</items>
+</price>

@@ -1,0 +1,121 @@
+<?php
+//Цвета для 5,11 На шутрмуниформ
+$sturmuniform_511_color = array(
+                                'midnight'      => '008',
+                                'Charcoal'      => '018',
+                                'черная'        => '019',
+                                'черный'        => '019',
+                                'черные'        => '019',
+                                'black'         => '019',
+                                'asphalt'       => '021',
+                                'double tap'    => '026',
+                                'grey'          => '029',
+                                'Shadow'        => '036',
+                                'khaki'         => '055',
+                                'Stone'         => '070',
+                                'storm'         => '092',
+                                'Steam'         => '093',
+                                'Dark Coyote'   => '106',
+                                'Brown'         => '108',
+                                'коричневый'    => '108',
+                                'battle brow'   => '116',
+                                'койот'         => '120',
+                                'coyote'        => '120',
+                                'Flat Dark Earth' => '131',
+                                'FDE'           => '131',
+                                'scorched earth' => '133',
+                                'Silver Tan'    => '160',
+                                'MultiCam'      => '169',
+                                'OD green'      => '182',
+                                'олива'         => '182',
+                                'TAC OD'        => '188',
+                                'TDU Green'     => '190',
+                                'Moss'          => '191',
+                                'tundra'        => '192',
+                                'pine'          => '199',
+                                'Fatigue'       => '200',
+                                'Agave'         => '208',
+                                'Sandstone'     => '328',
+                                'Sandstone'     => '328',
+                                'Brick'         => '480',
+                                'Cobalt Blue'   => '701',
+                                'Fire Navy'     => '720',
+                                'Dark Navy'     => '724',
+                                'Sage'          => '833',
+                                'Sheriff Green'          => '890',
+                                
+                                );
+
+    $magelan_color = array(
+                            "Питон скала"   => "/photos/colors/19636D8E2D11B9B4_gyT4l_3W7r9.jpg",
+                            "Хаки"          => "/photos/colors/FFFBFCCD4449CA78_cdLem_YxsBq.jpg",
+                            "Питон ночь"    => "/photos/colors/822D67E71A7D1185_pjlt1_pKfQj.jpg",
+                            "с/г цифра"     => "/photos/colors/Sinyaya_Tsifra_k1Lf2_AYweB.jpg",
+                            "Черный"        => "/photos/colors/_mncuD.png",
+                            "Песок"         => "/photos/colors/568125CD0175EB32_sTNOa_q9Prv.jpg",
+                            "Питон лес "    => "/photos/colors/^E3C8D802F8948F6250C2388313DC9DB7D0A3BA15A92734BB65^pimgpsh_fullsize_distr_NdIXe.jpg",
+                            "Мох"           => "/photos/colors/7CA77194BA18AD55_Lw27H_DHGSr.jpg",
+                            "Мультикам"     => "/photos/colors/0AD8A51F35981F28_dlZJK_aWZ6Z.jpg",
+                            "Излом"         => "/photos/colors/EC5BFE96A9B3BF04_the8A_WeAQG.jpg",
+                            "Синий"         => "/photos/colors/_Z4hmE.png",
+                            " Камыш"        => "/photos/colors/DEA209E115D12757_3qrKt_NbeA4.jpg",
+                            "Зеленый камыш " => "/photos/colors/_dztnp.png",
+                            "Снег"          => "/photos/colors/снег1_thumb.jpg",
+                            "Лягушка"       => "/photos/colors/^D0F4E1A74836CD1E72CDFD188A4046DB2CCDA47CB15D254593^pimgpsh_fullsize_distr_ogceP_loj6G.jpg",
+                            "Лес"           => "/photos/colors/7565311E653FF9FD_go7JM_HACV1.jpg",
+                            "Туман"         => "/photos/colors/4E16689FECAD2B73_pdXSX_YXqav.jpg",
+                            "Зеленая цифра" => "/photos/colors/868E7C240A0523C5_d0AU9_81Uoz.jpg",
+                            "Зеленый"       => "/photos/colors/_yGkIM.png",
+                            "Иссиня-черный" => "/photos/colors/16_(1)_PT9r8.jpg",
+                            "Светло-голубой" => "/photos/colors/_zLNnC.png",
+                            "Белый"         => "/photos/colors/_uSFvj.png" 
+                           );
+
+       $magelan_color_table = array(
+                            "Питон скала"   => "001",
+                            "Хаки"          => "002",
+                            "Питон ночь"    => "003",
+                            "с/г цифра"     => "004",
+                            "Черный"        => "005",
+                            "Песок"         => "006",
+                            "Питон лес"     => "007",
+                            "Мох"           => "008",
+                            "Мультикам"     => "009",
+                            "Излом"         => "010",
+                            "Синий"         => "011",
+                            "Камыш"         => "012",
+                            "Зеленый камыш " => "014",
+                            "Снег"          => "015",
+                            "Лягушка"       => "016",
+                            "Лес"           => "017",
+                            "Туман"         => "018",
+                            "Зеленая цифра" => "019",
+                            "Зеленый"       => "020",
+                            "Иссиня-черный" => "021",
+                            "Светло-голубой" => "022",
+                            "Белый"         => "023" 
+                           );
+                                
+function ru2lat($str)
+{
+    $tr = array(
+    "А"=>"a", "Б"=>"b", "В"=>"v", "Г"=>"g", "Д"=>"d",
+    "Е"=>"e", "Ё"=>"yo", "Ж"=>"zh", "З"=>"z", "И"=>"i", 
+    "Й"=>"j", "К"=>"k", "Л"=>"l", "М"=>"m", "Н"=>"n", 
+    "О"=>"o", "П"=>"p", "Р"=>"r", "С"=>"s", "Т"=>"t", 
+    "У"=>"u", "Ф"=>"f", "Х"=>"kh", "Ц"=>"ts", "Ч"=>"ch", 
+    "Ш"=>"sh", "Щ"=>"sch", "Ъ"=>"", "Ы"=>"y", "Ь"=>"", 
+    "Э"=>"e", "Ю"=>"yu", "Я"=>"ya", "а"=>"a", "б"=>"b", 
+    "в"=>"v", "г"=>"g", "д"=>"d", "е"=>"e", "ё"=>"yo", 
+    "ж"=>"zh", "з"=>"z", "и"=>"i", "й"=>"j", "к"=>"k", 
+    "л"=>"l", "м"=>"m", "н"=>"n", "о"=>"o", "п"=>"p", 
+    "р"=>"r", "с"=>"s", "т"=>"t", "у"=>"u", "ф"=>"f", 
+    "х"=>"kh", "ц"=>"ts", "ч"=>"ch", "ш"=>"sh", "щ"=>"sch", 
+    "ъ"=>"", "ы"=>"y", "ь"=>"", "э"=>"e", "ю"=>"yu", 
+    "я"=>"ya", " "=>"-", "."=>"", ","=>"", "/"=>"-",  
+    ":"=>"", ";"=>"","—"=>"", "–"=>"-"
+    );
+return strtr($str,$tr);
+} 
+
+?>

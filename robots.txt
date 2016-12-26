@@ -1,0 +1,26 @@
+User-agent: *
+Disallow: /
+
+Disallow: /*page=
+Disallow: /_userfiles
+Disallow: /backend
+Disallow: /css
+Disallow: /fckeditor
+Disallow: /flash
+Disallow: /font
+Disallow: /highslide
+Disallow: /images
+Disallow: /img
+Disallow: /js
+Disallow: /media
+Disallow: /security
+Disallow: /temp
+Disallow: /upload
+Disallow: /callback
+Disallow: /registration
+
+Crawl-delay:10
+Host: plazamilano.com
+Sitemap: http://plazamilano.com/sitemap.xml
+
+

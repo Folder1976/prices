@@ -1,0 +1,40 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Плагин плавной прокрутки странице</title>
+
+<link href="styles/styles.css" rel="stylesheet" type="text/css" /> 
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+
+<script type="text/javascript">
+window.jQuery || document.write('<script type="text/javascript" src="js/jquery-1.6.2.min.js"><\/script>');
+</script>
+
+<script type="text/javascript" src="js/jquery.rotator.js"></script>
+
+<script type="text/javascript">
+$(function(){
+    
+	$('#rotator1').rotator({fx:'slide',autorun: true, nav: true});
+	$('#rotator2').rotator({fx:'fade',autorun: true, nav: false});
+})
+</script>
+
+</head>
+
+<body>
+
+<div class="top_menu">
+    <div class="title"><h1><a href="http://biznesguide.ru/coding/152.html">Ротатор баннеров</a></h1></div>
+    <div class="home"><a href="/"><<< На главную</a></div>
+</div>
+<div class="wrap">
+
+	<div class="rotator" id="rotator1"></div>
+	<div class="rotator" id="rotator2"></div>
+
+</div>
+
+</body>
+</html>

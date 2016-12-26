@@ -1,0 +1,134 @@
+#container_tree{
+    position: absolute;
+    padding: 10px;
+    top:55px;
+    left:15px;
+    border: 1px solid gray;
+    border-radius: 10px;
+    background-color: #F4F9EA;
+    text-align: left;
+     display: none; 
+    
+}
+container_tree h4{
+    padding: 5px;
+}
+ul{
+    margin: 0px 10px 5px 0px; 
+}
+.treeclosed{
+     display: block; 
+}
+.treeopened{
+     display: block; 
+}
+#treecloase{
+    float: right;
+}
+div a{
+	color: #0f0f0f;
+	text-decoration: none;
+}
+.product-type-tree {
+    width: 600px;
+   float: left;
+}
+.key_close {
+    float: right;
+}
+.product-type-edit table{
+    padding-left: 3px;
+    margin-left: 3px;
+}
+.product-type-edit button{
+     margin-left: 10px;
+     margin-top: 10px;
+}
+  
+    .product-type-edit input, textarea{
+        width: 300px;
+    }
+    
+    .product-type-edit  li {
+        list-style-type: none; 
+    }
+       
+    .product-type-edit ul {
+        margin-top: 45px;
+        margin-left: 20px; /* Отступ слева в браузере IE и Opera */
+        padding-left: 0; /* Отступ слева в браузере Firefox, Safari, Chrome */
+    }
+li {
+        padding-top: 0px;
+        padding-bottom: 0px;
+        list-style-type: none; 
+    }
+#navigation{
+	float: right;
+	width: 150px;
+}
+#intro{
+	width: 450px;
+}
+.drop_key a{
+ 	color: #191970;
+        text-decoration: none;
+}
+.drop_key a:hover{
+ 	color: #191970;
+        text-decoration: underline;
+}
+
+#header{
+	height: 60px;
+	color: #172322;
+	background: transparent url(images/header-corners.png) no-repeat bottom left;
+}
+
+#header h1
+{
+	padding:0;
+	margin:0;
+}
+
+#content{
+	background-color: #fff;
+	padding: 0 15px 10px 15px;
+
+} 
+
+#footer{
+	background-color: #fff;
+	padding:15px;
+  clear: both;
+}
+
+h2 {
+	border-bottom:2px solid #015287;
+	color: #D15600;
+	padding-top: 10px;
+  margin-top: 0;
+}
+
+.tree{
+    margin-left: 15px;
+}
+.tree_ul{
+    margin-left: 0px;
+    display:block;
+}
+.handle {
+	background: transparent url(images/tree-handle.png) no-repeat left top;
+	display:block;
+	float:left;
+	width:15px;
+	height:17px;
+	cursor:pointer;
+}
+.closed { background-position: left 2px; }
+.opened { background-position: left -13px; }
+
+li ul{
+    display: block;
+    padding: 0 10px 0 15px;
+}

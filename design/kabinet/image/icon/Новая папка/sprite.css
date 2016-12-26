@@ -1,0 +1,65 @@
+/*
+Icon classes can be used entirely standalone. They are named after their original file names.
+
+```html
+<!-- `display: block` sprite -->
+<div class="icon-home"></div>
+
+<!-- `display: inline-block` sprite -->
+<img class="icon-home" />
+```
+*/
+.icon-arrow_down {
+  background-image: url(sprite.png);
+  background-position: -37px -17px;
+  width: 7px;
+  height: 10px;
+}
+.icon-arrow_up {
+  background-image: url(sprite.png);
+  background-position: -32px -27px;
+  width: 7px;
+  height: 10px;
+}
+.icon-info {
+  background-image: url(sprite.png);
+  background-position: -29px 0px;
+  width: 17px;
+  height: 17px;
+}
+.icon-p2 {
+  background-image: url(sprite.png);
+  background-position: -20px -12px;
+  width: 9px;
+  height: 13px;
+}
+.icon-purse {
+  background-image: url(sprite.png);
+  background-position: 0px -12px;
+  width: 20px;
+  height: 15px;
+}
+.icon-rating {
+  background-image: url(sprite.png);
+  background-position: 0px 0px;
+  width: 29px;
+  height: 12px;
+}
+.icon-sum {
+  background-image: url(sprite.png);
+  background-position: -29px -17px;
+  width: 8px;
+  height: 10px;
+}
+.icon-swithc_on {
+  background-image: url(sprite.png);
+  background-position: 0px -27px;
+  width: 16px;
+  height: 16px;
+}
+.icon-swithc_pause {
+  background-image: url(sprite.png);
+  background-position: -16px -27px;
+  width: 16px;
+  height: 16px;
+}

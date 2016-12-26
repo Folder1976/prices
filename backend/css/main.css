@@ -1,0 +1,48 @@
+/* RESET */
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent;}
+body{line-height:1;}
+ol,ul{list-style:none;}
+blockquote,q{quotes:none;}
+blockquote:before,blockquote:after,q:before,q:after{content:'';content:none;}
+:focus{outline:0;}
+ins{text-decoration:none;}
+del{text-decoration:line-through;}
+table{border-collapse:collapse;border-spacing:0;}
+a{color:black;}
+body,html{width:100%;height:100%;margin:0px;padding:0px;}
+img{border:0px;}
+/*end*/
+
+html, body { height: auto; background: #e6e6e6 url(theme/foot_bg.png) bottom repeat-x; }
+body { font: normal 16px Tahoma, sans-serif; }            
+
+body>div { min-width: 780px; }
+
+.head { position: absolute; top: 0px; left: 0px; height: 230px; background: white url(theme/head_bg.png) repeat-x; width: 100%; }
+.head .logo { background: url(theme/logo.png) no-repeat; width: 516px; height: 126px; position: absolute; top: 10px; left: 0px; }
+.head div { margin:  0px 30px 0 55%; padding-top: 10px; }
+.head ul { overflow: hidden; padding-top: 10px; margin-top: -5px; font-size: 11px; }
+.head li { float: left; margin-right: 10px; }
+.head h3 { margin-top: 20px; font: normal italic 14px Constantia, serif; color: #cbff91; }
+.head a { color: white; }
+.head .selected { height: 19px; background: url(theme/selected.png) left no-repeat; padding-left: 5px; margin-right: 15px; margin-top: -2px; }
+.head .selected a { height: 19px; background: url(theme/selected.png) right no-repeat; color: black; display: block; padding-right: 5px; margin-right: -5px; line-height: 19px; }
+.head .selected span { height: 19px; background: url(theme/selected.png) right no-repeat; color: black; display: block; padding-right: 5px; margin-right: -5px; line-height: 19px; }
+
+.splash { position: relative; overflow: hidden; padding-top: 400px; margin-left: 10%; line-height: 1.5; zoom: 1; }
+.splash div { float: left; width: 30%; margin-right: 3%; }
+.splash h3 { margin-bottom: 10px; color: #262626; font: normal italic 18px Constantia, serif; }
+.splash li:before { content: '– '; color: gray; }
+.splash a { color: #035800; }
+
+.content { margin: 240px 400px 20px 60px; line-height: 1.7; }
+.content a { color: #035800; }
+
+h1, h2, h3, h4, h5, h6 { font-family: Constantia, serif; font-weight: normal; }
+h1 { font-size: 30px; }
+h2 { font-size: 24px; }
+h3 { font-size: 18px; }
+h4 { font-size: 16px; }
+h5 { font-size: 14px; font-weight: bold; }
+h6 { font-size: 14px; font-weight: bold; color: gray; }
+p { text-indent: 20px; margin: 10px 0; }
