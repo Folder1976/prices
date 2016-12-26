@@ -1,0 +1,788 @@
+/* General */
+html {
+    height: 100%;
+    font-family: $ff0;
+}
+
+body {
+    font-family: $ff0;
+    font-size: 14px;
+    color: #000;
+    height: 100%;
+}
+
+.page-wrapper {
+    min-height: 100%;
+    margin-bottom: -$footer_height;
+}
+.page-buffer {
+    height: $footer_height;
+}
+
+.g-container {
+    max-width: 1170px;
+    margin: 0 auto;
+}
+.g-flex-container {
+    display: flex;
+    justify-content: space-between;
+}
+.g-col {
+    &-left {
+        width: $width_col_left;
+        float: left;
+        &_prod {
+            width: 50%;
+            padding-right: 40px;
+        }
+    }
+    &-center {
+        width: calc(100% - #{$width_col_left + $width_col_right});
+        padding: 0 $width_col_center_padding_l 0 $width_col_center_padding_l;
+        float: left;
+
+    }
+    &-right {
+        width: $width_col_right;
+        float: right;
+        &_prod {
+            width: 50%;
+        }
+    }
+}
+.g-clear {
+    clear: both;
+}
+.g-row {
+    width: 100%;
+    overflow: hidden;
+}
+.g-minimized {
+    max-height: 0 !important;
+    padding: 0 !important;
+    border: 0 !important;
+    overflow: hidden;
+}
+
+.g-span-link {
+    cursor: pointer;
+    text-decoration: underline;
+    &:hover {
+        text-decoration: none;
+        opacity: 0.8;
+    }
+}
+.g-span-link_dotted {
+    cursor: pointer;
+    text-decoration: none;
+    border-bottom: 1px dotted #0e0e0e;
+    &:hover {
+        border-bottom: 1px dotted transparent;
+        opacity: 0.8;
+    }
+}
+.g-hidden {
+    display: none;
+}
+.g-tablet-show {
+    display: none;
+}
+.g-mob-show {
+    display: none;
+}
+.main {
+    margin-top: 10px;
+}
+
+a {
+    color: #010101;
+    text-decoration: none;
+    cursor: pointer;
+}
+a:hover {
+    color: #555;
+    text-decoration: underline;
+}
+
+.b-select {
+    // for WebKit
+    -webkit-appearance: none;
+    // for FF
+    -moz-appearance: none;
+    text-indent: 0.01px; 
+    text-overflow: '';
+    // for IE
+    -ms-appearance: none;
+    appearance: none!important;
+
+    background: #fff;
+    background-image: url('../img/select-arrow.png');
+    background-position: right center;
+    background-repeat: no-repeat;
+    border: none;
+    padding-right: 20px;
+    margin-right: 10px;
+    cursor: pointer;
+    &::-ms-expand {  // for IE
+      display: none;
+    }
+
+}
+
+.g-span-select {
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+    &__title {
+        white-space: nowrap;
+    }
+    ul {
+        position: absolute;
+        top: 1.3em;
+        right: 0;
+        border: 1px solid #39adff;
+        background: #fff;
+        @include box-shadow(0, 5px, 21px, rgba(22, 23, 24, 0.28));
+        li {
+            white-space: nowrap;
+            padding: 5px;
+            &.active {
+                font-weight: 600;
+            }
+            &:hover {
+                background: #39adff;
+            }
+        }
+    }
+    & &__hidden {
+        height: 0;
+        overflow: hidden;
+        border: 0px solid #39adff !important;
+    }
+}
+
+// ******************************************
+//             Form
+// ******************************************
+.f-form-wrap {
+    width: 100%;
+}
+.f-group {
+    width: 90%;
+    margin: 0 3% 25px 0;
+}
+.f-group-wrap {
+    &_1col {
+        & .f-group {
+            width: 100%;
+        }
+    }
+    &_2col {
+        overflow: hidden;
+        & .f-group {
+            width: (90% / 2);
+            float: left;
+        }
+    }
+    &_3col {
+        overflow: hidden;
+        & .f-group {
+            width: (85% / 3);
+            float: left;
+        }
+    }
+}
+.f-field-wrapper {
+    overflow: hidden;
+    .f-field {
+        width: 100%;
+        float: left;
+    }
+    .f-label {
+        width: 30%;
+        float: left;
+    }
+    .f-label + .f-field {
+        width: 69%;
+        float: right;
+    }
+    .f-input {
+        width: 100%;
+        border: 1px solid #aaa;
+    }
+    &_checkbox,
+    &_radio {
+        position: relative;
+        .f-label {
+            width: 100%;
+            padding-left: 0;
+            line-height: 20px;
+            min-height: 20px;
+            display: block;
+            & label {
+                padding-left: 25px;
+                display: block;
+                position: relative;
+                z-index: 10;
+                cursor: pointer;
+            }
+            &::after {
+                content: '';
+                display: inline-block;
+                height: 18px;
+                width: 18px;
+                background: url(../img/ico.png) no-repeat;
+                background-position: -18px -914px;
+                position: absolute;
+                top: 0;
+                left: 0;
+                z-index: 1;
+            }
+        }
+        .f-checkbox,
+        .f-radio {
+            position: absolute;
+            opacity: 0;
+            top: 0;
+            left: 0;
+            &:checked + .f-label::after {
+                background-position: 0px -914px;
+            }
+        }
+        &:hover .f-label {
+            opacity: 0.7;
+        }
+    }
+    &_textarea {
+        padding: 12px;
+        background: rgba(236,236,236,.66);
+    }
+}
+.f-button {
+    cursor: pointer;
+    background: $color_button_bg1;
+    border: 1px solid $color_button_bg1;
+    min-height: 34px;
+    color: $color_button_text1;
+    padding: 0 10px;
+    transition: all 1s;
+    &:hover {
+        color: $color_button_bg1;
+        background: $color_button_text1;
+    }
+}
+.f-textarea {
+    width: 100%;
+    max-width: 100%;
+    min-width: 100%;
+    box-sizing: border-box;
+    border: 1px solid #a6a6a6;
+    padding: 25px 20px;
+}
+.g-btn {
+    cursor: pointer;
+    background: $color_button_bg1;
+    min-height: 34px;
+    color: $color_button_text1;
+    padding: 0 10px;
+    transition: all 1s;
+    &:hover {
+        opacity: 0.7;
+    }
+}
+
+
+
+
+// ******************************************
+//             ico
+// ******************************************
+
+[class*="ic-"] {
+    display: inline-block;
+    vertical-align: middle;
+    background: url(../img/ico.png) no-repeat;
+}
+
+.ic-location {
+    background-position: 0px 0px;
+    width: 11px;
+    height: 17px;
+    position: relative;
+    top: -2px;
+    left: -2px;
+}
+.ic-menu {
+    background-position: 0px -17px;
+    width: 22px;
+    height: 16px;
+}
+.ic-search {
+    background-position: 0px -33px;
+    width: 19px;
+    height: 19px;
+}
+.ic-cart {
+    background-position: 0px -52px;
+    width: 32px;
+    height: 32px;
+}
+.ic-account {
+    background-position: 0px -84px;
+    width: 32px;
+    height: 32px;
+}
+.ic-fb {
+    background-position: 0px -116px;
+    width: 32px;
+    height: 32px;
+}
+.ic-ok {
+    background-position: 0px -148px;
+    width: 32px;
+    height: 32px;
+}
+.ic-gp {
+    background-position: 0px -180px;
+    width: 32px;
+    height: 32px;
+}
+.ic-vk {
+    background-position: 0px -212px;
+    width: 32px;
+    height: 32px;
+}
+.ic-fb-grey {
+    background-position: 0px -1186px;
+    width: 10px;
+    height: 19px;
+}
+.ic-twitter-grey {
+    background-position: 0px -1206px;
+    width: 21px;
+    height: 16px;    
+}
+.ic-linked-in-grey {
+    background-position: 0px -1223px;
+    width: 20px;
+    height: 18px;    
+}
+.ic-pininterest-grey {
+    background-position: 0px -1242px;
+    width: 14px;
+    height: 18px;    
+}
+.ic-arrow-down {
+    background-position: -11px 0px;
+    width: 16px;
+    height: 8px;
+}
+.ic-arrow-down-white {
+    background-position: -23px -32px;
+    width: 13px;
+    height: 7px;
+}
+.ic-arrow-right {
+    background-position: $arrow-right__background-position;
+    width: $arrow-right__width;
+    height: $arrow-right__height;
+    position: $arrow-right__position;
+    top: $arrow-right__top;
+    right: $arrow-right__right;
+}
+.ic-arrow-right:hover {
+    background-position: $arrow-right__background-position--hover;
+}
+.ic-apple {
+    background-position: 0px -245px;
+    width: 55px;
+    height: 55px;
+}
+.ic-auto {
+    background-position: 0px -301px;
+    width: 55px;
+    height: 55px;
+}
+.ic-bags {
+    background-position: 0px -357px;
+    width: 55px;
+    height: 55px;
+}
+.ic-boolks {
+    background-position: 0px -413px;
+    width: 55px;
+    height: 55px;
+}
+.ic-children {
+    background-position: 0px -469px;
+    width: 55px;
+    height: 55px;
+}
+.ic-entertainment {
+    background-position: 0px -525px;
+    width: 55px;
+    height: 55px;
+}
+.ic-finance {
+    background-position: 0px -581px;
+    width: 55px;
+    height: 55px;
+}
+.ic-flowers {
+    background-position: 0px -637px;
+    width: 55px;
+    height: 55px;
+}
+.ic-freebies {
+    background-position: 0px -693px;
+    width: 55px;
+    height: 55px;
+}
+.ic-freebies2 {
+    background-position: 0px -749px;
+    width: 55px;
+    height: 55px;
+}
+.ic-arrow-next {
+    background-position: -43px 0px;
+    width: 16px;
+    height: 30px;
+}
+.ic-arrow-prev {
+    background-position: -60px 0px;
+    width: 16px;
+    height: 30px;
+}
+.ic-arrow-next2 {
+    background-position: -86px 0px;
+    width: 8px;
+    height: 14px;
+}
+.ic-arrow-prev2 {
+    background-position: -77px 0px;
+    width: 8px;
+    height: 14px;
+}
+.ic-arrow-next3 {
+    background-position: -87px -15px;
+    width: 9px;
+    height: 17px;
+    margin-left: 20px;
+}
+.ic-arrow-prev3 {
+    background-position: -77px -15px;
+    width: 9px;
+    height: 17px;
+    margin-right: 20px;
+}
+.ic-popup-link {
+    background-position: -23px -22px;
+    width: 17px;
+    height: 9px;
+}
+.ic-history {
+    background-position: 0px -804px;
+    width: 21px;
+    height: 19px;
+}
+.ic-refresh {
+    background-position: 0px -825px;
+    width: 20px;
+    height: 20px;
+}
+.ic-unknown-topic {
+    background-position: 0px -846px;
+    width: 25px;
+    height: 23px;
+}
+.ic-x {
+    background-position: 0px -870px;
+    width: 14px;
+    height: 15px;
+}
+.ic-clear {
+    background-position: 0px -886px;
+    width: 10px;
+    height: 10px;
+}
+.ic-popup-close {
+    background-position: 0px -897px;
+    width: 17px;
+    height: 17px;
+}
+.ic-phone {
+    background-position: 0px -932px;
+    width: 19px;
+    height: 20px;
+    vertical-align: top;
+    margin-right: 10px;
+}
+.ic-location-big {
+    background-position: 0px -953px;
+    width: 51px;
+    height: 51px;
+}
+.ic-prod_more {
+    background-position: 0px -1005px;
+    width: 25px;
+    height: 20px;
+    margin-right: 7px;
+}
+.ic-prod_photos {
+    background-position: 0px -1026px;
+    width: 25px;
+    height: 20px;
+    margin-right: 7px;
+}
+.ic-prod_video {
+    background-position: 0px -1047px;
+    width: 25px;
+    height: 22px;
+    margin-right: 7px;
+}
+.ic-view_list {
+    background-position: -44px -1411px;
+    width: 21px;
+    height: 21px;
+    cursor: pointer;
+    margin-right: 10px;
+    &:hover,
+    &.active {
+        background-position: -66px -1411px;
+    }
+}
+.ic-view_grid-3,
+.ic-view_grid-4 {
+    background-position: 0px -1411px;
+    width: 21px;
+    height: 21px;
+    cursor: pointer;
+    margin-right: 10px;
+    &:hover,
+    &.active {
+        background-position: -22px -1411px;
+    }
+}
+.ic-delivery {
+    background-position: 0px -1070px;
+    width: 40px;
+    height: 25px;
+}
+.ic-delivery2 {
+    background-position: 0px -1289px;
+    width: 30px;
+    height: 18px;
+    margin-right: 10px;
+}
+.ic-piggy-bank {
+    background-position: 0px -1096px;
+    width: 40px;
+    height: 31px;
+}
+.ic-trolley {
+    background-position: 0px -1128px;
+    width: 40px;
+    height: 25px;
+}
+.ic-medal {
+    background-position: 0px -1154px;
+    width: 40px;
+    height: 31px;
+}
+.ic-home {
+    background-position: 0px -1261px;
+    width: 29px;
+    height: 27px;
+    vertical-align: bottom;
+}
+.ic-reviews_plus {
+    background-position: 0px -1308px;
+    width: 17px;
+    height: 17px;
+}
+.ic-reviews_plus_mob {
+    background-position: 0px -1553px;
+    width: 19px;
+    height: 19px;
+}
+.ic-reviews_minus {
+    background-position: 0px -1326px;
+    width: 17px;
+    height: 17px;
+}
+.ic-reviews_minus_mob {
+    background-position: 0px -1573px;
+    width: 19px;
+    height: 19px;
+}
+.ic-reviews_question-mark {
+    background-position: 0px -1344px;
+    width: 29px;
+    height: 29px;
+}
+.ic-reviews_answer-mark {
+    background-position: 0px -1374px;
+    width: 36px;
+    height: 36px;
+}
+.ic-delete {
+    background-position: 0px -1433px;
+    width: 15px;
+    height: 15px;
+}
+.ic-checkout-next-arrow {
+    background-position: 0px -1449px;
+    width: 17px;
+    height: 13px;
+}
+.ic-mob-menu-arrow-down {
+    background-position: -37px -32px;
+    width: 10px;
+    height: 7px;
+}
+.ic-mob-menu-arrow-up {
+    background-position: -37px -40px;
+    width: 10px;
+    height: 7px;
+}
+.ic-mob-menu-home {
+    background-position: 0px -1463px;
+    width: 44px;
+    height: 44px;
+}
+.ic-mob-filter {
+    background-position: 0px -1508px;
+    width: 26px;
+    height: 20px;
+    display: block;
+    margin: 0 auto 7px;
+}
+.ic-mob-sotr {
+    background-position: 0px -1529px;
+    width: 23px;
+    height: 23px;
+    display: block;
+    margin: 0 auto 7px;
+}
+.ic-checkout-credit-card {
+    background-position: 0px -1593px;
+    width: 26px;
+    height: 20px;
+}
+.ic-checkout-money {
+    background-position: 0px -1614px;
+    width: 24px;
+    height: 26px;
+}
+.ic-checkout-delivery_1 {
+    background-position: 0px -1641px;
+    width: 31px;
+    height: 23px;
+}
+.ic-checkout-delivery_2 {
+    background-position: 0px -1665px;
+    width: 29px;
+    height: 23px;
+}
+// ******************************************
+//             popup
+// ******************************************
+.b-popup {
+    position: relative;
+    background: #fff;
+    padding: 15px;
+    margin: 20px auto;
+    text-align: center;
+    width: 270px;
+    border: 1px solid #b7b7b7;
+    &__title {
+        color: #697aa8;
+        font-size: 18px;
+        margin: 15px 0 30px;
+    }
+    &__content {
+        min-height: 150px;
+    }
+    &__footer {
+        min-height: 25px;
+        overflow: hidden;
+    }
+    .f-group {
+        margin: 0 5% 25px;
+    }
+    .f-input {
+        width: 100%;
+        border: none;
+        border-bottom: 1px solid #c1c1c1;
+        height: 30px;
+    }
+}
+
+// ******************************************
+//             table
+// ******************************************
+
+.b-table {
+    text-align: center;
+    &__row {
+        padding-top: 25px;
+        &_title {
+            background-color: #f7f3eb;
+            @include box-shadow(0, 13px, 19px, rgba(0,0,0,.07));
+            color: #262626;
+            font-weight: 600;
+            padding: 25px 5px;
+            [class*="b-col__"] {
+            display: inline-block;
+            vertical-align: middle;
+            }
+            .b-table & > div {
+                color: #262626;
+                font-weight: 600;
+            }
+        }
+        &:after {
+            content: '';
+            height: 1px;
+            width: 88%;
+            background: rgba(149,149,149,.23);
+            display: block;
+            margin: 0 auto;
+            margin-top: 20px;
+        }
+        [class*="b-col__"] {
+            display: inline-block;
+            vertical-align: middle;
+        }
+    }
+}
+
+
+
+
+
+
+// ******************************************
+//             adaptive
+// ******************************************
+
+@media screen and (max-width: 1190px) {
+    .g-container { padding: 0 10px; }
+} // end max-width: 1190px
+
+@media screen and (max-width: 900px) {
+    .g-tablet-hidden { display: none !important; }
+    .g-tablet-show { display: block !important; }
+} // end max-width: 900px
+
+@media screen and (max-width: 500px) {
+    .g-mob-hidden { display: none; }
+    .g-mob-show { display: block; }
+} // end max-width: 500px
+
+
+/* General END */
+
+
+
+

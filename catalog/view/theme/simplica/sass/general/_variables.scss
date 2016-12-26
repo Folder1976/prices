@@ -1,0 +1,55 @@
+// ******************************************
+//             fonts
+// ******************************************
+
+$ff0: 'Open Sans', 'OpenSans', sans-serif;
+$ff1: 'Montserrat', 'MontserratL', sans-serif;
+
+
+// ******************************************
+//             colors
+// ******************************************
+
+$color_blue: #39adff;
+$color_blue_gray: #697aa8;
+
+$color_button_bg1: #39adff;
+$color_button_text1: #fff;
+$color_button_bg2: #697aa8;
+$color_button_text2: #fff;
+$color_button_bg3: #6979a7; // purple-blue
+$color_button_text3: #fff;
+
+
+// ******************************************
+//             width, height
+// ******************************************
+
+$footer_height: 50px;
+$footer_fixed_height: 30px;
+
+$width_col_left: 270px;
+$width_col_right: 250px;
+$width_col_center_padding_l: 15px;
+$width_col_center_padding_r: 15px;
+$width_col_center: $width_col_left - $width_col_right - $width_col_center_padding_l - $width_col_center_padding_r; // width = 100% - $width_col_center
+
+$width_col_popular_product: 250px;
+$height_col_popular_product: 390px;
+
+$width_col_author: 120px;
+$width_col_buttons: 150px;
+
+$height_product_carousel: 85px;
+
+// ******************************************
+//             ico
+// ******************************************
+
+$arrow-right__background-position: -27px 0px;
+$arrow-right__background-position--hover: -35px 0px;
+$arrow-right__width: 7px;
+$arrow-right__height: 11px;
+$arrow-right__position: absolute;
+$arrow-right__top: 13px;
+$arrow-right__right: 5px;
