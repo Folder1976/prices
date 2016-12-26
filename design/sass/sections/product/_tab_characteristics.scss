@@ -1,0 +1,37 @@
+.b-tab-characteristics {
+    ul {
+        @include column-count(2);
+        li {
+            color: #000;
+            opacity: 0.74;
+            padding: 12px 20px;
+            .val,
+            .key {
+                width: auto;
+                max-width: 70%;
+                display: inline-block;
+            }
+            .val {
+                float: right;
+                text-align: right;
+            }
+            &:nth-child(odd) {
+                background: #f7f4eb;
+            }
+        }
+    }
+    .title {
+        text-transform: uppercase;
+        font-weight: 600;
+        color: #2d2d2d;
+    }
+}
+
+
+@media screen and (max-width: 700px) {
+    .b-tab-characteristics {
+        ul {
+            @include column-count(1);
+        }
+    }
+} // end max-width: 900px
