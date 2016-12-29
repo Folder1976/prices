@@ -1,20 +1,36 @@
-<?
+<?php
 session_start();
 header("Content-Type: text/html; charset=utf-8");
+?>
+<script type="text/javascript" src="/backend/js/jquery.js"></script>
+<script type="text/javascript" src="/backend/js/ui/jquery-ui.js"></script>
+<script type="text/javascript" src="/backend/libs/main_menu/src/libs/jquery/jquery.js"></script>
+<?php
 
 define('A2', true);
 define('A2_CNFG', true);
 
+ini_set('error_reporting', E_ALL);
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
 
-include("../a2_config.php");
-$db=mysql_connect($db_host,$db_username,$db_password) or die('Mysql cant connect to server!');
-mysql_select_db($db_name,$db) or die('Mysql cant select DB!');
-mysql_query("SET NAMES 'utf8'");
+function translitArtkl($str) {
+    $rus = array('/',',','І','и','і','є','Є','ї','\"','\'','.',' ','А', 'Б', 'В', 'Г', 'Д', 'Е', 'Ё', 'Ж', 'З', 'И', 'Й', 'К', 'Л', 'М', 'Н', 'О', 'П', 'Р', 'С', 'Т', 'У', 'Ф', 'Х', 'Ц', 'Ч', 'Ш', 'Щ', 'Ъ', 'Ы', 'Ь', 'Э', 'Ю', 'Я', 'а', 'б', 'в', 'г', 'д', 'е', 'ё', 'ж', 'з', 'и', 'й', 'к', 'л', 'м', 'н', 'о', 'п', 'р', 'с', 'т', 'у', 'ф', 'х', 'ц', 'ч', 'ш', 'щ', 'ъ', 'ы', 'ь', 'э', 'ю', 'я');
+    $lat = array('-','','I','u','i','e','E','i','','','','-','A', 'B', 'V', 'G', 'D', 'E', 'E', 'Gh', 'Z', 'I', 'Y', 'K', 'L', 'M', 'N', 'O', 'P', 'R', 'S', 'T', 'U', 'F', 'H', 'C', 'Ch', 'Sh', 'Sch', 'Y', 'Y', 'Y', 'E', 'Yu', 'Ya', 'a', 'b', 'v', 'g', 'd', 'e', 'e', 'gh', 'z', 'i', 'y', 'k', 'l', 'm', 'n', 'o', 'p', 'r', 's', 't', 'u', 'f', 'h', 'c', 'ch', 'sh', 'sch', 'y', 'y', 'y', 'e', 'yu', 'ya');
+   return str_replace($rus, $lat, $str);
+}
+
+
+include("../config.php");
+$db = $mysqli;
+//mysql_connect($db_host,$db_username,$db_password) or die('Mysql cant connect to server!');
+//mysql_select_db($db_name,$db) or die('Mysql cant select DB!');
+//mysql_query("SET NAMES 'utf8'");
 
 
 
-include("../a2_functions.php");
-include("../parts/tpl_functions.a2.php");
+include("class/a2_functions.php");
+include("class/tpl_functions.a2.php");
 
 
 $gtconfig=setconfig();
@@ -31,11 +47,50 @@ if(isset($_GET['changebrendcash'])){
 	mysql_query("update tempfolder set brendid=".intval($_GET['brid'])." where id=".$_GET['changebrendcash']);
 }
 elseif(isset($_GET['addbrend'])){
-	$name=mysql_real_escape_string(urldecode(str_replace('--PLUS--','+',$_GET['addbrend'])));
-
-
-	if(!queryresult("select id from brend where name='$name'",'id')){
-		mysql_query("insert into brend(name,status,secretkey) values('$name','1','$name')") or die(mysql_error());
+	
+	$name=urldecode(str_replace('--PLUS--','+',$_GET['addbrend']));
+	
+	$name = trim($name);
+	
+	//Проверяем нет ли уже этого бренда
+	$sql = "SELECT manufacturer_id FROM ".DB_PREFIX."manufacturer WHERE
+				upper(`name`) LIKE '%".mb_strtoupper(addslashes($name),'UTF-8')."%' OR
+                    upper(`code`) LIKE '%".mb_strtoupper(addslashes($name),'UTF-8')."%';";
+	echo $sql.' ';
+	if(!queryresult($sql,'manufacturer_id')){
+	
+		$sql = "insert into ".DB_PREFIX."manufacturer SET
+					`name` = '$name',
+					`code` = '".translitArtkl($name)."',
+					`name_sush` = '$name',
+					`name_rod` = '$name',
+					`name_several` = '$name',
+					`href` = '',
+					`on_main_page` = '',
+					`image` = '',
+					`sort_order` = '0',
+					`enable` = '1';";
+		$mysqli->query($sql) or die(mysql_error());
+		echo $sql.' ';
+		$manufacturer_id = $mysqli->insert_id;
+		
+		$sql = "insert into ".DB_PREFIX."manufacturer_to_store SET
+							`manufacturer_id` = '$manufacturer_id',
+							`store_id` = '0';";
+		$mysqli->query($sql) or die(mysql_error());
+		echo $sql.' ';
+		
+		$sql = "insert into ".DB_PREFIX."manufacturer_description SET
+							`manufacturer_id` = '$manufacturer_id',
+							`title_h1` = '$name';";
+		$mysqli->query($sql) or die(mysql_error());
+		echo $sql.' ';
+		
+		$sql = "insert into ".DB_PREFIX."url_alias SET
+							`query` = 'manufacturer_id=$manufacturer_id',
+							`keyword` = '".translitArtkl($name)."';";
+		$mysqli->query($sql) or die(mysql_error());
+		echo $sql.' ';
 	}
 	exit();
 }
@@ -122,14 +177,95 @@ elseif(isset($_GET['brchangemenuidall'])){
 	exit();
 }
 elseif(isset($_GET['addcategory'])){
-	if(!queryresult("select id from menu where name='".urldecode($_GET['addcategory'])."'",'id')){
-		$mid=intval($_GET['mid']);
+	
+	$sql = "";
+	$name=str_replace('--PLUS--','+',urldecode($_GET['addcategory']));
+	$data['name'] = $name = trim(urldecode($name));
+	
+	if(!queryresult("select category_id from ".DB_PREFIX."category_description where upper(`name`) LIKE '".mb_strtoupper(addslashes($name))."'",'category_id')){
+		
+		$data = array();
+		
+		$data['parent_id'] = $mid=intval($_GET['mid']);
 		$tip=intval($_GET['tip']);
-		mysql_query("insert into menu(name,status,wmotmenuid,tip) values('".urldecode($_GET['addcategory'])."','1','$mid','$tip')") or die(mysql_error());
+		$code = translitArtkl(trim(urldecode($name)));
+		
+		//mysql_query("insert into menu(name,status,wmotmenuid,tip) values('".urldecode($_GET['addcategory'])."','1','$mid','$tip')") or die(mysql_error());
+		$sql = "INSERT INTO " . DB_PREFIX . "category SET 
+						 parent_id = '" . (int)$mid . "',
+						 code = '" . $code . "',
+						 `top` = '0',
+						 `column` = '0', 
+						 is_menu = '0',
+						 is_filter = '0',
+						 sort_order = '0',
+						 status = '1',
+						 date_modified = NOW(), date_added = NOW()";
+		$mysqli->query($sql) or die($sql);
+		
+		$category_id = $mysqli->insert_id;
+		
+		$sql = "INSERT INTO " . DB_PREFIX . "category_description SET
+										category_id = '" . (int)$category_id . "',
+										language_id = '1',
+										name = '" . $name . "',
+										name_sush = '" . $name . "',
+										name_rod = '" .$name . "',
+										name_several = '" . $name . "',
+										description = '',
+										meta_title = '$name',
+										title_h1 = '$name',
+										meta_description = '$name',
+										meta_keyword = '$name'";
+		$mysqli->query($sql) or die($sql);
+		
+		$sql = "INSERT INTO " . DB_PREFIX . "category_description SET
+										category_id = '" . (int)$category_id . "',
+										language_id = '2',
+										name = '" . $name . "',
+										name_sush = '" . $name . "',
+										name_rod = '" .$name . "',
+										name_several = '" . $name . "',
+										description = '',
+										meta_title = '$name',
+										title_h1 = '$name',
+										meta_description = '$name',
+										meta_keyword = '$name'";
+		$mysqli->query($sql) or die($sql);
+		
+		$sql = "INSERT INTO " . DB_PREFIX . "category_description SET
+										category_id = '" . (int)$category_id . "',
+										language_id = '3',
+										name = '" . $name . "',
+										name_sush = '" . $name . "',
+										name_rod = '" .$name . "',
+										name_several = '" . $name . "',
+										description = '',
+										meta_title = '$name',
+										title_h1 = '$name',
+										meta_description = '$name',
+										meta_keyword = '$name'";
+		$mysqli->query($sql) or die($sql);
+		
+		$query = $mysqli->query("SELECT * FROM `" . DB_PREFIX . "category_path` WHERE category_id = '" . (int)$data['parent_id'] . "' ORDER BY `level` ASC");
+		$level = 0;
+		while ($result = $query->fetch_assoc()) {
+			$mysqli->query("INSERT INTO `" . DB_PREFIX . "category_path` SET `category_id` = '" . (int)$category_id . "', `path_id` = '" . (int)$result['path_id'] . "', `level` = '" . (int)$level . "'");
+
+			$level++;
+		}
+		$mysqli->query("INSERT INTO `" . DB_PREFIX . "category_path` SET `category_id` = '" . (int)$category_id . "', `path_id` = '" . (int)$category_id . "', `level` = '" . (int)$level . "'");
+
+		$mysqli->query("INSERT INTO " . DB_PREFIX . "category_to_store SET category_id = '" . (int)$category_id . "', store_id = '0'");
+		
+		$mysqli->query("INSERT INTO " . DB_PREFIX . "category_to_layout SET category_id = '" . (int)$category_id . "', store_id = '0', layout_id = '0'");
+			
 	}
 	exit();
-}
-elseif(isset($_GET['addblacklist'])){
+	
+	// "upper(`name`) LIKE '".mb_strtoupper(addslashes(trim(urldecode($_GET['addcategory']))))."'";
+	 
+}elseif(isset($_GET['addblacklist'])){
 	$name=str_replace('--PLUS--','+',urldecode($_GET['addblacklist']));
 	
 	echo $name;
@@ -144,10 +280,18 @@ elseif(isset($_GET['addcategoryas'])){
 	$mid=intval($_GET['mid']);
 	$name=urldecode(str_replace('--PLUS--','+',$_GET['addcategoryas']));
 
-	$name=str_replace('`',"''",$name);
+	$name=trim(str_replace('`',"''",$name));
 
-	if(!queryresult("select id from menudopnames where wmotmenuid=$mid and name='$name'",'id')){
-		mysql_query("insert into menudopnames(wmotmenuid,name) values('$mid','$name')");
+	if(!queryresult("select category_id from alt_category_id = '$mid' AND " . DB_PREFIX . "category_alternative where upper(`alt_category_name`) LIKE '".mb_strtoupper(addslashes(trim(urldecode($_GET['addcategory']))))."'",'category_id')){
+		
+		$mysqli->query("insert into " . DB_PREFIX . "category_alternative SET
+										shop_id = '0',
+										alt_category_id = '$mid',
+										alt_category_name = '$name',
+										category_id = '$mid',
+										`enable` = '1',
+										`sort` = '0'");
+		
 	}
 
 	exit();
@@ -208,12 +352,14 @@ elseif(isset($_GET['addparserprev'])){
 
 elseif(isset($_GET['mid'])){
 	$mid=intval($_GET['mid']);
-	$data=querytoarray("select * from menu where wmotmenuid=$mid and status=1 order by name");
+	$data=querytoarray("select CD.category_id AS id, CD.name from ".DB_PREFIX."category_description CD
+							LEFT JOIN ".DB_PREFIX."category C ON C.category_id = CD.category_id
+							where language_id = '1' AND parent_id=$mid ORDER BY CD.name");
 	if($data['rows']){
 		echo '<option value="0">Выберите категорию</option>';
 	}
 	for($i=0;$i<$data['rows'];$i++){
-		echo '<option value="'.$data[$i]['id'].'">'.$data[$i]['name'].'('.queryresult("select count(*) as total from menu where status=1 and wmotmenuid=".$data[$i]['id'],'total').')</option>';
+		echo '<option value="'.$data[$i]['id'].'">'.$data[$i]['name'].'('.queryresult("select count(category_id) as total from ".DB_PREFIX."category where status=1 and parent_id=".$data[$i]['id'],'total').')</option>';
 	}
 	exit();
 }
@@ -227,7 +373,7 @@ elseif(isset($_GET['update_slepok'])){
 
 a2tpl_header();
 ?>
-<script type="text/javascript" src="<?=$config['aw_path']?>js/jquery.js"></script>
+<!--script type="text/javascript" src="<?php echo $config['aw_path']?>js/jquery.js"></script-->
 <script>
 function update_slepok(shop_id,compare){
 	$.ajax({
@@ -238,7 +384,7 @@ function update_slepok(shop_id,compare){
 			
         },
         success: function( data ) {
-
+			console.log(data);
         }
     });
 }
@@ -252,7 +398,7 @@ function addbrend(name,id){
 			$('#categoryblokno'+id).html('');
         },
         success: function( data ) {
-
+			console.log(data);
             $('#addbrendid'+id).html('');
         }
     });
@@ -277,6 +423,7 @@ function addfoto(img){
 					
 				},
 				success: function( data ) {
+					console.log(data);
 				   $(img).hide();
 				}
 			});	
@@ -294,7 +441,7 @@ function saveasoneproducts(){
 					
 				},
 				success: function( data ) {
-				
+					console.log(data);
 				}
 			});	
 		}
@@ -313,7 +460,7 @@ function savetogroups(){
 					
 				},
 				success: function( data ) {
-					
+					console.log(data);
 				}
 			});	
 		}
@@ -333,6 +480,7 @@ function changemenuidall(id){
 					
 				},
 				success: function( data ) {
+					console.log(data);
 					selected_state(pid,id);
 				}
 			});	
@@ -351,6 +499,7 @@ function brchangemenuidall(id){
 					
 				},
 				success: function( data ) {
+					console.log(data);
 					selected_state(pid,id);
 				}
 			});	
@@ -375,6 +524,7 @@ function setnewlist(id,tip,mid){
             
         },
         success: function( data ) {
+			console.log(data);
             $('#set_subcategory'+tip+'_'+id).html(data);
 			
 			if(tip==2){
@@ -439,6 +589,7 @@ function addcategoryas(name,id){
 			$('#addbrendid'+id).html('');
         },
         success: function( data ) {
+			console.log(data);
             $('#categoryblokno'+id).html('');
         }
     });
@@ -494,6 +645,7 @@ function addcategory(name,id){
 			$('#addbrendid'+id).html('');
         },
         success: function( data ) {
+			console.log(data);
             $('#categoryblokno'+id).html('');
         }
     });
@@ -551,6 +703,7 @@ function addignorlist(magazin_id,name,id){
 			$('#addbrendid'+id).html('');
         },
         success: function( data ) {
+			console.log(data);
             $('#categoryblokno'+id).html(' - добавлен в исключения');
         }
     });
@@ -566,6 +719,7 @@ function addblacklist(name, id){
 			$('#addbrendid'+id).html('');
         },
         success: function( data ) {
+			console.log(data);
             $('#categoryblokno'+id).html('');
         }
     });
@@ -629,6 +783,7 @@ function addparserprev(shop_id,name,id){
 			$('#addbrendid'+id).html('');
         },
         success: function( data ) {
+			console.log(data);
             $('#categoryblokno'+id).html(' - добавлен в parser_prev');
         }
 	})
@@ -687,6 +842,7 @@ function addparsdivision(magazin_id,name,id){
 			$('#addbrendid'+id).html('');
         },
         success: function( data ) {
+			console.log(data);
             $('#categoryblokno'+id).html('  добавлен в parser_division');
         }
     });
