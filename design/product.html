@@ -12,6 +12,7 @@
   <link href="js/lib/jquery-ui/jquery-ui.css" rel="stylesheet">
   <link href="js/lib/jquery-ui/jquery-ui.theme.css" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="css/owl.carousel.css" />
+<!--   <link rel="stylesheet" type="text/css" href="css/jscrollpane.css" /> -->
 
   <link rel="stylesheet" type="text/css" href="css/style.css" />
 
@@ -74,7 +75,7 @@
             <span class="b-header-account__title">Профиль</span>
           </div>
 
-          <a href="/"><img src="img/logo.png" alt="Prices.md"></a>
+          <a href="/" class="b-logo"><img src="img/logo.png" alt="Prices.md"></a>
 
           <div class="b-header-top__setings g-tablet-hidden">
             <div class="b-header-top__setings-lang">
@@ -661,7 +662,7 @@
 
 
     <main class="b-product">
-      <div class="b-breadcrumb">
+      <div class="b-breadcrumb b-breadcrumb_desktop">
         <a href="index.html"><span class="ic-home"></span></a><span>&nbsp;>&nbsp;</span>
         <a href="category.html">Комплектующие</a><span>&nbsp;>&nbsp;</span>
         <a href="category.html">Материнские платы</a><span>&nbsp;>&nbsp;</span>
@@ -676,10 +677,11 @@
 
                 <h2 class="b-prod-img__title">Original Letv Le 1 Pro  5.5 2560x1440 Snapdragon 810 Octa Core Mobile Phone 4G RAM 64GB ROM 13MP 4G LTE international Version</h2>
 
+                <div class="b-prod-img__brand">
+                  <img src="img/brands/brand_acer.png" alt="">
+                </div>
+
                 <div class="b-prod-img__main-image js-open-popup-link" data-mfp-src=".js-popup-prod-img">
-                  <div class="b-prod-img__brand">
-                    <img src="img/brands/brand_acer.png" alt="">
-                  </div>
                   <img src="img/product/samsung-sm-g925-camera.png" alt="" class="js-main-image">
                 </div>
 
@@ -813,6 +815,13 @@
 
           <div class="g-clear"></div>
 
+        <div class="b-breadcrumb b-breadcrumb_mob">
+          <a href="index.html"><span class="ic-home"></span></a><span>&nbsp;>&nbsp;</span>
+          <a href="category.html">Комплектующие</a><span>&nbsp;>&nbsp;</span>
+          <a href="category.html">Материнские платы</a><span>&nbsp;>&nbsp;</span>
+          <a href="product.html">Original Letv Le 1 Pro 5.5</a>
+        </div>
+
         <div class="b-prod-other-info">
           <ul>
             <li>
@@ -837,6 +846,39 @@
             </li>
           </ul>
         </div>  <!-- end b-prod-other-info -->
+
+        <div class="g-row">
+          <div class="b-block-product">
+            <div class="b-block-product__title">
+              <span>Видео</span>
+            </div>
+            <div class="b-block-product__content">
+              <div class="b-video__main">
+                <img src="img/video/homepageimage.png" alt="">
+              </div>
+              <div class="b-video__list">
+                <ul>
+                  <li>
+                    <img src="img/video/homepageimage-------5.png" alt="">
+                    <h3 class="b-video__list-title">Топ 5 элитных домов на колесах</h3>
+                    <p class="b-video__list-author">Авто тайм</p>
+                  </li>
+                  <li>
+                    <img src="img/video/homepageimage-------5.png" alt="">
+                    <h3 class="b-video__list-title">Топ 5 элитных домов на колесах</h3>
+                    <p class="b-video__list-author">Авто тайм</p>
+                  </li>
+                  <li>
+                    <img src="img/video/homepageimage-------5.png" alt="">
+                    <h3 class="b-video__list-title">Топ 5 элитных домов на колесах</h3>
+                    <p class="b-video__list-author">Авто тайм</p>
+                  </li>
+                </ul>
+              </div>
+              <div class="g-clear"></div>
+            </div>
+          </div>
+        </div>  <!-- end g-row -->
 
         <div class="g-row">
           <div class="b-block-product">
@@ -916,12 +958,14 @@
         </div>  <!-- end g-row -->
 
         <div class="b-prod__tabs js-prod_tabs">
-          <ul>
-            <li><a href="#js-block-product_tabs-1">Характеристики</a></li>
-            <li><a href="#js-block-product_tabs-2">Предложения</a></li>
-            <li><a href="#js-block-product_tabs-3">Отзывы 173</a></li>
-            <li><a href="#js-block-product_tabs-4">Вопросы и ответы</a></li>
-          </ul>
+          <div class="g-scroll-line js-scroll-line">
+            <ul>
+              <li><a href="#js-block-product_tabs-1">Характеристики</a></li>
+              <li><a href="#js-block-product_tabs-2">Предложения</a></li>
+              <li><a href="#js-block-product_tabs-3">Отзывы 173</a></li>
+              <li><a href="#js-block-product_tabs-4">Вопросы и ответы</a></li>
+            </ul>
+          </div>
 
           <!-- Характеристики -->
           <div id="js-block-product_tabs-1" class="b-tab-characteristics">
@@ -1365,7 +1409,7 @@
           </div>
         </div>  <!-- end g-row -->
 
-        <div class="g-row">
+<!--         <div class="g-row">
           <div class="b-block-product b-block-product_brands">
             <div class="b-block-product__title">
               <span>Популярные бренды</span>
@@ -1418,9 +1462,34 @@
               </div>
             </div>
           </div>
-        </div>  <!-- end g-row -->
+        </div> -->  <!-- end g-row -->
 
       </div>  <!-- end g-container -->
+
+      <div class="b-brands">
+          <div class="g-container">
+            <div class="b-brands__title">
+              <span>Популярные бренды</span>
+              <a class="b-brands__link" href="brands.html">Показать все >></a>
+            </div>
+            <div class="b-brands__content">
+              <ul>
+                  <li><a href="category.html"><img src="img/brands/brand_acer.png" alt=""></a></li>
+                  <li><a href="category.html"><img src="img/brands/brand_canon.png" alt=""></a></li>
+                  <li><a href="category.html"><img src="img/brands/brand_d-link.png" alt=""></a></li>
+                  <li><a href="category.html"><img src="img/brands/brand_lenovo.png" alt=""></a></li>
+                  <li><a href="category.html"><img src="img/brands/brand_asus.png" alt=""></a></li>
+                  <li><a href="category.html"><img src="img/brands/brand_samsung.png" alt=""></a></li>
+                  <li><a href="category.html"><img src="img/brands/brand_canon.png" alt=""></a></li>
+                  <li><a href="category.html"><img src="img/brands/brand_samsung.png" alt=""></a></li>
+                  <li><a href="category.html"><img src="img/brands/brand_acer.png" alt=""></a></li>
+                  <li><a href="category.html"><img src="img/brands/brand_asus.png" alt=""></a></li>
+                  <li><a href="category.html"><img src="img/brands/brand_d-link.png" alt=""></a></li>
+                  <li><a href="category.html"><img src="img/brands/brand_lenovo.png" alt=""></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
 
     </main>
 
@@ -1694,6 +1763,9 @@ if (typeof jQuery == 'undefined') {
 
 <script src="js/lib/jquery-ui/jquery-ui.js"></script>
 <script src="js/lib/owl.carousel.js"></script>
+<!-- <script src="js/lib/jquery.jscrollpane.js"></script> -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.touchswipe/1.6.18/jquery.touchSwipe.js"></script>
 <script src="js/lib/jquery.magnific-popup.min.js"></script>
 
 <script src="js/scripts.js" type="text/javascript"></script>

@@ -25,6 +25,7 @@
     }
     .ui-corner-all {
         border-bottom: 1px solid #ccc;
+        display: flex;
     }
 }
 
@@ -35,8 +36,8 @@
     }
 } // end max-width: 700px
 
-@media screen and (max-width: 600px) {
-    .ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default, .ui-button, html .ui-button.ui-state-disabled:hover, html .ui-button.ui-state-disabled:active {
-        width: 100%;
-    }
-} // end max-width: 600px
+// @media screen and (max-width: 600px) {
+//     .ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default, .ui-button, html .ui-button.ui-state-disabled:hover, html .ui-button.ui-state-disabled:active {
+//         width: 100%;
+//     }
+// } // end max-width: 600px

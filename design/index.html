@@ -2,7 +2,7 @@
 <html lang="ru-RU">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-sczle=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Title</title>
 
@@ -74,7 +74,7 @@
             <span class="b-header-account__title">Профиль</span>
           </div>
 
-          <a href="/"><img src="img/logo.png" alt="Prices.md"></a>
+          <a href="/" class="b-logo"><img src="img/logo.png" alt="Prices.md"></a>
 
           <div class="b-header-top__setings g-tablet-hidden">
             <div class="b-header-top__setings-lang">
@@ -888,14 +888,16 @@
                 <span>Вам может понравиться</span>
               </div>
               <div class="b-block-product__content js-block-product_tabs">
-                <ul>
-                  <li><a href="#js-block-product_tabs-1">Все</a></li>
-                  <li><a href="#js-block-product_tabs-2">Детские товары</a></li>
-                  <li><a href="#js-block-product_tabs-3">Электроника</a></li>
-                  <li><a href="#js-block-product_tabs-4">Спорт и активный отдых</a></li>
-                  <li><a href="#js-block-product_tabs-5">Бытовая техника</a></li>
-                  <li><a href="#js-block-product_tabs-6">Парфюмерия</a></li>
-                </ul>
+                <div class="g-scroll-line js-scroll-line">
+                  <ul>
+                    <li><a href="#js-block-product_tabs-1">Все</a></li>
+                    <li><a href="#js-block-product_tabs-2">Детские товары</a></li>
+                    <li><a href="#js-block-product_tabs-3">Электроника</a></li>
+                    <li><a href="#js-block-product_tabs-4">Спорт и активный отдых</a></li>
+                    <li><a href="#js-block-product_tabs-5">Бытовая техника</a></li>
+                    <li><a href="#js-block-product_tabs-6">Парфюмерия</a></li>
+                  </ul>
+                </div>
                 <div id="js-block-product_tabs-1">
                   <div class="b-product-carousel owl-carousel js-product_owl-carousel">
 
@@ -1630,6 +1632,7 @@ if (typeof jQuery == 'undefined') {
 
 <script src="js/lib/jquery-ui/jquery-ui.js"></script>
 <script src="js/lib/owl.carousel.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.touchswipe/1.6.18/jquery.touchSwipe.js"></script>
 <script src="js/lib/jquery.magnific-popup.min.js"></script>
 
 <script src="js/scripts.js" type="text/javascript"></script>

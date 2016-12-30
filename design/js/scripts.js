@@ -32,7 +32,8 @@ $('.js-owl-home-slider').owlCarousel({
   navText: ['<span class="ic-arrow-prev"></span>','<span class="ic-arrow-next"></span>'],
   items: 1
 });
-$('.js-product_owl-carousel').owlCarousel({
+
+var product_owlConfig = {
   loop: false,
   margin: 0,
   nav: true,
@@ -52,7 +53,9 @@ $('.js-product_owl-carousel').owlCarousel({
       items: 2
     }
   }
-});
+};
+
+$('.js-product_owl-carousel').owlCarousel( product_owlConfig );
 $('.js-most-viewed-carousel').owlCarousel({
   loop: true,
   margin: 0,
@@ -95,6 +98,21 @@ $('.js-brand_owl-carousel').owlCarousel({
     }
   }
 });
+
+// fix для olw-карусели на вкладках START
+$('.js-block-product_tabs').on('click', function (e) {
+  if ( $(e.target).hasClass('ui-tabs-anchor') ) {
+    var carouselId = $($(e.target).attr('href')).find('.owl-carousel');
+    var carouselObj = carouselId.owlCarousel(product_owlConfig).data('owlCarousel');
+    if ( carouselObj && typeof carouselObj.onResize === "function") {
+      setTimeout(function () {
+        carouselObj.onResize();
+      }, 50);
+    }
+  }
+});
+// fix для olw-карусели на вкладках END
+
 
 // "Выпадалка". START
 $('.js-custom-toggler').each(function() {
@@ -160,7 +178,12 @@ function openMobMenu() {
 $('.js-mob-menu').on('click', function(e){
   if ( $(window).width() <= 900 ) {
     if ( $(e.target).closest('.js-nav-level-1').length > 0 ) {
-      $(e.target).closest('li').toggleClass('b-nav-level-2__open');
+      if ( $(e.target).closest('li').hasClass('b-nav-level-2__open') ) {
+        $(e.target).closest('li').removeClass('b-nav-level-2__open');
+      } else {
+        $('.js-mob-menu .b-nav-level-2__open').removeClass('b-nav-level-2__open');
+        $(e.target).closest('li').addClass('b-nav-level-2__open');
+      }
     } else {
       if ( $('.js-mob-menu').hasClass('js-mob-menu_open') ) {
         closeMobMenu();
@@ -204,19 +227,14 @@ $('.js-span-select').on('click', function(e){
     $(this).closest('div').find('ul').toggleClass('g-span-select__hidden');
     return;
   };
-  // if ( e.target.nodeName == 'LI' ) {
-  //   var v = $(e.target).data('value');
-  //   $(this).closest('div').find('input').val(v);
-  //   $(this).find('span').html( $(e.target).html() );
-  //   $(this).find('ul').toggleClass('g-span-select__hidden');
-  //   $(this).find('li').removeClass('active');
-  //   $(e.target).addClass('active');
-  // }
-});
-
-$('.js-span-select-search').on('click', 'li', function(){
-  $('.js-span-select-search .g-span-select__title').html( $(this).html() );
-  $(this).parent().toggleClass('g-span-select__hidden');
+  if ( e.target.nodeName == 'LI' ) {
+    // var v = $(e.target).data('value');
+    // $(this).closest('div').find('input').val(v);
+    $(this).find('span').html( $(e.target).html() );
+    $(this).find('ul').toggleClass('g-span-select__hidden');
+    $(this).find('li').removeClass('active');
+    $(e.target).addClass('active');
+  }
 });
 
 $(document).mouseup(function (e){
@@ -225,6 +243,35 @@ $(document).mouseup(function (e){
     }
 });
 // g-span-select end
+
+// ScrollPane START
+//$('.js-scroll-pane').jScrollPane();
+// ScrollPane END
+
+// Scroll line START
+var pos;
+$('.js-scroll-line').swipe({
+  swipeLeft: function() { pos = $('.js-scroll-line').scrollLeft(); },
+  swipeRight: function() { pos = $('.js-scroll-line').scrollLeft(); },
+  threshold: 100,
+  swipeStatus: function(event, phase, direction, distance, duration, fingers, fingerData, currentDirection){
+    $('#test').html(distance);
+    if (direction == 'left') {
+      $('.js-scroll-line').scrollLeft(pos + distance);
+    }
+    if (direction == 'right') {
+      $('.js-scroll-line').scrollLeft(pos - distance);
+    }
+  }
+});
+// Scroll line END
+
+
+
+
+
+
+
 
 
 
@@ -252,11 +299,6 @@ $(document).mouseup(function (e){
 // выпадалка для блоков фильтра (в category)
 $('.js-filter-block-toggle').on('click', function() {
   $(this).parent().toggleClass('b-filter-block_open');
-});
-
-// показываем номер телефона (в category - визитка)
-$('.js-business-card__show-number').on('click', function() {
-  $(this).remove();
 });
 
 // меняет вид сетка/список START
@@ -288,7 +330,10 @@ $(window).resize(function(){
 });
 // адаптив для фильтров END
 
+// вкладки для визитки START
+$('.js-business-card__tabs').tabs();
 
+// вкладки для визитки END
 
 
 
@@ -383,7 +428,7 @@ $('.js-prod_owl-carousel').owlCarousel({
   loop: false,
   margin: 10,
   nav: true,
-  navText: ['<span class="ic-arrow-prev2"></span>','<span class="ic-arrow-next2"></span>'],
+  navText: ['<span class="ic-arrow-prev4"></span>','<span class="ic-arrow-next4"></span>'],
   items: 6,
   responsive:{
     1200: {
@@ -447,7 +492,6 @@ $('.js-prod_thumb-list, .js-prod_popup-thumb-list').on('mouseover', '.b-prod-img
 //   }
 // });
 // END
-
 
 
 
