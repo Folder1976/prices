@@ -64,7 +64,7 @@ if($_SERVER['REQUEST_URI'] == '/'){
 
                 <div class="b-footer-popup__content-block">
                   <div class="b-footer-popup__content-block-img">
-                    <img src="img/product/foto1.png" alt="">
+                    <img src="catalog/view/theme/simplica/img/product/foto1.png" alt="">
                   </div>
                   <div class="b-footer-popup__content-block-title">
                     <a href="product.html">Оригинал МИ Xiaomi Redmi</a>
@@ -78,7 +78,7 @@ if($_SERVER['REQUEST_URI'] == '/'){
 
                 <div class="b-footer-popup__content-block">
                   <div class="b-footer-popup__content-block-img">
-                    <img src="img/product/foto1.png" alt="">
+                    <img src="catalog/view/theme/simplica/img/product/foto1.png" alt="">
                   </div>
                   <div class="b-footer-popup__content-block-title">
                     <a href="product.html">Оригинал МИ Xiaomi Redmi</a>
@@ -92,7 +92,7 @@ if($_SERVER['REQUEST_URI'] == '/'){
 
                 <div class="b-footer-popup__content-block">
                   <div class="b-footer-popup__content-block-img">
-                    <img src="img/product/foto1.png" alt="">
+                    <img src="catalog/view/theme/simplica/img/product/foto1.png" alt="">
                   </div>
                   <div class="b-footer-popup__content-block-title">
                     <a href="product.html">Оригинал МИ Xiaomi Redmi</a>
@@ -106,7 +106,7 @@ if($_SERVER['REQUEST_URI'] == '/'){
 
                 <div class="b-footer-popup__content-block">
                   <div class="b-footer-popup__content-block-img">
-                    <img src="img/product/foto1.png" alt="">
+                    <img src="catalog/view/theme/simplica/img/product/foto1.png" alt="">
                   </div>
                   <div class="b-footer-popup__content-block-title">
                     <a href="product.html">Оригинал МИ Xiaomi Redmi</a>
@@ -120,7 +120,7 @@ if($_SERVER['REQUEST_URI'] == '/'){
 
                 <div class="b-footer-popup__content-block">
                   <div class="b-footer-popup__content-block-img">
-                    <img src="img/product/foto1.png" alt="">
+                    <img src="catalog/view/theme/simplica/img/product/foto1.png" alt="">
                   </div>
                   <div class="b-footer-popup__content-block-title">
                     <a href="product.html">Оригинал МИ Xiaomi Redmi</a>
@@ -245,6 +245,7 @@ if($_SERVER['REQUEST_URI'] == '/'){
 
 <script src="catalog/view/theme/simplica/js/lib/jquery-ui/jquery-ui.js"></script>
 <script src="catalog/view/theme/simplica/js/lib/owl.carousel.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.touchswipe/1.6.18/jquery.touchSwipe.js"></script>
 <script src="catalog/view/theme/simplica/js/lib/jquery.magnific-popup.min.js"></script>
 
 <script src="catalog/view/theme/simplica/js/scripts.js" type="text/javascript"></script>

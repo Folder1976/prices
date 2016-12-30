@@ -257,14 +257,16 @@
                 <span>Вам может понравиться</span>
               </div>
               <div class="b-block-product__content js-block-product_tabs">
-                <ul>
-                  <li><a href="#js-block-product_tabs-1">Все</a></li>
-                  <li><a href="#js-block-product_tabs-2">Детские товары</a></li>
-                  <li><a href="#js-block-product_tabs-3">Электроника</a></li>
-                  <li><a href="#js-block-product_tabs-4">Спорт и активный отдых</a></li>
-                  <li><a href="#js-block-product_tabs-5">Бытовая техника</a></li>
-                  <li><a href="#js-block-product_tabs-6">Парфюмерия</a></li>
-                </ul>
+                <div class="g-scroll-line js-scroll-line">
+                  <ul>
+                    <li><a href="#js-block-product_tabs-1">Все</a></li>
+                    <li><a href="#js-block-product_tabs-2">Детские товары</a></li>
+                    <li><a href="#js-block-product_tabs-3">Электроника</a></li>
+                    <li><a href="#js-block-product_tabs-4">Спорт и активный отдых</a></li>
+                    <li><a href="#js-block-product_tabs-5">Бытовая техника</a></li>
+                    <li><a href="#js-block-product_tabs-6">Парфюмерия</a></li>
+                  </ul>
+                </div>
                 <div id="js-block-product_tabs-1">
                   <div class="b-product-carousel owl-carousel js-product_owl-carousel">
 

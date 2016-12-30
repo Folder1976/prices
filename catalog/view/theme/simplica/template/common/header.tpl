@@ -1,32 +1,10 @@
 <?php
-/*
-$text_email = 'E-mail';
-$text_password_reset = 'Востановление пароля';
-$text_i_remember_password = 'Помню пароль';
-$text_reestablish = 'Востановить';
-$text_name = 'Имя';
-$text_register_new_buyer = 'Регистрация нового пользователя';
-$text_register_new_wholesale_buyer = 'Регистрация оптового покупателя';
-$text_sign_up = 'Зарегистрироваться';
-$text_cabinet = 'Кабинет';
-$text_enter_in_account = 'Войти в аккаунт';
-$text_back_to_shopping = 'Вернуться к покупкам';
-$text_go_back = 'Назад';
+// поправить текст в переменных:
+$text_password_reset = 'Напомнить пароль';
 
-$text_error_name = 'Имя должно быть от 3 до 32 символов!';
-$text_error_email = 'E-mail адрес введен неверно!';
-$text_error_password = 'Введите пароль';
-$text_error_password_confirm = 'Введите пароль ещё раз';
-$text_error_form_valid = 'Не все поля заполнены верно!';
+// новые текстовые переменные:
+$text_through_social_networks = 'Через соц сети';
 
-$text_cart = 'Ваша корзина';
-$text_wishlist = 'Список желаний';
-$text_service_center = 'Клиентская служба';
-*/
-/*
-Осталось без перевода:
-2) помоему это не задействовано (смысл переводить?) : "Вы в Украина", "Верный язык?", "Верная страна?", "Оставить", "Изменить"
-*/
 
 ?>
 <!DOCTYPE html>
@@ -95,10 +73,10 @@ if (typeof jQuery == 'undefined') {
 <body class="<?php echo $class; ?>">
 
 <div class="b-popup b-account-popup js-popup-account mfp-hide">
-  <div class="b-popup__title">Авторизация</div>
+  <div class="b-popup__title"><?php echo $text_login; ?></div>
   <div class="b-popup__content">
     <div class="b-auth-form">
-      <form action="#" method="post">
+      <form action="/<?php echo $language_href; ?>index.php?route=account/login" method="post">
         <div class="f-group">
           <div class="f-field-wrapper">
             <input type="text" class="f-input" name="login" value="" placeholder="Логин">
@@ -110,7 +88,7 @@ if (typeof jQuery == 'undefined') {
           </div>
         </div>
         <div class="b-auth-social">
-          <div class="b-auth-social__title">Через соц сети</div>
+          <div class="b-auth-social__title"><?php echo $text_through_social_networks; ?></div>
           <div class="b-auth-social__content">
             <span class="ic-fb"></span>
             <span class="ic-ok"></span>
@@ -119,14 +97,14 @@ if (typeof jQuery == 'undefined') {
           </div>
         </div>
         <div class="f-group b-auth-form__button-wrap">
-          <button class="f-button" type="submit">Войти</button>
+          <button class="f-button" type="submit"><?php echo $text_enter; ?></button>
         </div>
       </form>
     </div>
   </div>
   <div class="b-popup__footer">
-    <span class="g-span-link_dotted">Регистрация</span>
-    <span class="g-span-link_dotted">Напомнить пароль</span>
+    <span class="g-span-link_dotted"><?php echo $text_register; ?></span>
+    <span class="g-span-link_dotted"><?php echo $text_password_reset; ?></span>
   </div>
 </div>
 
@@ -144,7 +122,7 @@ if (typeof jQuery == 'undefined') {
             <span class="b-header-account__title">Профиль</span>
           </div>
 
-          <a href="/"><img src="catalog/view/theme/simplica/img/logo.png" alt="Prices.md"></a>
+          <a href="/" class="b-logo"><img src="catalog/view/theme/simplica/img/logo.png" alt="Prices.md"></a>
 
           <div class="b-header-top__setings g-tablet-hidden">
             <div class="b-header-top__setings-lang">
@@ -171,9 +149,11 @@ if (typeof jQuery == 'undefined') {
           </ul>
 
           <div class="b-header-cart g-tablet-show">
-            <span class="b-header-cart__quantity">2</span>
-            <span class="ic-cart"></span>
-            <span class="b-header-cart__title">Корзина</span>
+            <a href="<?php echo shopping_cart; ?>">
+              <span class="b-header-cart__quantity">2</span>
+              <span class="ic-cart"></span>
+              <span class="b-header-cart__title">Корзина</span>
+            </a>
           </div>
 
         </div>
@@ -402,9 +382,11 @@ if (typeof jQuery == 'undefined') {
           <div class="g-col-right">
             <div class="b-header-box-cart-account">
               <div class="b-header-cart">
-                <span class="b-header-cart__quantity">2</span>
-                <span class="ic-cart"></span>
-                <span class="g-tablet-hidden b-header-cart__title">Корзина</span>
+                <a href="<?php echo shopping_cart; ?>">
+                  <span class="b-header-cart__quantity">2</span>
+                  <span class="ic-cart"></span>
+                  <span class="g-tablet-hidden b-header-cart__title">Корзина</span>
+                </a>
               </div>
               <div class="b-header-account js-open-popup-link" data-mfp-src=".js-popup-account">
                 <span class="ic-account"></span>
@@ -424,3 +406,7 @@ if (typeof jQuery == 'undefined') {
 
 
 
+<?php
+//header("Content-Type: text/html; charset=UTF-8");
+//echo "<pre>";  print_r(var_dump( get_defined_vars() )); echo "</pre>";
+?>
