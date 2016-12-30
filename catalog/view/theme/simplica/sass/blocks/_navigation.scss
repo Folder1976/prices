@@ -93,9 +93,10 @@
             }
         }
         .b-nav-level-2 {
-            position: static;
+            //position: static;
             font-size: 14px;
-            @include box-shadow(0, 3px, 21px, rgba(0, 0, 0, 0));
+            //@include box-shadow(0, 3px, 21px, rgba(0, 0, 0, 0));
+            @include box-shadow(0, 3px, 21px, rgba(0, 0, 0, 0.39));
             &__title {
                 display: none;
             }
@@ -334,6 +335,13 @@
         display: none;
     }
 } // end max-width: 700px
+
+@media screen and (max-width: 600px) {
+    .b-menu_mob .b-nav-level-2 {
+        position: static;
+        @include box-shadow(0, 3px, 21px, rgba(0, 0, 0, 0));
+    }
+} // end max-width: 600px
 
 @media screen and (max-width: 500px) {
     .b-button-nav {

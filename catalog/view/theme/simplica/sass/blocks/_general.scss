@@ -192,6 +192,20 @@ a:hover {
         }
     }
 }
+.f-field-group {
+    display: flex;
+    float: right;
+    .f-field {
+        margin-right: 1%;
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+    &_checkbox,
+    &_radio {
+        float: right;
+    }
+}
 .f-field-wrapper {
     overflow: hidden;
     .f-field {
@@ -475,6 +489,16 @@ a:hover {
     height: 17px;
     margin-right: 20px;
 }
+.ic-arrow-next4 {
+    background-position: -56px -31px;
+    width: 7px;
+    height: 12px;
+}
+.ic-arrow-prev4 {
+    background-position: -48px -31px;
+    width: 7px;
+    height: 12px;
+}
 .ic-popup-link {
     background-position: -23px -22px;
     width: 17px;
@@ -684,6 +708,26 @@ a:hover {
     width: 29px;
     height: 23px;
 }
+.ic-checkout-radio {
+    background-position: 0px -1767px;
+    width: 18px;
+    height: 18px;
+}
+.ic-checkout-radio_checked {
+    background-position: -19px -1767px;
+    width: 18px;
+    height: 18px;
+}
+.ic-business-card-schedule {
+    background-position: 0px -1728px;
+    width: 38px;
+    height: 38px;
+}
+.ic-business-card-phones {
+    background-position: 0px -1689px;
+    width: 38px;
+    height: 38px;
+}
 // ******************************************
 //             popup
 // ******************************************
@@ -757,7 +801,17 @@ a:hover {
     }
 }
 
+// ******************************************
+//             scroll line
+// ******************************************
 
+.g-scroll-line {
+    width: 100%;
+    overflow: hidden;
+    ul {
+        display: flex;
+    }
+}
 
 
 

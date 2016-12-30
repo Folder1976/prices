@@ -2,6 +2,10 @@
 .b-header {
     background: #fff;
 
+    .b-logo {
+        position: relative;
+    }
+
     &__top-line {
         height: 14px;
         background: $color_blue;
@@ -235,11 +239,18 @@
     .b-header-top {
         padding-bottom: 15px;
         .g-flex-container {
-            justify-content: space-around;
+            // justify-content: space-around;
+            justify-content: space-between;
         }
         .b-header-account,
         .b-header-cart {
             width: auto;
+        }
+        .b-header-account {
+            padding-left: 15px;
+        }
+        .b-header-cart {
+            padding-right: 15px;
         }
     }
     .b-header__news {

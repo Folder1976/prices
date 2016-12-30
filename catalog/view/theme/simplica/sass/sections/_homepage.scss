@@ -45,7 +45,7 @@ $width_col_right: 0;
 .b-home-slider {
     width: calc(100% - #{$width_col_popular_product});
     max-width: 620px;
-    height: 387px;
+    max-height: 387px;
     float: left;
     padding-right: 15px;
     & .owl-next,
@@ -485,6 +485,7 @@ $width_col_right: 0;
         float: none;
         width: 100%;
         margin: 0 auto;
+        padding: 0;
     }
     .b-upcoming-prod {
         width: 100%;
@@ -541,6 +542,9 @@ $width_col_right: 0;
 } // end max-width: 700px
 
 @media screen and (max-width: 600px) {
+    .b-upcoming-prod__block {
+        width: 100%;
+    }
     .b-block-product_popular {
         .b-block-product__img {
             float: none;
