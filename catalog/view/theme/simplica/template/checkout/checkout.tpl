@@ -90,654 +90,228 @@ $text_error_agreement = 'Это обязательное для заполнен
 
 $text_order_q = 'Вопрос%20по%20заказа';
 
-$faq_array = array ();   // Сюда засунуть фак
-//$faq_array['href'];
-//$faq_array['title'];
 
 
 
 ?>
 
-<main role="main" class="l-main_checkout">
-
-<input type="text" class="h-hidden" value="2" id="step">
-
-<ol class="b-checkout_progress_indicator">
-    <li class="b-checkout_progress_indicator-step js-indication-step-1"><a href="/index.php?route=checkout/cart"><?php echo $text_cart; ?></a></li>
-    <li class="b-checkout_progress_indicator-step js-indication-step-2 b-checkout_progress_indicator-step--active"><span><?php echo $text_order; ?></span></li>
-    <li class="b-checkout_progress_indicator-step js-indication-step-3"><span><?php echo $text_confirmation_order; ?></span></li>
-  </ol>
-  <div class="l-checkout_cart">
-
-<!-- Левая колонка. START -->
-    <div class="l-checkout_cart-left">
-      <?php if ($error_warning) { ?>
-      <div class="alert alert-danger .f-field-wrapper">
-        <span class="f-error_message">
-          <i class="fa fa-exclamation-circle"></i> <?php echo $error_warning; ?>
-        </span>
-        <button type="button" class="close" data-dismiss="alert">&times;</button>
-      </div>
-      <?php } ?>
-
-  <!-- Форма авторзации START -->
-      <div class="panel-collapse collapse js-step-2" id="collapse-checkout-option">
-        <div class="panel-body"></div>
-      </div>
-  <!-- Форма авторзации END -->
-
-<?php
-
-//header("Content-Type: text/html; charset=UTF-8");
-//echo "<pre>";  print_r(var_dump( $customer_info )); echo "</pre>";
-?>
-
-  <!-- Информация о доставке START -->
-      <div class="b-checkout_shipping_address js-step-2">
-        <h3 class="b-checkout_shipping_address-title"><?php echo $text_delivery_information; ?></h3>
-        <div class="b-checkout_shipping_address-wrapper">
-
-    <?php if($logged) { ?>
-          <div class="f-field f-field-textinput f-state-required">
-              <div class="f-select-wrapper" id="select_address">
-
-                <select class="f-select country js-state-required" id="delivery_address" name="delivery_address">
-                    <option value="0"><?php echo $text_select_delive_adress; ?></option>
-                    <?php if(isset($customer_info['addresses']) AND is_array($customer_info['addresses'])){ ?>
-                        <?php foreach ($customer_info['addresses'] as $result) { ?>
-                            <option value="<?php echo $result['address_id']; ?>"><?php echo $result['city'].', '.$result['address_1'].', '.$result['address_2']; ?></option>
-                        <?php } ?>
-                    <?php } ?>
-                </select>
-              </div>
-              <span class="f-error_message">
-                <span class="f-error_message-block js-error_country"></span>
-              </span>
-          </div>
-            <script>
-                $(document).on('change', '#delivery_address', function(){
-                        
-                    $.ajax({
-                        url: 'index.php?route=checkout/checkout/get_address',
-                        type: 'post',
-                        data: $('#select_address select'),
-                        dataType: 'json',
-                        beforeSend: function() {
-                            
-                        },
-                        complete: function() {
-                            
-                        },
-                        success: function(json) {
-                            
-                            //console.log(json);
-                            
-                            if (json['success'] == 1) {
-                                
-                                $('#first_name').val(json['firstname']);
-                                $('#last_name').val(json['lastname']);
-                                $('#address1').val(json['address_1']);
-                                $('#address2').val(json['address_2']);
-                                $('#fields_zip').val(json['postcode']);
-                                $('#city').val(json['city']);
-                                $('#country').val(json['iso_code_2']);
-                                 
-                            }
-                            
-                        },
-                        error: function(xhr, ajaxOptions, thrownError) {
-                            alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
-                        }
-                    });
-                });
-        
-            </script>
-    <?php } ?>
-
-
-          <div class="f-field f-field-email f-state-required">
-            <label class="f-label" for="address_email">
-              <span class="f-label-value"><?php echo $text_email; ?></span>
-            </label>
-            <div class="f-field-wrapper">
-              <input id="address_email"
-                     name="address_email"
-                     class="f-email f-state-required js-state-required"
-                     placeholder="<?php echo $text_email_placeholder; ?>"
-                     value="<?php echo isset($customer_info['email']) ? $customer_info['email'] : ''; ?>"
-                     type="email">
-              <span class="f-error_message">
-                <span class="f-error_message-block js-error_address_email"></span>
-              </span>
-            </div>
-          </div>
-<?php if( !$logged ) { ?>
-          <div class="f-field f-field-password f-state-required">
-            <label class="f-label" for="password">
-              <span class="f-label-value"><?php echo $text_password; ?></span>
-            </label>
-            <div class="f-field-wrapper">
-              <input id="password"
-                     name="password"
-                     class="f-password f-state-required js-state-required"
-                     placeholder="<?php echo $text_password_placeholder; ?>"
-                     value="<?php echo isset($customer_info['email']) ? $customer_info['email'] : ''; ?>"
-                     type="password">
-              <span class="f-error_message">
-                <span class="f-error_message-block js-error_password"></span>
-              </span>
-            </div>
-          </div>
-
-          <div class="f-field f-field-password f-state-required">
-            <label class="f-label" for="confirm">
-              <span class="f-label-value"><?php echo $text_password_confirm; ?></span>
-            </label>
-            <div class="f-field-wrapper">
-              <input id="confirm"
-                     name="confirm"
-                     class="f-password f-state-required js-state-required"
-                     placeholder="<?php echo $text_password_confirm_placeholder; ?>"
-                     value="<?php echo isset($customer_info['email']) ? $customer_info['email'] : ''; ?>"
-                     type="password">
-              <span class="f-error_message">
-                <span class="f-error_message-block js-error_confirm"></span>
-              </span>
-            </div>
-          </div>
-<?php } ?>
-          <div class="f-field f-field-textinput f-state-required">
-            <label class="f-label" for="first_name">
-              <span class="f-label-value"><?php echo $text_name; ?></span>
-            </label>
-            <div class="f-field-wrapper">
-              <input id="first_name"
-                     name="first_name"
-                     class="f-textinput f-state-required js-state-required"
-                     placeholder="<?php echo $text_name_placeholder; ?>"
-                     value="<?php echo isset($customer_info['firstname']) ? $customer_info['firstname'] : ''; ?>"
-                     type="text"
-                     maxlength="35">
-              <span class="f-error_message">
-                <span class="f-error_message-block js-error_first_name"></span>
-              </span>
-            </div>
-          </div>
-
-          <div class="f-field f-field-textinput f-state-required">
-            <label class="f-label" for="last_name">
-              <span class="f-label-value"><?php echo $text_last_name; ?></span>
-            </label>
-            <div class="f-field-wrapper">
-              <input id="last_name"
-                     name="last_name"
-                     class="f-textinput f-state-required js-state-required"
-                     placeholder="<?php echo $text_last_name_placeholder; ?>"
-                     value="<?php echo isset($customer_info['lastname']) ? $customer_info['lastname'] : ''; ?>"
-                     type="text"
-                     maxlength="35">
-              <span class="f-error_message">
-                <span class="f-error_message-block js-error_last_name"></span>
-              </span>
-            </div>
-          </div>
-
-          <div class="f-field f-field-textinput f-state-required">
-            <label class="f-label" for="address1">
-              <span class="f-label-value"><?php echo $text_address1; ?></span>
-            </label>
-            <div class="f-field-wrapper">
-              <input id="address1"
-                     name="address1"
-                     class="f-textinput f-state-required js-state-required"
-                     placeholder="<?php echo $text_address1_placeholder; ?>"
-                     value="<?php //echo isset($customer_info['firstname']) ? $customer_info['firstname'] : ''; ?>"
-                     type="text"
-                     maxlength="35">
-              <span class="f-error_message">
-                <span class="f-error_message-block js-error_address1"></span>
-              </span>
-            </div>
-          </div>
-
-          <!--div class="f-field f-field-textinput f-state-required">
-            <label class="f-label" for="address2">
-              <span class="f-label-value"><?php echo $text_address2; ?></span>
-            </label>
-            <div class="f-field-wrapper">
-              <input id="address2"
-                     name="address2"
-                     class="f-textinput f-state-required js-state-required"
-                     placeholder="<?php echo $text_address2_placeholder; ?>"
-                     value="<?php //echo isset($customer_info['firstname']) ? $customer_info['firstname'] : ''; ?>"
-                     type="text"
-                     maxlength="35">
-              <span class="f-error_message">
-                <span class="f-error_message-block js-error_address2"></span>
-              </span>
-            </div>
-          </div-->
-        <input id="address2"
-                     name="address2"
-                     class="f-textinput js-state-required"
-                     placeholder="<?php echo $text_address2_placeholder; ?>"
-                     value=""
-                     type="hidden"
-                     maxlength="35">
-                     
-          <div class="f-field f-field-textinput f-state-required">
-            <label class="f-label" for="fields_zip">
-              <span class="f-label-value"><?php echo $text_fields_zip; ?></span>
-            </label>
-            <div class="f-field-wrapper">
-              <input id="fields_zip"
-                     name="fields_zip"
-                     class="f-textinput f-state-required js-state-required"
-                     placeholder="<?php echo $text_fields_zip_placeholder; ?>"
-                     value="<?php //echo isset($customer_info['firstname']) ? $customer_info['firstname'] : ''; ?>"
-                     type="text"
-                     maxlength="100">
-              <span class="f-error_message">
-                <span class="f-error_message-block js-error_fields_zip"></span>
-              </span>
-            </div>
-          </div>
-
-          <div class="f-field f-field-textinput f-state-required">
-            <label class="f-label" for="city">
-              <span class="f-label-value"><?php echo $text_city; ?></span>
-            </label>
-            <div class="f-field-wrapper">
-              <input id="city"
-                     name="city"
-                     class="f-textinput f-state-required js-state-required"
-                     placeholder="<?php echo $text_city_placeholder; ?>"
-                     value="<?php //echo isset($customer_info['firstname']) ? $customer_info['firstname'] : ''; ?>"
-                     type="text"
-                     maxlength="50">
-              <span class="f-error_message">
-                <span class="f-error_message-block js-error_city"></span>
-              </span>
-            </div>
-          </div>
-
-          <div class="f-field f-field-textinput">
-            <label class="f-label" for="country">
-              <span class="f-label-value"><?php echo $text_country; ?></span>
-            </label>
-            
-            
-            <div class="f-field-wrapper">
-              <div class="f-select-wrapper">
-                
-                <?php foreach($countries as $country) { ?>
-                    <?php if($country_code == $country['iso_code_2']) { ?>
-                    <input type="hidden" name="country" class="f-textinput country js-state-required" value="<?php echo $country['iso_code_2'];?>">
-                    <label class="f-label country_lable"><?php echo $country['name'];?></label>
-                    <?php } ?>
-                <?php } ?>
-                  
-                <!--select class="f-select country js-state-required" id="country" name="country">
-                  <?php foreach($countries as $country) { ?>
-                  <option value="<?php echo $country['iso_code_2'];?>"><?php echo $country['name'];?></option>
-                  <?php } ?>
-                </select-->
-              </div>
-              <!--span class="f-error_message">
-                <span class="f-error_message-block js-error_country"></span>
-              </span-->
-            </div>
-          </div>
-
-          <div class="f-field f-field-select f-type-phonecode f-state-required">
-            <label class="f-label" for="fields_phoneCode">
-              <span class="f-label-value"><?php echo $text_fields_phone; ?></span>
-            </label>
-            <div class="f-field-wrapper">
-              <span class="f-error_message">
-                <span class="f-error_message-block js-error_fields_phoneCode"></span>
-              </span>
-            </div>
-          </div>
-          <div class="f-field f-field-textinput f-type-phone f-state-required">
-            <div class="f-field-wrapper">
-              <input id="fields_phone"
-                     name="fields_phone"
-                     class="f-textinput phone f-state-required js-state-required"
-                     placeholder="<?php echo $text_fields_phone_placeholder; ?>"
-                     maxlength="20"
-                     value="<?php echo isset($customer_info['telephone']) ? $customer_info['telephone'] : ''; ?>"
-                     type="text">
-              <span class="f-field_description"></span>
-              <span class="f-error_message">
-                <span class="f-error_message-block js-error_fields_phone"></span>
-              </span>
-            </div>
-          </div>
 
 
 
+
+
+    <main class="b-checkout">
+      <div class="g-container">
+
+        <div class="b-checkout-nav">
+          <ol>
+            <li><span>Корзина</span></li>
+            <li class="active"><span>Подтвердить имя</span></li>
+          </ol>
         </div>
-      </div>
-  <!-- Информация о доставке END -->
+
+      </div>  <!-- end g-container -->
+
+      <div class="b-checkout-form">
+        <form action="#">
 
 
-
-      <div class="b-checkout_shipping_address js-step-3 h-hidden">
-        <p><?php echo $text_have_questions; ?></p>
-        <div class="b-checkout_payment-title--center">
-          <div class="b-checkout_content_block-icon_block">
-            <div class="b-checkout_content_block-icon_block-title"><?php echo $text_live_chat; ?></div>
-            <a class="b-checkout_content_block-icon_mail" href="mailto:info@plazamilano.com?Subject=<?php echo $text_order_q; ?>"></a>
-          </div>
-          <div class="b-checkout_content_block-icon_block">
-            <div class="b-checkout_content_block-icon_block-title"><?php echo $text_email_us; ?></div>
-            <a class="b-checkout_content_block-icon_mail" href="mailto:info@plazamilano.com?Subject=<?php echo $text_order_q; ?>"></a>
-          </div>
-        </div>
-      </div>
-
-      <div class="b-checkout_payment js-step-3 h-hidden">
-        <h3 class="b-checkout_shipping_address-title"><?php echo $text_delivery_info; ?></h3>
-        <div class="b-checkout_shipping_address--summary js-checkout_shipping_address_summary"></div>
-        <span class="b-checkout_shipping_address--summary-edit js-indication-step-2 js-prev-step"><?php echo $text_delivery_edit; ?></span>
-      </div>
-
-  <!-- Детали оплаты START -->
-      <div class="b-checkout_payment js-step-3 h-hidden">
-        <h3 class="b-checkout_payment-title"><?php echo $text_payment_details; ?></h3>
-        <div class="b-checkout_payment-wrapper">
-          <div id="PaymentMethod_CREDIT_CARD" class="b-checkout_payment-payment_method_expanded">
-
-            <div class="b-checkout_payment-number_card">
-
-              <div class="f-field f-field-textinput f-state-required">
-                <label class="f-label" for="creditCard_number">
-                  <span class="f-label-value"><?php echo $text_credit_card_number; ?></span>
-                </label>
-                <div class="f-field-wrapper">
-                  <input id="creditCard_number"
-                         name="creditCard_number"
-                         class="f-textinput ccnumber f-state-required js-state-required"
-                         placeholder="<?php echo $text_credit_card_number_placeholder; ?>"
-                         value=""
-                         type="text"
-                         maxlength="20"
-                         minlength="0">
-                  <span class="f-error_message">
-                    <span class="f-error_message-block js-error_creditCard_number"></span>
-                  </span>
-                </div>
-              </div>
-              <div class="b-cardtypes">
-                <ul>
-                    <li class="b-cardtypes-mastercard off js-cardtype"></li>
-                    <li class="b-cardtypes-visa off js-cardtype"></li>
-                    <li class="b-cardtypes-amex off js-cardtype"></li>
-                    <li class="b-cardtypes-master off js-cardtype"></li>
-                </ul>
-              </div>
-
-            </div>
-            <span class="f-label"><?php echo $text_credit_card_expiration; ?><span class="required-indicator">*</span></span>
-            <div class="b-checkout_payment-exp_date">
-              <div class="b-checkout_payment-exp_date-month">
-                <div class="f-field f-field-select month f-state-required">
-                  <label class="f-label" for="creditCard_month">
-                    <span class="f-label-value"><?php echo $text_month; ?></span>
-                  </label>
-                  <div class="f-field-wrapper">
-                    <div class="f-select-wrapper">
-                      <select class="f-select f-state-required js-state-required" id="creditCard_month" name="creditCard_month">
-                        <option selected="selected" disabled=""><?php echo $text_month_mm; ?></option>
-                        <option value="1"><?php echo $text_january; ?></option>
-                        <option value="2"><?php echo $text_february; ?></option>
-                        <option value="3"><?php echo $text_march; ?></option>
-                        <option value="4"><?php echo $text_april; ?></option>
-                        <option value="5"><?php echo $text_may; ?></option>
-                        <option value="6"><?php echo $text_june; ?></option>
-                        <option value="7"><?php echo $text_july; ?></option>
-                        <option value="8"><?php echo $text_august; ?></option>
-                        <option value="9"><?php echo $text_september; ?></option>
-                        <option value="10"><?php echo $text_october; ?></option>
-                        <option value="11"><?php echo $text_november; ?></option>
-                        <option value="12"><?php echo $text_december; ?></option>
-                      </select>
-                    </div>
-                    <span class="f-error_message">
-                      <span class="f-error_message-block js-error_creditCard_month"></span>
-                    </span>
-                  </div>
-                </div>
-              </div>
-              <div class="b-checkout_payment-exp_date-year">  
-                <div class="f-field f-field-select f-type-dynamic_year f-state-required">
-                  <label class="f-label" for="creditCard_year">
-                    <span class="f-label-value"><?php echo $text_year; ?></span>
-                  </label>
-                  <div class="f-field-wrapper">
-                    <div class="f-select-wrapper">
-                      <select class="f-select f-state-required js-state-required" id="creditCard_year" name="creditCard_year">
-                        <option selected="selected" disabled=""><?php echo $text_year_yyyy; ?></option>
-                        <option value="2016">2016</option>
-                        <option value="2017">2017</option>
-                        <option value="2018">2018</option>
-                        <option value="2019">2019</option>
-                        <option value="2020">2020</option>
-                        <option value="2021">2021</option>
-                        <option value="2022">2022</option>
-                        <option value="2023">2023</option>
-                        <option value="2024">2024</option>
-                        <option value="2025">2025</option>
-                        <option value="2026">2026</option>
-                      </select>
-                    </div>
-                    <span class="f-error_message">
-                      <span class="f-error_message-block js-error_creditCard_year"></span>
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="f-field f-field-textinput b-checkout_payment-cvn_block-field f-state-required">
-              <label class="f-label" for="creditCard_cvn">
-                <span class="f-label-value"><?php echo $text_credit_card_cvn; ?></span>
-              </label>
+          <div class="b-beige-block">
+            <div class="f-group">
               <div class="f-field-wrapper">
-                <input id="creditCard_cvn"
-                       name="creditCard_cvn"
-                       class="f-textinput f-state-required js-state-required"
-                       placeholder="<?php echo $text_credit_card_cvn_placeholder; ?>"
-                       value=""
-                       type="text"
-                       maxlength="100">
-                <span class="f-error_message">
-                  <span class="f-error_message-block js-error_creditCard_cvn"></span>
-                </span>
-              </div>
-              <div class="b-checkout_payment-cvn_block-cvn_tip">
-                <div class="g-tooltip g-tooltip--up">
-                  <span class="g-tooltip-link"><?php echo $text_what_is_it; ?></span>
-                  <span class="g-tooltip-content">    
-                    <div class="b-content_asset b-content_asset--checkout-security-code content-asset">
-                      <p style="margin: 5px; font-weight: bold;"><img alt="Номер CVN" class="imgright" src="/catalog/view/theme/simplica/img/cvnimage.png" width="180" height="241"><?php echo $text_what_is_cvn; ?></p>
-                      <p style="margin: 5px;"><?php echo $text_what_is_cvn_text; ?></p>
-                    </div>
-                  </span> 
+                <div class="f-label">
+                  <label for="name">Ваше имя, фамилия</label>
+                </div>
+                <div class="f-field">
+                  <input type="text" class="f-input" name="name" id="name" value="">
                 </div>
               </div>
             </div>
 
-            <div class="b-checkout_payment-name_card">
-              <div class="f-field f-field-textinput f-state-required">
-                <label class="f-label" for="creditCard_owner">
-                  <span class="f-label-value"><?php echo $text_credit_card_name; ?></span>
-                </label>
-                <div class="f-field-wrapper">
-                  <input id="creditCard_owner"
-                         name="creditCard_owner"
-                         class="f-textinput f-state-required js-state-required"
-                         placeholder="<?php echo $text_credit_card_name_placeholder; ?>"
-                         value=""
-                         type="text"
-                         maxlength="40"
-                         minlength="4">
-                  <span class="f-error_message">
-                    <span class="f-error_message-block js-error_creditCard_owner"></span>
-                  </span>
-                </div>
-              </div>
-            </div>
-
-            <div class=" f-field f-field-checkbox">
+            <div class="f-group">
               <div class="f-field-wrapper">
-                <input name="agreement"
-                       id="agreement"
-                       class="f-checkbox f-state-required js-state-required"
-                       value="true"
-                       type="checkbox">
-                <label class="f-label" for="agreement">
-                  <span class="f-label-value"><?php echo $text_agreement; ?></span>
-                </label>
-                <span class="f-error_message">
-                  <span class="f-error_message-block js-error_agreement"></span>
-                </span>
+                <div class="f-label">
+                  <label for="email">Email</label>
+                </div>
+                <div class="f-field">
+                  <input type="text" class="f-input" name="email" id="email" value="">
+                </div>
               </div>
             </div>
 
-          </div>
-        </div>
-      </div>
-  <!-- Детали оплаты END -->
+            <div class="f-group">
+              <div class="f-field-wrapper">
+                <div class="f-label">
+                  <label for="phone">Телефон</label>
+                </div>
+                <div class="f-field">
+                  <input type="text" class="f-input" name="phone" id="phone" value="">
+                </div>
+              </div>
+            </div>
 
-
-
-      <div class="l-checkout_button_bottom">
-        
-          <div class="l-checkout_button">
-            <button class="b-checkout_button js-next-step" name="checkout_submitStep" value="0">
-              <?php echo $text_order; ?>
-            </button>
-          </div>
-        
-      </div>
-
-    </div>
-<!-- Левая колонка. END -->
-
-<!-- Правая колонка. START -->
-    <div class="l-checkout_cart-right js-checkout_order_summary" style="">
-      <div class="b-summary_list"> 
-        <h2 class="b-summary_list-title"><?php echo $text_summary_information_on_ordering; ?></h2>
-
-        <?php foreach ($totals as $total) { ?>
-        <div class="b-summary_list-line b-summary_list-your_cart">
-          <span class="b-summary_list-label"><?php echo $total['title']; ?></span>
-          <span class="b-summary_list-value"><?php echo $total['text']; ?></span>
-        </div>
-        <?php } ?>
-
-      </div>
-
-      <div class="l-checkout_button">
-        <button class="b-checkout_button js-next-step" name="submitStep">
-          <?php echo $text_order; ?>
-        </button>
-      </div>
-
-      <div class="b-checkout_content_block">
-        <div class="b-checkout_content_block-info">
-          <div class="b-content_asset b-content_asset--customer-service-help-contact-checkout content-asset">
-            <h2>Размещая заказ, Вы принимаете наши <a href="#" target="_blank">Условия продажи</a> и <a href="#" target="_blank">Политику конфиденциальности.</a> <span class="ru">Если доставка осуществляется в РФ, Вы также соглашаетесь с <a href="#">Условиями и Положениями DHL.</a></span></h2>
-            <br> 
-            <h3 class="b-checkout_content_block-toggle_title b-checkout_content_block-toggle_title--open js-checkout_contact_us_block_tt"
-                data-hide=".js-faq-questions_block_tt"
-                data-toggles=".js-checkout_contact_us_block"><?php echo $text_help_is_needed; ?></h3>
-
-            <div class="js-checkout_contact_us_block">
-              <div class="b-checkout_content_block-table">
-                <div class="b-checkout_content_block-table-col">
-                  <div class="b-checkout_content_block-title"><?php echo $text_write_to_us; ?></div>
-                  <br>
-                  <div class="b-checkout_content_block-icon_block">
-                    <a class="b-checkout_content_block-icon_mail" href="mailto:info@plazamilano.com?Subject=<?php echo $text_order_q; ?>">
-                    </a>
+            <div class="f-group">
+              <div class="f-field-wrapper">
+                <div class="f-label">
+                <label for="sity">Город</label> / <label for="address">Адрес</label>
+                </div>
+                <div class="f-field-group">
+                  <div class="f-field">
+                    <input type="text" class="f-input" name="sity" id="sity" value="">
+                  </div>
+                  <div class="f-field">
+                    <input type="text" class="f-input" name="address" id="address" value="">
                   </div>
                 </div>
               </div>
+            </div>
 
-              <div class="b-checkout_content_block-text">
-                <p><?php echo $text_send_email; ?></p>
+            <div class="f-group">
+              <div class="f-field-wrapper">
+                <div class="f-label">
+                  <label for="comment">Коментарии</label>
+                </div>
+                <div class="f-field">
+                  <input type="text" class="f-input" name="comment" id="comment" value="">
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </div>
 
-<?php if ( $faq_array ) { ?>
-      <div class="b-checkout_content_block">
-        <div class="b-checkout_content_block-faq">
-          <div class="b-content_asset b-content_asset--faq-checkout-checkout content-asset">
-            <div class="content">
-              <h3 class="b-checkout_content_block-toggle_title b-checkout_content_block-toggle_title--close js-faq-questions_block_tt"
-                  data-toggles=".js-faq-questions_block"
-                  data-hide=".js-checkout_contact_us_block_tt"><?php echo $text_faq; ?></h3>
 
-              <ul class="h-hidden b-checkout_content_block-faq_questions js-faq-questions_block">
+          <div class="b-white-block">
+            <div class="f-group">
+              <div class="f-field-wrapper">
+                <div class="f-label b-group__title">
+                  <label>Способ оплаты</label>
+                </div>
+                <div class="f-field-group_radio">
+                  <div class="f-field-wrapper f-field-wrapper_radio">
+                    <div class="f-field_radio">
+                      <input type="radio" name="payment_metod" id="payment_metod_1" value="" class="f-radio">
+                        <div class="f-label">
+                          <label for="payment_metod_1"><span class="ic-checkout-credit-card"></span> Картой</label>
+                        </div>
+                    </div>
+                  </div>
+                  <div class="f-field-wrapper f-field-wrapper_radio">
+                    <div class="f-field_radio">
+                      <input type="radio" name="payment_metod" id="payment_metod_2" value="" class="f-radio">
+                        <div class="f-label">
+                          <label for="payment_metod_2"><span class="ic-checkout-money"></span> Наличными</label>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
 
-                <?php foreach( $faq_array as $faq ) { ?>
-                <li class="row b-checkout_content_block-faq_questions-li">
-                  <a class="b-checkout_content_block-faq_questions-link" href="$faq['href']">$faq['title']</a>
-                </li>
-                <?php } ?>
+            <div class="f-group">
+              <div class="f-field-wrapper">
+                <div class="f-label b-group__title">
+                  <label>Способ Доставки</label>
+                </div>
+                <div class="f-field-group_radio">
+                  <div class="f-field-wrapper f-field-wrapper_radio">
+                    <div class="f-field_radio">
+                      <input type="radio" name="delivery_metod" id="delivery_metod_1" value="" class="f-radio">
+                        <div class="f-label">
+                          <label for="delivery_metod_1"><span class="ic-checkout-delivery_1"></span> Самовывоз</label>
+                        </div>
+                    </div>
+                  </div>
+                  <div class="f-field-wrapper f-field-wrapper_radio">
+                    <div class="f-field_radio">
+                      <input type="radio" name="delivery_metod" id="delivery_metod_2" value="" class="f-radio">
+                        <div class="f-label">
+                          <label for="delivery_metod_2"><span class="ic-checkout-delivery_2"></span> Доставка на дом</label>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
 
-              </ul>
+            <div class="b-checkout-form__summary">
+              <div class="b-total">
+                <div class="b-total__cost">
+                  <span>Итого:&nbsp;&nbsp;25 000 руб</span>
+                </div>
+                <div class="b-total__delivery">
+                  <span>Цена за доставку 30 000 руб</span>
+                </div>
+              </div>
 
+              <div class="b-checkout__button">
+                <a href="#" class="g-btn">Продолжить</a>
+              </div>
+
+              <div class="b-checkout-form__summary-bottom">
+                <div class="b-back_to_shopping">
+                  <a href="category.html">< Вернуться назад</a>
+                </div>
+                <div class="b-checkout__clear">
+                  <a href="#">Очистить корзину <span class="ic-delete"></span></a>
+                </div>
+                <div class="g-clear"></div>
+              </div>
             </div>
           </div>
-        </div>
+
+
+        </form>
       </div>
-<?php } ?>
 
-    </div>
-<!-- Правая колонка. END -->
-
-  </div>
-
-</main>
+    </main>
 
 
 
-<script>
-    
-  $(document).on('change', '.f-textinput', function(){
-    
-       
-                             
-    
-  });
-  
-    
-// выпадающие блоки в правой колонке START
-closeTTBlock = function(t) {
-  $(t).removeClass('b-checkout_content_block-toggle_title--open').addClass('b-checkout_content_block-toggle_title--close');
-  $($(t).data('toggles')).addClass('h-hidden');
-}
-openTTBlock = function(t) {
-  $(t).removeClass('b-checkout_content_block-toggle_title--close').addClass('b-checkout_content_block-toggle_title--open');
-  $($(t).data('toggles')).removeClass('h-hidden');
-  closeTTBlock($($(t).data('hide')));
-}
-$('.js-faq-questions_block_tt, .js-checkout_contact_us_block_tt').on('click', function(){
-  if ( $(this).hasClass('b-checkout_content_block-toggle_title--close') ) {
-    openTTBlock($(this));
-  } else {
-    closeTTBlock($(this));
-  }
-});
-// выпадающие блоки в правой колонке END
-</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <script>
   // Валидация формы. START

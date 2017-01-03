@@ -1,19 +1,13 @@
 <?php echo $header; ?>
 <?php
-/*
-$text_new_search = 'Новый поиск';
-$text_go = 'Перейти';
-$text_navigation = 'Дополнительная навигация';
-$text_confirm = 'Подтвердить';
-*/
+
 ?>
 
-<main role="main" class="l-error_page">
-    <div class="l-primary_content b-error_page-primary_content">
-    <h1 class="b-error_page-title"><?php echo $heading_title; ?></h1>
-        <div class="b-error_page-slot"></div>
-        <div class="b-error_page-message">
-            <div class="b-content_asset b-content_asset--error-callout content-asset">
+<main class="b-error-page">
+    <div class="g-container">
+    <h1 class="b-error-page_title"><?php echo $heading_title; ?></h1>
+        <div class="b-error-page_message">
+            <div>
                 <?php echo $text_error; ?>
             </div>
         </div>
