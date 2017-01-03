@@ -6,6 +6,8 @@ $text_password_reset = 'Напомнить пароль';
 $text_through_social_networks = 'Через соц сети';
 
 
+//echo "<pre>";  print_r(var_dump( get_defined_vars() )); echo "</pre>";
+//echo "<pre>";  print_r(var_dump( $social_images )); echo "</pre>";
 ?>
 <!DOCTYPE html>
 <!--[if IE]><![endif]-->
@@ -79,21 +81,32 @@ if (typeof jQuery == 'undefined') {
       <form action="/<?php echo $language_href; ?>index.php?route=account/login" method="post">
         <div class="f-group">
           <div class="f-field-wrapper">
-            <input type="text" class="f-input" name="login" value="" placeholder="Логин">
+            <input type="text"
+                   class="f-input"
+                   name="login"
+                   value=""
+                   placeholder="Логин"
+                   required="required"
+                   pattern="^[a-zA-Zа-яА-Я0-9]{3,}$"
+                   title="минимум 3 символа (a-z, A-Z, а-я, А-Я, 0-9)">
           </div>
         </div>
         <div class="f-group">
           <div class="f-field-wrapper">
-            <input type="password" class="f-input" name="password" value="" placeholder="Пароль">
+            <input type="password"
+                   class="f-input"
+                   name="password"
+                   value=""
+                   placeholder="Пароль"
+                   required="required">
           </div>
         </div>
         <div class="b-auth-social">
           <div class="b-auth-social__title"><?php echo $text_through_social_networks; ?></div>
           <div class="b-auth-social__content">
-            <span class="ic-fb"></span>
-            <span class="ic-ok"></span>
-            <span class="ic-gp"></span>
-            <span class="ic-vk"></span>
+          <?php foreach ($adapters as $title => $adapter) { ?>
+            <a href="<?php echo $adapter->getAuthUrl(); ?>"><span class="ic-<?php echo $title; ?>"></span></a>
+          <?php } ?>
           </div>
         </div>
         <div class="f-group b-auth-form__button-wrap">
