@@ -641,6 +641,7 @@ a:hover {
   display: inline-block;
   position: relative;
   cursor: pointer;
+  z-index: 1;
 }
 .g-span-select__title {
   white-space: nowrap;

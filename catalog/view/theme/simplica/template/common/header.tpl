@@ -103,8 +103,8 @@ if (typeof jQuery == 'undefined') {
     </div>
   </div>
   <div class="b-popup__footer">
-    <span class="g-span-link_dotted"><?php echo $text_register; ?></span>
-    <span class="g-span-link_dotted"><?php echo $text_password_reset; ?></span>
+    <span class="g-span-link_dotted"><a href="index.php?route=account/register"><?php echo $text_register; ?></a></span>
+    <span class="g-span-link_dotted"><a href="index.php?route=account/forgotten"><?php echo $text_password_reset; ?></a></span>
   </div>
 </div>
 

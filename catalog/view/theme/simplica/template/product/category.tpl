@@ -1,526 +1,438 @@
 <?php echo $header; ?>
 <?php
+// поправить текст в переменных:
+$text_sort = 'Выводить: ';
 
-//$text_clear_all = 'Очистить все';
+
     
-//header("Content-Type: text/html; charset=UTF-8");
 //echo "<pre>";  print_r(var_dump( get_defined_vars() )); echo "</pre>";
+//echo "<pre>";  print_r(var_dump( $manufacturers )); echo "</pre>";
+
 ?>
-    <main role="main">
-        <noscript>
-            <div class="b-js_off_alert">
-                <p class="b-js_off_alert-copy">В Вашем браузере выключена функция Javascript. Пожалуйста, включите её, чтобы задействовать все возможности сайта.</p>
-            </div>
-        </noscript>
-        <div class="h-hidden b-cookies_off js-disabled-cookies">
-            <p class="b-cookies_off-copy">Ваш браузер в настоящее время не поддерживает Cookies. Пожалуйста, настройте Ваш браузер для приёма Cookies и проверьте, не блокирует ли их другая программа.</p>
+
+
+
+
+
+<div class="b-popup b-business-card-popup js-popup-business-card mfp-hide">
+  <div class="b-popup__content">
+    <div class="b-business-card">
+
+      <div class="b-business-card__top">
+        <div class="b-business-card__schedule">
+          <p><span class="ic-business-card-schedule"></span>График работы</p>
+          <p>ПН - СБ 10:00  20:00</p>
+          <p>ВС 10:00  17:00</p>
         </div>
-        <div class="l-primary_content">
-            <div class="content-slot b-slot-grid_header">
-                <div class="js-category-banner"></div>
-            </div>
-            <div class="l-search_result-options">
-                <div class="l-search_result-wrapper">
-                    <div class="l-filter_dropdown js-refinement_visibility">
+        <div class="b-business-card__name">
+          Maximum
+        </div>
+        <div class="b-business-card__phones">
+          <p><span class="ic-business-card-phones"></span>Номера телефона:</p>
+          <p>022-522-190, 022-859-773</p>
+          <p></p>
+        </div>
+      </div>
 
-                        <!-- Хлебные крошки. START -->
-                        <div class="l-breadcrumb">
-                            <ul class="b-breadcrumb" itemscope itemtype="http://schema.org/BreadcrumbList">
-                                <?php $count = 0; ?>
-                                <?php foreach ($breadcrumbs as $breadcrumb) { ?>
-                                    <li class="b-breadcrumb-item" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem" <?php if ($count == 0) { echo ' style="display: none;"';} ?>>
-                                        <a  class="b-breadcrumb-link" href="<?php echo $breadcrumb['href']; ?>" itemprop="item" title="<?php echo $breadcrumb['text']; ?>"><span itemprop="name"><?php echo $breadcrumb['text']; ?></span></a>
-                                        <meta content="<?php echo $count++; ?>">
-                                    </li>
-                                <?php } ?>
-                            </ul>
-                        </div>
-                        <!-- Хлебные крошки. END -->
+      <div class="b-business-card__address">
+        <div class="g-span-select b-business-card__address-select js-span-select">
+          <span class="g-span-select__title">бул. Дечебал, 139</span>
+          <ul class="g-span-select__ul g-span-select__hidden">
+            <li class="active" data-value="1">бул. Дечебал, 139</li>
+            <li data-value="2">бул. Дечебал, 140</li>
+            <li data-value="3">бул. Дечебал Дечебал, 141</li>
+            <li data-value="4">бул. Дечебал Дечебал Дечебал, 142</li>
+          </ul>
+        </div>
+      </div>
 
+      <div class="b-business-card__send-message">
+        <a href="#" class="b-business-card__send-message-btn">Отправить сообщение</a>
+      </div>
 
-                        <!-- Фильтры. START -->
-                        <div class="b-refinement_dropdown">
-                            <span class="b-refinement_dropdown-title js-custom-toggler" data-slide=".js-min_refinement_selector" data-toggle-class="h-minimized" data-toggle-closeonoutsideclick="yes" data-toggle-elem-class="h-toggled" data-close-element=".b-filter-close_button"><?php echo $text_filter; ?></span>
-                            <div class="b-refinement_dropdown-flyout js-min_refinement_selector js-custom-toggler-slide h-minimized">
-                                <div class="b-refinement_containter">
-                                    <div class="b-refinement_containter-sub">
-                                        <div class="l-secondary_content l-refinements">
-                                            <h2 class="h-hidden"><?php echo $text_search_detail; ?></h2>
-                                            <span class="b-refinement-header">Купить Женское</span>
-<?php
-function print_children_list ( $list, $selected_attributes_alias, $category_alias,$language_href) {
-    echo '<ul class="b-refinement-list">';
+      <div class="b-business-card__tabs js-business-card__tabs">
+        <ul>
+          <li><a href="/<?php echo $_GET['_route_']; ?>#js-business-card_tabs-2">Показать карту</a></li>
+          <li><a href="/<?php echo $_GET['_route_']; ?>#js-business-card_tabs-1">Все филиалы</a></li>
+        </ul>
 
-    foreach ( $list as $item ) {
-        echo '<li class="b-refinement-item">';
-        //echo '<a class="b-refinement-link " href="'.$item['keyword'].'">'.$item['name'].'</a>';
-        $item['keyword'] = str_replace('-','@',$item['keyword']); 
-        if ( strlen($selected_attributes_alias) > 0 AND strlen($item['keyword']) > 0 AND strpos($selected_attributes_alias, $item['keyword']) !== false) { 
-            echo '<a class="b-refinement-link b-refinement-link--active" href="'.str_replace($item['keyword'].'-','',$selected_attributes_alias).$category_alias.'">'.$item['name'].'</a>';
-        } else {
-            if(!isset($manufacturer_main_category)){ 
-                echo '<a class="b-refinement-link " href="/'.$language_href.$item['keyword'].'-'.$selected_attributes_alias.$category_alias.'">'.$item['name'].'</a>';
-            }else{
-                echo '<a class="b-refinement-link " href="/'.$language_href.$selected_attributes_alias.'-'.$item['keyword'].'">'.$item['name'].'</a>';
-            }
-        } 
-        
-        if ( isset($item['children']) && count($item['children']) != 0 ) {
-            print_children_list( $item['children'] , $selected_attributes_alias, $category_alias,$language_href);
-        }
+        <!-- Все филиалы -->
+        <div id="js-business-card_tabs-1" class="b-business-card_tabs-branches">
+          <ul>
+            <li>
+              <span>R.Moldova, or.Chisinau</span>
+              <span>Str. Kiev, 4</span>
+              <a href="tel:+37322855718">Tel:(+373 22) 855 718</a>
+            </li>
+            <li>
+              <span>R.Moldova, or.Chisinau</span>
+              <span>Bd. Decebal, 61</span>
+              <a href="tel:+37322855718">Tel:(+373 22) 855 719</a>
+            </li>
+            <li>
+              <span>R.Moldova, or.Chisinau</span>
+              <span>Str. Ismail, 84</span>
+              <a href="tel:+37322855718">Tel:(+373 22) 855 720</a>
+            </li>
+            <li>
+              <span>R.Moldova, or.Chisinau</span>
+              <span>Str. Kiev, 4</span>
+              <a href="tel:+37322855718">Tel:(+373 22) 855 718</a>
+            </li>
+            <li>
+              <span>R.Moldova, or.Chisinau</span>
+              <span>Bd. Decebal, 61</span>
+              <a href="tel:+37322855718">Tel:(+373 22) 855 719</a>
+            </li>
+          </ul>
+        </div>
 
-        echo '</li>';
-    }
+        <!-- Показать карту -->
+        <div id="js-business-card_tabs-2" class="b-business-card_tabs-map">
+          <img src="catalog/view/theme/simplica/img/map.jpg" alt="">
+        </div>
+      </div>
 
-    echo '</ul>';
-
-    return;
-}
-
-function print_children_filter_list ( $list, $selected_attributes_alias, $category_alias,$language_href) {
-    echo '<ul class="b-refinement-list">';
-    
-    foreach ( $list as $item ) {
-        echo '<li class="b-refinement-item">';
-        //echo '<a class="b-refinement-link " href="'.$item['keyword'].'">'.$item['name'].'</a>';
-        
-        //$item['keyword'] = str_replace('-','@',$item['keyword']); 
-        if ( strpos($selected_attributes_alias, $item['keyword']) !== false) { 
-            echo '<a class="b-refinement-link b-refinement-link--active" href="/'.$language_href.$item['keyword'].'">'.$item['name'].'</a>';
-        } else { 
-            echo '<a class="b-refinement-link " href="/'.$language_href.$item['keyword'].'">'.$item['name'].'</a>';
-        } 
-        
-        if ( isset($item['children']) && count($item['children']) != 0 ) {
-            print_children_list( $item['children'] , $selected_attributes_alias, $category_alias,$language_href);
-        }
-
-        echo '</li>';
-    }
-
-    echo '</ul>';   
-
-    return;
-}
-?>
-
-                                            <?php if ( isset($subcategories) && count($subcategories) > 0 ) { ?>
-                                            <div class="b-refinement">
-                                                <div class="b-refinement-sub_title js-mob-filter-popup-link"><?php echo $text_category; ?></div>
-                                                <div class="js-scrollbar scrollbar-light b-refinement-ul js-mob-filter-popup h-mob-hidden">
-                                                    <?php if ( isset($subcategories) AND count($subcategories) > 0) {
-                                                        print_children_list($subcategories, $selected_attributes_alias, $category_alias,$language_href);
-                                                    } ?>
-                                                </div>
-                                            </div>
-                                            <?php } ?>
-
-                                            <?php if ( isset($categories_is_filter) && count($categories_is_filter) > 0 AND $categories_is_filter) { ?>
-                                            <?php $list = current($categories_is_filter); ?>
-                                            <div class="b-refinement">
-                                                <div class="b-refinement-sub_title js-mob-filter-popup-link"><?php echo $list['name']; ?></div>
-                                                <div class="js-scrollbar scrollbar-light b-refinement-ul js-mob-filter-popup h-mob-hidden">
-                                                    <?php if ( isset($list['children']) AND count($list['children']) > 0) {
-                                                        print_children_filter_list($list['children'], $selected_attributes_alias, $category_alias,$language_href);
-                                                    } ?>
-                                                </div>
-                                            </div>
-                                            <?php } ?>
-
-                                            <?php if ( isset($product_attributes) && count($product_attributes) > 0 ) { ?>
-                                            <div class="b-refinement">
-                                                <div class="b-refinement-sub_title js-mob-filter-popup-link"><?php echo $text_filter; ?></div>
-                                                <div class="js-scrollbar scrollbar-light b-refinement-ul js-mob-filter-popup h-mob-hidden">
-                                                    <ul class="b-refinement-list">
-                                                    <?php foreach ($product_attributes as $attribut) { ?>
-                                                        <li class="b-refinement-item">
-                                                            <a class="b-refinement-link " href=""><?php echo $attribut['attribute_group_name']; ?></a>
-                                                            <?php if ( isset($attribut['attributes']) && count($attribut['attributes']) > 0 ) { ?>
-                                                            <?php foreach ($attribut['attributes'] as $attr) { ?>
-                                                            <ul class="b-refinement-list">
-                                                                <li class="b-refinement-item">
-
-                                                                <?php if ( strpos($selected_attributes_alias, $attr['filter_name']) !== false) { ?>
-                                                                    <a class="b-refinement-link b-refinement-link--active" href="/<?php echo $language_href; ?><?php echo str_replace($attr['filter_name'].'-','',$selected_attributes_alias).$category_alias; ?>"><?php echo $attr['name']; ?></a>
-                                                                <?php } else { ?>
-                                                                    <?php if(isset($manufacturer_main_category)){ ?>
-                                                                        <a class="b-refinement-link" href="/<?php echo $language_href; ?><?php echo $selected_attributes_alias.'-'.$attr['filter_name']; ?>"><?php echo $attr['name']; ?></a>
-                                                                    <?php }else{ ?>
-                                                                        <a class="b-refinement-link" href="/<?php echo $language_href; ?><?php echo $attr['filter_name'].'-'.$selected_attributes_alias.$category_alias; ?>"><?php echo $attr['name']; ?></a>
-                                                                    <?php } ?>
-                                                                <?php } ?>
-
-                                                                </li>
-                                                            </ul>
-                                                            <?php } ?>
-                                                            <?php } ?>
-                                                        </li>
-                                                    <?php } ?>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            <?php } ?>
-
-
-                                            <?php if ( isset($product_attribute_colors) && count($product_attribute_colors) > 0 ) { ?>
-                                            <div class="b-refinement">
-                                                <div class="b-refinement-sub_title js-mob-filter-popup-link"><?php echo $text_color; ?></div>
-                                                <div class="js-scrollbar scrollbar-light b-refinement-ul js-mob-filter-popup h-mob-hidden">
-                                                    <ul class="b-refinement-list">
-                                                    <?php foreach ($product_attribute_colors['attributes'] as $attribut) { ?>
-                                                        <li class="b-refinement-item">
-                                                            <?php if ( strpos($selected_attributes_alias, $attribut['filter_name']) !== false) { ?>
-                                                                <a class="b-refinement-link b-refinement-link--active" href="/<?php echo $language_href; ?><?php echo str_replace($attribut['filter_name'].'-','',$selected_attributes_alias).$category_alias; ?>"><?php echo $attribut['name']; ?></a>
-                                                            <?php } else { ?>
-                                                                <a class="b-refinement-link" href="/<?php echo $language_href; ?><?php echo $attribut['filter_name'].'-'.$selected_attributes_alias.$category_alias; ?>"><?php echo $attribut['name']; ?></a>
-                                                            <?php } ?>
-
-                                                        </li>
-                                                    <?php } ?>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            <?php } ?>
-
-                                            <?php if ( isset($manufacturers) AND count($manufacturers) > 0 AND is_array($manufacturers)) { ?>
-                                            <div class="b-refinement">
-                                                <div class="b-refinement-sub_title js-mob-filter-popup-link"><?php echo $text_manufacturer; ?></div>
-                                                <div class="js-scrollbar scrollbar-light b-refinement-ul js-mob-filter-popup h-mob-hidden">
-                                                    <ul class="b-refinement-list">
-                                                    <?php foreach ($manufacturers as $attribut) { ?>
-                                                        <li class="b-refinement-item">
-                                                            <?php if ( strpos($selected_attributes_alias, $attribut['code']) !== false) { ?>
-                                                                <a class="b-refinement-link b-refinement-link--active" href="/<?php echo $language_href; ?><?php echo str_replace($attribut['code'].'-','',$selected_attributes_alias).$category_alias; ?>"><?php echo $attribut['name']; ?></a>
-                                                            <?php } else { ?>
-                                                                <a class="b-refinement-link" href="/<?php echo $language_href; ?><?php echo $attribut['code'].'-'.$selected_attributes_alias.$category_alias; ?>"><?php echo $attribut['name']; ?></a>
-                                                            <?php } ?>
-
-                                                        </li>
-                                                    <?php } ?>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            <?php } ?>
-
-
-                                            <?php if ( isset($sizes) && count($sizes) > 0 ) { ?>
-                                            <div class="b-refinement b-refinement--clothingsize">
-                                                <?php foreach ($sizes as $size_g) { ?>
-                                                <div class="b-refinement-sub_title js-mob-filter-popup-link"><?php echo $size_g['name']; ?></div>
-                                                <div class="js-scrollbar scrollbar-light b-refinement-ul js-mob-filter-popup h-mob-hidden">
-                                                    <ul class="b-refinement-list">
-                                                    <?php foreach ($size_g['product_option_value'] as $size) { ?>
-                                                        <li class="b-refinement-item">
-
-                                                            <?php if ( strpos($selected_attributes_alias, $size['name']) !== false) { ?>
-                                                                <a class="b-refinement-link b-refinement-link--active" href="/<?php echo $language_href; ?><?php echo str_replace('sz_'.$size['name'].'-','',$selected_attributes_alias.$category_alias); ?>"><?php echo $size['name']; ?></a>
-                                                            <?php } else { ?>
-                                                                <a class="b-refinement-link" href="/<?php echo $language_href; ?><?php echo 'sz_'.$size['name'].'-'.$selected_attributes_alias.$category_alias; ?>"><?php echo $size['name']; ?></a>
-                                                            <?php } ?>
-
-                                                        </li>
-                                                    <?php } ?>
-                                                    </ul>
-                                                </div>
-                                                <?php } ?>
-                                            </div>
-                                            <?php } ?>
+    </div>
+  </div>
+</div>
 
 
 
-                                        </div>
-                                    </div>
-                                    <div class="b-filter-buttons">
-                                        <div class="b-filter-button_box">
-                                            <span class="b-filter-close_button"><?php echo $text_close; ?></span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Фильтры. END -->
+    <main class="b-category">
+      <!-- Хлебные крошки. START -->
+      <div class="b-breadcrumb">
+      <?php $count = 0; ?>
+      <?php foreach ($breadcrumbs as $breadcrumb) { ?>
+        <?php if ($count == 0) { ?>
+          <a href="<?php echo $breadcrumb['href']; ?>" title=""><span class="ic-home"></span><?php echo $breadcrumb['text']; ?></a>
+        <?php } else { ?>
+          <span>&nbsp;>&nbsp;</span><a href="<?php echo $breadcrumb['href']; ?>" title="<?php echo $breadcrumb['text']; ?>"><?php echo $breadcrumb['text']; ?></a>
+        <?php } ?>
+      <?php $count++;} ?>
+      </div>
+      <!-- Хлебные крошки. END -->
 
+      <div class="g-container">
 
-                        <!-- Сортировка. START -->
-                        <div class="b-refinement_dropdown">
-                            <div class="b-sortby_price_select sort-by">
-                                <span class="b-refinement_dropdown-title js-custom-toggler" data-slide=".js-min_sortby_selector" data-toggle-class="h-minimized" data-toggle-closeonoutsideclick="yes" data-toggle-elem-class="h-toggled" data-close-element=".b-filter-close_button"><?php echo $text_sort; ?></span>
-                                <div class="b-refinement_price_range-value js-min_sortby_selector js-custom-toggler-slide h-minimized">
-                                    <div class="b-refinement_containter">
-                                        <?php foreach ($sorts as $sorts) { ?>
-                                            <?php if ($sorts['value'] == $sort . '-' . $order) { ?>
-                                                <a class="b-sortby_price_range-value_link js-sortby_price-value m-active" href="/<?php echo $language_href; ?><?php echo ltrim($selected_attributes_alias.$category_alias,'-'); ?><?php echo substr_replace($sorts['href'],'?',0,1); ?>"><?php echo $sorts['text']; ?></a>
-                                            <?php } else { ?>
-                                                <a class="b-sortby_price_range-value_link js-sortby_price-value" href="/<?php echo $language_href; ?><?php echo ltrim($selected_attributes_alias.$category_alias,'-'); ?><?php echo substr_replace($sorts['href'],'?',0,1); ?>"><?php echo $sorts['text']; ?></a>
-                                            <?php } ?>
-                                        <?php } ?>
-                                        <div class="b-filter-buttons">
-                                            <div class="b-filter-button_box">
-                                                <span class="b-filter-close_button"><?php echo $text_close; ?></span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Сортировка. END -->
+        <div class="g-col-left">
 
+          <div class="b-filter__title">  <!-- Фильтры START -->
+            <h3>Подбор по параметрам <span class="ic-arrow-down-white"></span></h3>
+          </div>
 
-                        <!-- Отображение списка товарово (Список/Сетка). START -->
-                        <div class="b-filter_view-header b-change_view">
-                            <ul class="b-change_view-list">
-                                <li style="list-style: none; display: inline">
-                                    <div class="h-hidden js-view-selector"></div>
-                                </li>
-                                <li class="b-change_view-item"><span class="b-change_view-type b-change_view-type_four js-four-columns b-change_view-type-active" data-grid-class="m-four-columns"></span></li>
-                                <li class="b-change_view-item"><span class="b-change_view-type b-change_view-type_two js-two-columns" data-grid-class="m-two-columns"></span></li>
-                            </ul>
-                        </div>
-                        <!-- Отображение списка товарово (Список/Сетка). END -->
+          <div class="b-filter js-popup-filter">
+            <div class="b-filter-block b-filter-block_price b-filter-block_open">
+              <div class="b-filter-block__title js-filter-block-toggle">Цена</div>
+              <div class="b-filter-block__content">
 
-                        <?php
-                        //Или категория или отрежем хвост
-                        $clear_url = '/';
-                        if($category_alias != ''){
-                            $clear_url = $category_alias;
-                        }else{
-                            $tmp = explode('-', $_SERVER["REQUEST_URI"]);
-                            $url = $tmp[count($tmp)-1];
-                            if(count($tmp) == 1){
-                                $clear_url = '';
-                            }
-                        }
-                        ?>
-                                 
-
-
-                        <div class="l-breadcrumb-refinement_container">
-                            <div class="js-breadcrumb-refinement_container b-breadcrumb-refinement_container">
-
-                                <?php if ( ((isset($selected_categories)) OR
-                                            (isset($selected_attributes_alias) && strlen($selected_attributes_alias) > 0) OR
-                                                (isset($selected_sizes) AND count($selected_sizes))) AND 
-                                                ($clear_url != '')) { ?>
-                                    
-                                    <?php if(isset($selected_categories)){ ?>
-                                    <?php foreach ($selected_categories as $attr) { ?>
-                              
-                                        <span class="b-breadcrumb-refinement_value js-breadcrumb-refinement_selected">
-                                            <?php echo '['.$attr['name'].']'; ?>
-                                            <a class="b-breadcrumb-relax_image js-breadcrumb_refinement-link" href="/<?php echo $language_href; ?><?php echo str_replace(str_replace('-','@',$attr['keyword']).'-','',$selected_attributes_alias).$category_alias; ?>"></a>
-                                        </span>
-                                    <?php } ?>
-                                    <?php } ?>
-                                    
-                                    <?php if ( isset($manufacturers) AND count($manufacturers) > 0 AND is_array($manufacturers)) { ?>
-                                        <?php foreach ($manufacturers as $attr) { ?>
-                                            <?php if ( strpos($selected_attributes_alias, $attr['code']) !== false) { ?>
-                                                <span class="b-breadcrumb-refinement_value js-breadcrumb-refinement_selected">
-                                                    <?php echo $attr['name']; ?>
-                                                    <?php
-                                                        $tmp = str_replace($attr['code'].'-','',$selected_attributes_alias);
-                                                        $tmp = str_replace($attr['code'].'','/',$tmp);
-                                                        $tmp = trim($tmp, '-');
-                                                        
-                                                    ?>
-                                                    <a class="b-breadcrumb-relax_image js-breadcrumb_refinement-link" href="/<?php echo $language_href; ?><?php echo $tmp.$category_alias; ?>"></a>
-                                                </span>
-                                            <?php } ?>
-                                        <?php } ?>
-                                    <?php } ?>
-                                
-                                    <?php foreach ($selected_sizes as $attr) { ?>
-                                        <span class="b-breadcrumb-refinement_value js-breadcrumb-refinement_selected">
-                                            <?php echo $text_size.':'.$attr['name']; ?>
-                                            <a class="b-breadcrumb-relax_image js-breadcrumb_refinement-link" href="/<?php echo $language_href; ?><?php echo str_replace('sz_'.$attr['name'].'-','',$selected_attributes_alias).$category_alias; ?>"></a>
-                                        </span>
-                                    <?php } ?>
-                                    
-                                    <?php foreach ($product_attributes as $attribut) { ?>
-                                        <?php foreach ($attribut['attributes'] as $attr) { ?>
-                                            <?php if ( strpos($selected_attributes_alias, $attr['filter_name']) !== false) { ?>
-                                                <span class="b-breadcrumb-refinement_value js-breadcrumb-refinement_selected">
-                                                    <?php echo $attr['name']; ?>
-                                                    <a class="b-breadcrumb-relax_image js-breadcrumb_refinement-link" href="/<?php echo $language_href; ?><?php echo str_replace($attr['filter_name'].'-','',$selected_attributes_alias).$category_alias; ?>"></a>
-                                                </span>
-                                            <?php } ?>
-                                        <?php } ?>
-                                    <?php } ?>
-
-                                    <?php if ( isset($product_attribute_colors) && count($product_attribute_colors) > 0 ) { ?>
-                                        <?php foreach ($product_attribute_colors['attributes'] as $attr) { ?>
-                                            <?php if ( strpos($selected_attributes_alias, $attr['filter_name']) !== false) { ?>
-                                                
-                                                <span class="b-breadcrumb-refinement_value js-breadcrumb-refinement_selected">
-                                                    <?php echo $attr['name']; ?>
-                                                    <a class="b-breadcrumb-relax_image js-breadcrumb_refinement-link" href="/<?php echo $language_href; ?><?php echo str_replace($attr['filter_name'].'-','',$selected_attributes_alias).$category_alias; ?>"></a>
-                                                </span>
-                                            <?php } ?>
-                                        <?php } ?>
-                                    <?php } ?>
-                   
-                                <span class="b-breadcrumb-refinement_value js-clear_search_filters">
-                                    <?php echo $text_clear_all; ?>
-                                    <a class="b-breadcrumb-relax_image" href="/<?php echo $language_href; ?><?php echo $clear_url; ?>"></a>
-                                </span>
-
-                                <?php } ?>
-
-                            </div>
-                        </div>
-
+              <div class="f-group-wrap_2col">
+                <div class="f-group">
+                  <div class="f-field-wrapper">
+                    <div class="f-label">
+                      <span class="f-label-value">от</span>
                     </div>
+                    <div class="f-field">
+                      <input type="text"
+                             name="price_min"
+                             value=""
+                             placeholder=""
+                             class="f-input">
+                    </div>
+                  </div>
                 </div>
-            </div>
-            <div class="content-slot b-slot-grid_header"></div>
 
-            <div class="l-search_result-content js-search_result-content m-search_layout-демонстрация m-four-columns">
-                <div class="b-list_item_page js-list_item_page" data-page="1.0">
-                    <div class="l-product_tiles">
+                <div class="f-group">
+                  <div class="f-field-wrapper">
+                    <div class="f-label">
+                      <span class="f-label-value">до</span>
+                    </div>
+                    <div class="f-field">
+                      <input type="text"
+                             name="price_max"
+                             value=""
+                             placeholder=""
+                             class="f-input">
+                    </div>
+                  </div>
+                </div>
 
+                <div class="f-group">
+                  <div class="f-field-wrapper">
+                    <div class="f-label">
+                      <span class="f-label-value">грн</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
 
-                        <?php foreach ($products as $product) { ?>
-                        <div class="b-product_tile js-product_tile b-product_tile--1" data-itemid="F61D5TFMME1S8031" data-product-name="<?php echo $product['name']; ?>" id="4982d3b862873672c1ef6a361b">
-                            <div class="b-product-hover_box js-product-hover_box">
-                                <a class="js-producttile_link b-product_image-wrapper" href="/<?php echo $language_href; ?><?php echo $product['href']; ?>" title="<?php echo $product['name']; ?>">
-                                <img alt="<?php echo $product['name']; ?>" class="js-producttile_image b-product_image" src="<?php echo $product['thumb']; ?>" title="<?php echo $product['name']; ?>" data-altimage="<?php echo $product['thumb_second']; ?>" >
-                                </a>
-
-                                <div class="b-productile_hover">
-                                    <div class="b-productile_hover-inner">
-                                        <div class="b-productile_hover-middle_box">
-                                            <div class="b-productile_hover-middle_box_inner">
-                                                <div class="js-product_variations b-product_variations--plp" data-current="{}">
-                                                    <div class="b-variation">
-                                                        <ul class="b-variation-list">
-                                                            <li class="b-variation-item b-variation-item--size">
-                                                                <div class="b-variation-dropdown">
-                                                                    <div class="b-variation-value Size">
-                                                                        <div class="b-variation-title">
-                                                                            <?php echo $text_select_size; ?>
-                                                                        </div>
-                                                                        <div class="b-variation-size_chart_link js-size_chart_link" data-href="/<?php echo $language_href; ?>">
-                                                                            <span><?php echo $text_size_help; ?></span>
-                                                                        </div>
-
-                                                                    
-                                                                    <?php if ($product['options']) { ?>
-
-                                                                        <?php foreach ($product['options'] as $option) { ?>
-                                                                            <?php if ($option['type'] == 'radio') { ?>
-                                                                            <ul class="b-swatches_size">
-                                                                                <?php foreach ($option['product_option_value'] as $option_value) { ?>
-
-                                                                                <?php if($option_value['quantity'] <= 0) { ?>
-                                                                                <li class="b-swatches_size-item emptyswatch m-unselectable">
-                                                                                    <span class="b-swatches_size-link"><?php echo $option_value['name']; ?></span>
-                                                                                </li>
-                                                                                <?php }else{ ?>
-                                                                                <li class="b-swatches_size-item emptyswatch">
-                                                                                    <a href="/<?php echo $language_href; ?><?php echo $product['href']; ?>?option[<?php echo $option['product_option_id']; ?>]=<?php echo $option_value['product_option_value_id']; ?>" class="b-swatches_size-link"><?php echo $option_value['name']; ?></a>
-                                                                                </li>
-                                                                                <?php } ?>
-
-                                                                                <?php } ?>
-                                                                            </ul>
-
-                                                                            <?php } ?>
-                                                                        <?php } ?>
-
-                                                                    <?php }else{ ?>
-                                                                        <div class="b-swatches_size-item emptyswatch"><?php echo $text_onesize; ?></div>
-                                                                    <?php } ?>
-
-                                                                    </div>
-                                                                </div>
-                                                            </li>
-                                                            <li class="b-variation-item">
-                                                                <div class="b-variation-dropdown">
-                                                                    <div class="b-variation-value color">
-                                                                        <span class="b-variation-title">цвет</span> <span class="js_color-description">Черный</span>
-                                                                        <ul class="js-swatches b-swatches_color">
-                                                                            <li class="b-swatches_color-item b-swatches_color-item-selected">
-                                                                                <a class="js-swatches_color-link js-swatches_color-link-selected b-swatches_color-link-selected b-swatches_color-link" data-lgimg="{&quot;url&quot;:&quot;http://demandware.edgesuite.net/sits_pod25/dw/image/v2/AAGA_PRD/on/demandware.static/-/Sites-15/default/dwa582dcac/images/zoom/F61D5TFMME1_S8031_0.jpg?sw=804&amp;sh=1200&amp;sm=fit&quot;, &quot;title&quot;:&quot;ПЛАТЬЕ А-СИЛУЭТА ИЗ ШЕРСТЯНОГО ТВИДА&quot;, &quot;alt&quot;:&quot;ПЛАТЬЕ А-СИЛУЭТА ИЗ ШЕРСТЯНОГО ТВИДА&quot;, &quot;hires&quot;:&quot;http://demandware.edgesuite.net/sits_pod25/dw/image/v2/AAGA_PRD/on/demandware.static/-/Sites-15/default/dwa582dcac/images/zoom/F61D5TFMME1_S8031_0.jpg?sw=1571&amp;sh=2000&amp;sm=fit&quot;}"
-                                                                                   data-thumbs=".js-thumbs-F61D5TFMME1S8031" href="/<?php echo $language_href; ?><?php echo $product['href']; ?>" style="background-color: #000000;" title="Черный"></a>
-                                                                            </li>
-                                                                        </ul>
-                                                                    </div>
-                                                                </div>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                                
-                                            </div>
-                                            <a class="js-producttile_name b-product_name product_name" href="/<?php echo $language_href; ?><?php echo $product['href']; ?>" title="<?php echo $product['name']; ?>"><?php echo $product['name']; ?></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <a class="js-producttile_name b-product_name product_name" href="/<?php echo $language_href; ?><?php echo $product['href']; ?>" title="<?php echo $product['name']; ?>"><?php echo $product['name']; ?></a>
+              </div>
+            </div>  <!-- end b-filter-block -->
 
 
-                            <div class="b-product_price" style="">
-                                <h4 class="b-product_price-standard" style="">
-                                    <?php if ($product['price']) { ?>
-                                          <?php if (!$product['special']) { ?>
-                                          <?php echo $product['price']; ?>
-                                          <?php } else { ?>
-                                          <span class="b-product_price--old"><?php echo $product['price']; ?></span> <span class="b-product_price--new"><?php echo $product['special']; ?></span>
-                                          <?php } ?>
-                                          <?php if ($product['tax']) { ?>
-                                          <span class="price-tax"><?php echo $text_tax; ?> <?php echo $product['tax']; ?></span>
-                                          <?php } ?>
-                                        
-                                    <?php } ?>
-                                </h4>
-                            </div>
+            <?php if ( isset($manufacturers) AND count($manufacturers) > 0 AND is_array($manufacturers)) { ?>
+            <div class="b-filter-block b-filter-block_open">
+              <div class="b-filter-block__title js-filter-block-toggle"><?php echo $text_manufacturer; ?></div>
+              <div class="b-filter-block__content">
+                <ul class="f-group-wrap_2col"><?php // тут можно проставить классы: f-group-wrap_1col, f-group-wrap_2col, f-group-wrap_3col. ?>
 
-                            <div class="b-product_labels"></div><!-- i.e. for category pages and productlistings, is multiple -->
+                <?php foreach ($manufacturers as $attribut) { ?>
 
-                            <div class="b-stars" id="pr_snippet_category_eb4a072633fc70c126cf01c646">
-                                <script type="text/javascript">
-                                //if (typeof POWERREVIEWS != "undefined") { 
-                                //POWERREVIEWS.display.snippet({write : function(content) { jQuery('#pr_snippet_category_eb4a072633fc70c126cf01c646').append(content); }}, 
-                                //{
-                                //pr_page_id : 'F61D5TFMME1S8031', 
-                                //pr_snippet_min_reviews : '0'
-                                //}
-                                //)
-                                //}
-                                </script>
-                            </div>
+                  <li class="f-group">
+                    <div class="f-field-wrapper f-field-wrapper_checkbox">
+                      <div class="f-field">
+                        <input type="checkbox"
+                               name="<?php echo 'option_'.$attribut['code'].'_value_'.$attribut['manufacturer_id']; ?>"
+                               id="<?php echo 'option_'.$attribut['code'].'_value_'.$attribut['manufacturer_id']; ?>"
+                               value=""
+                               <?php if ( strpos($selected_attributes_alias, $attribut['code']) !== false) { echo ' checked ';} ?>
+                               class="f-checkbox">
+                        <div class="f-label">
+                          <label for="<?php echo 'option_'.$attribut['code'].'_value_'.$attribut['manufacturer_id']; ?>">
+                            <?php if ( strpos($selected_attributes_alias, $attribut['code']) !== false) { ?>
+                              <a href="<?php echo str_replace($attribut['code'].'-','',$selected_attributes_alias).$category_alias; ?>"><?php echo $attribut['name']; ?></a>
+                            <?php } else { ?>
+                              <a href="<?php echo $attribut['code'].'-'.$selected_attributes_alias.$category_alias; ?>"><?php echo $attribut['name']; ?></a>
+                            <?php } ?>
+                            </label>
                         </div>
+                      </div>
+                    </div>
+                  </li>
+
+                <?php } ?>
+                </ul>
+              </div>
+            </div>  <!-- end b-filter-block -->
+            <?php } ?>
+
+
+          </div>  <!-- end b-filter -->
+        </div>  <!-- end g-col-left -->
+
+        <div class="g-col-center">
+          <div class="g-row">
+            <div class="b-business-card">
+              <div class="b-business-card__top">
+                <div class="b-business-card__schedule">
+                  <p><span class="ic-location-big"></span>График работы</p>
+                  <p>ПН - СБ 10:00  20:00</p>
+                  <p>ВС 10:00  17:00</p>
+                </div>
+                <div class="b-business-card__btn-send-message">
+                  <a href="#">Написать собщение</a>
+                </div>
+                <div class="b-business-card__name">
+                  Maximum
+                </div>
+              </div>
+              <div class="b-business-card__phone-number">
+                <span class="ic-phone"></span> <span class="b-business-card__show-number js-open-popup-link" data-mfp-src=".js-popup-business-card">Показать номер</span>
+              </div>
+            </div>
+          </div>  <!-- end g-row -->
+
+          <div class="g-row">
+            <div class="b-product-carousel-wrapper">
+              <div class="b-product-carousel owl-carousel js-product_owl-carousel">
+
+                <div class="b-product-carousel__item">
+                  <div class="b-product-carousel__img">
+                    <img src="catalog/view/theme/simplica/img/product/foto3.png" alt="">
+                  </div>
+                  <a href="product.html" class="b-product-carousel__link">Apple MC968 MacBook Air 11"  Dual-Core i5 1.6GHz/2GB</a>
+                  <span class="b-product-carousel__price">$ 39.99</span>
+                </div>
+
+                <div class="b-product-carousel__item">
+                  <div class="b-product-carousel__img">
+                    <img src="catalog/view/theme/simplica/img/product/foto3.png" alt="">
+                  </div>
+                  <a href="product.html" class="b-product-carousel__link">Apple MC968 MacBook Air 11"  Dual-Core i5 1.6GHz/2GB</a>
+                  <span class="b-product-carousel__price">$ 39.99</span>
+                </div>
+
+                <div class="b-product-carousel__item">
+                  <div class="b-product-carousel__img">
+                    <img src="catalog/view/theme/simplica/img/product/foto3.png" alt="">
+                  </div>
+                  <a href="product.html" class="b-product-carousel__link">Apple MC968 MacBook Air 11"  Dual-Core i5 1.6GHz/2GB</a>
+                  <span class="b-product-carousel__price">$ 39.99</span>
+                </div>
+
+                <div class="b-product-carousel__item">
+                  <div class="b-product-carousel__img">
+                    <img src="catalog/view/theme/simplica/img/product/foto3.png" alt="">
+                  </div>
+                  <a href="product.html" class="b-product-carousel__link">Apple MC968 MacBook Air 11"  Dual-Core i5 1.6GHz/2GB</a>
+                  <span class="b-product-carousel__price">$ 39.99</span>
+                </div>
+
+                <div class="b-product-carousel__item">
+                  <div class="b-product-carousel__img">
+                    <img src="catalog/view/theme/simplica/img/product/foto3.png" alt="">
+                  </div>
+                  <a href="product.html" class="b-product-carousel__link">Apple MC968 MacBook Air 11"  Dual-Core i5 1.6GHz/2GB</a>
+                  <span class="b-product-carousel__price">$ 39.99</span>
+                </div>
+
+                <div class="b-product-carousel__item">
+                  <div class="b-product-carousel__img">
+                    <img src="catalog/view/theme/simplica/img/product/foto3.png" alt="">
+                  </div>
+                  <a href="product.html" class="b-product-carousel__link">Apple MC968 MacBook Air 11"  Dual-Core i5 1.6GHz/2GB</a>
+                  <span class="b-product-carousel__price">$ 39.99</span>
+                </div>
+
+                <div class="b-product-carousel__item">
+                  <div class="b-product-carousel__img">
+                    <img src="catalog/view/theme/simplica/img/product/foto3.png" alt="">
+                  </div>
+                  <a href="product.html" class="b-product-carousel__link">Apple MC968 MacBook Air 11"  Dual-Core i5 1.6GHz/2GB</a>
+                  <span class="b-product-carousel__price">$ 39.99</span>
+                </div>
+
+                <div class="b-product-carousel__item">
+                  <div class="b-product-carousel__img">
+                    <img src="catalog/view/theme/simplica/img/product/foto3.png" alt="">
+                  </div>
+                  <a href="product.html" class="b-product-carousel__link">Apple MC968 MacBook Air 11"  Dual-Core i5 1.6GHz/2GB</a>
+                  <span class="b-product-carousel__price">$ 39.99</span>
+                </div>
+
+              </div>
+            </div>
+          </div>  <!-- end g-row -->
+
+          <div class="b-products-container__title">
+            <h2>Мобильные телефоны</h2>
+          </div>
+
+          <div class="b-products-container__sort-row">
+
+            <div class="b-filter-header b-filter-header_mob js-open-popup-link" data-mfp-src=".js-popup-filter">
+              <span class="ic-mob-filter"></span>
+              <span>Фильтрация</span>
+            </div>
+
+            <div class="b-view-header">
+              <div class="b-change_view__list js-change_view">
+                <span class="ic-view_list active" data-view="list"></span>
+                <span class="ic-view_grid-3" data-view="grid-3"></span>
+                <span class="ic-view_grid-4" data-view="grid-4"></span>
+              </div>
+            </div>
+
+            <div class="b-count-product">3125 Найдено</div>
+
+            <div class="b-sort-header">
+              <?php echo $text_sort; ?>
+              <div class="g-span-select js-span-select">
+                <span class="g-span-select__title">от дешевых к дорогим</span>
+                <ul class="g-span-select__ul g-span-select__hidden js-popup-sort">
+                <?php foreach ($sorts as $sorts) { ?>
+                  <?php if ($sorts['value'] == $sort . '-' . $order) { ?>
+                    <li class="active"><a href="/<?php echo ltrim($selected_attributes_alias.$category_alias,'-'); ?><?php echo substr_replace($sorts['href'],'?',0,1); ?>"><?php echo $sorts['text']; ?></a></li>
+                  <?php } else { ?>
+                    <li><a href="/<?php echo ltrim($selected_attributes_alias.$category_alias,'-'); ?><?php echo substr_replace($sorts['href'],'?',0,1); ?>""><?php echo $sorts['text']; ?></a></li>
+                  <?php } ?>
+                <?php } ?>
+                </ul>
+              </div>
+            </div>
+
+            <div class="b-sort-header b-sort-header_mob js-open-popup-link" data-mfp-src=".js-popup-sort">
+              <span class="ic-mob-sotr"></span>
+              <span>Сортировать</span>
+            </div>
+
+          </div>  <!-- end b-products-container__sort-row -->
+
+          <div class="g-row">
+            <div class="b-products-container">
+
+              <div class="b-products-container__content b-products-container__content_list js-view-content">
+
+              <?php foreach ($products as $product) { ?>
+                <div class="b-prod__wrapper">
+                  <div class="b-prod">
+                    <div class="b-prod__title"><a href="/<?php echo $language_href; ?><?php echo $product['href']; ?>"><?php echo $product['name']; ?></a></div>
+                    <div class="b-prod__options">
+                      <span class="b-prod__options-color"></span>
+                      <?php if ($product['options']) { ?>
+                      <ul class="b-prod__options-list">
+                        <?php foreach ($product['options'] as $option) { ?>
+                        <?php foreach ($option['product_option_value'] as $option_value) { ?>
+                        <li class="b-prod__options-list-item"><?php echo $option_value['name']; ?></li>
                         <?php } ?>
-
+                        <?php } ?>
+                      </ul>
+                      <?php } ?>
+                      <a href="/<?php echo $language_href; ?><?php echo $product['href']; ?>" class="g-btn b-prod__btn_buy">Купить</a>
+                      <a href="/<?php echo $language_href; ?><?php echo $product['href']; ?>" class="b-prod__comments-link">3 отзыва</a>
                     </div>
-                </div>
+                    <div class="b-prod__photo">
+                      <a href="/<?php echo $language_href; ?><?php echo $product['href']; ?>"><img src="<?php echo $product['thumb']; ?>" alt="<?php echo $product['name']; ?>"></a>
+                    </div>
+                    <div class="b-prod__brand-img">
+                      <img src="catalog/view/theme/simplica/img/brands/apple.png" alt="<?php echo $product['name']; ?>">
+                    </div>
+                    <div class="b-prod__links">
+                      <ul>
+                        <li><a href="/<?php echo $language_href; ?><?php echo $product['href']; ?>"><span class="ic-prod_more"></span>Подробнее</a></li>
+                        <li><a href="/<?php echo $language_href; ?><?php echo $product['href']; ?>"><span class="ic-prod_photos"></span>Все фото (5)</a></li>
+                        <li><a href="/<?php echo $language_href; ?><?php echo $product['href']; ?>"><span class="ic-prod_video"></span>Все видео (1)</a></li>
+                      </ul>
+                      <div class="b-prod__color">
+                        <span style="background: #474747;"></span>
+                      </div>
+                      <a href="/<?php echo $language_href; ?><?php echo $product['href']; ?>" class="b-prod__links-more-btn">Подробнее</a>
+                    </div>
+                    <div class="b-prod__price-block">
+                      <div class="b-price">
+                        <span class="b-price__number">9999 - 20000</span> <span class="b-price__currency">грн</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>  <!-- end b-prod__wrapper -->
+              <?php } ?>
+
+              </div>  <!-- end b-products-container__content -->
+
+              <div class="b-products-container__pagination">
+              <?php echo $pagination; ?>
+<!--                 <div class="b-pagination">
+                  <a href="category.html" class="b-pagination__prev"><span class="ic-arrow-prev3"></span> <span class="g-mob-hidden">Назад</span></a>
+                  <a href="category.html" class="b-pagination__next"><span class="g-mob-hidden">Вперед</span> <span class="ic-arrow-next3"></span></a>
+                  <ul class="b-pagination__list">
+                    <li class="active"><span>1</span></li>
+                    <li><a href="category.html">2</a></li>
+                    <li><a href="category.html">3</a></li>
+                    <li><a href="category.html">4</a></li>
+                    <li><a href="category.html">5</a></li>
+                    <li><a href="category.html">6</a></li>
+                    <li><a href="category.html">7</a></li>
+                  </ul>
+                </div> -->
+              </div>
             </div>
-            
-            <?php echo $pagination; ?>
-            
+          </div>  <!-- end g-row -->
+
+        </div>  <!-- end g-col-center -->
+
+        <div class="g-clear"></div>
+
+      </div>  <!-- end g-container -->
+
+      <div class="b-benefits b-seo-text">
+        <div class="g-container">
+          <p>Lorem Ipsum - це текст-"риба", що використовується в друкарстві та дизайні. Lorem Ipsum є, фактично, стандартною "рибою" аж з XVI сторіччя, коли невідомий друкар взяв шрифтову гранку та склав на ній підбірку зразків шрифтів. "Риба" не тільки успішно пережила п'ять століть, але й прижилася в електронному верстуванні, залишаючись по суті незмінною. Вона популяризувалась в 60-их роках минулого сторіччя завдяки виданню зразків шрифтів Letraset, які містили уривки з Lorem Ipsum, і вдруге - нещодавно завдяки програмам комп'ютерного верстування на кшталт Aldus Pagemaker, які використовували різні версії Lorem Ipsum.</p>
+          <p>Lorem Ipsum - це текст-"риба", що використовується в друкарстві та дизайні. Lorem Ipsum є, фактично, стандартною "рибою" аж з XVI сторіччя, коли невідомий друкар взяв шрифтову гранку та склав на ній підбірку зразків шрифтів. "Риба" не тільки успішно пережила п'ять століть, але й прижилася в електронному верстуванні, залишаючись по суті незмінною. Вона популяризувалась в 60-их роках минулого сторіччя завдяки виданню зразків шрифтів Letraset, які містили уривки з Lorem Ipsum, і вдруге - нещодавно завдяки програмам комп'ютерного верстування на кшталт Aldus Pagemaker, які використовували різні версії Lorem Ipsum.</p>
+          <p>Lorem Ipsum - це текст-"риба", що використовується в друкарстві та дизайні. Lorem Ipsum є, фактично, стандартною "рибою" аж з XVI сторіччя, коли невідомий друкар взяв шрифтову гранку та склав на ній підбірку зразків шрифтів. "Риба" не тільки успішно пережила п'ять століть, але й прижилася в електронному верстуванні, залишаючись по суті незмінною. Вона популяризувалась в 60-их роках минулого сторіччя завдяки виданню зразків шрифтів Letraset, які містили уривки з Lorem Ipsum, і вдруге - нещодавно завдяки програмам комп'ютерного верстування на кшталт Aldus Pagemaker, які використовували різні версії Lorem Ipsum.</p>
         </div>
-        
+      </div>
+
     </main>
 
-<!-- <link href="/catalog/view/theme/simplica/stylesheet/jquery.scrollbar.css" rel="stylesheet"> -->
-<!-- <script src="catalog/view/theme/simplica/js/jquery.scrollbar.min.js" type="text/javascript"></script> -->
-<script>
-    //$('.js-scrollbar').scrollbar();
-</script>
-
-
-<script>
-    $('.js-mob-filter-popup-link').on('click', function(){
-        $(this).siblings('.js-mob-filter-popup').toggleClass('h-mob-hidden');
-    });
-</script>
-
-
-<?php
-//header("Content-Type: text/html; charset=UTF-8");
-//echo "<pre>";  print_r(var_dump( get_defined_vars() )); echo "</pre>";
-//echo "<style> pre header {display: none;}</style>";
-?>
 
 <?php echo $footer; ?>

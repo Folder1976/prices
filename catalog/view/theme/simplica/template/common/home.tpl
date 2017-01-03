@@ -1,6 +1,8 @@
 <?php echo $header; ?>
 
-
+<?php
+//echo "<pre>";  print_r(var_dump( get_defined_vars() )); echo "</pre>";
+?>
     <main class="b-main">
       <div class="g-container">
 
