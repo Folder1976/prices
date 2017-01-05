@@ -687,6 +687,8 @@
 
         </div>  <!-- end b-prod__tabs -->
 
+        <div class="js-mob-prod-tabs"></div>
+
         <div class="g-row">
           <div class="b-block-product">
             <div class="b-block-product__title">

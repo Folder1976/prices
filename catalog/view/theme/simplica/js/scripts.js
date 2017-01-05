@@ -401,8 +401,7 @@ function(e){
         var obj = this;
         var count_r = $(this).data('count_r');  /* число возможных оценок */
         var width_star = $(this).data('width_star');  /* ширина одной оценки, в данном случае одной звезды */
-       while (obj.offsetParent)
-        {
+        while (obj.offsetParent) {
             posLeft += obj.offsetLeft;
             obj = obj.offsetParent;
         }
@@ -449,8 +448,71 @@ $('.js-prod_thumb-list, .js-prod_popup-thumb-list').on('mouseover', '.b-prod-img
 // слайдер для главного фото END
 
 
+// вкладки в товаре START
+function hide_li() {
+  // скрывает li
+  var el = $('.b-prod__tabs .ui-tabs-nav li:visible:last');
+  el.hide();
 
+  // выносим содержимое вкладки отдельно под всеми вкладками
+  var el_title = el.find('a').html();
+  var tab_id = el.find('a').attr('href').match(/#[a-z0-9-_]*/g)[0];
 
+  // добавляем "моб" вкладку
+  $('.js-mob-prod-tabs').prepend('<div id="'+tab_id.replace('#','')+'_mob"></div>');
+
+  // добавлем заголовок вкладки
+  $(tab_id+'_mob').append('<div class="b-block-product__title">'+el_title+'</div>')
+
+  // добавляем содержимое вкладки
+  $(tab_id+'_mob').append( $(tab_id).html() );  // переносим(копируем) содержимое из вкладки в "моб" вкладку
+
+  // проставляем классы для вкладки
+  var el_class = $(tab_id).attr('class').match(/(b-)[a-z0-9-]*/g);
+  $.each(el_class, function(index, value){
+    $(tab_id+'_mob').addClass(value);
+  });
+
+  $('.b-prod__tabs .ui-tabs-nav li:first a').click();
+};
+
+function show_li() {
+  // показываем li
+  var el = $('.b-prod__tabs .ui-tabs-nav li:hidden:first');
+  el.show();
+
+  // удаляем "моб." вкладку
+  var tab_id = el.find('a').attr('href').match(/#[a-z0-9-_]*/g)[0];
+  $(tab_id+'_mob').remove();
+}
+
+function mobTabs() {
+  var width_li = 0;  // сумарная ширина li
+  $('.b-prod__tabs .js-scroll-line ul li:visible').each(function() {
+    width_li += $(this).width();
+  });
+
+  var width_line = $('.b-prod__tabs .js-scroll-line').width();  // ширина контейнера для ul
+  var width_hidden_li = $('.b-prod__tabs .ui-tabs-nav li:hidden:first').width();  // ширина скрытого li
+
+  // если нет места для всех li - прячем последний li
+  if ( width_li > width_line ) {
+    hide_li();
+  }
+  // если есть место для скрытого li - показываем первый скрытый li
+  if ( !!width_hidden_li && width_li+width_hidden_li < width_line  ) {
+    show_li();
+  }
+};
+
+$(window).resize(function(){
+  mobTabs();
+});
+
+setTimeout(function () {
+  mobTabs();mobTabs();mobTabs();mobTabs();
+}, 50);
+// вкладки в товаре END
 
 
 
