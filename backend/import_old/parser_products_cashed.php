@@ -10,7 +10,7 @@ $minfpp=50;
     	<td>Тип файла:</td> <td><select name="importtype">
     	<option <? if(!$_POST['importtype']){echo 'selected="selected"';} ?> value="">Выберите тип файла</option>
         <?
-        $data=querytoarray("select * from magazin where status=1 and importopt!='' order by name");
+        $data=querytoarray("select * from ".DB_PREFIX."shop where status=1 and importopt!='' order by name");
 		for($i=0;$i<$data['rows'];$i++){
 		?>
         	<option <? if($_POST['importtype']==$data[$i]['importopt'].','.$data[$i]['id']){echo 'selected="selected"';} ?> value="<?=$data[$i]['importopt']?>,<?=$data[$i]['id']?>">
@@ -39,7 +39,7 @@ $minfpp=50;
 
 //import file to DB
 if($_POST['importlist']){
-	mysql_query("truncate tempfolder") or die(mysql_error());
+	mysql_query("truncate ".DB_PREFIX."parser_tempfolder") or die(mysql_error());
 	$conect=explode(',',$_POST['importtype']);
 	$file=$_FILES['import']['tmp_name'];
 	
@@ -59,22 +59,6 @@ if($_POST['importlist']){
 		//detect category
 		if(sizeof($list[$i])==1 && $list[$i][$conect[4]]!='' || sizeof($tesifpr)<3 && $list[$i][$conect[4]]!=''){
 			$name=ltrim(rtrim($list[$i][$conect[4]]));
-			/*
-			//if is brend name
-			$btestid=queryresult("select id from brend where name='$name'","id");
-			if(!$btestid){
-				$btestid=queryresult("select brendid from brenddopnames where dopname='$name'",'brendid');
-			}
-			
-			if($btestid){$datatype=2;}
-			
-			//else if menu name
-			if(!$btestid){
-				$mtestid=queryresult("select id from menu where name='$name'","id");
-				if(!$mtestid){
-					$mtestid=queryresult("select wmotmenuid from menudopnames where dopname='$name'",'wmotmenuid');
-				}
-			}*/
 			
 			if($mtestid){$datatype=1;}
 			
@@ -89,7 +73,7 @@ if($_POST['importlist']){
 		$price=ltrim(rtrim($list[$i][$conect[1]]));
 		$garant=ltrim(rtrim($list[$i][$conect[2]]));
 		
-		mysql_query("insert into tempfolder(name,garant,price,magazinid,brendid,wmotmenuid,datatype) 
+		mysql_query("insert into ".DB_PREFIX."parser_tempfolder(name,garant,price,magazinid,brendid,wmotmenuid,datatype) 
 		values('$name','$garant','$price','".$conect[5]."','$btestid','$mtestid','$datatype')");
 	}
 }
@@ -100,25 +84,25 @@ elseif(sizeof($_POST['products'])){
 echo '<div style="width:100%;clear:both;line-height:30px;">Импортированные данные</div>';
 
 function brendtest($key){
-	$mybrendid_test=queryresult("select id from brend where name='$key'","id");
+	$mybrendid_test=queryresult("select manufacturer_id from ".DB_PREFIX."manufacturer where name='$key'","manufacturer_id");
 	if(!$mybrendid_test){
-		$mybrendid_test=queryresult("select brendid from brenddopnames where dopname='$key'",'brendid');
+		$mybrendid_test=queryresult("select brand_id from ".DB_PREFIX."manufacturer_alternative where dopname='$key'",'brand_id');
 	}
 	
 	return $mybrendid_test;
 }
 
 function producttest($key){
-	$mybrendid_test=queryresult("select id from products where name='$key'","id");
+	$mybrendid_test=queryresult("select product_id from ".DB_PREFIX."product_description where name='$key'","product_id");
 	if(!$mybrendid_test){
-		$mybrendid_test=queryresult("select productid from productdopnames where dopname='$key'",'productid');
+		$mybrendid_test=queryresult("select productid from ".DB_PREFIX."productdopnames where dopname='$key'",'productid');
 	}
 	
 	return $mybrendid_test;
 }
 
 function menuidtest($key){
-	$mybrendid_test=queryresult("select id from menu where name='$key'","id");
+	$mybrendid_test=queryresult("select category_id from ".DB_PREFIX."category_description where language_id = '1' AND name='$key'","id");
 	if(!$mybrendid_test){
 		$mybrendid_test=queryresult("select wmotmenuid from menudopnames where dopname='$key'",'wmotmenuid');
 	}
@@ -151,7 +135,7 @@ function detectedproduct($id,$key){
 	}
 	
 	if($mybrendid_test){
-		mysql_query("update tempfolder set productid=$mybrendid_test where id=".$id);
+		mysql_query("update ".DB_PREFIX."parser_tempfolder set productid=$mybrendid_test where id=".$id);
 		return queryresult("select name from products where id=".$mybrendid_test,'name');
 	}
 	
@@ -160,7 +144,7 @@ function detectedproduct($id,$key){
 
 function detect(){
 	$mymenuid=0;
-	$data=querytoarray("select * from tempfolder order by id asc");
+	$data=querytoarray("select * from ".DB_PREFIX."parser_tempfolder order by id asc");
 	for($i=0;$i<$data['rows'];$i++){
 		//detect brend
 		$dbr=explode(' ',$data[$i]['name']);
@@ -176,7 +160,7 @@ function detect(){
 		$test_mymenuid=menuidtest($data[$i]['name']);
 		if($test_mymenuid){$mymenuid=$test_mymenuid;}
 		
-		mysql_query("update tempfolder set brendid=$mybrendid_test,wmotmenuid=$mymenuid where id=".$data[$i]['id']);
+		mysql_query("update ".DB_PREFIX."parser_tempfolder set brendid=$mybrendid_test,wmotmenuid=$mymenuid where id=".$data[$i]['id']);
 		
 		
 	}
@@ -193,19 +177,19 @@ $sort=($_GET['sort'])?$_GET['sort']:'id';
 $orderby=($_GET['orderby'])?$_GET['orderby']:'asc';
 
 $s=($_GET['s'])?$_GET['s']:'';
-$wmotmenuid=queryresult("select wmotmenuid from tempfolder where id=".$_GET['grouby'],'wmotmenuid');
-$brendid=queryresult("select brendid from tempfolder where id=".$_GET['grouby'],'brendid');
+$wmotmenuid=queryresult("select wmotmenuid from ".DB_PREFIX."parser_tempfolder where id=".$_GET['grouby'],'wmotmenuid');
+$brendid=queryresult("select brendid from ".DB_PREFIX."parser_tempfolder where id=".$_GET['grouby'],'brendid');
 	
 if($s){
 	$groupis=($_GET['grouby'])?" and wmotmenuid=$wmotmenuid or name like '%".$s."%' and brendid=$brendid":'';
-	$data=querytoarray("select * from tempfolder where name like '%".$s."%' $groupis order by $sort $orderby limit ".($fpp*$limiter).",$fpp");
+	$data=querytoarray("select * from ".DB_PREFIX."parser_tempfolder where name like '%".$s."%' $groupis order by $sort $orderby limit ".($fpp*$limiter).",$fpp");
 }
 else{
 	
 	$groupis=($_GET['grouby'])?" where wmotmenuid=$wmotmenuid and wmotmenuid!=0 or brendid=$brendid and brendid!=0":'';
-	$data=querytoarray("select * from tempfolder $groupis order by $sort $orderby limit ".($fpp*$limiter).",$fpp");
+	$data=querytoarray("select * from ".DB_PREFIX."parser_tempfolder $groupis order by $sort $orderby limit ".($fpp*$limiter).",$fpp");
 }
-	$datag=querytoarray("select id,wmotmenuid,brendid from tempfolder where price=0 and garant=0 group by name");
+	$datag=querytoarray("select id,wmotmenuid,brendid from ".DB_PREFIX."parser_tempfolder where price=0 and garant=0 group by name");
 ?>
 <style>
 tr{ color:#535657; font-size:14px; line-height:17px;}
@@ -311,10 +295,10 @@ $(document).ready(function() {
         	Страницы: 
             <?
 			if($s){
-				$max=round(queryresult("select count(*) as total from tempfolder where name like '%$s%'",'total')/$fpp);
+				$max=round(queryresult("select count(*) as total from ".DB_PREFIX."parser_tempfolder where name like '%$s%'",'total')/$fpp);
 			}
 			else{
-				$max=round(queryresult("select count(*) as total from tempfolder",'total')/$fpp);
+				$max=round(queryresult("select count(*) as total from ".DB_PREFIX."parser_tempfolder",'total')/$fpp);
 			}
             for($i=0;$i<$max;$i++){
 				echo '<a '.(($_GET['limiter']==$i)?' class="pageon"':'').' href="?s='.$s.'&sort='.$sort.'&orderby='.$orderby.'&limiter='.$i.'#action">'.$i.'</a>&nbsp;&nbsp; - ';
@@ -342,7 +326,7 @@ $(document).ready(function() {
             for($i=0;$i<$datag['rows'];$i++){
 				$groupis=' where wmotmenuid='.$datag[$i]['wmotmenuid']." and wmotmenuid!=0 or brendid=".$datag[$i]['brendid']." and brendid!=0";
 				
-				echo '<option '.(($_GET['grouby']==$datag[$i]['id'])?'selected="selected"':'').' value="'.$datag[$i]['id'].'">'.queryresult("select name from tempfolder where id=".$datag[$i]['id'],'name').'('.queryresult("select count(*) as total from tempfolder $groupis",'total').')</option>';
+				echo '<option '.(($_GET['grouby']==$datag[$i]['id'])?'selected="selected"':'').' value="'.$datag[$i]['id'].'">'.queryresult("select name from ".DB_PREFIX."parser_tempfolder where id=".$datag[$i]['id'],'name').'('.queryresult("select count(*) as total from ".DB_PREFIX."parser_tempfolder $groupis",'total').')</option>';
 			}
 			?>
         </select>

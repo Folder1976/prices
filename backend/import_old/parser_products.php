@@ -1126,7 +1126,7 @@ if(isset($_POST['importlist'])){
 												date_added = '$dater',
 												manufacturer_id = $mybrendid");
 								
-								$pid=queryresult("select product_id from ".DB_PREFIX."product order by id desc limit 0,1",'product_id');
+								$pid=queryresult("select product_id from ".DB_PREFIX."product order by product_id desc limit 0,1",'product_id');
 								
 								$mysqli->query("insert into ".DB_PREFIX."product_description SET product_id = $pid, name = $name, description = '".$xmlProp."', language_id = 1");
 								$mysqli->query("insert into ".DB_PREFIX."product_description SET product_id = $pid, name = $name, description = '".$xmlProp."', language_id = 2");
@@ -1199,7 +1199,7 @@ if(isset($_POST['importlist'])){
 
                     if($pid){
 
-						$name=queryresult("select name from products where id=$pid","name");
+						$name=queryresult("select name from ".DB_PREFIX."product_description where language_id=1 AND product_id=$pid","name");
 
 					}
 
