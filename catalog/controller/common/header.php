@@ -19,7 +19,18 @@ class ControllerCommonHeader extends Controller {
 		$data['currencies'] = $this->model_localisation_currency->getCurrencies();
 		$data['currency'] = $this->load->controller('common/currency');
 		
-	    
+		//$this->load->model('catalog/shop');
+		//$data['shops'] = $this->model_catalog_shop->getShops();
+		
+	 	//$this->load->model('catalog/manufacturer');
+		//$data['manufacturers'] = $this->model_catalog_manufacturer->getManufacturers();
+		
+		$this->load->model('catalog/information');
+		$data['menu']['shops'] = $this->model_catalog_information->getInformationMenuInformation(25);
+		$data['menu']['manufacterers'] = $this->model_catalog_information->getInformationMenuInformation(26);
+		$data['menu']['contact'] = $this->model_catalog_information->getInformationMenuInformation(27);
+		$data['menu']['wishlist'] = $this->model_catalog_information->getInformationMenuInformation(28);
+		
 		// Analytics
 		$this->load->model('extension/extension');
 

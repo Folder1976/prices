@@ -55,10 +55,10 @@ if(strpos($_SERVER['PHP_SELF'], $file[count($file)-1]) !== false){
 			.main_baner{
 				display: block;
 				position: absolute;
-				top: 160px;
-				left: 90px;
-				width: 1150px;
-				height: 430px;
+				top: 380px;
+				left: 410px;
+				width: 630px;
+				height: 400px;
 				opacity: 0.5;
 				background-color: #ffffff;
 				border: 2px solid #BABABA;
@@ -66,10 +66,10 @@ if(strpos($_SERVER['PHP_SELF'], $file[count($file)-1]) !== false){
 			.baners{
 				display: block;
 				position: absolute;
-				top: 640px;
+				top: 860px;
 				left: 90px;
-				width: 1150px;
-				height: 360px;
+				width: 1220px;
+				height: 100;
 				opacity: 0.5;
 				background-color: #ffffff;
 				border: 2px solid #BABABA;

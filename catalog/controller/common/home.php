@@ -141,7 +141,7 @@ class ControllerCommonHome extends Controller {
 		//$data['left_category'] = $left_menu_categorys;
 		$data['large_banners'] = $this->model_design_banner->getBannerLargeAll();
 		//$data['large_banner'] = $this->model_design_banner->getBannerLarge();
-		$data['medium_banners'] = $this->model_design_banner->getBannerMediumAll();
+		//$data['medium_banners'] = $this->model_design_banner->getBannerMediumAll();
 		//$data['medium_banners'] = $this->model_design_banner->getBannerRandom('medium', 3);
 		//$data['season_products'] = $this->model_design_banner->getBannerRandom('season_pro', 5);
 	

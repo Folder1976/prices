@@ -17,6 +17,24 @@ class ModelCatalogInformation extends Model {
 		return $query->row;
 	}
 
+	public function getInformationMenuInformation($information_id) {
+		
+		$sql = "SELECT DISTINCT i.information_id, title, keyword FROM " . DB_PREFIX . "information i
+								  LEFT JOIN " . DB_PREFIX . "information_description id ON (i.information_id = id.information_id)
+								  LEFT JOIN " . DB_PREFIX . "information_to_store i2s ON (i.information_id = i2s.information_id)
+								  LEFT JOIN " . DB_PREFIX . "url_alias UA ON (UA.query = CONCAT('information_id=',i.information_id))
+								  WHERE i.information_id = '" . (int)$information_id . "' AND
+								  id.language_id = '" . (int)$this->config->get('config_language_id') . "'
+								  AND i2s.store_id = '" . (int)$this->config->get('config_store_id') . "'
+								  AND i.status = '1'";
+		
+		//echo $sql;
+		
+		$query = $this->db->query($sql);
+
+		return $query->row;
+	}
+
 	public function getInformations() {
 		
 		$sql = "SELECT * FROM " . DB_PREFIX . "information i
