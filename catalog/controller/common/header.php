@@ -1,6 +1,23 @@
 <?php
 class ControllerCommonHeader extends Controller {
 	public function index() {
+
+		//Урл для блока выбора языка
+		if(isset($this->request->get['_route_'])){
+			$data['url_no_lang'] = str_replace($this->session->data['language'].'/','/',$this->request->get['_route_']);
+		}else{
+			$data['url_no_lang'] = '/';
+		}
+		
+		$this->load->model('localisation/language');
+		$data['languages'] = $this->model_localisation_language->getLanguages();
+		
+		$this->load->model('localisation/country');
+		$data['countries'] = $this->model_localisation_country->getCountries();
+	
+		$this->load->model('localisation/currency');
+		$data['currencies'] = $this->model_localisation_currency->getCurrencies();
+		$data['currency'] = $this->load->controller('common/currency');
 		
 	    
 		// Analytics
@@ -134,6 +151,14 @@ $data['text_service_center'] = $this->language->get('text_service_center');
 $data[''] = $this->language->get('');
 $data[''] = $this->language->get('');
 
+
+		$data['language_href'] = $this->session->data['language_href'];
+		$data['language_code'] = $this->session->data['language'];
+		
+		$data['currency_text'] 			= $this->language->get('currency_text');
+		$data['country_language_text'] 	= $this->language->get('country_language_text');
+		$data['text_select_currency'] 	= $this->language->get('text_select_currency');
+	
 
 		// Wishlist
 		if ($this->customer->isLogged()) {
