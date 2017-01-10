@@ -6,8 +6,46 @@ $text_password_reset = 'Напомнить пароль';
 $text_through_social_networks = 'Через соц сети';
 
 
-//echo "<pre>";  print_r(var_dump( get_defined_vars() )); echo "</pre>";
-//echo "<pre>";  print_r(var_dump( $social_images )); echo "</pre>";
+//echo "<pre>";  print_r(var_dump( $_SERVER )); echo "</pre>";
+//echo "========================<br>";
+//echo "<pre>";  print_r(var_dump( $menu )); echo "</pre>";
+//echo "<pre>";  print_r(var_dump( $large_banners )); echo "</pre>";
+//echo "========================<br>";
+//echo "<pre>";  print_r(var_dump( $url_no_lang )); echo "</pre>"; //УРЛ без языка
+//echo "<pre>";  print_r(var_dump( $language_href )); echo "</pre>"; //Префикс выбранного языка
+//echo "<pre>";  print_r(var_dump( $language_code )); echo "</pre>"; //Код выбранного языка
+//echo "<pre>";  print_r(var_dump( $_SESSION ["currency"] )); echo "</pre>"; // выбранная валюта
+//echo "<pre>";  print_r(var_dump( $currencies )); echo "</pre>"; // Список валют
+/*
+$url_no_lang - тут УРЛ без языка
+$languages - список языков
+$countries - список стран
+$currencies - Список валют
+$currency - Базовы шаблон валюты
+$language_href - Префикс выбранного языка
+$language_code - Код выбранного языка
+$currency_text, $country_language_text, $text_select_currency - Заголовки
+$_SESSION ["currency"] - выбранная валюта
+*/
+
+
+
+
+
+
+
+
+
+if($_SERVER['REQUEST_URI'] == '/'){
+    $curr_href = 'index.php?currency=';
+}else{
+    if(strpos($_SERVER['REQUEST_URI'],'?') !== false){
+        $curr_href =  $_SERVER['REQUEST_URI'].'&currency=';
+    }else{
+        $curr_href =  $_SERVER['REQUEST_URI'].'?currency=';
+    } 
+}
+
 ?>
 <!DOCTYPE html>
 <!--[if IE]><![endif]-->
@@ -140,16 +178,18 @@ if (typeof jQuery == 'undefined') {
           <div class="b-header-top__setings g-tablet-hidden">
             <div class="b-header-top__setings-lang">
               <select name="lang" id="lang" class="b-select">
-                <option value="ru">RU</option>
-                <option value="en">EN</option>
-                <option value="ua">UA</option>
+              <?php foreach ($languages as $lang) { ?>
+                <option value="<?php echo $lang['code']; ?>" <?php if ($lang['code'] == $language_code) { echo 'selected'; } ?>><?php echo $lang['code']; ?></option>
+              <?php } ?>
               </select>
             </div>
             <div class="b-header-top__setings-cur">
-              <select name="cur" id="cur" class="b-select">
-                <option value="usd">USD</option>
-                <option value="ru">р.</option>
-                <option value="ua">грн</option>
+              <select name="cur" id="cur" class="b-select" onChange="window.location.replace($(this).val());">
+              <?php //foreach ($currencies as $cur) { ?>
+              <?php foreach ($currencies as $index => $currency) { ?>
+                
+                <option value="<?php echo $curr_href.$index; ?>" <?php if ($currency['code'] == $_SESSION ["currency"]) { echo 'selected'; } ?>><?php echo $currency['symbol_left'].' '.$currency['symbol_right'].' '.$currency['title']; ?></option>
+              <?php } ?>
               </select>
             </div>
           </div>
@@ -415,6 +455,13 @@ if (typeof jQuery == 'undefined') {
       <div class="g-clear"></div>
 
     </header>
+
+<script>
+$('#lang').on('change', function() {
+  window.location.replace("<?php if ($url_no_lang == '/') { echo $url_no_lang; } else { echo $url_no_lang.'/'; }?>" + $(this).val());
+});
+</script>
+
 
 
 

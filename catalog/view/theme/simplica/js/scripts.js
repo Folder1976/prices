@@ -477,7 +477,7 @@ function hide_li() {
 
   // выносим содержимое вкладки отдельно под всеми вкладками
   var el_title = el.find('a').html();
-  var tab_id = el.find('a').attr('href');
+  var tab_id = el.find('a').attr('href').match(/#[a-z0-9-_]*/g)[0];
 
   // добавляем "моб" вкладку
   $('.js-mob-prod-tabs').prepend('<div id="'+tab_id.replace('#','')+'_mob"></div>');
@@ -503,7 +503,7 @@ function show_li() {
   el.show();
 
   // удаляем "моб." вкладку
-  var tab_id = el.find('a').attr('href');
+  var tab_id = el.find('a').attr('href').match(/#[a-z0-9-_]*/g)[0];
   $(tab_id+'_mob').remove();
 }
 
