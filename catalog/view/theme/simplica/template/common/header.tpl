@@ -193,17 +193,17 @@ if (typeof jQuery == 'undefined') {
       <div class="b-header__bottom">
         <div class="g-container">
           <div class="g-col-left b-menu js-mob-menu">
-            <div class="b-button-nav">
+            <div class="b-button-nav js-open-mob-menu-link" data-mfp-src=".js-popup-mob-menu">
               <div class="b-button-nav__wrap">
                 <span class="ic-menu"></span>
                 <span class="b-button-nav__title">Категирии</span>
                 <span class="ic-arrow-down"></span>
               </div>
             </div>
-            <nav class="b-nav-level-1 js-nav-level-1">
+            <nav class="b-nav-level-1 js-nav-level-1 js-popup-mob-menu">
               <div class="b-nav__mob-header">
                 <div class="b-nav__mob-header-title">
-                  <span class="ic-mob-menu-home"></span>Главная
+                  <a href="/"><span class="ic-mob-menu-home"></span>Главная</a>
                 </div>
                 <div class="b-nav__mob-tabs js-nav__mob-tabs">
                   <span class="active" data-tabs=".b-nav__mob-tabs-1">Категории</span>
