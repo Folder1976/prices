@@ -299,10 +299,10 @@
     .b-popup-menu_mob {
         position: relative;
         display: block;
-        margin: 20px 0;
+        margin: 20px 0 0;
 //        .b-nav-level-1 .b-nav__item.b-nav__item_link a:hover {}
         .b-nav__mob-tabs-1, .b-nav__mob-tabs-2 {
-            max-height: calc(100vh - 140px - 40px);
+            max-height: calc(100vh - 140px - 20px);
             overflow: auto;
         }
     }

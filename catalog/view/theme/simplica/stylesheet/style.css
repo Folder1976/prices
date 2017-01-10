@@ -1691,9 +1691,9 @@ a:hover {
 .mfp-container .mfp-content .b-popup-menu_mob {
   position: relative;
   display: block;
-  margin: 20px 0; }
+  margin: 20px 0 0; }
   .mfp-container .mfp-content .b-popup-menu_mob .b-nav__mob-tabs-1, .mfp-container .mfp-content .b-popup-menu_mob .b-nav__mob-tabs-2 {
-    max-height: calc(100vh - 140px - 40px);
+    max-height: calc(100vh - 140px - 20px);
     overflow: auto; }
 
 @media screen and (max-width: 1190px) {
