@@ -31,7 +31,7 @@
               <?php foreach ($large_banners as $baner) { ?>
               <div class="b-home-slider__item">
                 <a href="<?php echo $baner['baner_url']; ?>">
-                  <img src="<?php echo $baner['baner_pic']; ?>" alt="<?php echo $baner['baner_title']; ?>">
+                  <img src="/image/banners/mainpage_large/<?php echo $baner['baner_pic']; ?>" alt="<?php echo $baner['baner_title']; ?>">
                 </a>
               </div>
               <?php } ?>
