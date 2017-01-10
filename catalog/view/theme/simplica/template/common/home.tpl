@@ -2,6 +2,7 @@
 
 <?php
 //echo "<pre>";  print_r(var_dump( get_defined_vars() )); echo "</pre>";
+
 ?>
     <main class="b-main">
       <div class="g-container">
@@ -27,18 +28,13 @@
         <div class="g-col-center">
           <div class="g-row b-home-top-row">
             <div class="b-home-slider owl-carousel js-owl-home-slider">
+              <?php foreach ($large_banners as $baner) { ?>
               <div class="b-home-slider__item">
-                <img src="catalog/view/theme/simplica/img/home-slide/home-slide.jpg" alt="slide0">
+                <a href="<?php echo $baner['baner_url']; ?>">
+                  <img src="<?php echo $baner['baner_pic']; ?>" alt="<?php echo $baner['baner_title']; ?>">
+                </a>
               </div>
-              <div class="b-home-slider__item">
-                <img src="catalog/view/theme/simplica/img/home-slide/home-slide_1.jpg" alt="slide1">
-              </div>
-              <div class="b-home-slider__item">
-                <img src="catalog/view/theme/simplica/img/home-slide/home-slide_2.jpg" alt="slide2">
-              </div>
-              <div class="b-home-slider__item">
-                <img src="catalog/view/theme/simplica/img/home-slide/home-slide_3.jpg" alt="slide3">
-              </div>
+              <?php } ?>
             </div>  <!-- end b-home-slider -->
 
             <div class="b-upcoming-prod b-upcoming-prod_type2">
