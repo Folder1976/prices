@@ -948,7 +948,8 @@
                     <tr>
                       <td class="text-left"><?php echo $entry_image; ?></td>
                       <td class="text-right"><?php echo $entry_sort_order; ?></td>
-                      <td></td>
+                      <td>
+                      </td>
                     </tr>
                   </thead>
                   <tbody>
@@ -1044,6 +1045,32 @@
       </div>
     </div>
   </div>
+  
+  <div class="load_photo">
+    <b style="color:#005100;">Загрузить много фото</b>
+    <?php if(isset($product_id)){ ?>
+      <form enctype="multipart/form-data" method="post" action="/admin/index.php?route=catalog/product/edit&token=<?php echo $_GET['token']; ?>&product_id=<?php echo $_GET['product_id']; ?>">
+        <input type="hidden" name="MAX_FILE_SIZE" value="<?php echo (1048*1048*1048); ?>">
+        <input type="hidden"' name="type" value="tovar">
+        <input type="hidden"' name="product_id" value="<?php echo $product_id; ?>">
+        <input type="file" min="1" max="999" multiple="true" style="width:200px"  name="userfile[]" OnChange="submit();"/>
+      </form>
+    <?php }else{ ?>
+      <b>Товар не сохранен!</b>
+      
+    <?php } ?>
+  </div>
+  <style>
+      .load_photo{
+        display: block;
+        position: fixed;
+        top:5px;
+        z-index:9999;
+        background-color: #8DB58D;
+        border: 1px solid gray;
+        padding: 5px;
+      }
+  </style>
   <script type="text/javascript"><!--
 <?php foreach ($languages as $language) { ?>
 $('#input-description<?php echo $language['language_id']; ?>').summernote({height: 300});

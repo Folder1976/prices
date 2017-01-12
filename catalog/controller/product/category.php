@@ -681,7 +681,7 @@ class ControllerProductCategory extends Controller {
 			//end Если есть выбранные размеры - нам нужно получить ИД продуктов без фильтрации по размерам
 			
 			//Соберем размеры
-			$data['sizes'] = $this->model_catalog_product->getProductsOptions($product_ids_no_size_filter);
+			//$data['sizes'] = $this->model_catalog_product->getProductsOptions($product_ids_no_size_filter);
 			//$data['sizes'] = $this->model_catalog_attribute->getSisezOnProductNoGroup($product_ids_no_size_filter);
 
 				
@@ -1000,13 +1000,14 @@ class ControllerProductCategory extends Controller {
 			
 			
 			//Вынесем атрибут цвета в отдельный массив
+			/*
 			$data['product_attribute_colors'] = array();
 			if(isset($product_attributes[15])){
 				$data['product_attribute_colors'] = $product_attributes[15];
 				unset($product_attributes[15]);
 				unset($data['product_attributes'][15]);
 			}
-		
+		`	*/
 			$url = '';
 
 			$data['subcategories'] = $this->model_catalog_category->getCategoriesTree($category_id, true);

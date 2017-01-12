@@ -99,38 +99,45 @@
             </div>
           </div>
           
-          
-          <div class="form-group">
-            <label class="col-sm-2 control-label" for="input-meta-title"><?php echo $entry_meta_title; ?></label>
-            <div class="col-sm-10">
-              <input type="text" name="manufacturer_description[meta_title]" value="<?php echo isset($meta_title) ? $meta_title : ''; ?>" placeholder="<?php echo $entry_meta_title; ?>" id="input-meta-title<?php echo $language['language_id']; ?>" class="form-control" />
+          <?php foreach ($languages as $language) { ?>
+          <?php echo $language['name']; ?>
+            <div class="form-group">
+              <label class="col-sm-2 control-label" for="input-meta-title"><?php echo $entry_name; ?></label>
+              <div class="col-sm-10">
+                <input type="text" name="manufacturer_description[<?php echo $language['language_id']; ?>][name]" value="<?php echo isset($description[$language['language_id']]['name']) ? $description[$language['language_id']]['name'] : ''; ?>" placeholder="<?php echo $entry_name; ?>" id="input-meta-name<?php echo $language['language_id']; ?>" class="form-control" />
+              </div>
             </div>
-          </div>
-          <div class="form-group">
-            <label class="col-sm-2 control-label" for="input-meta-title"><?php echo $entry_title_h1; ?></label>
-            <div class="col-sm-10">
-              <input type="text" name="manufacturer_description[title_h1]" value="<?php echo isset($title_h1) ? $title_h1 : ''; ?>" placeholder="<?php echo $entry_title_h1; ?>" id="input-meta-title<?php echo $language['language_id']; ?>" class="form-control" />
+            <div class="form-group">
+              <label class="col-sm-2 control-label" for="input-meta-title"><?php echo $entry_meta_title; ?></label>
+              <div class="col-sm-10">
+                <input type="text" name="manufacturer_description[<?php echo $language['language_id']; ?>][meta_title]" value="<?php echo isset($description[$language['language_id']]['meta_title']) ? $description[$language['language_id']]['meta_title'] : ''; ?>" placeholder="<?php echo $entry_meta_title; ?>" id="input-meta-title<?php echo $language['language_id']; ?>" class="form-control" />
+              </div>
             </div>
-          </div>
-          <div class="form-group">
-            <label class="col-sm-2 control-label" for="input-meta-description"><?php echo $entry_meta_description; ?></label>
-            <div class="col-sm-10">
-              <textarea name="manufacturer_description[meta_description]" rows="5" placeholder="<?php echo $entry_meta_description; ?>" id="input-meta-description" class="form-control"><?php echo isset($meta_description) ? $meta_description : ''; ?></textarea>
+            <div class="form-group">
+              <label class="col-sm-2 control-label" for="input-meta-title"><?php echo $entry_title_h1; ?></label>
+              <div class="col-sm-10">
+                <input type="text" name="manufacturer_description[<?php echo $language['language_id']; ?>][title_h1]" value="<?php echo isset($description[$language['language_id']]['title_h1']) ? $description[$language['language_id']]['title_h1'] : ''; ?>" placeholder="<?php echo $entry_title_h1; ?>" id="input-meta-title<?php echo $language['language_id']; ?>" class="form-control" />
+              </div>
             </div>
-          </div>
-          <div class="form-group">
-            <label class="col-sm-2 control-label" for="input-meta-keyword"><?php echo $entry_meta_keyword; ?></label>
-            <div class="col-sm-10">
-              <textarea name="manufacturer_description[meta_keyword]" rows="5" placeholder="<?php echo $entry_meta_keyword; ?>" id="input-meta-keyword" class="form-control"><?php echo isset($meta_keyword) ? $meta_keyword : ''; ?></textarea>
+            <div class="form-group">
+              <label class="col-sm-2 control-label" for="input-meta-description"><?php echo $entry_meta_description; ?></label>
+              <div class="col-sm-10">
+                <textarea name="manufacturer_description[<?php echo $language['language_id']; ?>][meta_description]" rows="5" placeholder="<?php echo $entry_meta_description; ?>" id="input-meta-description" class="form-control"><?php echo isset($description[$language['language_id']]['meta_description']) ? $description[$language['language_id']]['meta_description'] : ''; ?></textarea>
+              </div>
             </div>
-          </div>
-          <div class="form-group">
-            <label class="col-sm-2 control-label" for="input-description"><?php echo $entry_description; ?></label>
-            <div class="col-sm-10">
-              <textarea name="manufacturer_description[description]" rows="10" placeholder="<?php echo $entry_description; ?>" id="input-description" class="form-control"><?php echo isset($description) ? $description : ''; ?></textarea>
+            <div class="form-group">
+              <label class="col-sm-2 control-label" for="input-meta-keyword"><?php echo $entry_meta_keyword; ?></label>
+              <div class="col-sm-10">
+                <textarea name="manufacturer_description[<?php echo $language['language_id']; ?>][meta_keyword]" rows="5" placeholder="<?php echo $entry_meta_keyword; ?>" id="input-meta-keyword" class="form-control"><?php echo isset($description[$language['language_id']]['meta_keyword']) ? $description[$language['language_id']]['meta_keyword'] : ''; ?></textarea>
+              </div>
             </div>
-          </div>
-
+            <div class="form-group">
+              <label class="col-sm-2 control-label" for="input-description"><?php echo $entry_description; ?></label>
+              <div class="col-sm-10">
+                <textarea name="manufacturer_description[<?php echo $language['language_id']; ?>][description]" rows="10" placeholder="<?php echo $entry_description; ?>" id="input-description" class="form-control"><?php echo isset($description[$language['language_id']]['description']) ? $description[$language['language_id']]['description'] : ''; ?></textarea>
+              </div>
+            </div>
+          <?php } ?>
 <!-- Поля для склонений -->
           <div class="form-group">
             <label class="col-sm-2 control-label" for="input-name-sush"><?php echo $entry_name_sush; ?></label>

@@ -181,6 +181,24 @@ class ControllerProductProduct extends Controller {
 
 		if (isset($this->request->get['product_id'])) {
 			$product_id = (int)$this->request->get['product_id'];
+			
+			$viewed_list = array();
+			$viewed_list[] = (int)$product_id;
+			
+			$count = 0;
+			if(isset($_COOKIE['viewed_list'])){
+				foreach(json_decode($_COOKIE['viewed_list'], true) as $row){
+					
+					if($count++ > 10) continue;
+					
+					$viewed_list[] = $row;
+					
+				}
+			}
+			
+			
+			$viewed_list = array_unique($viewed_list);
+			
 		} else {
 			$product_id = 0;
 		}
@@ -336,10 +354,11 @@ class ControllerProductProduct extends Controller {
 			$data['points'] = $product_info['points'];
 			$data['description'] = html_entity_decode($product_info['description'], ENT_QUOTES, 'UTF-8');
 			$data['description_detail'] = html_entity_decode($product_info['description_detail'], ENT_QUOTES, 'UTF-8');
+			$data['model_price'] = $this->model_catalog_product->getProductPricesOnModel($product_info['model']);
 			
 			$this->load->model('catalog/attribute');
 			
-			$data['sizes'] = $this->model_catalog_attribute->getSisezOnProductNoGroup(array((int)$this->request->get['product_id']));
+			//$data['sizes'] = $this->model_catalog_attribute->getSisezOnProductNoGroup(array((int)$this->request->get['product_id']));
 
 
 
@@ -524,14 +543,6 @@ class ControllerProductProduct extends Controller {
 			$data['attribute_groups'] = $this->model_catalog_product->getProductAttributes($this->request->get['product_id']);
 			$data['attribute_colors'] = array();
 			
-			foreach($data['attribute_groups'] as $index => $row){
-				if($row['attribute_group_id'] == 15){
-					$data['attribute_colors'] = $row['attribute'];
-					unset($data['attribute_groups'][$index]);
-					break;
-				}
-			}
-			
 			
 			$data['products'] = array();
 
@@ -580,6 +591,7 @@ class ControllerProductProduct extends Controller {
 					'tax'         => $tax,
 					'minimum'     => $result['minimum'] > 0 ? $result['minimum'] : 1,
 					'rating'      => $rating,
+					'model_price' => $this->model_catalog_product->getProductPricesOnModel($result['model']),
 					'href'        => $this->url->link('product/product', 'product_id=' . $result['product_id'])
 				);
 			}

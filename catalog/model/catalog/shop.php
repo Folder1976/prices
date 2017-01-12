@@ -10,7 +10,7 @@ class ModelCatalogShop extends Model {
 		return $query->row;
 	}
 
-	public function getShops($shop_id) {
+	public function getShops() {
 		$sql = "SELECT *
 					FROM " . DB_PREFIX . "shops
 					ORDER BY `name` ASC

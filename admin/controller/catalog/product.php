@@ -122,12 +122,10 @@ class ControllerCatalogProduct extends Controller {
 				$this->model_catalog_product->updateProductImages($this->request->post['product_id'], $product_image);
 			}
 			
-			$this->response->redirect($this->url->link('catalog/product/edit', 'product_id=' . $this->request->get['product_id'] . '&token=' . $this->session->data['token'] . $url, 'SSL'));
+			$this->response->redirect($this->url->link('catalog/product/edit', 'product_id=' . $this->request->get['product_id'] . '&token=' . $this->session->data['token'] , 'SSL'));
 
 		}
 		
-		
-	echo('++'.$this->validateForm());	
 		if (($this->request->server['REQUEST_METHOD'] == 'POST') && $this->validateForm()) {
 			
 			$data = array_merge(
@@ -1474,6 +1472,7 @@ class ControllerCatalogProduct extends Controller {
 			$this->error['warning'] = $this->language->get('error_permission');
 		}
 
+		/*
 		foreach ($this->request->post['product_description'] as $language_id => $value) {
 			if ((utf8_strlen($value['name']) < 3) || (utf8_strlen($value['name']) > 255)) {
 				$this->error['name'][$language_id] = $this->language->get('error_name');
@@ -1483,7 +1482,7 @@ class ControllerCatalogProduct extends Controller {
 				$this->error['meta_title'][$language_id] = $this->language->get('error_meta_title');
 			}
 		}
-
+		lf*/
 		if ((utf8_strlen($this->request->post['model']) < 1) || (utf8_strlen($this->request->post['model']) > 64)) {
 			$this->error['model'] = $this->language->get('error_model');
 		}

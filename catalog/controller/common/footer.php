@@ -2,6 +2,8 @@
 class ControllerCommonFooter extends Controller {
 	public function index() {
 		$this->load->language('common/footer');
+		$this->load->model('catalog/category');
+		$this->load->model('catalog/product');
 
 		$data['scripts'] = $this->document->getScripts('footer');
 
@@ -43,11 +45,26 @@ class ControllerCommonFooter extends Controller {
 		$data['text_select_currency'] 	= $this->language->get('text_select_currency');
 		//$data['currency_text'] 	= $this->language->get('currency_text');
 
-
+		//Получим последние 10 просмотренные пользователем
+		$data['viewed_products'] = array();	
+		if(isset($_COOKIE['viewed_list'])){
+			
+			$viewed_list = json_decode($_COOKIE['viewed_list'],true);
+			
+			if(is_array($viewed_list)){
+				
+				foreach($viewed_list as $row){
+					$data['viewed_products'][] = $this->model_catalog_product->getProduct((int)$row);
+				}
+				
+			}
+			
+		}
+	
 
 		$this->load->model('catalog/information');
 
-		$data['informations'] = array();
+		$data['$informations'] = array();
 
 		foreach ($this->model_catalog_information->getInformations() as $result) {
 			if ($result['bottom']) {
@@ -72,9 +89,7 @@ class ControllerCommonFooter extends Controller {
 
 				$data['categories'] = array();
 
-		$this->load->model('catalog/category');
-
-		$this->load->model('catalog/product');
+		
 		$categories = $this->model_catalog_category->getCategories(0);
 
 		foreach ($categories as $category) {
