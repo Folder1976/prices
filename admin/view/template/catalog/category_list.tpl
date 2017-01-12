@@ -4,7 +4,7 @@
     <div class="container-fluid">
       <div class="pull-right">
         <a href="<?php echo $import; ?>" data-toggle="tooltip" title="<?php echo $button_import; ?>" class="btn btn-danger">
-          <i class="fa fa-plus"></i> <i class="fa fa-plus"></i>
+          <i class="fa fa-plus"></i> <i class="fa fa-plus"></i>Модули програмиста
         </a>
         <a href="<?php echo $restore_path; ?>" data-toggle="tooltip" title="<?php echo $button_restore_path; ?>" class="btn btn-primary">
           <i class="fa fa-plus">Починить пути</i>

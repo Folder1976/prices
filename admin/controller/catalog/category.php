@@ -1,7 +1,8 @@
 <?php
 class ControllerCatalogCategory extends Controller {
 	private $error = array();
-
+	private $mysqli2;
+	
 	public function index() {
 		
 		$this->language->load('catalog/category');
@@ -60,83 +61,704 @@ class ControllerCatalogCategory extends Controller {
 	}
 
 	public function import() {
-		$this->language->load('catalog/category');
-		
-		$this->document->setTitle($this->language->get('heading_title'));
-
-		$this->load->model('catalog/category');
-		$this->load->model('catalog/getoldinfo');
-		$this->load->model('catalog/product');
-		$this->load->model('catalog/manufacturer');
-
-
-		//$this->model_catalog_getoldinfo->tmp();
-die('Сюда не нажимай! Это для програмиста!');
-
-
-		//Востановление Дизайнеров
-		$this->model_catalog_manufacturer->deleteManufacturerAliases();
-		$r = $this->model_catalog_manufacturer->getManufacturers();
-		foreach($r as $row){
-			$row['keyword'] = $row['href'];
-			echo '<br>'.$row['keyword'];
-			$r = $this->model_catalog_manufacturer->editManufacturer($row['manufacturer_id'], $row);
-		}
-		
-		
-		
-		//Альтернативные описания по ЧПУ
-		$this->model_catalog_getoldinfo->copyManufacturersSeo();
-		die();
-		
-		
-		//Категории
-		//$this->model_catalog_category->deleteCategoryAll();
-		
-		$categories = $this->model_catalog_getoldinfo->getCategories();
-		
-		$categories_old = array();
-		$rows = $this->model_catalog_category->getCategoriesID();
-		foreach($rows as $row){
-			$categories_old[$row['category_id']] = $row['category_id'];
-		}
-
-		foreach($categories as $index => $category){
-			
-				
-			if(!$this->model_catalog_category->getCategoryOnNameAndParent($category['category_description'][1]['name'], $category['parent_id'])){
-				echo '<br>'.$category['category_id'];
-				unset($category['category_id']);
-				$category_id = $this->model_catalog_category->addCategory($category);
-			}
-		}
-		die();
-		return true;
-		
-		//Бренды
-		$this->model_catalog_getoldinfo->copyManufacturers();
+		define('DB_DATABASE2', 'folder_temp');
+		$this->mysqli2 = mysqli_connect(DB_HOSTNAME,DB_USERNAME,DB_PASSWORD,DB_DATABASE2) or die("Error " . mysqli_error($this->mysqli2)); 
+		mysqli_set_charset($this->mysqli2,"utf8");
 	
-		//Атрибуты
-		$this->model_catalog_getoldinfo->copyAttributes();
-		
-		//Размер
-		$this->model_catalog_getoldinfo->copySize();
-		
-		//Продукты
-		$this->model_catalog_product->dellAllProduct();
-		$products = $this->model_catalog_getoldinfo->getProducts();
-		foreach($products as $index => $product){
-			
-			$product_id = $this->model_catalog_product->addProduct($product);
-			//$this->model_catalog_category->updateCategoryID($category_id, $index);
-		}
 
+		$this->importCategory();
 	
-		$this->session->data['success'] = $this->language->get('text_success');
 
-		$this->getList();
+die('Удаление пустых товаров');
+		$this->dellNullCategoryLinks();
+		$this->importProducts();
+		die('11111111');
+		
+		$this->dellNullProducts();
+		$this->fixPhotos();
+		die('11111111');
+		$this->ClearCategorys();
+		
+die('Импорт старого товара');
+
+		
+		$this->db->query("DELETE FROM " . DB_PREFIX . "url_alias WHERE query LIKE 'product_id=%' OR  query LIKE 'category_id=%'");
+		$this->importCategory();
+		$this->importManufacturer();
+		$this->importProducts();
+		$this->ClearCategorys();
+		$this->setAllAttribute();
+		
+		
+die('stop');
+$this->ClearCategorys();
+
+
+die('Таблица размеров');	
+	//$this->model_catalog_product->getProducts();
+	$this->importProducts();
+	$this->dellNullProducts();
+	
 	}
 
+//Удалим привязки к левым категориям
+	public function dellNullCategoryLinks(){
+		$sql = "SELECT * FROM " . DB_PREFIX . "product_to_category";
+		$r = $this->db->query($sql);
+		foreach($r->rows as $row){
+			
+			$sql = "SELECT product_id FROM " . DB_PREFIX . "product WHERE product_id = '".$row['product_id']."'";
+			$prod = $this->db->query($sql);
+			
+			$sql = "SELECT category_id FROM " . DB_PREFIX . "category WHERE category_id = '".$row['category_id']."'";
+			$categ = $this->db->query($sql);
+			
+			if($prod->num_rows == 0 OR $categ->num_rows == 0){
+				$sql = "DELETE FROM " . DB_PREFIX . "product_to_category WHERE product_id = '".$row['product_id']."' AND category_id = '".$row['category_id']."'";
+				$this->db->query($sql);
+			}
+		}
+		
+	}
+//Чиним фотки
+	public function fixPhotos(){
+		header("Content-Type: text/html; charset=UTF-8");
+		
+		$this->load->model('catalog/product');
+		
+		$path = '/home/adminroot/www/plazamilano.com/image/';
+		
+		$sql = 'SELECT product_id, image FROM ' . DB_PREFIX . 'product';// WHERE product_id = "463904464"';
+		$products = $this->db->query($sql);
+		
+		foreach($products->rows as $row){
+			
+			$images = $this->model_catalog_product->getProductImages($row['product_id']);
+				
+			$filename = $path . $row['image'];
+			
+			if (file_exists($filename) AND $row['image']) {
+				//echo "<br>The file $filename exists";
+			} else {
+				
+				//echo "<pre>".$filename.'<br>';  print_r(var_dump( $images )); echo "</pre>";
+				
+				if(is_array($images) AND count($images) > 0){
+					$sql = 'UPDATE fash_product SET image = "'.$images['0']["image"].'" WHERE product_id="'.$row['product_id'].'"';
+					$this->db->query($sql);
+					$sql = 'DELETE FROM fash_product_image WHERE image = "'.$images['0']["image"].'" AND product_id="'.$row['product_id'].'"';
+					$this->db->query($sql);
+				}else{
+					$sql = 'UPDATE fash_product SET image = "" WHERE product_id="'.$row['product_id'].'"';
+					$this->db->query($sql);
+					
+				}
+			}
+				
+			
+		}
+	}
+
+//Переносим таблицу размеров
+	public function getDimension(){
+		$mysqli2 = $this->mysqli2;
+		$this->load->model('catalog/option');
+		$this->load->model('catalog/attribute');
+		
+		
+		$sql = 'SELECT id_goodcolor, id_good, color_rus, color FROM goodcolors GC
+					LEFT JOIN colors C ON C.id_color = GC.id_color';
+		$products = $mysqli2->query($sql) or die($sql);
+		while($product = $products->fetch_assoc()){
+			
+			//Размеры
+			$sql = "SELECT GD.*, GZ.goodsize FROM gooddimensions GD
+									LEFT JOIN goodsizes GZ ON GZ.id_goodsize = GD.id_goodsize
+									WHERE GD.id_good = '".$product['id_good']."';";
+			
+			$r = $mysqli2->query($sql) or die($sql);
+			if($r->num_rows){
+				
+				$product_option = array();
+				
+				while($option = $r->fetch_assoc()){
+					
+					$option_value_id = 0;
+					$option_id = 11;
+					$option_value_id = $this->model_catalog_option->getOptionValueOrAdd($option['goodsize'], $option_id, $option); // 11 - Это группа размеров Одежды
+					
+					$attribute_group_id = 15;
+					$attribute_id = 0;
+					$attr_name = array();
+					$attr_name[1] = $product['color_rus'];
+					$attr_name[2] = $product['color'];
+					$id_goodcolor = $this->model_catalog_attribute->getAttributeOrAdd($attr_name, $attribute_group_id);
+					
+					
+					if($option['shoulders']) $params['shirina_plech'] = number_format(((float)$option['shoulders'] * 2.54),2,'.','');
+					if($option['width']) $params['shirina_grudi'] = number_format(((float)$option['width'] * 2.54),2,'.','');
+					if($option['length']) $params['dlina_verh'] = number_format(((float)$option['length'] * 2.54),2,'.','');
+					if($option['sleeve']) $params['dlina_rukava'] = number_format(((float)$option['sleeve'] * 2.54),2,'.','');
+					if($option['collar']) $params['vorotnik'] = number_format(((float)$option['collar'] * 2.54),2,'.','');
+					if($option['waist']) $params['shirina_talii'] = number_format(((float)$option['waist'] * 2.54),2,'.','');
+					if($option['hips']) $params['shirina_beder'] = number_format(((float)$option['hips'] * 2.54),2,'.','');
+					if($option['rise']) $params['podiem'] = number_format(((float)$option['rise'] * 2.54),2,'.','');
+					
+					$product_id = $option['id_good'] + ($id_goodcolor * 100000);
+					
+					
+					header("Content-Type: text/html; charset=UTF-8");
+					echo $product['color'];
+					echo "<pre>";  print_r(var_dump( $product_id )); echo "</pre>"; 
+					echo "<pre>";  print_r(var_dump( $option_value_id )); echo "</pre>"; 
+					echo "<pre>";  print_r(var_dump( $params )); echo "</pre>"; 
+					echo "<pre>";  print_r(var_dump( $option )); echo "</pre>"; die();
+				
+					
+				}
+			}
+		
+		}
+		
+	}
+	
+//Удаляем пустые товары
+	public function	dellNullProducts(){
+		$this->load->model('catalog/product');
+		
+		$products = $this->model_catalog_product->getProductsIdList();
+		
+		foreach($products as $row){
+		
+			$option = $this->model_catalog_product->getProductOptions($row['product_id']);
+			
+			$quantity = 0;
+			
+			if(isset($option['0']['product_option_value'])){
+				foreach($option['0']['product_option_value'] as $size){
+					$quantity += $size['quantity'];
+				}
+			}
+			
+			if($quantity < 1){
+				$this->model_catalog_product->deleteProduct($row['product_id']);
+			}
+			
+		}
+		
+	}
+	
+//Почистим пустые категории
+	public function	ClearCategorys(){
+		$this->load->model('catalog/category');
+		$this->load->model('catalog/product');
+		
+		$rwww = $this->model_catalog_category->getCategories(array('parent_id'=>'0'));
+		
+		header("Content-Type: text/html; charset=UTF-8");
+		
+		foreach($rwww as $row){
+			
+			$r1 = $this->model_catalog_category->getCategories(array('parent_id'=>$row['category_id']));
+			foreach($r1 as $row1){
+				
+				$product_total = $this->model_catalog_product->getTotalProducts(array('filter_category'=>array($row1['category_id'])));
+				
+				echo '<br>'.$product_total.' - ('.$row1['category_id'].') '.$row1['name'];
+				
+				if($product_total == 0){
+					
+					$r2 = $this->model_catalog_category->getSubCategories($row1['category_id']);
+					
+					$this->model_catalog_category->deleteCategory($row1['category_id']);
+					
+					foreach($r2 as $row2){
+						$this->model_catalog_category->deleteCategory($row2['category_id']);
+						echo '+';
+					}
+					
+				}
+								
+			}
+			
+		}
+		
+		$sql = 'DELETE FROM '.DB_PREFIX.'product_to_category WHERE category_id NOT IN (SELECT category_id FROM '.DB_PREFIX.'category)';
+		$this->db->query($sql);
+	
+	}
+	
+//товары	
+	public function importProducts(){
+		$this->load->model('catalog/product');
+		$this->load->model('catalog/option');
+		$this->load->model('catalog/attribute');
+		$this->load->model('catalog/category');
+		$mysqli2 = $this->mysqli2;
+		
+		//$this->model_catalog_product->dellAllProduct();
+		
+		$r_m = $mysqli2->query("SELECT * FROM goods WHERE id_good = 10586;");
+		
+		while($product = $r_m->fetch_assoc()){
+		
+			$sql = "SELECT GC.*, C.color, C.color_rus, artikul FROM goodcolors GC
+							LEFT JOIN colors C ON C.id_color = GC.id_color
+							WHERE GC.id_good = '".$product['id_good']."'";
+			$r_size = $mysqli2->query($sql);
+				while($color = $r_size->fetch_assoc()){
+					
+					$color_id = $color['id_goodcolor'];
+					
+					$product['good_rus'] = str_replace('  ',' ', $product['good_rus']);
+					$product['good_rus'] = str_replace('  ',' ', $product['good_rus']);
+					$product['good_rus'] = str_replace('  ',' ', $product['good_rus']);
+					
+					$product['good'] = str_replace('  ',' ', $product['good']);
+					$product['good'] = str_replace('  ',' ', $product['good']);
+					$product['good'] = str_replace('  ',' ', $product['good']);
+					
+					
+					$data_P = array();
+					$data_P['product_id'] = $product['id_good'] + ($color_id * 100000);
+					$data_P['upc'] = $data_P['ean'] = $data_P['jan'] = $data_P['isbn'] = $data_P['mpn'] = $data_P['location'] = $data_P['subtract'] = $data_P['points'] = $data_P['weight'] = $data_P['weight_class_id'] = $data_P['length'] = $data_P['width'] = $data_P['height'] = $data_P['stock_status_id'] = '';
+					$data_P['date_available'] = date('Y-m-d', strtotime('-1 day'));
+					$data_P['length_class_id'] = '';
+					$data_P['tax_class_id'] = '';
+					$data_P['sort_order'] = 0;
+					$data_P['product_description'][1]['name'] = ($product['good_rus'] != '') ? $product['good_rus'] : $product['good'];
+					$data_P['product_description'][1]['description'] = htmlspecialchars($product['mat_rus'].'<br>'.$product['text_rus'],ENT_QUOTES);
+					$data_P['product_description'][1]['meta_title'] = ($product['good_rus'] != '') ? $product['good_rus'] : $product['good'];
+					$data_P['product_description'][1]['meta_description'] = $product['keywords1_rus'];
+					$data_P['product_description'][1]['description_detail'] = $product['keywords_rus'];
+					$data_P['product_description'][1]['meta_keyword'] = $product['keywords_rus'];
+					$data_P['product_description'][1]['tag'] = $product['good_rus'];
+			
+					$data_P['product_description'][2]['name'] = $product['good'];
+					$data_P['product_description'][2]['description'] = htmlspecialchars($product['mat'].'<br>'.$product['text'],ENT_QUOTES);
+					$data_P['product_description'][2]['meta_title'] = $product['good'];
+					$data_P['product_description'][2]['meta_description'] = $product['keywords1'];
+					$data_P['product_description'][2]['description_detail'] = $product['keywords1'];
+					$data_P['product_description'][2]['meta_keyword'] = $product['keywords'];
+					$data_P['product_description'][2]['tag'] = $product['good'];
+				
+					$data_P['original_url'] = $product['id_good'] + ($color_id * 100000).' old_id=['.$product['id_good'].']'.' old_color_id=['.$color_id.']';
+					
+					$data_P['original_code'] = $color['artikul'];
+					$data_P['model'] = $color['artikul'];//strtolower(translitArtkl($shop_name.'-'.$data['id']));//$product['code'];
+					$data_P['sku'] = $color['artikul'];//strtolower(translitArtkl($shop_name.'-'.$data['id']));//$product['code'];
+					$data_P['price'] = $product['price'];
+					$data_P['zakup'] = 0;
+					$data_P['quantity'] = 10;
+					$data_P['minimum'] = 1;
+					$data_P['shipping'] = 1;
+					$data_P['keyword'] = str_replace(array('/',' '),'-','product-'.strtolower($product['article'].'-'.$product['good'])); //'product/view/'.
+					$data_P['keyword'] = trim($data_P['keyword'],'-');
+					$data_P['keyword'] = trim($data_P['keyword'],'-');
+					$data_P['keyword'] = str_replace('--', '-', $data_P['keyword']);
+					$data_P['keyword'] = str_replace('--', '-', $data_P['keyword']);
+					$data_P['keyword'] = $data_P['keyword'] . $data_P['product_id'];
+					
+					//echo $data_P['keyword']; die();
+					
+					$data_P['keyword_add_id'] = 1; //'product/view/'.
+					$data_P['status'] = 1;
+					$data_P['stock_status_id'] = 1;
+					
+					$data_P['moderation_id'] ='0';
+					$data_P['manufacturer_id'] = $product['id_brand'];
+					$data_P['product_store'] = array(0 => 0);
+					$data_P['product_shop'] = array(0 => 1);
+					
+					//Картинки
+					$sql = "SELECT * FROM goodphotos GP
+							LEFT JOIN goodphoto_largeimages CL ON GP.id_goodphoto = CL.id_goodphoto
+							LEFT JOIN goodphoto_mediumimages CM ON GP.id_goodphoto = CM.id_goodphoto
+							WHERE GP.id_goodcolor = '".$color_id."' ORDER BY GP.priority";
+					$r_photo = $mysqli2->query($sql);
+				echo $sql;
+					if($r_photo->num_rows){
+						$p_count = 1;
+						
+						if($r_photo->num_rows > 1) $data_P['product_image'] = array();
+						
+						while($photo = $r_photo->fetch_assoc()){
+							
+							if($photo['id_goodphoto_largeimage'] OR $photo['id_goodphoto_mediumimage']){
+								$image = 'product/'.$photo['id_goodphoto_largeimage'].'.'.$photo['ext'];
+								$image1 = 'product/'.$photo['id_goodphoto_mediumimage'].'.'.$photo['ext'];
+			
+			echo '<br>'.$image.'<br>'.$image1;
+								if($p_count == 1){
+									$data_P['image'] = $image;
+								}else{
+									$data_P['product_image'][] = array('image' => $image, 'sort_order'=>'0');
+								}
+							}
+						
+							$p_count++;
+							
+						}
+					}
+					
+					
+					//Категория
+					$category_id = 1;
+					
+					$count = 1;
+					while($count < 10){
+						//echo '<br>'.$product['category'.$count];
+						if(isset($product['category'.$count]) AND $product['category'.$count] and $count != 5 and $count !=6){
+							$category_id = $count;
+							//break;
+					
+							//Основную категорию по подтипу
+							if($product['id_goodsubtype']){
+								$id_goodsubtype = (int)$product['id_goodsubtype'] + (($count) * 10000) + 100;
+								
+								if($id_goodsubtype < 1)	{
+									echo '=> '.$product['id_goodsubtype'].'  '.$id_goodsubtype.'=='.$category_id;die();
+								}
+								
+								$data_P['product_category'][$id_goodsubtype] = $id_goodsubtype;
+								$data_P['main_relationships'] = $id_goodsubtype;
+							}
+							
+							$count2 = 1;
+							while($count2 < 11){
+								if(isset($product['subcategory'.$count2]) AND $product['subcategory'.$count2]){
+									//$id_subcategory = (int)$product['id_subcategory'] + ($category_id * 100);
+									$id_subcategory = (int)$count2 + ($category_id * 100);
+									$data_P['product_category'][$id_subcategory] = $id_subcategory;
+									if(!isset($data_P['main_relationships'])) $data_P['main_relationships'] = $id_subcategory;
+								}
+								$count2++;
+							}
+					
+						}
+						$count++;
+					}
+	
+	//Атрибуты - ЦВЕТ
+					$product_attribute = array();
+										
+						$attribute_group_id = 15;
+						$attribute_id = 0;
+					
+						//$attribute_group_id = $Attribute->getAttributeGroupOrAdd($attr_group_name);
+						$attr_name = array();
+						$attr_name[1] = $color['color_rus'];
+						$attr_name[2] = $color['color'];
+						$attribute_id = $this->model_catalog_attribute->getAttributeOrAdd($attr_name, $attribute_group_id);
+						
+						$product_attribute[] = array(
+												'attribute_id'=>$attribute_id,
+												'product_attribute_description' => array(
+													'1' => array(
+														'text' => ''
+													),
+													'2' => array(
+														'text' => ''
+													)
+												)
+											);
+	//Атрибуты материал				
+					$sql = "SELECT GM.id_material, GM.percent, M.material, M.material_rus FROM goodmaterials GM
+											LEFT JOIN materials M ON M.id_material = GM.id_material
+											WHERE GM.id_good = '".$product['id_good']."';";
+					$r_mat = $mysqli2->query($sql) or die($sql);
+					if($r_mat->num_rows){
+						$attribute_group_id = 49;
+						
+						while($option = $r_mat->fetch_assoc()){
+							
+							$attribute_id = 0;
+					
+							//$attribute_group_id = $Attribute->getAttributeGroupOrAdd($attr_group_name);
+							$attr_name = array();
+							$attr_name[1] = $option['material'];
+							$attr_name[2] = $option['material_rus'];
+							$attribute_id = $this->model_catalog_attribute->getAttributeOrAdd($attr_name, $attribute_group_id);
+							
+							$product_attribute[] = array(
+													'attribute_id'=>$attribute_id,
+													'product_attribute_description' => array(
+														'1' => array(
+															'text' => $option['percent'].'%'
+														),
+														'2' => array(
+															'text' => $option['percent'].'%'
+														)
+													)
+											);
+						}
+					}
+					
+					
+					$data_P['product_attribute'] = $product_attribute;
+					
+					
+					
+					//Размеры
+					$sql = "SELECT GD.*, GZ.goodsize FROM gooddimensions GD
+											LEFT JOIN goodsizes GZ ON GZ.id_goodsize = GD.id_goodsize
+											WHERE GD.id_good = '".$product['id_good']."';";
+					//echo '<br>'.$sql;die();
+					//Количество товаров содержится в таблице цветов!!!
+					
+					$r = $mysqli2->query($sql) or die($sql);
+					if($r->num_rows){
+						
+						$product_option = array();
+						
+						while($option = $r->fetch_assoc()){
+							
+							$option_value_id = 0;
+							$option_id = 11;
+							
+							$option_value_id = $this->model_catalog_option->getOptionValueOrAdd($option['goodsize'], $option_id, $option); // 11 - Это группа размеров Одежды 
+						
+							$quantity = 0;
+							if(isset($color['goodsize'.$option['id_goodsize']])) $quantity = (int)$color['goodsize'.$option['id_goodsize']];
+							
+							$params = array();
+							if($option['shoulders']) $params['shirina_plech'] = number_format(((float)$option['shoulders'] * 2.54),2,'.','');
+							if($option['width']) $params['shirina_grudi'] = number_format(((float)$option['width'] * 2.54),2,'.','');
+							if($option['length']) $params['dlina_verh'] = number_format(((float)$option['length'] * 2.54),2,'.','');
+							if($option['sleeve']) $params['dlina_rukava'] = number_format(((float)$option['sleeve'] * 2.54),2,'.','');
+							if($option['collar']) $params['vorotnik'] = number_format(((float)$option['collar'] * 2.54),2,'.','');
+							if($option['waist']) $params['shirina_talii'] = number_format(((float)$option['waist'] * 2.54),2,'.','');
+							if($option['hips']) $params['shirina_beder'] = number_format(((float)$option['hips'] * 2.54),2,'.','');
+							if($option['rise']) $params['podiem'] = number_format(((float)$option['rise'] * 2.54),2,'.','');
+					
+							
+							$product_option[] = array(
+													'option_value_id' => $option_value_id,
+													'option_id' => $option_id,
+													'quantity' => $quantity,
+													'price' => $data_P['price'],
+													'alternative_size' => $option_value_id,
+													'price_prefix' => '',
+													'points' => '',
+													'points_prefix' => '',
+													'weight' => '',
+													'weight_prefix' => '',
+													'subtract' => 1,
+													'params' => $params
+												);
+							
+						}
+						
+						$data_P['product_option'][] = array(
+													'product_option_id' => 0,
+													'type' => 'radio',
+													'option_id' => $option_id,
+													'required' => 1,
+													'product_option_value' => $product_option
+													);
+						
+					
+					}
+					
+					header("Content-Type: text/html; charset=UTF-8");
+					echo "<pre>";  print_r(var_dump( $data_P )); echo "</pre>";
+							
+					//$this->model_catalog_product->addProduct($data_P);
+				}
+		}
+	
+	}
+//Установим все атрибуты для всех категорий
+public function setAllAttribute(){
+	
+	$this->load->model('catalog/category');
+	
+	$sql = 'SELECT attribute_id FROM ' . DB_PREFIX . 'attribute WHERE enable = 1';
+	$r = $this->db->query($sql);
+
+	$sql = 'DELETE FROM ' . DB_PREFIX . 'category_to_attribute';
+	$this->db->query($sql);
+	
+	$attributes = array();
+	foreach($r->rows as $row){
+		$attributes[] = $row['attribute_id'];
+	}
+	
+	$r = $this->model_catalog_category->getCategoriesID();
+	foreach($r as $row){
+		foreach($attributes as $attribute){
+			$sql = 'INSERT INTO ' . DB_PREFIX . 'category_to_attribute SET category_id="'.$row['category_id'].'", attribute_id="'.$attribute.'"';
+			$this->db->query($sql);
+		}
+	}
+	
+}
+
+//Бренды	
+	public function importManufacturer(){
+		
+		$this->db->query("DELETE FROM " . DB_PREFIX . "url_alias WHERE query LIKE 'manufacturer_id=%'");
+		
+		//$this->load->model('catalog/category');
+		//$this->load->model('catalog/product');
+		$this->load->model('catalog/manufacturer');
+		$mysqli2 = $this->mysqli2;
+	
+	
+		$sql = "SELECT manufacturer_id FROM " . DB_PREFIX . "manufacturer";
+		$r2 = $this->db->query($sql);
+		if($r2->num_rows){
+			foreach($r2->rows as $tmp){
+				$this->model_catalog_manufacturer->deleteManufacturer($tmp['manufacturer_id']);
+			}
+		}
+	
+		//Бренды
+		$r = $mysqli2->query("SELECT * FROM brands;");
+		while($row = $r->fetch_assoc()){
+			
+			$sql = "SELECT manufacturer_id FROM " . DB_PREFIX . "manufacturer WHERE
+						upper(`name`) LIKE '".mb_strtoupper(addslashes(trim($row['brand'])),'UTF-8')."'
+						OR upper(`code`) LIKE '".mb_strtoupper(addslashes(trim($row['brand'])),'UTF-8')."'
+						LIMIT 1";
+			$r2 = $this->db->query($sql);
+			
+			if($r2->num_rows){
+				$tmp = $r2->row;
+				$this->model_catalog_manufacturer->deleteManufacturer($tmp['manufacturer_id']);
+			}
+			
+			$data = array(
+						'manufacturer_id' => ((int)$row['id_brand']),
+						'name' => $row['brand'],
+						'code' => strtolower(str_replace(' ','',$row['brand'])),
+						'name_sush' => '',
+						'name_rod' => '',
+						'name_several' => '',
+						'sort_order' => '',
+						'manufacturer_store' => array('0' => '0'),
+						'manufacturer_layout' => array('0' => '0'),
+						'keyword' => strtolower(str_replace(array(' ','&',"'"),'',$row['brand'])),
+						'manufacturer_description' => array(
+									'1' => array(
+										'description' => $row['htmlafter_rus'],
+										'meta_title' => $row['title_rus'],
+										'name' => $row['brand_rus'],
+										'title_h1' => $row['title_rus'],
+										'meta_description' => $row['keywords1_rus'],
+										'meta_keyword' => $row['keywords_rus']
+									),
+									'2' => array(
+										'description' => $row['htmlafter'],
+										'meta_title' => $row['title'],
+										'name' => $row['brand'],
+										'title_h1' => $row['title'],
+										'meta_description' => $row['keywords1'],
+										'meta_keyword' => $row['keywords']
+									),
+								
+								),
+					);
+			
+			$this->model_catalog_manufacturer->deleteManufacturer($data['manufacturer_id']);
+			$this->model_catalog_manufacturer->addManufacturer($data);
+			
+		}
+	}
+		
+	public function importCategory(){
+		
+		
+		$this->load->model('catalog/category');
+		//$this->load->model('catalog/product');
+		//$this->load->model('catalog/manufacturer');
+		$mysqli2 = $this->mysqli2;
+
+		//Категории
+		$r = $this->db->query("SELECT category_id FROM " . DB_PREFIX . "category;");
+		foreach($r->rows as $row){
+			$this->model_catalog_category->deleteCategory($row['category_id']);
+		}
+		$this->db->query("DELETE FROM " . DB_PREFIX . "url_alias WHERE query LIKE 'category_id=%'");
+
+		//die();
+		
+		$sql = 'SELECT * FROM menu';
+		$r = $mysqli2->query($sql);
+		
+		$categ_ids = array();
+		
+		while($row = $r->fetch_assoc()){
+			
+			$data = array(
+						  'category_id' => $row['id'],
+						  'parent_id' => $row['wmotmenuid'],
+						  'code' => strtolower(str_replace(' ','',$row['name_en'])),
+							'top' => ($row['wmotmenuid'] == 0) ? '1' : '0',
+							'column' => '0',
+							'is_menu' => '1',
+							'is_filter' => '0',
+							'sort_order' => '0',
+							'status' => '1',
+							'category_description' => array(
+									'1' => array(
+										'name' => $row['name'],
+										'name_sush' => $row['name'],
+										'name_rod' => $row['name'],
+										'name_several' => $row['name'],
+										'description' => $row['metadesc'],
+										'meta_title' => $row['metatitle'],
+										'title_h1' => $row['metatitle'],
+										'meta_description' => $row['metadesc'],
+										'meta_keyword' => $row['metakeywords']
+									),
+									'3' => array(
+										'name' => $row['name_en'],
+										'name_sush' => $row['name_en'],
+										'name_rod' => $row['name_en'],
+										'name_several' => $row['name_en'],
+										'description' => $row['metadesc_en'],
+										'meta_title' => $row['metatitle_en'],
+										'title_h1' => $row['metatitle_en'],
+										'meta_description' => $row['metadesc_en'],
+										'meta_keyword' => $row['metakeywords_en']
+									),
+									'4' => array(
+										'name' => $row['name_rm'],
+										'name_sush' => $row['name_rm'],
+										'name_rod' => $row['name_rm'],
+										'name_several' => $row['name_rm'],
+										'description' => $row['metadesc_rm'],
+										'meta_title' => $row['metatitle_rm'],
+										'title_h1' => $row['metatitle_rm'],
+										'meta_description' => $row['metadesc_rm'],
+										'meta_keyword' => $row['metakeywords_rm']
+									),
+									
+								
+								),
+							'category_store' => array('0' => '0'),
+							'category_layout' => array('0' => '0'),
+							'keyword' => strtolower(str_replace(' ','',$row['name_en']))
+						);
+			
+			$this->model_catalog_category->addCategory($data);
+		}
+	
+		//Создание нулевой категории
+		$this->db->query("INSERT INTO  `".DB_PREFIX."category` (`category_id` ,`image` ,`parent_id` ,`code` ,`top` ,`is_menu` ,`is_filter` ,`column` ,`sort_order` ,`status` ,`date_added` ,`date_modified`)VALUES ('0', NULL ,  '0',  '/',  '0',  '0',  '0',  '0',  '0',  '1',  '2016-12-31 03:09:55',  '2016-12-31 03:09:55');") or die('4');
+		$category_id = $this->db->getLastId();
+		$this->db->query("UPDATE `".DB_PREFIX."category` SET `category_id` = '0' WHERE `category_id` = '".$category_id."'");
+		$this->db->query("INSERT INTO  `".DB_PREFIX."category_description` (`category_id` ,`language_id` ,`name` ,`name_sush` ,`name_rod` ,`name_several` ,`title_h1` ,`description` ,`meta_title` ,`meta_description` ,`meta_keyword`) VALUES ('0',  '1',  'Главная',  '',  '',  '',  'Главная',  '',  'Главная',  'Главная',  'Главная');") or die('1');
+		$this->db->query("INSERT INTO  `".DB_PREFIX."category_description` (`category_id` ,`language_id` ,`name` ,`name_sush` ,`name_rod` ,`name_several` ,`title_h1` ,`description` ,`meta_title` ,`meta_description` ,`meta_keyword`) VALUES ('0',  '2',  'Main',  '',  '',  '',  'Main',  '',  'Main',  'Main',  'Main');") or die('2');
+		$this->db->query("INSERT INTO  `".DB_PREFIX."category_description` (`category_id` ,`language_id` ,`name` ,`name_sush` ,`name_rod` ,`name_several` ,`title_h1` ,`description` ,`meta_title` ,`meta_description` ,`meta_keyword`) VALUES ('0',  '4',  'Main',  '',  '',  '',  'Main',  '',  'Main',  'Main',  'Main');") or die('2');
+		$this->db->query("INSERT INTO  `".DB_PREFIX."url_alias` (`url_alias_id` ,`query` ,`keyword`)VALUES (NULL ,  'category_id=0',  '/');") or die('3');
+		$this->db->query("INSERT INTO  `".DB_PREFIX."category_to_layout` (`category_id` ,`store_id` ,`layout_id`)VALUES ('0',  '0',  '0');") or die('6');
+		$this->db->query("INSERT INTO  `".DB_PREFIX."category_to_store` (`category_id` ,`store_id`)VALUES ('0',  '0');") or die('7');
+		
+		$this->model_catalog_category->restoreAllCategoryesPath();
+	}
+	
 	public function restore_path() {
 		$this->language->load('catalog/category');
 
@@ -237,6 +859,16 @@ die('Сюда не нажимай! Это для програмиста!');
 		$this->getList();
 	}
 
+	public function deleteAjax() {
+		
+		$this->language->load('catalog/category');
+
+		$this->load->model('catalog/category');
+
+		$this->model_catalog_category->deleteCategory($this->request->get['category_id']);
+		
+	}
+
 	public function repair() {
 		$this->language->load('catalog/category');
 
@@ -316,9 +948,9 @@ die('Сюда не нажимай! Это для програмиста!');
 		);
 
 		$category_total = $this->model_catalog_category->getTotalCategories();
-
 		$results = $this->model_catalog_category->getCategories($filter_data);
 
+		
 		foreach ($results as $result) {
 			$data['categories'][] = array(
 				'category_id' => $result['category_id'],

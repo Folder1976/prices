@@ -270,8 +270,8 @@ elseif(isset($_GET['addcategory'])){
 	
 	echo $name;
 
-	if(!queryresult("select id from menublacklist where name='$name'",'id')){
-		mysql_query("insert into menublacklist(name) values('$name')");
+	if(!queryresult("select id from " . DB_PREFIX . "parser_menublacklist where name='$name'",'id')){
+		mysql_query("insert into " . DB_PREFIX . "parser_menublacklist(name) values('$name')");
 	}
 
 	exit();
@@ -304,14 +304,14 @@ elseif(isset($_GET['addignorlist'])){
 	$name=ltrim(rtrim(str_replace('`',"''",$name)));
 	$keywords=str_replace('`',"''",$_GET['keywords']);
 	if(!queryresult("select id from parser_division_exclusion where category_name='$name'")){
-		mysql_query("insert into parser_division_exclusion(magazin_id,category_name,division_name_ex,category_id) values('$magazin_id','$name','$keywords','$mid')")or die(mysql_error());
+		mysql_query("insert into " . DB_PREFIX . "parser_division_exclusion(magazin_id,category_name,division_name_ex,category_id) values('$magazin_id','$name','$keywords','$mid')")or die(mysql_error());
 	}
 	else {
 		$updArray=Array();
 		$division_name_ex='';
 		$updArray=queryresult("select id,division_name_ex from parser_division_exclusion where category_name='$name'");
 		$division_name_ex=$updArray['division_name_ex'].','.$keywords;
-		mysql_query("Update parser_division_exclusion set division_name_ex='".$division_name_ex."' where id=".$updArray['id']) or die(mysql_error());
+		mysql_query("Update " . DB_PREFIX . "parser_division_exclusion set division_name_ex='".$division_name_ex."' where id=".$updArray['id']) or die(mysql_error());
 	}
 	
 	exit();
@@ -325,8 +325,8 @@ elseif(isset($_GET['addparsdivision'])){
 	$name=ltrim(rtrim(str_replace('`',"''",$name)));
 	$keywords=str_replace('`',"''",$_GET['keywords']);
 	
-	if(!queryresult("select id from parser_division where category_id=$mid and category_name='$name' and division_name='$keywords'",'id')){
-		mysql_query("insert into parser_division(magazin_id,category_name,division_name,category_id) values('$magazin_id','$name','$keywords','$mid')");
+	if(!queryresult("select id from " . DB_PREFIX . "parser_division where category_id=$mid and category_name='$name' and division_name='$keywords'",'id')){
+		mysql_query("insert into " . DB_PREFIX . "parser_division(magazin_id,category_name,division_name,category_id) values('$magazin_id','$name','$keywords','$mid')");
 	}
 
 	exit();
@@ -340,8 +340,8 @@ elseif(isset($_GET['addparserprev'])){
 	$prev_name=str_replace('`',"''",urldecode(str_replace('--PLUS--','+',$_GET['prev_name'])));
 	$last_name=str_replace('`',"''",urldecode(str_replace('--PLUS--','+',$_GET['last_name'])));
 	
-	if(!queryresult("select id from parser_prev where shop_id='$shop_id' and category_id=$mid and name='$name' and prev_name='$prev_name' and last_name='$last_name'",'id')){
-		mysql_query("insert into parser_prev(shop_id,prev_name,name,last_name,category_id) values('$shop_id','$prev_name','$name','$last_name','$mid')");
+	if(!queryresult("select id from " . DB_PREFIX . "parser_prev where shop_id='$shop_id' and category_id=$mid and name='$name' and prev_name='$prev_name' and last_name='$last_name'",'id')){
+		mysql_query("insert into " . DB_PREFIX . "parser_prev(shop_id,prev_name,name,last_name,category_id) values('$shop_id','$prev_name','$name','$last_name','$mid')");
 	}
 
 	exit();
@@ -366,7 +366,7 @@ elseif(isset($_GET['mid'])){
 elseif(isset($_GET['update_slepok'])){
 	$update_slepok=intval($_GET['update_slepok']);
 	
-	mysql_query("UPDATE parser_magazin SET compare='". base64_decode($_POST['compare']) ."' where magazin_id=$update_slepok");
+	mysql_query("UPDATE " . DB_PREFIX . "parser_magazin SET compare='". base64_decode($_POST['compare']) ."' where magazin_id=$update_slepok");
 
 	exit();
 }

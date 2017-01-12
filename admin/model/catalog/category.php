@@ -104,7 +104,7 @@ class ModelCatalogCategory extends Model {
 		}
 
 		if (isset($data['keyword'])) {
-			//$this->db->query("INSERT INTO " . DB_PREFIX . "url_alias SET query = 'category_id=" . (int)$category_id . "', keyword = '" . $this->db->escape($data['keyword']) . "'");
+			$this->db->query("INSERT INTO " . DB_PREFIX . "url_alias SET query = 'category_id=" . (int)$category_id . "', keyword = '" . $this->db->escape($data['keyword']) . "'");
 		}
 
 		$this->cache->delete('category');
@@ -461,10 +461,15 @@ class ModelCatalogCategory extends Model {
 				LEFT JOIN " . DB_PREFIX . "category c2 ON (cp.path_id = c2.category_id)
 				LEFT JOIN " . DB_PREFIX . "category_description cd1 ON (cp.path_id = cd1.category_id)
 				LEFT JOIN " . DB_PREFIX . "category_description cd2 ON (cp.category_id = cd2.category_id)
-				WHERE cd1.language_id = '" . (int)$this->config->get('config_language_id') . "' AND cd2.language_id = '" . (int)$this->config->get('config_language_id') . "'";
+				WHERE cd1.language_id = '" . (int)$this->config->get('config_language_id') . "' AND
+				cd2.language_id = '" . (int)$this->config->get('config_language_id') . "'";
 
 		if (!empty($data['filter_name'])) {
 			$sql .= " AND cd2.name LIKE '" . $this->db->escape($data['filter_name']) . "%'";
+		}
+
+		if (isset($data['parent_id']) ) {
+			$sql .= " AND c1.parent_id = '" . (int)$data['parent_id'] . "'";
 		}
 
 		$sql .= " GROUP BY cp.category_id";
@@ -499,7 +504,7 @@ class ModelCatalogCategory extends Model {
 		}
 //echo $sql;die();
 		$query = $this->db->query($sql);
-
+		
 		return $query->rows;
 	}
 
@@ -659,7 +664,7 @@ class ModelCatalogCategory extends Model {
                             FROM `'.DB_PREFIX.'category` C
                             LEFT JOIN `'.DB_PREFIX.'category_description` CD ON C.category_id = CD.category_id
                             LEFT JOIN `'.DB_PREFIX.'url_alias` A ON A.query = CONCAT("category_id=",CD.category_id)
-                            WHERE parent_id = "0" AND CD.language_id = "'.(int)$this->config->get('config_language_id').'" ORDER BY name ASC;';
+                            WHERE parent_id = "0" AND C.category_id > "0" AND CD.language_id = "'.(int)$this->config->get('config_language_id').'" ORDER BY name ASC;';
             //echo '<br>'.$sql;
             $rs = $this->db->query($sql);
             
@@ -691,7 +696,7 @@ class ModelCatalogCategory extends Model {
                         FROM `'.DB_PREFIX.'category` C
                         LEFT JOIN `'.DB_PREFIX.'category_description` CD ON C.category_id = CD.category_id
                         LEFT JOIN `'.DB_PREFIX.'url_alias` A ON A.query = CONCAT("category_id=",CD.category_id)
-                        WHERE parent_id = "'.$parent.'"  AND CD.language_id = "'.(int)$this->config->get('config_language_id').'" ORDER BY name ASC;';
+                        WHERE parent_id = "'.$parent.'" AND C.category_id > "0" AND CD.language_id = "'.(int)$this->config->get('config_language_id').'" ORDER BY name ASC;';
                 
             $rs = $this->db->query($sql);
         
@@ -726,5 +731,16 @@ class ModelCatalogCategory extends Model {
 		
 		return $return;
 		
+	}
+	public function getSubCategories($parent_id = 0) {
+		
+		$sql = "SELECT * FROM " . DB_PREFIX . "category c
+						LEFT JOIN " . DB_PREFIX . "category_description cd ON (c.category_id = cd.category_id)
+						WHERE c.parent_id = '" . (int)$parent_id . "' AND
+						cd.language_id = '" . (int)$this->config->get('config_language_id') . "'";
+	
+		$query = $this->db->query($sql);
+
+		return $query->rows;
 	}
 }

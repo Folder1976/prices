@@ -1,0 +1,6 @@
+[27-Dec-2016 21:55:37 UTC] PHP Parse error:  syntax error, unexpected '=' in /home/folder/public_html/prices.folder.com.ua/backend/import_old/parser_products.php on line 126
+[27-Dec-2016 21:57:10 UTC] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO) in /home/folder/public_html/prices.folder.com.ua/backend/import_old/parser_products.php on line 721
+[27-Dec-2016 21:57:57 UTC] PHP Parse error:  syntax error, unexpected '"</div><div>"' (T_CONSTANT_ENCAPSED_STRING) in /home/folder/public_html/prices.folder.com.ua/backend/import_old/parser_products.php on line 883
+[27-Dec-2016 21:58:57 UTC] PHP Parse error:  syntax error, unexpected ''<br>Выполнено за '' (T_CONSTANT_ENCAPSED_STRING) in /home/folder/public_html/prices.folder.com.ua/backend/import_old/parser_products.php on line 1287
+[27-Dec-2016 21:59:36 UTC] PHP Parse error:  syntax error, unexpected 'define' (T_STRING) in /home/folder/public_html/prices.folder.com.ua/backend/import_old/init.php on line 10
+[27-Dec-2016 22:00:09 UTC] PHP Parse error:  syntax error, unexpected '=' in /home/folder/public_html/prices.folder.com.ua/backend/import_old/init.php on line 239

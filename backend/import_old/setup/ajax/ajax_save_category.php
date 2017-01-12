@@ -1,8 +1,10 @@
 <?php
 header("Content-Type: text/html; charset=UTF-8");
-include('../../../a2_config.php');
+include('../../../config.php');
 ini_set("display_errors",1); 
 //include('../config.php');
+
+global $mysqli;
 
 $id = 0;
 if(isset($_GET['id'])) $id = $_GET['id'];

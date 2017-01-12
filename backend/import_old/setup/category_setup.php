@@ -23,9 +23,9 @@
 	
 	
 	//Получим Магазины
-	$sql = 'SELECT id, name FROM magazin ORDER BY name ASC;';
+	$sql = 'SELECT id, name FROM '.DB_PREFIX.'shop ORDER BY name ASC;';
     //echo $sql;            
-	$r = $mysqli->query($sql) or die('Ошибка в выборке магазинов' . mysqli_error($mysqli));
+	$r = $mysqli->query($sql) or die('1 Ошибка в выборке магазинов' . mysqli_error($mysqli));
 	$Magazines = array();	
 	if($r->num_rows > 0){
 		while($tmp = $r->fetch_assoc()){
@@ -34,18 +34,21 @@
 	}
 	
 	//Получим Категории
-	$sql = 'SELECT id, name FROM menu ORDER BY name ASC;';
+	$sql = 'SELECT C.category_id, CD.name FROM ' . DB_PREFIX . 'category C
+						LEFT JOIN ' . DB_PREFIX . 'category_description CD ON C.category_id = CD.category_id
+						WHERE language_id = "1"
+						ORDER BY CD.name ASC;';
     //echo $sql;            
-	$r = $mysqli->query($sql) or die('Ошибка в выборке магазинов' . mysqli_error($mysqli));
+	$r = $mysqli->query($sql) or die('3 Ошибка в выборке категорий' . mysqli_error($mysqli));
 	$Categories = array();	
 	if($r->num_rows > 0){
 		while($tmp = $r->fetch_assoc()){
-			$Categories[$tmp['id']] = $tmp['name'];
+			$Categories[$tmp['category_id']] = $tmp['name'];
 		}
 	}
 
 	//Получим основной массив
-	$sql = 'SELECT count(id) total FROM parser_prev '.$where_find.';';
+	$sql = 'SELECT count(id) total FROM ' . DB_PREFIX . 'parser_prev '.$where_find.';';
 	$r = $mysqli->query($sql);
     if($r->num_rows == 0){
         $total_count = 0;
@@ -56,7 +59,7 @@
 	
 				
 	//Получим атрибуты	
-	$sql = 'SELECT * FROM parser_prev '.$where_find.' ORDER BY prev_name ASC, name ASC LIMIT '.(($page-1)*$step).', '.$step.';';
+	$sql = 'SELECT * FROM ' . DB_PREFIX . 'parser_prev '.$where_find.' ORDER BY prev_name ASC, name ASC LIMIT '.(($page-1)*$step).', '.$step.';';
 	//echo $sql;            
 	$rm = $mysqli->query($sql) or die('Ошибка в атрибутах ' . mysqli_error($mysqli));
 	
@@ -147,7 +150,7 @@
         var elem = $(this);
         var target = elem.parent('td').parent('tr').attr('id');
         
-		var table = 'parser_prev';
+		var table = '<?php echo DB_PREFIX;?>parser_prev';
 		
         var shop_id = $('#shop_id'+target).val();
         var category_id = $('#category_id'+target).val();
@@ -175,7 +178,7 @@
         
     $(document).on('click', '#add', function(){
 
-		var table = 'parser_prev';
+		var table = '<?php echo DB_PREFIX;?>parser_prev';
         var shop_id = $('#shop_id').val();
         var category_id = $('#category_id').val();
         var prev_name = $('#prev_name').val();
@@ -199,7 +202,7 @@
     $(document).on('click', '.dell', function(){
         var elem = $(this);
         var target = elem.parent('td').parent('tr').attr('id');
-		var table = 'parser_prev';
+		var table = '<?php echo DB_PREFIX;?>parser_prev';
         //console.log("id="+target+"&filter="+filter+"&disable="+disable+"&sort="+sort);
         
         $.ajax({

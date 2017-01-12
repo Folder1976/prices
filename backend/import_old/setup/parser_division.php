@@ -5,7 +5,7 @@
 <link href="/admin/css/main_menu.css" rel="stylesheet" type="text/css">
 
 <?php
-	$main_table = 'parser_division';
+	$main_table = '' . DB_PREFIX . 'parser_division';
 	$main_url = '/import/parser_setup.php';
 	
 	$step = 20;
@@ -21,9 +21,9 @@
 	
 	
 	//Получим Магазины
-	$sql = 'SELECT id, name FROM magazin ORDER BY name ASC;';
+	$sql = 'SELECT id, name FROM '.DB_PREFIX.'shop ORDER BY name ASC;';
     //echo $sql;            
-	$r = $mysqli->query($sql) or die('Ошибка в выборке магазинов' . mysqli_error($mysqli));
+	$r = $mysqli->query($sql) or die('2 Ошибка в выборке магазинов' . mysqli_error($mysqli));
 	$Magazines = array();	
 	if($r->num_rows > 0){
 		while($tmp = $r->fetch_assoc()){
@@ -32,13 +32,16 @@
 	}
 	
 	//Получим Категории
-	$sql = 'SELECT id, name FROM menu ORDER BY name ASC;';
+	$sql = 'SELECT C.category_id, CD.name FROM ' . DB_PREFIX . 'category C
+						LEFT JOIN ' . DB_PREFIX . 'category_description CD ON C.category_id = CD.category_id
+						WHERE language_id = "1"
+						ORDER BY CD.name ASC;';
     //echo $sql;            
-	$r = $mysqli->query($sql) or die('Ошибка в выборке магазинов' . mysqli_error($mysqli));
+	$r = $mysqli->query($sql) or die('5 Ошибка в выборке категорий' . mysqli_error($mysqli));
 	$Categories = array();	
 	if($r->num_rows > 0){
 		while($tmp = $r->fetch_assoc()){
-			$Categories[$tmp['id']] = $tmp['name'];
+			$Categories[$tmp['category_id']] = $tmp['name'];
 		}
 	}
 
@@ -141,7 +144,7 @@
         var elem = $(this);
         var target = elem.parent('td').parent('tr').attr('id');
 		
-		var table = 'parser_division';
+		var table = '<?php echo DB_PREFIX;?>parser_division';
 		   
         var magazin_id = $('#magazin_id'+target).val();
         var category_id = $('#category_id'+target).val();
@@ -168,7 +171,7 @@
         
     $(document).on('click', '#add', function(){
 
-       	var table = 'parser_division';
+       	var table = '<?php echo DB_PREFIX;?>parser_division';
 		   
         var magazin_id = $('#magazin_id').val();
         var category_id = $('#category_id').val();
@@ -192,7 +195,7 @@
     $(document).on('click', '.dell', function(){
         var elem = $(this);
         var target = elem.parent('td').parent('tr').attr('id');
-		var table = 'parser_division';
+		var table = '<?php echo DB_PREFIX;?>parser_division';
         //console.log("id="+target+"&filter="+filter+"&disable="+disable+"&sort="+sort);
         
         $.ajax({

@@ -8,7 +8,11 @@ class ModelCatalogProduct extends Model {
 		
 		$data['code'] = $data['keyword'];
 		
+		$product_id = '';
+		if(isset($data['product_id'])) $product_id = $data['product_id'];
+		
 		$this->db->query("INSERT INTO " . DB_PREFIX . "product SET
+									product_id = '" . $product_id . "',
 									model = '" . $this->db->escape($data['model']) . "',
 									code = '" . $this->db->escape($data['code']) . "',
 									moderation_id = '" . $this->db->escape($data['moderation_id']) . "',
@@ -91,7 +95,10 @@ class ModelCatalogProduct extends Model {
 												subtract = '" . (int)$product_option_value['subtract'] . "',
 												price = '" . (float)$product_option_value['price'] . "',
 												price_prefix = '" . $this->db->escape($product_option_value['price_prefix']) . "',
-												points = '" . (int)$product_option_value['points'] . "', points_prefix = '" . $this->db->escape($product_option_value['points_prefix']) . "', weight = '" . (float)$product_option_value['weight'] . "', weight_prefix = '" . $this->db->escape($product_option_value['weight_prefix']) . "'");
+												points = '" . (int)$product_option_value['points'] . "',
+												points_prefix = '" . $this->db->escape($product_option_value['points_prefix']) . "',
+												weight = '" . (float)$product_option_value['weight'] . "',
+												weight_prefix = '" . $this->db->escape($product_option_value['weight_prefix']) . "'");
 							$product_option_value_id = $this->db->getLastId();
 							
 							//Заэкранировано
@@ -147,7 +154,7 @@ class ModelCatalogProduct extends Model {
 			}
 		}
 
-		
+		$this->db->query("DELETE FROM " . DB_PREFIX . "product_to_category WHERE product_id = '" . (int)$product_id . "'");
 		//$this->_checkClausesAndMakeDecisionToUpdateRelationships($data, $product_id);
 		if (isset($data['product_category'])) {
 			foreach ($data['product_category'] as $category_id) {
@@ -193,7 +200,7 @@ class ModelCatalogProduct extends Model {
 		}
 
 		if (isset($data['keyword'])) {
-			//$this->db->query("INSERT INTO " . DB_PREFIX . "url_alias SET query = 'product_id=" . (int)$product_id . "', keyword = '" . $this->db->escape($data['keyword']) . "'");
+			$this->db->query("INSERT INTO " . DB_PREFIX . "url_alias SET query = 'product_id=" . (int)$product_id . "', keyword = '" . $this->db->escape($data['keyword']) . "'");
 		}
 
 		if (isset($data['product_recurrings'])) {
@@ -209,6 +216,40 @@ class ModelCatalogProduct extends Model {
 		return $product_id;
 	}
 
+	
+	public function updateProductImages($product_id, $images) {
+		
+		$sql = 'SELECT image FROM ' . DB_PREFIX . 'product WHERE product_id = '.(int)$product_id.' LIMIT 0,1';
+		$r = $this->db->query($sql);
+		
+		if($r->num_rows){
+			$product = $r->row;
+			
+			//Если у товара нет главной картинки
+			if($product['image'] == '' OR $product['image'] == 'product/.jpg' OR !file_exists(DIR_IMAGE.$product['image'])){
+				
+				$image = array_shift($images);
+				$sql = "UPDATE " . DB_PREFIX . "product SET image = '" . $this->db->escape($image) . "' WHERE product_id = '" . (int)$product_id . "'";
+				$this->db->query($sql);
+				//echo '<br>'.$sql;
+			}
+			
+			
+			//Если остались еще картинки
+			if(count($images)){
+				
+				foreach($images as $image){
+					$sql = "INSERT INTO " . DB_PREFIX . "product_image SET product_id = '" . (int)$product_id . "', image = '" . $this->db->escape($image) . "', sort_order = '0'";
+					$this->db->query($sql);
+					//echo '<br>'.$sql;
+				}
+				
+			}
+			
+		}
+		//die();
+	}
+	
 	public function editProduct($product_id, $data) {
 		
 		$this->event->trigger('pre.admin.product.edit', $data);
@@ -538,9 +579,21 @@ class ModelCatalogProduct extends Model {
 								  FROM " . DB_PREFIX . "product p LEFT JOIN " . DB_PREFIX . "product_description pd ON (p.product_id = pd.product_id)
 								  WHERE p.product_id = '" . (int)$product_id . "' AND pd.language_id = '" . (int)$this->config->get('config_language_id') . "'");
 
+		$query->row['name']     		= html_entity_decode($query->row['name'], ENT_QUOTES, 'UTF-8');				  
+		$query->row['description']     		= html_entity_decode($query->row['description'], ENT_QUOTES, 'UTF-8');				  
+		$query->row['description_detail'] 	= html_entity_decode($query->row['description_detail'], ENT_QUOTES, 'UTF-8');					  
+								  
 		return $query->row;
 	}
 
+	public function getProductsIdList($data = array()){
+		$sql = "SELECT product_id FROM " . DB_PREFIX . "product;";
+		
+		$query = $this->db->query($sql);
+
+		return $query->rows;		
+		
+	}
 	public function getProducts($data = array()) {
 		$sql = "SELECT * FROM " . DB_PREFIX . "product p
 					LEFT JOIN " . DB_PREFIX . "product_description pd ON (p.product_id = pd.product_id)
@@ -568,6 +621,19 @@ class ModelCatalogProduct extends Model {
 		if (!empty($data['filter_model'])) {
 			$sql .= " AND p.model LIKE '" . $this->db->escape($data['filter_model']) . "%'";
 		}
+		
+		if (isset($data['no_category']) AND $data['no_category']) {
+		
+			$sql .= ' AND p.product_id IN (SELECT distinct product_id
+									FROM fash_product p
+									WHERE product_id NOT 
+									IN (
+									
+									SELECT distinct product_id
+									FROM fash_product_to_category
+									))';
+		}
+
 
 		if (isset($data['filter_price']) && !is_null($data['filter_price'])) {
 			$sql .= " AND p.price LIKE '" . $this->db->escape($data['filter_price']) . "%'";
@@ -616,6 +682,8 @@ class ModelCatalogProduct extends Model {
 			$sql .= " LIMIT " . (int)$data['start'] . "," . (int)$data['limit'];
 		}
 
+		//echo $sql;die();
+		
 		$query = $this->db->query($sql);
 
 		return $query->rows;
@@ -854,6 +922,17 @@ class ModelCatalogProduct extends Model {
 			$sql .= " AND p.model LIKE '" . $this->db->escape($data['filter_model']) . "%'";
 		}
 
+		if (isset($data['no_category']) AND $data['no_category']) {
+				$sql .= ' AND p.product_id IN (SELECT distinct product_id
+									FROM fash_product p
+									WHERE product_id NOT 
+									IN (
+									
+									SELECT distinct product_id
+									FROM fash_product_to_category
+									))';
+		}
+
 		if (isset($data['filter_price']) && !is_null($data['filter_price'])) {
 			$sql .= " AND p.price LIKE '" . $this->db->escape($data['filter_price']) . "%'";
 		}
@@ -865,6 +944,7 @@ class ModelCatalogProduct extends Model {
 		if (isset($data['filter_status']) && !is_null($data['filter_status'])) {
 			$sql .= " AND p.status = '" . (int)$data['filter_status'] . "'";
 		}
+//echo $sql; die();
 
 		$query = $this->db->query($sql);
 
@@ -1073,7 +1153,7 @@ class ModelCatalogProduct extends Model {
                             FROM `'.DB_PREFIX.'category` C
                             LEFT JOIN `'.DB_PREFIX.'category_description` CD ON C.category_id = CD.category_id
                             LEFT JOIN `'.DB_PREFIX.'url_alias` A ON A.query = CONCAT("category_id=",CD.category_id)
-                            WHERE parent_id = "0" AND CD.language_id = "'.(int)$this->config->get('config_language_id').'" ORDER BY name ASC;';
+                            WHERE parent_id = "0" AND C.category_id > 0 AND CD.language_id = "'.(int)$this->config->get('config_language_id').'" ORDER BY name ASC;';
             //echo '<br>'.$sql;
             $rs = $this->db->query($sql);
             
@@ -1105,7 +1185,7 @@ class ModelCatalogProduct extends Model {
                         FROM `'.DB_PREFIX.'category` C
                         LEFT JOIN `'.DB_PREFIX.'category_description` CD ON C.category_id = CD.category_id
                         LEFT JOIN `'.DB_PREFIX.'url_alias` A ON A.query = CONCAT("category_id=",CD.category_id)
-                        WHERE parent_id = "'.$parent.'"  AND CD.language_id = "'.(int)$this->config->get('config_language_id').'" ORDER BY name ASC;';
+                        WHERE parent_id = "'.$parent.'" AND C.category_id > 0 AND CD.language_id = "'.(int)$this->config->get('config_language_id').'" ORDER BY name ASC;';
                 
             $rs = $this->db->query($sql);
         

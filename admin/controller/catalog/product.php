@@ -78,7 +78,56 @@ class ControllerCatalogProduct extends Controller {
 		$this->document->setTitle($this->language->get('heading_title'));
 
 		$this->load->model('catalog/product');
+		
+		if(isset($_FILES['userfile'])){
+			$product_image = array();
+			
+			if($_FILES['userfile']['error'][0] != 0){
+				switch($_FILES['userfile']['error']){
+					case 1: echo "UPLOAD_MAX_FILE_SIZE error!<br>";break;
+					case 2: echo "MAX_FILE_SIZE erroe!<br>";break;
+					case 3: echo "Not file loading, breaking process.<br>";break;
+					case 4: echo "Not load<br>";break;
+					case 6: echo "tmp folder error<br>";break;
+					case 7: echo "write file error<br>";break;
+					case 8: echo "php stop your load<br>";break;
+				}
+			}else{
+				
+				
+				$filecount=0;
+				while(isset($_FILES['userfile']['name'][$filecount])){
+					
+					$image = DIR_IMAGE.'product/'.$_FILES['userfile']['name'][$filecount];
+					//$image = ''.$_FILES['userfile']['name'][$filecount];
+					
+					if ( ! preg_match( '|(.+/)(.+)\.(\w+)$|', $image, $m ) ){	return false;}
+					$path = $m[1]; $file_name = $m[2]; $extension = $m[3];
+					
+					$count = 0;
+					$image = $path.$file_name.'.'.$extension;
+					while(file_exists($image)){
+						$count++;
+						$image = $path.$file_name.$count.'.'.$extension;
+					}
+					
+					copy($_FILES['userfile']['tmp_name'][$filecount], $image);
+					$product_image[] = str_replace(DIR_IMAGE,'',$image);
+					
+					$filecount++;
+				}
+				
+			}
+			if(isset($product_image) AND count($product_image)){
+				$this->model_catalog_product->updateProductImages($this->request->post['product_id'], $product_image);
+			}
+			
+			$this->response->redirect($this->url->link('catalog/product/edit', 'product_id=' . $this->request->get['product_id'] . '&token=' . $this->session->data['token'] . $url, 'SSL'));
 
+		}
+		
+		
+	echo('++'.$this->validateForm());	
 		if (($this->request->server['REQUEST_METHOD'] == 'POST') && $this->validateForm()) {
 			
 			$data = array_merge(
@@ -244,7 +293,7 @@ class ControllerCatalogProduct extends Controller {
 
 	protected function getList() {
 		if (isset($this->request->get['filter_name'])) {
-			$filter_name = $this->request->get['filter_name'];
+			$filter_name = str_replace(' ', '%',$this->request->get['filter_name']);
 		} else {
 			$filter_name = null;
 		}
@@ -265,6 +314,12 @@ class ControllerCatalogProduct extends Controller {
 			$filter_price = $this->request->get['filter_price'];
 		} else {
 			$filter_price = null;
+		}
+	
+		if (isset($this->request->get['no_category'])) {
+			$no_category = 1;
+		} else {
+			$no_category = 0;
 		}
 
 		if (isset($this->request->get['filter_quantity'])) {
@@ -305,6 +360,10 @@ class ControllerCatalogProduct extends Controller {
 
 		if (isset($this->request->get['filter_model'])) {
 			$url .= '&filter_model=' . urlencode(html_entity_decode($this->request->get['filter_model'], ENT_QUOTES, 'UTF-8'));
+		}
+
+		if (isset($this->request->get['no_category'])) {
+			$url .= '&no_category';
 		}
 
 		if (isset($this->request->get['filter_price'])) {
@@ -359,6 +418,7 @@ class ControllerCatalogProduct extends Controller {
 			'filter_price'	  => $filter_price,
 			'filter_category'	  => $filter_category,
 			'filter_quantity' => $filter_quantity,
+			'no_category' => $no_category,
 			'filter_status'   => $filter_status,
 			'sort'            => $sort,
 			'order'           => $order,
@@ -757,6 +817,7 @@ class ControllerCatalogProduct extends Controller {
 
 		if (isset($this->request->get['product_id']) && ($this->request->server['REQUEST_METHOD'] != 'POST')) {
 			$product_info = $this->model_catalog_product->getProduct($this->request->get['product_id']);
+			$data['product_id'] = $this->request->get['product_id'];
 		}
 
 		$data['token'] = $this->session->data['token'];
@@ -1537,7 +1598,7 @@ class ControllerCatalogProduct extends Controller {
 
 				$json[] = array(
 					'product_id' => $result['product_id'],
-					'name'       => strip_tags(html_entity_decode($result['name'], ENT_QUOTES, 'UTF-8')),
+					'name'       => strip_tags($result['name']),
 					'model'      => $result['model'],
 					'option'     => $option_data,
 					'price'      => $result['price']
