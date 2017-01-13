@@ -3,6 +3,19 @@ class ControllerCommonMenu extends Controller {
 	public function index() {
 		$this->load->language('common/menu');
 
+		// Blog start
+		$this->load->language('blog/blog');
+		$data['text_blog'] = $this->language->get('text_blog');
+		$data['text_blog_setting'] = $this->language->get('text_blog_setting');
+		$data['text_blog_category'] = $this->language->get('text_blog_category');
+		$data['text_blog_post'] = $this->language->get('text_blog_post');
+		$data['text_blog_comment'] = $this->language->get('text_blog_comment');
+		$data['blog_setting'] = $this->url->link('blog/blog_setting', 'token=' . $this->session->data['token'], 'SSL');
+		$data['blog_category'] = $this->url->link('blog/blog_category', 'token=' . $this->session->data['token'], 'SSL');
+		$data['blog_post'] = $this->url->link('blog/blog', 'token=' . $this->session->data['token'], 'SSL');
+		$data['blog_comment'] = $this->url->link('blog/blog_comment', 'token=' . $this->session->data['token'], 'SSL');
+		// Blog ends
+		
 		$data['text_analytics'] = $this->language->get('text_analytics');
 		$data['text_affiliate'] = $this->language->get('text_affiliate');
 		$data['text_api'] = $this->language->get('text_api');

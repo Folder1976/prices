@@ -164,6 +164,14 @@
       </li>
     </ul>
   </li>
+  <li><a class="parent"><i class="fa fa-newspaper-o fa-fw"></i> <span><?php echo $text_blog; ?></span></a>
+    <ul>
+      <li><a href="<?php echo $blog_setting; ?>"><?php echo $text_blog_setting; ?></a></li>
+      <li><a href="<?php echo $blog_category; ?>"><?php echo $text_blog_category; ?></a></li>
+      <li><a href="<?php echo $blog_post; ?>"><?php echo $text_blog_post; ?></a></li>
+      <li><a href="<?php echo $blog_comment; ?>"><?php echo $text_blog_comment; ?></a></li>
+    </ul>
+  </li>
   <li id="reports"><a class="parent"><i class="fa fa-bar-chart-o fa-fw"></i> <span><?php echo $text_reports; ?></span></a>
     <ul>
       <li><a class="parent"><?php echo $text_sale; ?></a>

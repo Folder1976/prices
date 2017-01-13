@@ -446,6 +446,47 @@ class ControllerCommonSeoUrl extends Controller {
 		}
 		//end Если нам прилетело чтото в ГЕТ кроме _roure_
 
+		//Проверим блоги новостей
+		if(isset($this->request->get['_route_'])){
+			
+			if ($this->request->get['_route_'] ==  'blog_home') { 
+				$this->request->get['route'] = 'blog/home';
+			}else{
+				
+				$sql = "SELECT * FROM " . DB_PREFIX . "url_alias WHERE keyword = '" . $this->db->escape($part) . "' AND (`query` LIKE 'blog_id=%' OR `query` LIKE 'blog_category_id=%') LIMIT 0,1;";
+				$query = $this->db->query($sql);
+				//echo $query->num_rows; die($sql);
+				
+				if ($query->num_rows) {
+					$url = explode('=', $query->row['query']);
+				}
+				
+				if ($query->row['query'] && $url[0] && $url[1]){
+					if ($url[0] == 'blog_id') {$this->request->get['blog_id'] = $url[1]; }
+					if ($url[0] == 'blog_category_id') {
+						if (!isset($this->request->get['blogpath'])) {
+							$this->request->get['blogpath'] = $url[1];
+						} else {
+							$this->request->get['blogpath'] .= '_' . $url[1];
+						}
+					}
+				
+					if (isset($this->request->get['blog_id'])) {
+						$this->request->get['route'] = 'blog/blog';
+					} elseif (isset($this->request->get['blogpath'])) {
+						$this->request->get['route'] = 'blog/category';
+					}
+					
+				}		
+			}
+				
+				if (isset($this->request->get['route'])) {
+			
+					return new Action($this->request->get['route']);
+					die();
+				}
+				
+		}
 		//Проверим магазин - Он без фильтров
 		if(isset($this->request->get['_route_'])){
 			
