@@ -13,6 +13,9 @@ if($_SERVER['REQUEST_URI'] == '/'){
     } 
 }
 
+
+//echo "<pre>";  print_r(var_dump( $viewed_products )); echo "</pre>";
+
 ?>
 
 
@@ -52,7 +55,7 @@ if($_SERVER['REQUEST_URI'] == '/'){
                  data-toggle-class="g-minimized"
                  data-toggle-elem-class="g-popup-open"
                  data-close-element=".js-footer-popup-close">
-              <span class="ic-history"></span><span>1 история</span><span class="ic-popup-link"></span>
+              <span class="ic-history"></span><span><?php echo count($viewed_products); ?> история</span><span class="ic-popup-link"></span>
             </div>
             <div class="b-footer-popup b-footer-popup_history g-minimized js-footer-popup-history">
               <div class="b-footer-popup__header">
@@ -62,75 +65,19 @@ if($_SERVER['REQUEST_URI'] == '/'){
               </div>
               <div class="b-footer-popup__content">
 
+                <?php foreach ($viewed_products as $prod) { ?>
                 <div class="b-footer-popup__content-block">
                   <div class="b-footer-popup__content-block-img">
-                    <img src="catalog/view/theme/simplica/img/product/foto1.png" alt="">
+                    <img src="<?php echo $prod['image']; ?>" alt="<?php echo $prod['name']; ?>">
                   </div>
                   <div class="b-footer-popup__content-block-title">
-                    <a href="product.html">Оригинал МИ Xiaomi Redmi</a>
+                    <a href="product.html"><?php echo $prod['name']; ?></a>
                   </div>
                   <ul class="b-footer-popup__content-block-list">
-                    <li><span>4 920грн</span><a href="#">ACER</a></li>
-                    <li><span>4 920грн</span><a href="#">ACER</a></li>
-                    <li><span>4 920грн</span><a href="#">ACER</a></li>
+                    <li><span><?php echo $prod['price']; ?></span><a href="<?php echo $prod['manufacturer_href']; ?>"><?php echo $prod['manufacturer']; ?></a></li>
                   </ul>
                 </div>
-
-                <div class="b-footer-popup__content-block">
-                  <div class="b-footer-popup__content-block-img">
-                    <img src="catalog/view/theme/simplica/img/product/foto1.png" alt="">
-                  </div>
-                  <div class="b-footer-popup__content-block-title">
-                    <a href="product.html">Оригинал МИ Xiaomi Redmi</a>
-                  </div>
-                  <ul class="b-footer-popup__content-block-list">
-                    <li><span>4 920грн</span><a href="#">ACER</a></li>
-                    <li><span>4 920грн</span><a href="#">ACER</a></li>
-                    <li><span>4 920грн</span><a href="#">ACER</a></li>
-                  </ul>
-                </div>
-
-                <div class="b-footer-popup__content-block">
-                  <div class="b-footer-popup__content-block-img">
-                    <img src="catalog/view/theme/simplica/img/product/foto1.png" alt="">
-                  </div>
-                  <div class="b-footer-popup__content-block-title">
-                    <a href="product.html">Оригинал МИ Xiaomi Redmi</a>
-                  </div>
-                  <ul class="b-footer-popup__content-block-list">
-                    <li><span>4 920грн</span><a href="#">ACER</a></li>
-                    <li><span>4 920грн</span><a href="#">ACER</a></li>
-                    <li><span>4 920грн</span><a href="#">ACER</a></li>
-                  </ul>
-                </div>
-
-                <div class="b-footer-popup__content-block">
-                  <div class="b-footer-popup__content-block-img">
-                    <img src="catalog/view/theme/simplica/img/product/foto1.png" alt="">
-                  </div>
-                  <div class="b-footer-popup__content-block-title">
-                    <a href="product.html">Оригинал МИ Xiaomi Redmi</a>
-                  </div>
-                  <ul class="b-footer-popup__content-block-list">
-                    <li><span>4 920грн</span><a href="#">ACER</a></li>
-                    <li><span>4 920грн</span><a href="#">ACER</a></li>
-                    <li><span>4 920грн</span><a href="#">ACER</a></li>
-                  </ul>
-                </div>
-
-                <div class="b-footer-popup__content-block">
-                  <div class="b-footer-popup__content-block-img">
-                    <img src="catalog/view/theme/simplica/img/product/foto1.png" alt="">
-                  </div>
-                  <div class="b-footer-popup__content-block-title">
-                    <a href="product.html">Оригинал МИ Xiaomi Redmi</a>
-                  </div>
-                  <ul class="b-footer-popup__content-block-list">
-                    <li><span>4 920грн</span><a href="#">ACER</a></li>
-                    <li><span>4 920грн</span><a href="#">ACER</a></li>
-                    <li><span>4 920грн</span><a href="#">ACER</a></li>
-                  </ul>
-                </div>
+                <?php } ?>
 
               </div>
             </div>

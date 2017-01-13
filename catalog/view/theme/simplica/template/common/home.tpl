@@ -1,7 +1,13 @@
 <?php echo $header; ?>
 
 <?php
+$text_viewed_products = 'Вы просматривали';
+
+
+
+
 //echo "<pre>";  print_r(var_dump( get_defined_vars() )); echo "</pre>";
+//echo "<pre>";  print_r(var_dump( $viewed_products )); echo "</pre>";
 
 ?>
     <main class="b-main">
@@ -31,7 +37,7 @@
               <?php foreach ($large_banners as $baner) { ?>
               <div class="b-home-slider__item">
                 <a href="<?php echo $baner['baner_url']; ?>">
-                  <img src="<?php echo $baner['baner_pic']; ?>" alt="<?php echo $baner['baner_title']; ?>">
+                  <img src="/image/banners/mainpage_large/<?php echo $baner['baner_pic']; ?>" alt="<?php echo $baner['baner_title']; ?>">
                 </a>
               </div>
               <?php } ?>
@@ -488,74 +494,20 @@
           <div class="g-row">
             <div class="b-block-product">
               <div class="b-block-product__title">
-                <span>Вы просматривали</span>
+                <span><?php echo $text_viewed_products; ?></span>
               </div>
               <div class="b-block-product__content">
                 <div class="b-product-carousel owl-carousel js-product_owl-carousel">
 
+                  <?php foreach ($viewed_products as $prod) { ?>
                   <div class="b-product-carousel__item">
                     <div class="b-product-carousel__img">
-                      <img src="catalog/view/theme/simplica/img/product/foto1.png" alt="">
+                      <img src="/image/<?php if ( $prod['image'] != '' ) { echo $prod['image']; }else{ echo 'no_image.png';} ?>" alt="<?php echo $prod['name']; ?>">
                     </div>
-                    <a href="product.html" class="b-product-carousel__link">Оригинал ONDA V820w X86 Intel Z3735F Quad Core 2 ГБ 32 ГБ</a>
-                    <span class="b-product-carousel__price">$ 39.99</span>
+                    <a href="product.html" class="b-product-carousel__link"><?php echo $prod['name']; ?></a>
+                    <span class="b-product-carousel__price"><?php echo $prod['price']; ?></span>
                   </div>
-
-                  <div class="b-product-carousel__item">
-                    <div class="b-product-carousel__img">
-                      <img src="catalog/view/theme/simplica/img/product/foto2.png" alt="">
-                    </div>
-                    <a href="product.html" class="b-product-carousel__link">Оригинал Teclast X98 Air/X98 Plus II 9.7 дюймов Intel Cherry Trail</a>
-                    <span class="b-product-carousel__price">$ 42.99</span>
-                  </div>
-
-                  <div class="b-product-carousel__item">
-                    <div class="b-product-carousel__img">
-                      <img src="catalog/view/theme/simplica/img/product/foto3.png" alt="">
-                    </div>
-                    <a href="product.html" class="b-product-carousel__link">14 дюймов 8 ГБ оперативной памяти и 256 ГБ SSD ноутбук ноутбука с Intel Celeron</a>
-                    <span class="b-product-carousel__price">$ 75.99</span>
-                  </div>
-
-                  <div class="b-product-carousel__item">
-                    <div class="b-product-carousel__img">
-                      <img src="catalog/view/theme/simplica/img/product/foto4.png" alt="">
-                    </div>
-                    <a href="product.html" class="b-product-carousel__link">14 дюймов 8 ГБ оперативной памяти и 256 ГБ SSD ноутбук ноутбука с Intel Celeron</a>
-                    <span class="b-product-carousel__price">$ 75.99</span>
-                  </div>
-
-                  <div class="b-product-carousel__item">
-                    <div class="b-product-carousel__img">
-                      <img src="catalog/view/theme/simplica/img/product/foto1.png" alt="">
-                    </div>
-                    <a href="product.html" class="b-product-carousel__link">Оригинал ONDA V820w X86 Intel Z3735F Quad Core 2 ГБ 32 ГБ</a>
-                    <span class="b-product-carousel__price">$ 39.99</span>
-                  </div>
-
-                  <div class="b-product-carousel__item">
-                    <div class="b-product-carousel__img">
-                      <img src="catalog/view/theme/simplica/img/product/foto2.png" alt="">
-                    </div>
-                    <a href="product.html" class="b-product-carousel__link">Оригинал Teclast X98 Air/X98 Plus II 9.7 дюймов Intel Cherry Trail</a>
-                    <span class="b-product-carousel__price">$ 42.99</span>
-                  </div>
-
-                  <div class="b-product-carousel__item">
-                    <div class="b-product-carousel__img">
-                      <img src="catalog/view/theme/simplica/img/product/foto3.png" alt="">
-                    </div>
-                    <a href="product.html" class="b-product-carousel__link">14 дюймов 8 ГБ оперативной памяти и 256 ГБ SSD ноутбук ноутбука с Intel Celeron</a>
-                    <span class="b-product-carousel__price">$ 75.99</span>
-                  </div>
-
-                  <div class="b-product-carousel__item">
-                    <div class="b-product-carousel__img">
-                      <img src="catalog/view/theme/simplica/img/product/foto4.png" alt="">
-                    </div>
-                    <a href="product.html" class="b-product-carousel__link">14 дюймов 8 ГБ оперативной памяти и 256 ГБ SSD ноутбук ноутбука с Intel Celeron</a>
-                    <span class="b-product-carousel__price">$ 75.99</span>
-                  </div>
+                  <?php } ?>
 
                 </div>
               </div>
@@ -666,22 +618,13 @@
         <div class="g-container">
           <div class="b-brands__title">
             <span>Бренды и магазины</span>
-            <a class="b-brands__link" href="brands.html">Показать все >></a>
+            <a class="b-brands__link" href="/brands_and_shops">Показать все >></a>
           </div>
           <div class="b-brands__content">
             <ul>
-                <li><a href="category.html"><img src="catalog/view/theme/simplica/img/brands/brand_acer.png" alt=""></a></li>
-                <li><a href="category.html"><img src="catalog/view/theme/simplica/img/brands/brand_canon.png" alt=""></a></li>
-                <li><a href="category.html"><img src="catalog/view/theme/simplica/img/brands/brand_d-link.png" alt=""></a></li>
-                <li><a href="category.html"><img src="catalog/view/theme/simplica/img/brands/brand_lenovo.png" alt=""></a></li>
-                <li><a href="category.html"><img src="catalog/view/theme/simplica/img/brands/brand_asus.png" alt=""></a></li>
-                <li><a href="category.html"><img src="catalog/view/theme/simplica/img/brands/brand_samsung.png" alt=""></a></li>
-                <li><a href="category.html"><img src="catalog/view/theme/simplica/img/brands/brand_canon.png" alt=""></a></li>
-                <li><a href="category.html"><img src="catalog/view/theme/simplica/img/brands/brand_samsung.png" alt=""></a></li>
-                <li><a href="category.html"><img src="catalog/view/theme/simplica/img/brands/brand_acer.png" alt=""></a></li>
-                <li><a href="category.html"><img src="catalog/view/theme/simplica/img/brands/brand_asus.png" alt=""></a></li>
-                <li><a href="category.html"><img src="catalog/view/theme/simplica/img/brands/brand_d-link.png" alt=""></a></li>
-                <li><a href="category.html"><img src="catalog/view/theme/simplica/img/brands/brand_lenovo.png" alt=""></a></li>
+              <?php foreach ($shops as $shop) { ?>
+                <li><a href="/<?php echo $shop['href']; ?>"><img src="<?php echo $shop['image']; ?>" alt="<?php echo $shop['name']; ?>"></a></li>
+              <?php } ?>
             </ul>
           </div>
         </div>

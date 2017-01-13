@@ -6,7 +6,7 @@ $text_password_reset = 'Напомнить пароль';
 $text_through_social_networks = 'Через соц сети';
 
 
-//echo "<pre>";  print_r(var_dump( $_SERVER )); echo "</pre>";
+//echo "<pre>";  print_r(var_dump( $categories )); echo "</pre>";
 //echo "========================<br>";
 //echo "<pre>";  print_r(var_dump( $menu )); echo "</pre>";
 //echo "<pre>";  print_r(var_dump( $large_banners )); echo "</pre>";
@@ -195,10 +195,9 @@ if (typeof jQuery == 'undefined') {
           </div>
 
           <ul class="b-header-top__menu g-tablet-hidden">
-            <li><a href="#">Магазины</a></li>
-            <li><a href="#">Производители</a></li>
-            <li><a href="#">Контакты</a></li>
-            <li><a href="#">Избранное</a></li>
+          <?php foreach ($menu as $item) { ?>
+            <li><a href="/<?php echo $item['keyword']; ?>"><?php echo $item['title']; ?></a></li>
+          <?php } ?>
           </ul>
 
           <div class="b-header-cart g-tablet-show">
@@ -255,7 +254,7 @@ if (typeof jQuery == 'undefined') {
                 <ul>
                   <?php foreach ($categories as $category) { ?>
                   <li>
-                    <?php if (isset($category['children'])) { ?>
+                    <?php if ( isset($category['children']) && count($category['children']) ) { ?>
                       <div class="b-nav__item"><?php echo $category['name']; ?></div>
                       <div class="b-nav-level-2">
                         <div class="b-nav-level-2__title"><?php echo $category['name']; ?></div>
@@ -281,26 +280,13 @@ if (typeof jQuery == 'undefined') {
                   <span>Другое</span>
                 </div>
                 <ul class="g-tablet-show">
+                  <?php foreach ($menu as $item) { ?>
                   <li>
                     <div class="b-nav__item b-nav__item_link">
-                      <a href="#">Магазины</a>
+                      <a href="/<?php echo $item['keyword']; ?>"><?php echo $item['title']; ?></a>
                     </div>
                   </li>
-                  <li>
-                    <div class="b-nav__item b-nav__item_link">
-                      <a href="#">Производители</a>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="b-nav__item b-nav__item_link">
-                      <a href="#">Контакты</a>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="b-nav__item b-nav__item_link">
-                      <a href="#">Избранное</a>
-                    </div>
-                  </li>
+                  <?php } ?>
                 </ul>
               </div>
               <div class="b-nav__mob-tabs-2 b-nav__mob-setings">
@@ -308,50 +294,23 @@ if (typeof jQuery == 'undefined') {
                   <div class="b-nav__mob-setings-item-title">Выбор языка</div>
                   <div class="f-group-wrap_3col">
 
+                    <?php foreach ($languages as $lang) { ?>
                     <div class="f-group">
                       <div class="f-field-wrapper f-field-wrapper_radio">
                         <div class="f-field">
                           <input type="radio"
                                  name="lang"
-                                 id="lang_ru"
+                                 id="<?php echo $lang['code']; ?>"
                                  value="" 
-                                 class="f-radio">
+                                 class="f-radio"
+                                 <?php if ($lang['code'] == $language_code) { echo ' checked'; } ?>>
                           <div class="f-label">
-                            <label for="lang_ru">RUS</label>
+                            <label for="<?php echo $lang['code']; ?>"><?php echo $lang['code']; ?></label>
                           </div>
                         </div>
                       </div>
                     </div>
-
-                    <div class="f-group">
-                      <div class="f-field-wrapper f-field-wrapper_radio">
-                        <div class="f-field">
-                          <input type="radio"
-                                 name="lang"
-                                 id="lang_en"
-                                 value="" 
-                                 class="f-radio">
-                          <div class="f-label">
-                            <label for="lang_en">ENG</label>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="f-group">
-                      <div class="f-field-wrapper f-field-wrapper_radio">
-                        <div class="f-field">
-                          <input type="radio"
-                                 name="lang"
-                                 id="lang_lt"
-                                 value="" 
-                                 class="f-radio">
-                          <div class="f-label">
-                            <label for="lang_lt">LTV</label>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
+                    <?php } ?>
 
                   </div>
                 </div>
@@ -359,50 +318,23 @@ if (typeof jQuery == 'undefined') {
                   <div class="b-nav__mob-setings-item-title">Выбор валюты</div>
                   <div class="f-group-wrap_3col">
 
+                    <?php foreach ($currencies as $index => $currency) { ?>
                     <div class="f-group">
                       <div class="f-field-wrapper f-field-wrapper_radio">
                         <div class="f-field">
                           <input type="radio"
                                  name="cur"
-                                 id="cur_rub"
+                                 id="<?php echo $currency['code']; ?>"
                                  value="" 
-                                 class="f-radio">
+                                 class="f-radio"
+                                 <?php if ($currency['code'] == $_SESSION ["currency"]) { echo ' checked'; } ?>>
                           <div class="f-label">
-                            <label for="cur_rub">RUB</label>
+                            <label for="<?php echo $currency['code']; ?>"><?php echo $currency['code']; ?></label>
                           </div>
                         </div>
                       </div>
                     </div>
-
-                    <div class="f-group">
-                      <div class="f-field-wrapper f-field-wrapper_radio">
-                        <div class="f-field">
-                          <input type="radio"
-                                 name="cur"
-                                 id="cur_eur"
-                                 value="" 
-                                 class="f-radio">
-                          <div class="f-label">
-                            <label for="cur_eur">EUR</label>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="f-group">
-                      <div class="f-field-wrapper f-field-wrapper_radio">
-                        <div class="f-field">
-                          <input type="radio"
-                                 name="cur"
-                                 id="cur_usd"
-                                 value="" 
-                                 class="f-radio">
-                          <div class="f-label">
-                            <label for="cur_usd">USD</label>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
+                    <?php } ?>
 
                   </div>
                 </div>

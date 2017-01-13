@@ -1,14 +1,22 @@
 <?php echo $header; ?>
 
 <?php
-//echo "<pre>";  print_r(var_dump( $_GET['_route_'] )); echo "</pre>";
+//echo "<pre>";  print_r(var_dump( $products )); echo "</pre>";
 ?>
 
 <div class="b-popup b-prod-img-popup js-popup-prod-img mfp-hide">
   <div class="b-prod-img-popup__title">
     <h2 class="b-prod-info__title"><?php echo $heading_title; ?></h2>
     <div class="b-prod-info__block-price">
-      <span>657.00 - 1106.55 MDL</span>
+      <span>
+      <?php
+      if ( $model_price['max_price'] == $model_price['min_price'] ) {
+        echo $model_price['max_price'];
+      } else {
+        echo $model_price['max_price'].' - '.$model_price['min_price'];
+      }
+      ?>
+      </span>
       <div class="b-prod-info__btn-buy">
         <a href="#" class="g-btn">Где купить ></a>
       </div>
@@ -99,7 +107,15 @@
 
                 <div class="b-prod-info__block">
                   <div class="b-prod-info__block-price">
-                    <span>657.00 - 1106.55 MDL</span>
+                    <span>
+                    <?php
+                    if ( $model_price['max_price'] == $model_price['min_price'] ) {
+                      echo $model_price['max_price'];
+                    } else {
+                      echo $model_price['max_price'].' - '.$model_price['min_price'];
+                    }
+                    ?>
+                    </span>
                     <div class="b-rating" data-count_r="5" data-width_star="10">
                       <div style="width: 70%"></div>
                     </div>
@@ -776,18 +792,9 @@
             </div>
             <div class="b-brands__content">
               <ul>
-                  <li><a href="category.html"><img src="img/brands/brand_acer.png" alt=""></a></li>
-                  <li><a href="category.html"><img src="img/brands/brand_canon.png" alt=""></a></li>
-                  <li><a href="category.html"><img src="img/brands/brand_d-link.png" alt=""></a></li>
-                  <li><a href="category.html"><img src="img/brands/brand_lenovo.png" alt=""></a></li>
-                  <li><a href="category.html"><img src="img/brands/brand_asus.png" alt=""></a></li>
-                  <li><a href="category.html"><img src="img/brands/brand_samsung.png" alt=""></a></li>
-                  <li><a href="category.html"><img src="img/brands/brand_canon.png" alt=""></a></li>
-                  <li><a href="category.html"><img src="img/brands/brand_samsung.png" alt=""></a></li>
-                  <li><a href="category.html"><img src="img/brands/brand_acer.png" alt=""></a></li>
-                  <li><a href="category.html"><img src="img/brands/brand_asus.png" alt=""></a></li>
-                  <li><a href="category.html"><img src="img/brands/brand_d-link.png" alt=""></a></li>
-                  <li><a href="category.html"><img src="img/brands/brand_lenovo.png" alt=""></a></li>
+                <?php foreach ($shops as $shop) { ?>
+                  <li><a href="/<?php echo $shop['href']; ?>"><img src="<?php echo $shop['image']; ?>" alt="<?php echo $shop['name']; ?>"></a></li>
+                <?php } ?>
               </ul>
             </div>
           </div>

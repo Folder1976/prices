@@ -239,6 +239,9 @@
                     color: #fff;
                 }
             }
+            &:hover {
+                background: #39adff;
+            }
         }
     }
 }
@@ -265,6 +268,7 @@
         text-transform: uppercase;
         border-bottom: 2px dotted #0076c9;
         margin: 0 11px 10px;
+        white-space: nowrap;
     }
     &__list {
         & ul {
@@ -304,6 +308,7 @@
         .b-nav__mob-tabs-1, .b-nav__mob-tabs-2 {
             max-height: calc(100vh - 140px - 20px);
             overflow: auto;
+            height: calc(100vh - 140px - 20px);
         }
     }
     
