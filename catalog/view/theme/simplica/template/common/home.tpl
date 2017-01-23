@@ -505,7 +505,7 @@ $text_viewed_products = 'Вы просматривали';
                       <img src="/image/<?php if ( $prod['image'] != '' ) { echo $prod['image']; }else{ echo 'no_image.png';} ?>" alt="<?php echo $prod['name']; ?>">
                     </div>
                     <a href="product.html" class="b-product-carousel__link"><?php echo $prod['name']; ?></a>
-                    <span class="b-product-carousel__price"><?php echo $prod['price']; ?></span>
+                    <span class="b-product-carousel__price"><?php echo $currencies[$_SESSION ['currency']]['symbol_left'].' '.round($prod['price'], 2).' '.$currencies[$_SESSION ['currency']]['symbol_right']; ?></span>
                   </div>
                   <?php } ?>
 

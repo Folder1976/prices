@@ -2674,6 +2674,8 @@ a:hover {
   font-size: 21px;
   color: #007dd7;
   font-weight: 600;
+  display: block;
+  padding-bottom: 3px;
 }
 .b-product-carousel .owl-controls .owl-nav .owl-next, .b-product-carousel .owl-controls .owl-nav .owl-prev,
 .b-prod-img__carousel .owl-controls .owl-nav .owl-next,

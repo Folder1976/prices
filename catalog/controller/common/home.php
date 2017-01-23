@@ -8,6 +8,9 @@ class ControllerCommonHome extends Controller {
 		$this->load->model('catalog/product');
 		$product_tags = $this->model_catalog_product->getProductsTags(array(0=>0));
 	
+		$this->load->model('localisation/currency');
+		$data['currencies'] = $this->model_localisation_currency->getCurrencies();
+
 		foreach($product_tags as $find => $replace){
 
 			$this->document->setTitle(str_replace($find, $replace, $this->document->getTitle()));
