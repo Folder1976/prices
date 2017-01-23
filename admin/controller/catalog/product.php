@@ -876,6 +876,14 @@ class ControllerCatalogProduct extends Controller {
 			$data['original_url'] = '';
 		}
 
+		if (isset($this->request->post['garant'])) {
+			$data['garant'] = $this->request->post['garant'];
+		} elseif (!empty($product_info)) {
+			$data['garant'] = $product_info['garant'];
+		} else {
+			$data['garant'] = '';
+		}
+
 		if (isset($this->request->post['original_code'])) {
 			$data['original_code'] = $this->request->post['original_code'];
 		} elseif (!empty($product_info)) {

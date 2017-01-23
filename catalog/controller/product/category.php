@@ -823,6 +823,7 @@ class ControllerProductCategory extends Controller {
 					'options'        	=> $options,
 					'name'        		=> $result['name'],
 					'loved'        		=> $result['loved'],
+					'garant'        		=> $result['garant'],
 					/*'size'        		=> $result['size'],*/
 					'shop_id'        	=> $result['shop_id'],
 					'shop_name'        	=> $result['shop_name'],

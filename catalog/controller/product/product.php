@@ -17,6 +17,10 @@ class ControllerProductProduct extends Controller {
 		$this->load->model('catalog/category');
 		$this->load->model('catalog/product');
 
+		//Массив магазинов
+		$this->load->model('catalog/shop');
+		$data['shops'] = $this->model_catalog_shop->getShops();
+		
 		//===========================================================================
 		$url = '';
 		
@@ -346,6 +350,7 @@ class ControllerProductProduct extends Controller {
 			$data['tab_review'] = sprintf($this->language->get('tab_review'), $product_info['reviews']);
 
 			$data['product_id'] = (int)$this->request->get['product_id'];
+			$data['garant'] = $product_info['garant'];
 			$data['manufacturer'] = $product_info['manufacturer'];
 			$data['manufacturers'] = $this->url->link('product/manufacturer/info', 'manufacturer_id=' . $product_info['manufacturer_id']);
 			$data['model'] = $product_info['model'];
@@ -582,6 +587,7 @@ class ControllerProductProduct extends Controller {
 				
 				$data['products'][] = array(
 					'product_id'  => $result['product_id'],
+					'garant'  => $result['garant'],
 					'thumb'       => $image,
 					'options'	  => $this->model_catalog_product->getProductOptions($result['product_id']),
 					'name'        => $result['name'],

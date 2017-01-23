@@ -10,7 +10,7 @@ class ControllerCommonHome extends Controller {
 	
 		$this->load->model('localisation/currency');
 		$data['currencies'] = $this->model_localisation_currency->getCurrencies();
-
+	
 		foreach($product_tags as $find => $replace){
 
 			$this->document->setTitle(str_replace($find, $replace, $this->document->getTitle()));
@@ -20,7 +20,7 @@ class ControllerCommonHome extends Controller {
 		}
 		
 		//Получим последние 10 просмотренные пользователем
-		$data['viewed_products'] = array();	
+		$data['customer_viewed_products'] = array();	
 		if(isset($_COOKIE['viewed_list'])){
 			
 			$viewed_list = json_decode($_COOKIE['viewed_list'],true);
@@ -28,7 +28,7 @@ class ControllerCommonHome extends Controller {
 			if(is_array($viewed_list)){
 				
 				foreach($viewed_list as $row){
-					$data['viewed_products'][] = $this->model_catalog_product->getProduct((int)$row);
+					$data['customer_viewed_products'][] = $this->model_catalog_product->getProduct((int)$row);
 				}
 				
 			}
