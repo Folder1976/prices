@@ -1,7 +1,7 @@
 <?php echo $header; ?>
 
 <?php
-//echo "<pre>";  print_r(var_dump( $products )); echo "</pre>";
+//echo "<pre>";  print_r(var_dump( $attribute_groups )); echo "</pre>";
 ?>
 
 <div class="b-popup b-prod-img-popup js-popup-prod-img mfp-hide">
@@ -251,6 +251,8 @@
           </div>
         </div>  <!-- end g-row -->
 
+        <?php if ( $products ) { ?>
+        <!-- Похожие товары -->
         <div class="g-row">
           <div class="b-block-product">
             <div class="b-block-product__title">
@@ -259,74 +261,23 @@
             <div class="b-block-product__content">
               <div class="b-product-carousel owl-carousel js-product_owl-carousel">
 
+                <?php foreach ($products as $prod) { ?>
                 <div class="b-product-carousel__item">
                   <div class="b-product-carousel__img">
-                    <img src="img/product/foto1.png" alt="">
+                    <img src="<?php echo $prod['thumb']; ?>" alt="<?php echo $prod['name']; ?>">
                   </div>
-                  <a href="product.html" class="b-product-carousel__link">Оригинал ONDA V820w X86 Intel Z3735F Quad Core 2 ГБ 32 ГБ Оригинал ONDA V820w X86 Intel Z3735F Quad Core 2 ГБ 32 ГБ Оригинал ONDA V820w X86 Intel Z3735F Quad Core 2 ГБ 32 ГБ</a>
-                  <span class="b-product-carousel__price">$ 39.99</span>
+                  <a href="<?php echo $prod['href']; ?>" class="b-product-carousel__link"><?php echo $prod['name']; ?></a>
+                  <span class="b-product-carousel__price"><?php echo $prod['price']; ?></span>
                 </div>
-
-                <div class="b-product-carousel__item">
-                  <div class="b-product-carousel__img">
-                    <img src="img/product/foto2.png" alt="">
-                  </div>
-                  <a href="product.html" class="b-product-carousel__link">Оригинал Teclast X98 Air/X98 Plus II 9.7 дюймов Intel Cherry Trail</a>
-                  <span class="b-product-carousel__price">$ 42.99</span>
-                </div>
-
-                <div class="b-product-carousel__item">
-                  <div class="b-product-carousel__img">
-                    <img src="img/product/foto3.png" alt="">
-                  </div>
-                  <a href="product.html" class="b-product-carousel__link">14 дюймов 8 ГБ оперативной памяти и 256 ГБ SSD ноутбук ноутбука с Intel Celeron</a>
-                  <span class="b-product-carousel__price">$ 75.99</span>
-                </div>
-
-                <div class="b-product-carousel__item">
-                  <div class="b-product-carousel__img">
-                    <img src="img/product/foto4.png" alt="">
-                  </div>
-                  <a href="product.html" class="b-product-carousel__link">14 дюймов 8 ГБ оперативной памяти и 256 ГБ SSD ноутбук ноутбука с Intel Celeron</a>
-                  <span class="b-product-carousel__price">$ 75.99</span>
-                </div>
-
-                <div class="b-product-carousel__item">
-                  <div class="b-product-carousel__img">
-                    <img src="img/product/foto1.png" alt="">
-                  </div>
-                  <a href="product.html" class="b-product-carousel__link">Оригинал ONDA V820w X86 Intel Z3735F Quad Core 2 ГБ 32 ГБ</a>
-                  <span class="b-product-carousel__price">$ 39.99</span>
-                </div>
-
-                <div class="b-product-carousel__item">
-                  <div class="b-product-carousel__img">
-                    <img src="img/product/foto2.png" alt="">
-                  </div>
-                  <a href="product.html" class="b-product-carousel__link">Оригинал Teclast X98 Air/X98 Plus II 9.7 дюймов Intel Cherry Trail</a>
-                  <span class="b-product-carousel__price">$ 42.99</span>
-                </div>
-
-                <div class="b-product-carousel__item">
-                  <div class="b-product-carousel__img">
-                    <img src="img/product/foto3.png" alt="">
-                  </div>
-                  <a href="product.html" class="b-product-carousel__link">14 дюймов 8 ГБ оперативной памяти и 256 ГБ SSD ноутбук ноутбука с Intel Celeron</a>
-                  <span class="b-product-carousel__price">$ 75.99</span>
-                </div>
-
-                <div class="b-product-carousel__item">
-                  <div class="b-product-carousel__img">
-                    <img src="img/product/foto4.png" alt="">
-                  </div>
-                  <a href="product.html" class="b-product-carousel__link">14 дюймов 8 ГБ оперативной памяти и 256 ГБ SSD ноутбук ноутбука с Intel Celeron</a>
-                  <span class="b-product-carousel__price">$ 75.99</span>
-                </div>
+                <?php } ?>
 
               </div>
             </div>
           </div>
         </div>  <!-- end g-row -->
+        <?php } ?>
+
+
 
         <div class="b-prod__tabs js-prod_tabs">
           <div class="g-scroll-line js-scroll-line">

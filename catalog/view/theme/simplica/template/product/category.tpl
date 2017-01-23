@@ -207,6 +207,44 @@ $text_sort = 'Выводить: ';
             <?php } ?>
 
 
+            <?php if ( isset($product_attributes) AND count($product_attributes) > 0 AND is_array($manufacturers)) { ?>
+            <?php foreach ($product_attributes as $prod_attr) { ?>
+            <div class="b-filter-block b-filter-block_open">
+              <div class="b-filter-block__title js-filter-block-toggle"><?php echo $prod_attr['attribute_group_name']; ?></div>
+              <div class="b-filter-block__content">
+                <ul class="f-group-wrap_2col"><?php // тут можно проставить классы: f-group-wrap_1col, f-group-wrap_2col, f-group-wrap_3col. ?>
+
+                <?php foreach ($prod_attr['attributes'] as $attribut) { ?>
+
+                  <li class="f-group">
+                    <div class="f-field-wrapper f-field-wrapper_checkbox">
+                      <div class="f-field">
+                        <input type="checkbox"
+                               name="<?php echo 'option_'.$prod_attr['attribute_group_id'].'_value_'.$attribut['attribute_id']; ?>"
+                               id="<?php echo 'option_'.$prod_attr['attribute_group_id'].'_value_'.$attribut['attribute_id']; ?>"
+                               value=""
+                               <?php if ( strpos($selected_attributes_alias, $attribut['attribute_id']) !== false) { echo ' checked ';} ?>
+                               class="f-checkbox">
+                        <div class="f-label">
+                          <label for="<?php echo 'option_'.$prod_attr['attribute_group_id'].'_value_'.$attribut['attribute_id']; ?>">
+                            <?php if ( strpos($selected_attributes_alias, $attribut['attribute_id']) !== false) { ?>
+                              <a href="<?php echo str_replace($attribut['attribute_id'].'-','',$selected_attributes_alias).$category_alias; ?>"><?php echo $attribut['name']; ?></a>
+                            <?php } else { ?>
+                              <a href="<?php echo $attribut['attribute_id'].'-'.$selected_attributes_alias.$category_alias; ?>"><?php echo $attribut['name']; ?></a>
+                            <?php } ?>
+                            </label>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+
+                <?php } ?>
+                </ul>
+              </div>
+            </div>  <!-- end b-filter-block -->
+            <?php } ?>
+            <?php } ?>
+
           </div>  <!-- end b-filter -->
         </div>  <!-- end g-col-left -->
 

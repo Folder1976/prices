@@ -12,3 +12,6 @@ image/cache/
 
 # log
 system/storage/logs/error.log
+
+#Sypex Dumper
+sxd/

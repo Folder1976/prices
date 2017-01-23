@@ -1,13 +1,13 @@
 <?php echo $header; ?>
 
 <?php
-$text_viewed_products = 'Вы просматривали';
+$text_customer_viewed_products = 'Вы просматривали';
 
 
 
 
 //echo "<pre>";  print_r(var_dump( get_defined_vars() )); echo "</pre>";
-//echo "<pre>";  print_r(var_dump( $viewed_products )); echo "</pre>";
+//echo "<pre>";  print_r(var_dump( $customer_viewed_products )); echo "</pre>";
 
 ?>
     <main class="b-main">
@@ -491,21 +491,23 @@ $text_viewed_products = 'Вы просматривали';
             </div>
           </div>  <!-- end g-row -->
 
+          <?php if ( $customer_viewed_products ) { ?>
+          <!-- Вы просматривали -->
           <div class="g-row">
             <div class="b-block-product">
               <div class="b-block-product__title">
-                <span><?php echo $text_viewed_products; ?></span>
+                <span><?php echo $text_customer_viewed_products; ?></span>
               </div>
               <div class="b-block-product__content">
                 <div class="b-product-carousel owl-carousel js-product_owl-carousel">
 
-                  <?php foreach ($viewed_products as $prod) { ?>
+                  <?php foreach ($customer_viewed_products as $prod) { ?>
                   <div class="b-product-carousel__item">
                     <div class="b-product-carousel__img">
                       <img src="/image/<?php if ( $prod['image'] != '' ) { echo $prod['image']; }else{ echo 'no_image.png';} ?>" alt="<?php echo $prod['name']; ?>">
                     </div>
-                    <a href="product.html" class="b-product-carousel__link"><?php echo $prod['name']; ?></a>
-                    <span class="b-product-carousel__price"><?php echo $currencies[$_SESSION ['currency']]['symbol_left'].' '.round($prod['price'], 2).' '.$currencies[$_SESSION ['currency']]['symbol_right']; ?></span>
+                    <a href="<?php echo $prod['href']; ?>" class="b-product-carousel__link"><?php echo $prod['name']; ?></a>
+                    <span class="b-product-carousel__price"><?php echo $currencies[$_SESSION ['currency']]['symbol_left'].' '.sprintf("%.2f", $prod['price']).' '.$currencies[$_SESSION ['currency']]['symbol_right']; ?></span>
                   </div>
                   <?php } ?>
 
@@ -513,11 +515,14 @@ $text_viewed_products = 'Вы просматривали';
               </div>
             </div>
           </div>  <!-- end g-row -->
+          <?php } ?>
 
         </div>  <!-- end g-col-center -->
 
         <div class="g-clear"></div>
 
+        <?php if ( $viewed_products ) { ?>
+        <!-- Самые просматриваемые товары -->
         <div class="g-row">
           <div class="b-block-product b-most-viewed-products">
             <div class="b-block-product__title">
@@ -526,91 +531,21 @@ $text_viewed_products = 'Вы просматривали';
             <div class="b-block-product__content">
               <div class="b-product-carousel owl-carousel js-most-viewed-carousel">
 
+                <?php foreach ($viewed_products as $prod) { ?>
                 <div class="b-product-carousel__item">
                   <div class="b-product-carousel__img">
-                    <img src="catalog/view/theme/simplica/img/product/foto_pop1.png" alt="">
+                    <img src="/image/<?php if ( $prod['image'] != '' ) { echo $prod['image']; }else{ echo 'no_image.png';} ?>" alt="<?php echo $prod['name']; ?>">
                   </div>
-                  <a href="product.html" class="b-product-carousel__link">[Подлинная] VONTAR MX-4K RK3229 Rockchip</a>
-                  <span class="b-product-carousel__price">$ 25.50</span>
+                  <a href="<?php echo $prod['href']; ?>" class="b-product-carousel__link"><?php echo $prod['name']; ?></a>
+                  <span class="b-product-carousel__price"><?php echo $currencies[$_SESSION ['currency']]['symbol_left'].' '.sprintf("%.2f", $prod['price']).' '.$currencies[$_SESSION ['currency']]['symbol_right']; ?></span>
                 </div>
-
-                <div class="b-product-carousel__item">
-                  <div class="b-product-carousel__img">
-                    <img src="catalog/view/theme/simplica/img/product/foto_pop2.png" alt="">
-                  </div>
-                  <a href="product.html" class="b-product-carousel__link">Оригинал Teclast X3 Pro Tablet PC Intel Skyl</a>
-                  <span class="b-product-carousel__price">$ 25.50</span>
-                </div>
-
-                <div class="b-product-carousel__item">
-                  <div class="b-product-carousel__img">
-                    <img src="catalog/view/theme/simplica/img/product/foto_pop3.png" alt="">
-                  </div>
-                  <a href="product.html" class="b-product-carousel__link">Оригинал МИ Xiaomi Redmi 3 S</a>
-                  <span class="b-product-carousel__price">$ 25.50</span>
-                </div>
-
-                <div class="b-product-carousel__item">
-                  <div class="b-product-carousel__img">
-                    <img src="catalog/view/theme/simplica/img/product/foto_pop1.png" alt="">
-                  </div>
-                  <a href="product.html" class="b-product-carousel__link">Оригинал Teclast X3 Pro Tablet PC Intel Sky</a>
-                  <span class="b-product-carousel__price">$ 25.50</span>
-                </div>
-
-                <div class="b-product-carousel__item">
-                  <div class="b-product-carousel__img">
-                    <img src="catalog/view/theme/simplica/img/product/foto_pop1.png" alt="">
-                  </div>
-                  <a href="product.html" class="b-product-carousel__link">[Подлинная] VONTAR MX-4K RK3229 Rockchip </a>
-                  <span class="b-product-carousel__price">$ 25.50</span>
-                </div>
-
-                <div class="b-product-carousel__item">
-                  <div class="b-product-carousel__img">
-                    <img src="catalog/view/theme/simplica/img/product/foto_pop3.png" alt="">
-                  </div>
-                  <a href="product.html" class="b-product-carousel__link">Оригинал МИ Xiaomi Redmi 3 S</a>
-                  <span class="b-product-carousel__price">$ 25.50</span>
-                </div>
-
-                <div class="b-product-carousel__item">
-                  <div class="b-product-carousel__img">
-                    <img src="catalog/view/theme/simplica/img/product/foto_pop1.png" alt="">
-                  </div>
-                  <a href="product.html" class="b-product-carousel__link">[Подлинная] VONTAR MX-4K RK3229 Rockchip </a>
-                  <span class="b-product-carousel__price">$ 25.50</span>
-                </div>
-
-                <div class="b-product-carousel__item">
-                  <div class="b-product-carousel__img">
-                    <img src="catalog/view/theme/simplica/img/product/foto_pop1.png" alt="">
-                  </div>
-                  <a href="product.html" class="b-product-carousel__link">[Подлинная] VONTAR MX-4K RK3229 Rockchip </a>
-                  <span class="b-product-carousel__price">$ 25.50</span>
-                </div>
-
-                <div class="b-product-carousel__item">
-                  <div class="b-product-carousel__img">
-                    <img src="catalog/view/theme/simplica/img/product/foto_pop3.png" alt="">
-                  </div>
-                  <a href="product.html" class="b-product-carousel__link">Оригинал МИ Xiaomi Redmi 3 S</a>
-                  <span class="b-product-carousel__price">$ 25.50</span>
-                </div>
-
-
-                <div class="b-product-carousel__item">
-                  <div class="b-product-carousel__img">
-                    <img src="catalog/view/theme/simplica/img/product/foto_pop1.png" alt="">
-                  </div>
-                  <a href="product.html" class="b-product-carousel__link">[Подлинная] VONTAR MX-4K RK3229 Rockchip </a>
-                  <span class="b-product-carousel__price">$ 25.50</span>
-                </div>
+                <?php } ?>
 
               </div>
             </div>
           </div>
         </div>  <!-- end g-row -->
+        <?php } ?>
 
       </div>  <!-- end g-container -->
 
