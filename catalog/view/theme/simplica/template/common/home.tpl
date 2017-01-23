@@ -2,6 +2,7 @@
 
 <?php
 $text_customer_viewed_products = 'Вы просматривали';
+$text_viewed_products = 'Самые просматриваемые товары';
 
 
 
@@ -491,17 +492,17 @@ $text_customer_viewed_products = 'Вы просматривали';
             </div>
           </div>  <!-- end g-row -->
 
-          <?php if ( $customer_viewed_products ) { ?>
-          <!-- Вы просматривали -->
+          <?php if ( $viewed_products ) { ?>
+          <!-- Самые просматриваемые товары -->
           <div class="g-row">
             <div class="b-block-product">
               <div class="b-block-product__title">
-                <span><?php echo $text_customer_viewed_products; ?></span>
+                <span><?php echo $text_viewed_products; ?></span>
               </div>
               <div class="b-block-product__content">
                 <div class="b-product-carousel owl-carousel js-product_owl-carousel">
 
-                  <?php foreach ($customer_viewed_products as $prod) { ?>
+                  <?php foreach ($viewed_products as $prod) { ?>
                   <div class="b-product-carousel__item">
                     <div class="b-product-carousel__img">
                       <img src="/image/<?php if ( $prod['image'] != '' ) { echo $prod['image']; }else{ echo 'no_image.png';} ?>" alt="<?php echo $prod['name']; ?>">
@@ -521,17 +522,17 @@ $text_customer_viewed_products = 'Вы просматривали';
 
         <div class="g-clear"></div>
 
-        <?php if ( $viewed_products ) { ?>
-        <!-- Самые просматриваемые товары -->
+        <?php if ( $customer_viewed_products ) { ?>
+        <!-- Вы просматривали -->
         <div class="g-row">
           <div class="b-block-product b-most-viewed-products">
             <div class="b-block-product__title">
-                <span>Самые просматриваемые товары</span>
+                <span><?php echo $text_customer_viewed_products; ?></span>
             </div>
             <div class="b-block-product__content">
               <div class="b-product-carousel owl-carousel js-most-viewed-carousel">
 
-                <?php foreach ($viewed_products as $prod) { ?>
+                <?php foreach ($customer_viewed_products as $prod) { ?>
                 <div class="b-product-carousel__item">
                   <div class="b-product-carousel__img">
                     <img src="/image/<?php if ( $prod['image'] != '' ) { echo $prod['image']; }else{ echo 'no_image.png';} ?>" alt="<?php echo $prod['name']; ?>">
