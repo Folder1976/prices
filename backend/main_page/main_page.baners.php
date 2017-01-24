@@ -19,10 +19,7 @@ if(isset($_POST['key']) AND $_POST['key'] == 'add'){
 	  //Если это код 0 - новый
 	    $sql = 'INSERT INTO '.DB_PREFIX.'baner SET
 				  baner_name = "'.$_POST['name'].'",
-		    	  baner_header = "'.$_POST['header'].'",
-					baner_title = "'.$_POST['title'].'",
-					baner_place = "'.$_POST['text_place'].'",
-					baner_text = "'.$_POST['text'].'",
+		    	 	baner_place = "'.$_POST['text_place'].'",
 					baner_text_color = "'.$_POST['baner_text_color'].'",
 				  baner_url = "'.$_POST['url'].'",
 				  baner_type = "'.$type.'",
@@ -35,7 +32,7 @@ if(isset($_POST['key']) AND $_POST['key'] == 'add'){
 }
 ?>
 <br>
-<h1>Загрузка банера для главной страницы. Размер 1230 х 785 px!</h1>
+<h1>Загрузка банера для главной страницы. Размер 250 х 120 px!</h1>
 <!--h2>Обязательно наличие 3 активных банеров!</h2-->
 <style>
  .table tr td {
@@ -83,9 +80,9 @@ $r = $mysqli->query($sql);
 			  <br><b>Внутреннее название [на сайте не отображается]</b> : <input type="text" name="name" class="brand" data-id="0" style="width:600px;" value="" placeholder="Имя - для памятки">
 			  <br><b>Куда ведет банер [url]</b> : <input type="text" name="url" id="url" class="brand" data-id="0" style="width:600px;" value="" placeholder="URL">
 			  <br><b>Заголовок банера [title]</b> : <input type="text" name="header" class="brand" data-id="0" style="width:600px;" value="" placeholder="Заголовок банера">
-				<br><b>Текст банера</b> : <input type="text" name="text" class="brand" data-id="0" style="width:600px;" value="" placeholder="Текст на банере">
-			  <br><b>Текст для кнопки</b> : <input type="text" name="title" class="brand" data-id="0" style="width:600px;" value="" placeholder="Текст для кнопки">
-			</td>
+				<!--br><b>Текст банера</b> : <input type="text" name="text" class="brand" data-id="0" style="width:600px;" value="" placeholder="Текст на банере">
+				<br><b>Текст для кнопки</b> : <input type="text" name="title" class="brand" data-id="0" style="width:600px;" value="" placeholder="Текст для кнопки">
+			</td-->
 			<td>
 			  <br><b>Расположение текста</b> : <br><input type="radio" name="text_place" data-id="0" value="text_inside" checked> Текст по центру :
 												<br><input type="radio" name="text_place" data-id="0" value="text_bottom"> Текст под банером
@@ -100,16 +97,39 @@ $r = $mysqli->query($sql);
 <?php while($value = $r->fetch_assoc()){ ?>
  <tr id="<?php echo $value['baner_id']; ?>">
       <td><?php echo $value['baner_id']; ?></td>
-	  <td><img src="<?php echo $uploaddir.$value['baner_pic']; ?>" width="250" >
+	  <td><img src="<?php echo $uploaddir.$value['baner_pic']; ?>" width="250px" height="120px" >
 	  </td>
 	  <td><input type="checkbox" id="is_view<?php echo $value['baner_id']; ?>" class="brand edit" data-id="<?php echo $value['baner_id']; ?>" <?php if($value['is_view'] == 1) echo ' checked '; ?> ></td>
       <td>
 		  <br><b>Внутреннее название [на сайте не отображается]</b> : <input type="text" id="name<?php echo $value['baner_id'];?>" class="brand edit" data-id="<?php echo $value['baner_id'];?>" style="width:600px;" value="<?php echo $value['baner_name']; ?>">
 		  <br><b>Куда ведет банер [url]</b> : <input type="text" id="url<?php echo $value['baner_id']; ?>" class="brand edit" data-id="<?php echo $value['baner_id'];?>" style="width:600px;" value="<?php echo $value['baner_url']; ?>">
-		  <br><b><b>Заголовок банера [title]</b> : <input type="text" id="header<?php echo $value['baner_id']; ?>" class="brand edit" data-id="<?php echo $value['baner_id']; ?>" style="width:600px;" value="<?php echo $value['baner_header']; ?>">
-			<br>Текст банера</b> : <input type="text" id="text<?php echo $value['baner_id']; ?>" class="brand edit" data-id="<?php echo $value['baner_id']; ?>" style="width:600px;" value="<?php echo $value['baner_text']; ?>">
-		  <br><b>Текст для кнопки</b> : <input type="text" id="title<?php echo $value['baner_id'];?>" class="brand edit" data-id="<?php echo $value['baner_id']; ?>" style="width:600px;" value="<?php echo $value['baner_title']; ?>">
-		
+		  
+			<?php
+				$sql = 'SELECT * FROM '.DB_PREFIX.'language ORDER BY language_id ASC;';
+				$r_lang = $mysqli->query($sql);
+			?>
+			<?php while($row = $r_lang->fetch_assoc()){ ?>
+				<?php
+					$sql = 'SELECT * FROM '.DB_PREFIX.'baner_description 
+								WHERE baner_id = "'.$value['baner_id'].'" AND language_id="'.$row['language_id'].'" LIMIT 1;';
+					$r_desc = $mysqli->query($sql);
+				
+					if($r_desc->num_rows){
+						$row_2 = $r_desc->fetch_assoc();
+					}else{
+						$row_2 = array(
+									   'header'=>'',
+									   'title'=>'',
+									   'text'=>''
+									   );
+					}
+				?>
+					<br>
+					<br><b><?php echo $row['name']; ?></b>
+					<br><b><b>Заголовок банера [title]</b> : <input type="text" id="header" style="height:15px;width:600px;" data-language_id="<?php echo $row['language_id']; ?>" class="brand edit_description" data-id="<?php echo $value['baner_id']; ?>" style="width:600px;" value="<?php echo $row_2['header']; ?>">
+					<br>Текст банера</b> : <input type="text" id="text" data-language_id="<?php echo $row['language_id']; ?>" class="brand edit_description" data-id="<?php echo $value['baner_id']; ?>" style="width:600px;" value="<?php echo $row_2['text']; ?>">
+					<br><b>Текст для кнопки</b> : <input type="text" id="title" data-language_id="<?php echo $row['language_id']; ?>" class="brand edit_description" data-id="<?php echo $value['baner_id']; ?>" style="width:600px;" value="<?php echo $row_2['title']; ?>">
+			<?php } ?>
 	  </td>
 	  <td>
 		  <br><b>Расположение текста</b> :
@@ -141,14 +161,37 @@ $r = $mysqli->query($sql);
 	</div>
 </div>
   <script>
-	  $(document).on('change','.edit', function(){
+	
+	$(document).on('change','.edit_description', function(){
+		var id = $(this).data('id');
+		var fild = $(this).attr('id');
+		var value = $(this).val();
+		var lang = $(this).data('language_id');
+		
+		$.ajax({
+			type: "POST",
+			url: "/<?php echo TMP_DIR; ?>backend/ajax/ajax_edit_statik.php",
+			dataType: "text",
+			data: "id="+id+"&fild="+fild+"&value="+value+"&lang="+lang+"&key=baner_description",
+			beforeSend: function(){
+			},
+			success: function(msg){
+			  console.log(  msg );
+			  //$('#msg').html('Изменил');
+			  //setTimeout($('#msg').html(''), 1000);
+			}
+		});
+		
+	});
+	
+	$(document).on('change','.edit', function(){
 		var id = jQuery(this).parent('td').parent('tr').attr('id');
 		var view = '0';
 		var name = $('#name'+id).val();
 		var burl = $('#url'+id).val();
-		var header = $('#header'+id).val();
-		var title = $('#title'+id).val();
-		var text = $('#text'+id).val();
+		//var header = $('#header'+id).val();
+		//var title = $('#title'+id).val();
+		//var text = $('#text'+id).val();
 		var place = $('#text_place'+id+':checked').val();
 		var baner_text_color = $('#baner_text_color'+id+':checked').val();
 	
@@ -156,19 +199,19 @@ $r = $mysqli->query($sql);
             view = '1' ;
         }
 		
-		 $.ajax({
-		type: "POST",
-		url: "/<?php echo TMP_DIR; ?>backend/ajax/ajax_edit_universal.php",
-		dataType: "text",
-		data: "id="+id+"&baner_text_color="+baner_text_color+"&baner_place="+place+"&baner_text="+text+"&is_view="+view+"&baner_url="+burl+"&baner_name="+name+"&baner_header="+header+"&baner_title="+title+"&mainkey=baner_id&table=baner&baner_type=<?php echo $type; ?>&key=edit",
-		beforeSend: function(){
-		},
-		success: function(msg){
-		  console.log(  msg );
-		  //$('#msg').html('Изменил');
-		  //setTimeout($('#msg').html(''), 1000);
-		}
-	  });
+		$.ajax({
+			type: "POST",
+			url: "/<?php echo TMP_DIR; ?>backend/ajax/ajax_edit_universal.php",
+			dataType: "text",
+			data: "id="+id+"&baner_text_color="+baner_text_color+"&baner_place="+place+"&baner_text="+text+"&is_view="+view+"&baner_url="+burl+"&baner_name="+name+"&baner_header="+header+"&baner_title="+title+"&mainkey=baner_id&table=baner&baner_type=<?php echo $type; ?>&key=edit",
+			beforeSend: function(){
+			},
+			success: function(msg){
+			  console.log(  msg );
+			  //$('#msg').html('Изменил');
+			  //setTimeout($('#msg').html(''), 1000);
+			}
+		});
 		
 	});
 	
@@ -182,6 +225,22 @@ $r = $mysqli->query($sql);
 		  url: "/<?php echo TMP_DIR; ?>backend/ajax/ajax_edit_universal.php",
 		  dataType: "text",
 		  data: "id="+id+"&table=baner&mainkey=baner_id&key=dell",
+		  beforeSend: function(){
+			
+		  },
+		  success: function(msg){
+			console.log(  msg );
+			location.reload;
+			jQuery('#'+id).hide()
+			//$('#msg').html('Удалил');
+			//setTimeout($('#msg').html(''), 1000);
+		  }
+		});
+		$.ajax({
+		  type: "POST",
+		  url: "/<?php echo TMP_DIR; ?>backend/ajax/ajax_edit_universal.php",
+		  dataType: "text",
+		  data: "id="+id+"&table=baner_description&mainkey=baner_id&key=dell",
 		  beforeSend: function(){
 			
 		  },

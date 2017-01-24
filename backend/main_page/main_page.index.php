@@ -66,11 +66,10 @@ if(strpos($_SERVER['PHP_SELF'], $file[count($file)-1]) !== false){
 			.baners{
 				display: block;
 				position: absolute;
-				top: 860px;
-				left: 90px;
-				width: 1220px;
-				height: 100;
-				opacity: 0.5;
+				top: 380px;
+				left: 1050px;
+				width: 250px;
+				height: 400px;opacity: 0.5;
 				background-color: #ffffff;
 				border: 2px solid #BABABA;
 			}
@@ -140,13 +139,14 @@ if(strpos($_SERVER['PHP_SELF'], $file[count($file)-1]) !== false){
 	</style>
 	
 <?php
+/*
 $Types = array();
 $Types[0] = array("id"=>0,"name"=>"Главная");
 //=======================================================================
 	$sql = 'SELECT C.category_id AS id, C.parent_id, CD.name
 					FROM `'.DB_PREFIX.'category` C
 					LEFT JOIN `'.DB_PREFIX.'category_description` CD ON C.category_id = CD.category_id
-					WHERE parent_id = "0" ORDER BY name ASC;';
+					WHERE parent_id = "0" AND category_id > 0 ORDER BY name ASC;';
 	//echo '<br>'.$sql;
 	$rs = $mysqli->query($sql) or die ("Get product type list ".mysqli_error($mysqli));
 	
@@ -177,7 +177,7 @@ function readTree($parent,$mysqli){
 	$sql = 'SELECT C.category_id AS id, C.parent_id, CD.name
 				FROM `'.DB_PREFIX.'category` C
 				LEFT JOIN `'.DB_PREFIX.'category_description` CD ON C.category_id = CD.category_id
-				WHERE parent_id = "'.$parent.'" ORDER BY name ASC;';
+				WHERE parent_id = "'.$parent.'" AND category_id > 0 ORDER BY name ASC;';
 	//echo $sql.'<br>';
 	$rs1 = mysqli_query( $mysqli, $sql) or die ("Get product type list");
 
@@ -191,5 +191,5 @@ function readTree($parent,$mysqli){
 	if($body != "") $body = "<ul>$body</ul>";
 	return $body;
 
-}
+}*/
 ?>
