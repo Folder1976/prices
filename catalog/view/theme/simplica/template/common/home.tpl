@@ -2,13 +2,18 @@
 
 <?php
 $text_customer_viewed_products = 'Вы просматривали';
-$text_viewed_products = 'Самые просматриваемые товары';
+$text_popular_products = 'Самые просматриваемые товары';
 
 
 
 
 //echo "<pre>";  print_r(var_dump( get_defined_vars() )); echo "</pre>";
-//echo "<pre>";  print_r(var_dump( $customer_viewed_products )); echo "</pre>";
+//echo "<pre>";  print_r(var_dump( $last_viewed_products_day )); echo "</pre>";
+//echo "<pre>";  print_r(var_dump( $last_viewed_products_week )); echo "</pre>";
+//echo "<pre>";  print_r(var_dump( $last_viewed_products_month )); echo "</pre>";
+//echo "<pre>";  print_r(var_dump( $medium_banners )); echo "</pre>";
+
+
 
 ?>
     <main class="b-main">
@@ -44,38 +49,30 @@ $text_viewed_products = 'Самые просматриваемые товары'
               <?php } ?>
             </div>  <!-- end b-home-slider -->
 
+
+            <?php if ( isset($medium_banners) && count($medium_banners) > 0 ) { ?>
+            <div class="b-upcoming-prod b-upcoming-prod_type1">
+            <?php } else { ?>
             <div class="b-upcoming-prod b-upcoming-prod_type2">
               <div class="b-upcoming-prod__title">
                 <span>Набирающие популярность</span>
               </div>
+            <?php } ?>
 
               <div class="b-upcoming-prod__content">
-                <div class="b-upcoming-prod__block">
-                  <a href="product.html" class="b-upcoming-prod__block-link">
-                    <div class="b-upcoming-prod__block-text">
-                      Женские пальто больших размеров
-                      <img src="catalog/view/theme/simplica/img/product/violanti.png" alt="">
-                      <div class="b-upcoming-prod__block-price">$ 25.50</div>
-                    </div>
-                    <div class="b-upcoming-prod__block-img">
-                      <img src="catalog/view/theme/simplica/img/product/7384-02.png" alt="">
-                    </div>
-                  </a>
-                </div>
 
-                <div class="b-upcoming-prod__block">
-                  <a href="product.html" class="b-upcoming-prod__block-link">
-                    <div class="b-upcoming-prod__block-text">
-                      Женские пальто больших размеров
-                      <img src="catalog/view/theme/simplica/img/product/violanti.png" alt="">
-                      <div class="b-upcoming-prod__block-price">$ 25.50</div>
-                    </div>
-                    <div class="b-upcoming-prod__block-img">
-                      <img src="catalog/view/theme/simplica/img/product/7384-02.png" alt="">
-                    </div>
+                <?php if ( isset($medium_banners) && count($medium_banners) > 0 ) { ?>
+                <?php foreach ($medium_banners as $baner) { ?>
+                <div class="b-upcoming-prod__banner">
+                  <a href="<?php echo $baner['baner_url']; ?>" class="b-upcoming-prod__block-link">
+                    <img src="/image/banners/mainpage_medium/<?php echo $baner['baner_pic']; ?>" alt="<?php echo $baner['baner_title']; ?>">
+                    <pre class="b-upcoming-prod__block-text" style="color: <?php echo $baner['baner_text_color']; ?>"><?php echo $baner['baner_text']; ?></pre>
                   </a>
                 </div>
+                <?php } ?>
+                <?php } else { ?>
 
+                <?php for ($i = 0; $i < 7; $i++) { ?>
                 <div class="b-upcoming-prod__block">
                   <a href="product.html" class="b-upcoming-prod__block-link">
                     <div class="b-upcoming-prod__block-text">
@@ -88,49 +85,17 @@ $text_viewed_products = 'Самые просматриваемые товары'
                     </div>
                   </a>
                 </div>
+                <?php } ?>
+                <?php } ?>
 
-                <div class="b-upcoming-prod__block">
-                  <a href="product.html" class="b-upcoming-prod__block-link">
-                    <div class="b-upcoming-prod__block-text">
-                      Женские пальто больших размеров
-                      <img src="catalog/view/theme/simplica/img/product/violanti.png" alt="">
-                      <div class="b-upcoming-prod__block-price">$ 25.50</div>
-                    </div>
-                    <div class="b-upcoming-prod__block-img">
-                      <img src="catalog/view/theme/simplica/img/product/7384-02.png" alt="">
-                    </div>
-                  </a>
-                </div>
-
-                <div class="b-upcoming-prod__block">
-                  <a href="product.html" class="b-upcoming-prod__block-link">
-                    <div class="b-upcoming-prod__block-text">
-                      Женские пальто больших размеров
-                      <img src="catalog/view/theme/simplica/img/product/violanti.png" alt="">
-                      <div class="b-upcoming-prod__block-price">$ 25.50</div>
-                    </div>
-                    <div class="b-upcoming-prod__block-img">
-                      <img src="catalog/view/theme/simplica/img/product/7384-02.png" alt="">
-                    </div>
-                  </a>
-                </div>
-
-                <div class="b-upcoming-prod__block">
-                  <a href="product.html" class="b-upcoming-prod__block-link">
-                    <div class="b-upcoming-prod__block-text">
-                      Женские пальто больших размеров
-                      <img src="catalog/view/theme/simplica/img/product/violanti.png" alt="">
-                      <div class="b-upcoming-prod__block-price">$ 25.50</div>
-                    </div>
-                    <div class="b-upcoming-prod__block-img">
-                      <img src="catalog/view/theme/simplica/img/product/7384-02.png" alt="">
-                    </div>
-                  </a>
-                </div>
               </div>  <!-- end b-upcoming-prod__content -->
 
             </div>  <!-- end b-upcoming-prod -->
+
           </div>  <!-- end g-row -->
+
+
+
 
           <div class="g-row">
             <div class="b-block-product b-block-product_popular">
@@ -492,17 +457,17 @@ $text_viewed_products = 'Самые просматриваемые товары'
             </div>
           </div>  <!-- end g-row -->
 
-          <?php if ( $viewed_products ) { ?>
+          <?php if ( $popular_products ) { ?>
           <!-- Самые просматриваемые товары -->
           <div class="g-row">
             <div class="b-block-product">
               <div class="b-block-product__title">
-                <span><?php echo $text_viewed_products; ?></span>
+                <span><?php echo $text_popular_products; ?></span>
               </div>
               <div class="b-block-product__content">
                 <div class="b-product-carousel owl-carousel js-product_owl-carousel">
 
-                  <?php foreach ($viewed_products as $prod) { ?>
+                  <?php foreach ($popular_products as $prod) { ?>
                   <div class="b-product-carousel__item">
                     <div class="b-product-carousel__img">
                       <img src="/image/<?php if ( $prod['image'] != '' ) { echo $prod['image']; }else{ echo 'no_image.png';} ?>" alt="<?php echo $prod['name']; ?>">
