@@ -21,9 +21,9 @@ class ControllerCommonHome extends Controller {
 		
 		//Получим последние 10 просмотренные пользователем
 		$data['customer_viewed_products'] = array();	
-		if(isset($_COOKIE['viewed_list'])){
+		if(isset($_COOKIE['customer_viewed_products'])){
 			
-			$viewed_list = json_decode($_COOKIE['viewed_list'],true);
+			$viewed_list = json_decode($_COOKIE['customer_viewed_products'],true);
 			
 			if(is_array($viewed_list)){
 				
@@ -35,17 +35,30 @@ class ControllerCommonHome extends Controller {
 			
 		}
 		
+		
+		
 		//Получим 20 самых просматриваемых
 		$filter_data = array(
 				'filter_category_id' 	=> 0,
 				'filter_sub_category' 	=> true,
-				'sort'               	=> 'p.viewed DESC',
+				'sort'               	=> 'p.count_view DESC',
 				'order'              	=> '',
 				'start'              	=> 0,
 				'limit'              	=> 20
 			);
 	
-		$data['viewed_products'] = $this->model_catalog_product->getProducts($filter_data);
+		$data['popular_products'] = $this->model_catalog_product->getProducts($filter_data);
+		
+		$filter_data['sort']	= 'count(pv.date) DESC';
+		$filter_data['lastviewed']	= true;
+		$filter_data['lastviewed_where']	= ' AND pv.date > "'.date('Y-m-d H:i:s', strtotime('-24 hour')).'"';
+		$data['last_viewed_products_day'] = $this->model_catalog_product->getProducts($filter_data);
+		
+		$filter_data['lastviewed_where'] = ' AND pv.date > "'.date('Y-m-d H:i:s', strtotime('-1 week')).'"';
+		$data['last_viewed_products_week'] = $this->model_catalog_product->getProducts($filter_data);
+		
+		$filter_data['lastviewed_where'] = ' AND pv.date > "'.date('Y-m-d H:i:s', strtotime('-1 month')).'"';
+		$data['last_viewed_products_month'] = $this->model_catalog_product->getProducts($filter_data);
 		
 		//Массив магазинов
 		$this->load->model('catalog/shop');

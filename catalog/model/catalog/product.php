@@ -95,7 +95,7 @@ class ModelCatalogProduct extends Model {
 		
 	}
 	
-	public function getProductUniqueClicks($product_id){
+	public function getProductUniqueClicks($product_id, $data = array()){
 		
 		$sql = 'SELECT COUNT(id) FROM ' . DB_PREFIX . 'product_views WHERE
 						product_id = "'.$product_id.'"
@@ -622,6 +622,10 @@ class ModelCatalogProduct extends Model {
 			}
 		}
 		
+		if (isset($data['lastviewed_where'])) {
+			$sql .= $data['lastviewed_where'];
+		}
+		
 		if (!empty($data['filter_category_id'])) {
 			if (!empty($data['filter_sub_category']) AND !isset($data['lastviewed'])) {
 				$sql .= " AND cp.path_id = '" . (int)$data['filter_category_id'] . "'";
@@ -705,9 +709,10 @@ class ModelCatalogProduct extends Model {
 		);
 
 		if (isset($data['lastviewed'])) {
-		
+			
 			$sql .= " ORDER BY pv.date DESC";
 		
+			
 		}elseif ($filter_sort){ 
 			$sql .= " ORDER BY p.sale DESC, pd.name";
 		}elseif (isset($data['sort'])){ // && in_array($data['sort'], $sort_data)) {

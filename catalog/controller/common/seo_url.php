@@ -453,30 +453,29 @@ class ControllerCommonSeoUrl extends Controller {
 				$this->request->get['route'] = 'blog/home';
 			}else{
 				
-				$sql = "SELECT * FROM " . DB_PREFIX . "url_alias WHERE keyword = '" . $this->db->escape($part) . "' AND (`query` LIKE 'blog_id=%' OR `query` LIKE 'blog_category_id=%') LIMIT 0,1;";
+				$sql = "SELECT * FROM " . DB_PREFIX . "url_alias WHERE keyword = '" . $this->db->escape($this->request->get['_route_']) . "' AND (`query` LIKE 'blog_id=%' OR `query` LIKE 'blog_category_id=%') LIMIT 0,1;";
 				$query = $this->db->query($sql);
 				//echo $query->num_rows; die($sql);
 				
 				if ($query->num_rows) {
 					$url = explode('=', $query->row['query']);
-				}
-				
-				if ($query->row['query'] && $url[0] && $url[1]){
-					if ($url[0] == 'blog_id') {$this->request->get['blog_id'] = $url[1]; }
-					if ($url[0] == 'blog_category_id') {
-						if (!isset($this->request->get['blogpath'])) {
-							$this->request->get['blogpath'] = $url[1];
-						} else {
-							$this->request->get['blogpath'] .= '_' . $url[1];
-						}
-					}
-				
-					if (isset($this->request->get['blog_id'])) {
-						$this->request->get['route'] = 'blog/blog';
-					} elseif (isset($this->request->get['blogpath'])) {
-						$this->request->get['route'] = 'blog/category';
-					}
 					
+					if ($url[0] && $url[1]){
+						if ($url[0] == 'blog_id') {$this->request->get['blog_id'] = $url[1]; }
+						if ($url[0] == 'blog_category_id') {
+							if (!isset($this->request->get['blogpath'])) {
+								$this->request->get['blogpath'] = $url[1];
+							} else {
+								$this->request->get['blogpath'] .= '_' . $url[1];
+							}
+						}
+					
+						if (isset($this->request->get['blog_id'])) {
+							$this->request->get['route'] = 'blog/blog';
+						} elseif (isset($this->request->get['blogpath'])) {
+							$this->request->get['route'] = 'blog/category';
+						}
+					}	
 				}		
 			}
 				

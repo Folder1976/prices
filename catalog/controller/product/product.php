@@ -186,22 +186,24 @@ class ControllerProductProduct extends Controller {
 		if (isset($this->request->get['product_id'])) {
 			$product_id = (int)$this->request->get['product_id'];
 			
-			$viewed_list = array();
-			$viewed_list[] = (int)$product_id;
+			$customer_viewed_products = array();
+			$customer_viewed_products[] = (int)$product_id;
 			
 			$count = 0;
-			if(isset($_COOKIE['viewed_list'])){
-				foreach(json_decode($_COOKIE['viewed_list'], true) as $row){
+			if(isset($_COOKIE['customer_viewed_products'])){
+				foreach(json_decode($_COOKIE['customer_viewed_products'], true) as $row){
 					
-					if($count++ > 10) continue;
+					if(count($customer_viewed_products) > 10) continue;
 					
-					$viewed_list[] = $row;
+					$customer_viewed_products[] = $row;
+					$customer_viewed_products = array_unique($customer_viewed_products);
 					
 				}
+
 			}
 			
-			
-			$viewed_list = array_unique($viewed_list);
+			setcookie('customer_viewed_products', json_encode($customer_viewed_products), time() + 3600 * 24 * 1000, '/');
+
 			
 		} else {
 			$product_id = 0;
@@ -622,6 +624,7 @@ class ControllerProductProduct extends Controller {
 			$data['recurrings'] = $this->model_catalog_product->getProfiles($this->request->get['product_id']);
 
 			$this->model_catalog_product->updateViewed($this->request->get['product_id']);
+			$this->model_catalog_product->uppProduct($this->request->get['product_id']);
 
 			$data['column_left'] = $this->load->controller('common/column_left');
 			$data['column_right'] = $this->load->controller('common/column_right');
