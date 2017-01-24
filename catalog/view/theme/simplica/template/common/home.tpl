@@ -8,10 +8,9 @@ $text_popular_products = 'Самые просматриваемые товары
 
 
 //echo "<pre>";  print_r(var_dump( get_defined_vars() )); echo "</pre>";
-//echo "<pre>";  print_r(var_dump( $last_viewed_products_day )); echo "</pre>";
-//echo "<pre>";  print_r(var_dump( $last_viewed_products_week )); echo "</pre>";
-//echo "<pre>";  print_r(var_dump( $last_viewed_products_month )); echo "</pre>";
-//echo "<pre>";  print_r(var_dump( $medium_banners )); echo "</pre>";
+//echo "<pre>";  print_r(var_dump( $main_page_products )); echo "</pre>";
+//echo "<pre>";  print_r(var_dump( $main_product_sorted_by_categs )); echo "</pre>";
+
 
 
 
@@ -97,59 +96,80 @@ $text_popular_products = 'Самые просматриваемые товары
 
 
 
+          <!-- Популярные за день -->
+          <?php if ( isset($last_viewed_products_day) ) { ?>
           <div class="g-row">
             <div class="b-block-product b-block-product_popular">
               <div class="b-block-product__title">
-                <span>Популярные телефоны</span>
+                <span>Популярные за день</span>
               </div>
               <div class="b-block-product__content">
                 <ul>
+                  <?php foreach ( $last_viewed_products_day as $prod ) { ?>
                   <li>
                     <div class="b-block-product__img">
-                      <img src="catalog/view/theme/simplica/img/product/foto_pop1.png" alt="">
+                      <img src="/image/<?php if ( $prod['image'] != '' ) { echo $prod['image']; }else{ echo 'no_image.png';} ?>" alt="<?php echo $prod['name']; ?>">
                     </div>
-                    <a href="product.html">[Подлинная] VONTAR MX-4K RK3229 Rockchip </a>
-                    <span class="b-block-product__price">$ 25.50</span>
+                    <a href="<?php echo $prod['original_url']; ?>"><?php echo $prod['name']; ?></a>
+                    <span class="b-block-product__price"><?php echo $currencies[$_SESSION ['currency']]['symbol_left'].' '.sprintf("%.2f", $prod['price']).' '.$currencies[$_SESSION ['currency']]['symbol_right']; ?></span>
                   </li>
-                  <li>
-                    <div class="b-block-product__img">
-                      <img src="catalog/view/theme/simplica/img/product/foto_pop1.png" alt="">
-                    </div>
-                    <a href="product.html">[Подлинная] VONTAR MX-4K RK3229 Rockchip </a>
-                    <span class="b-block-product__price">$ 25.50</span>
-                  </li>
-                  <li>
-                    <div class="b-block-product__img">
-                      <img src="catalog/view/theme/simplica/img/product/foto_pop2.png" alt="">
-                    </div>
-                    <a href="product.html">Оригинал Teclast X3 Pro Tablet PC Intel Skyl</a>
-                    <span class="b-block-product__price">$ 25.50</span>
-                  </li>
-                  <li>
-                    <div class="b-block-product__img">
-                      <img src="catalog/view/theme/simplica/img/product/foto_pop2.png" alt="">
-                    </div>
-                    <a href="product.html">Оригинал Teclast X3 Pro Tablet PC Intel Skyl</a>
-                    <span class="b-block-product__price">$ 25.50</span>
-                  </li>
-                  <li>
-                    <div class="b-block-product__img">
-                      <img src="catalog/view/theme/simplica/img/product/foto_pop3.png" alt="">
-                    </div>
-                    <a href="product.html">Оригинал МИ Xiaomi Redmi 3 S 3гб 5mps</a>
-                    <span class="b-block-product__price">$ 25.50</span>
-                  </li>
-                  <li>
-                    <div class="b-block-product__img">
-                      <img src="catalog/view/theme/simplica/img/product/foto_pop3.png" alt="">
-                    </div>
-                    <a href="product.html">Оригинал МИ Xiaomi Redmi 3 S 3гб 5mps</a>
-                    <span class="b-block-product__price">$ 25.50</span>
-                  </li>
+                  <?php } ?>
                 </ul>
               </div>
             </div>
           </div>  <!-- end g-row -->
+          <?php } ?>
+
+          <!-- Популярные за неделю -->
+          <?php if ( isset($last_viewed_products_week) ) { ?>
+          <div class="g-row">
+            <div class="b-block-product b-block-product_popular">
+              <div class="b-block-product__title">
+                <span>Популярные за неделю</span>
+              </div>
+              <div class="b-block-product__content">
+                <ul>
+                  <?php foreach ( $last_viewed_products_week as $prod ) { ?>
+                  <li>
+                    <div class="b-block-product__img">
+                      <img src="/image/<?php if ( $prod['image'] != '' ) { echo $prod['image']; }else{ echo 'no_image.png';} ?>" alt="<?php echo $prod['name']; ?>">
+                    </div>
+                    <a href="<?php echo $prod['original_url']; ?>"><?php echo $prod['name']; ?></a>
+                    <span class="b-block-product__price"><?php echo $currencies[$_SESSION ['currency']]['symbol_left'].' '.sprintf("%.2f", $prod['price']).' '.$currencies[$_SESSION ['currency']]['symbol_right']; ?></span>
+                  </li>
+                  <?php } ?>
+                </ul>
+              </div>
+            </div>
+          </div>  <!-- end g-row -->
+          <?php } ?>
+
+          <!-- Популярные за месяц -->
+          <?php if ( isset($last_viewed_products_month) ) { ?>
+          <div class="g-row">
+            <div class="b-block-product b-block-product_popular">
+              <div class="b-block-product__title">
+                <span>Популярные за месяц</span>
+              </div>
+              <div class="b-block-product__content">
+                <ul>
+                  <?php foreach ( $last_viewed_products_month as $prod ) { ?>
+                  <li>
+                    <div class="b-block-product__img">
+                      <img src="/image/<?php if ( $prod['image'] != '' ) { echo $prod['image']; }else{ echo 'no_image.png';} ?>" alt="<?php echo $prod['name']; ?>">
+                    </div>
+                    <a href="<?php echo $prod['original_url']; ?>"><?php echo $prod['name']; ?></a>
+                    <span class="b-block-product__price"><?php echo $currencies[$_SESSION ['currency']]['symbol_left'].' '.sprintf("%.2f", $prod['price']).' '.$currencies[$_SESSION ['currency']]['symbol_right']; ?></span>
+                  </li>
+                  <?php } ?>
+                </ul>
+              </div>
+            </div>
+          </div>  <!-- end g-row -->
+          <?php } ?>
+
+
+
 
           <div class="g-row">
             <div class="b-block-category">
@@ -230,229 +250,45 @@ $text_popular_products = 'Самые просматриваемые товары
                 <div class="g-scroll-line js-scroll-line">
                   <ul>
                     <li><a href="#js-block-product_tabs-1">Все</a></li>
-                    <li><a href="#js-block-product_tabs-2">Детские товары</a></li>
-                    <li><a href="#js-block-product_tabs-3">Электроника</a></li>
-                    <li><a href="#js-block-product_tabs-4">Спорт и активный отдых</a></li>
-                    <li><a href="#js-block-product_tabs-5">Бытовая техника</a></li>
-                    <li><a href="#js-block-product_tabs-6">Парфюмерия</a></li>
+                    <?php $count_cat = 2; ?>
+                    <?php foreach ( $main_product_sorted_by_categs as $cat ) { ?>
+                    <li><a href="#js-block-product_tabs-<?php echo $count_cat++; ?>"><?php echo $cat['name']; ?></a></li>
+                    <?php } ?>
                   </ul>
                 </div>
                 <div id="js-block-product_tabs-1">
                   <div class="b-product-carousel owl-carousel js-product_owl-carousel">
 
+                    <?php foreach ( $main_page_products as $prod ) { ?>
                     <div class="b-product-carousel__item">
                       <div class="b-product-carousel__img">
-                        <img src="catalog/view/theme/simplica/img/product/foto1.png" alt="">
+                        <img src="/image/<?php if ( $prod['image'] != '' ) { echo $prod['image']; }else{ echo 'no_image.png';} ?>" alt="<?php echo $prod['name']; ?>">
                       </div>
-                      <a href="product.html" class="b-product-carousel__link">Оригинал ONDA V820w X86 Intel Z3735F Quad Core 2 ГБ 32 ГБ</a>
-                      <span class="b-product-carousel__price">$ 39.99</span>
+                      <a href="<?php echo $prod['href']; ?>" class="b-product-carousel__link"><?php echo $prod['name']; ?></a>
+                      <span class="b-product-carousel__price"><?php echo $currencies[$_SESSION ['currency']]['symbol_left'].' '.sprintf("%.2f", $prod['price']).' '.$currencies[$_SESSION ['currency']]['symbol_right']; ?></span>
                     </div>
-
-                    <div class="b-product-carousel__item">
-                      <div class="b-product-carousel__img">
-                        <img src="catalog/view/theme/simplica/img/product/foto2.png" alt="">
-                      </div>
-                      <a href="product.html" class="b-product-carousel__link">Оригинал Teclast X98 Air/X98 Plus II 9.7 дюймов Intel Cherry Trail</a>
-                      <span class="b-product-carousel__price">$ 42.99</span>
-                    </div>
-
-                    <div class="b-product-carousel__item">
-                      <div class="b-product-carousel__img">
-                        <img src="catalog/view/theme/simplica/img/product/foto3.png" alt="">
-                      </div>
-                      <a href="product.html" class="b-product-carousel__link">14 дюймов 8 ГБ оперативной памяти и 256 ГБ SSD ноутбук ноутбука с Intel Celeron</a>
-                      <span class="b-product-carousel__price">$ 75.99</span>
-                    </div>
-
-                    <div class="b-product-carousel__item">
-                      <div class="b-product-carousel__img">
-                        <img src="catalog/view/theme/simplica/img/product/foto4.png" alt="">
-                      </div>
-                      <a href="product.html" class="b-product-carousel__link">14 дюймов 8 ГБ оперативной памяти и 256 ГБ SSD ноутбук ноутбука с Intel Celeron</a>
-                      <span class="b-product-carousel__price">$ 75.99</span>
-                    </div>
-
-                    <div class="b-product-carousel__item">
-                      <div class="b-product-carousel__img">
-                        <img src="catalog/view/theme/simplica/img/product/foto1.png" alt="">
-                      </div>
-                      <a href="product.html" class="b-product-carousel__link">Оригинал ONDA V820w X86 Intel Z3735F Quad Core 2 ГБ 32 ГБ</a>
-                      <span class="b-product-carousel__price">$ 39.99</span>
-                    </div>
-
-                    <div class="b-product-carousel__item">
-                      <div class="b-product-carousel__img">
-                        <img src="catalog/view/theme/simplica/img/product/foto2.png" alt="">
-                      </div>
-                      <a href="product.html" class="b-product-carousel__link">Оригинал Teclast X98 Air/X98 Plus II 9.7 дюймов Intel Cherry Trail</a>
-                      <span class="b-product-carousel__price">$ 42.99</span>
-                    </div>
-
-                    <div class="b-product-carousel__item">
-                      <div class="b-product-carousel__img">
-                        <img src="catalog/view/theme/simplica/img/product/foto3.png" alt="">
-                      </div>
-                      <a href="product.html" class="b-product-carousel__link">14 дюймов 8 ГБ оперативной памяти и 256 ГБ SSD ноутбук ноутбука с Intel Celeron</a>
-                      <span class="b-product-carousel__price">$ 75.99</span>
-                    </div>
-
-                    <div class="b-product-carousel__item">
-                      <div class="b-product-carousel__img">
-                        <img src="catalog/view/theme/simplica/img/product/foto4.png" alt="">
-                      </div>
-                      <a href="product.html" class="b-product-carousel__link">14 дюймов 8 ГБ оперативной памяти и 256 ГБ SSD ноутбук ноутбука с Intel Celeron</a>
-                      <span class="b-product-carousel__price">$ 75.99</span>
-                    </div>
+                    <?php } ?>
 
                   </div>
                 </div>
-                <div id="js-block-product_tabs-2">
+                <?php $count_cat = 2; ?>
+                <?php foreach ( $main_product_sorted_by_categs as $cat ) { ?>
+                <div id="js-block-product_tabs-<?php echo $count_cat++; ?>">
                   <div class="b-product-carousel owl-carousel js-product_owl-carousel">
 
+                    <?php foreach ( $cat['products'] as $prod ) { ?>
                     <div class="b-product-carousel__item">
                       <div class="b-product-carousel__img">
-                        <img src="catalog/view/theme/simplica/img/product/foto1.png" alt="">
+                        <img src="/image/<?php if ( $prod['image'] != '' ) { echo $prod['image']; }else{ echo 'no_image.png';} ?>" alt="<?php echo $prod['name']; ?>">
                       </div>
-                      <a href="product.html" class="b-product-carousel__link">Оригинал ONDA V820w X86 Intel Z3735F Quad Core 2 ГБ 32 ГБ</a>
-                      <span class="b-product-carousel__price">$ 39.99</span>
+                      <a href="<?php echo $prod['href']; ?>" class="b-product-carousel__link"><?php echo $prod['name']; ?></a>
+                      <span class="b-product-carousel__price"><?php echo $currencies[$_SESSION ['currency']]['symbol_left'].' '.sprintf("%.2f", $prod['price']).' '.$currencies[$_SESSION ['currency']]['symbol_right']; ?></span>
                     </div>
-
-                    <div class="b-product-carousel__item">
-                      <div class="b-product-carousel__img">
-                        <img src="catalog/view/theme/simplica/img/product/foto2.png" alt="">
-                      </div>
-                      <a href="product.html" class="b-product-carousel__link">Оригинал Teclast X98 Air/X98 Plus II 9.7 дюймов Intel Cherry Trail</a>
-                      <span class="b-product-carousel__price">$ 42.99</span>
-                    </div>
-
-                    <div class="b-product-carousel__item">
-                      <div class="b-product-carousel__img">
-                        <img src="catalog/view/theme/simplica/img/product/foto3.png" alt="">
-                      </div>
-                      <a href="product.html" class="b-product-carousel__link">14 дюймов 8 ГБ оперативной памяти и 256 ГБ SSD ноутбук ноутбука с Intel Celeron</a>
-                      <span class="b-product-carousel__price">$ 75.99</span>
-                    </div>
-
-                    <div class="b-product-carousel__item">
-                      <div class="b-product-carousel__img">
-                        <img src="catalog/view/theme/simplica/img/product/foto4.png" alt="">
-                      </div>
-                      <a href="product.html" class="b-product-carousel__link">14 дюймов 8 ГБ оперативной памяти и 256 ГБ SSD ноутбук ноутбука с Intel Celeron</a>
-                      <span class="b-product-carousel__price">$ 75.99</span>
-                    </div>
-
-                    <div class="b-product-carousel__item">
-                      <div class="b-product-carousel__img">
-                        <img src="catalog/view/theme/simplica/img/product/foto1.png" alt="">
-                      </div>
-                      <a href="product.html" class="b-product-carousel__link">Оригинал ONDA V820w X86 Intel Z3735F Quad Core 2 ГБ 32 ГБ</a>
-                      <span class="b-product-carousel__price">$ 39.99</span>
-                    </div>
-
-                    <div class="b-product-carousel__item">
-                      <div class="b-product-carousel__img">
-                        <img src="catalog/view/theme/simplica/img/product/foto2.png" alt="">
-                      </div>
-                      <a href="product.html" class="b-product-carousel__link">Оригинал Teclast X98 Air/X98 Plus II 9.7 дюймов Intel Cherry Trail</a>
-                      <span class="b-product-carousel__price">$ 42.99</span>
-                    </div>
-
-                    <div class="b-product-carousel__item">
-                      <div class="b-product-carousel__img">
-                        <img src="catalog/view/theme/simplica/img/product/foto3.png" alt="">
-                      </div>
-                      <a href="product.html" class="b-product-carousel__link">14 дюймов 8 ГБ оперативной памяти и 256 ГБ SSD ноутбук ноутбука с Intel Celeron</a>
-                      <span class="b-product-carousel__price">$ 75.99</span>
-                    </div>
-
-                    <div class="b-product-carousel__item">
-                      <div class="b-product-carousel__img">
-                        <img src="catalog/view/theme/simplica/img/product/foto4.png" alt="">
-                      </div>
-                      <a href="product.html" class="b-product-carousel__link">14 дюймов 8 ГБ оперативной памяти и 256 ГБ SSD ноутбук ноутбука с Intel Celeron</a>
-                      <span class="b-product-carousel__price">$ 75.99</span>
-                    </div>
+                    <?php } ?>
 
                   </div>
                 </div>
-                <div id="js-block-product_tabs-3">
-                  <div class="b-product-carousel owl-carousel js-product_owl-carousel">
-
-                    <div class="b-product-carousel__item">
-                      <div class="b-product-carousel__img">
-                        <img src="catalog/view/theme/simplica/img/product/foto1.png" alt="">
-                      </div>
-                      <a href="product.html" class="b-product-carousel__link">Оригинал ONDA V820w X86 Intel Z3735F Quad Core 2 ГБ 32 ГБ</a>
-                      <span class="b-product-carousel__price">$ 39.99</span>
-                    </div>
-
-                    <div class="b-product-carousel__item">
-                      <div class="b-product-carousel__img">
-                        <img src="catalog/view/theme/simplica/img/product/foto2.png" alt="">
-                      </div>
-                      <a href="product.html" class="b-product-carousel__link">Оригинал Teclast X98 Air/X98 Plus II 9.7 дюймов Intel Cherry Trail</a>
-                      <span class="b-product-carousel__price">$ 42.99</span>
-                    </div>
-
-                    <div class="b-product-carousel__item">
-                      <div class="b-product-carousel__img">
-                        <img src="catalog/view/theme/simplica/img/product/foto3.png" alt="">
-                      </div>
-                      <a href="product.html" class="b-product-carousel__link">14 дюймов 8 ГБ оперативной памяти и 256 ГБ SSD ноутбук ноутбука с Intel Celeron</a>
-                      <span class="b-product-carousel__price">$ 75.99</span>
-                    </div>
-
-                    <div class="b-product-carousel__item">
-                      <div class="b-product-carousel__img">
-                        <img src="catalog/view/theme/simplica/img/product/foto4.png" alt="">
-                      </div>
-                      <a href="product.html" class="b-product-carousel__link">14 дюймов 8 ГБ оперативной памяти и 256 ГБ SSD ноутбук ноутбука с Intel Celeron</a>
-                      <span class="b-product-carousel__price">$ 75.99</span>
-                    </div>
-
-                    <div class="b-product-carousel__item">
-                      <div class="b-product-carousel__img">
-                        <img src="catalog/view/theme/simplica/img/product/foto1.png" alt="">
-                      </div>
-                      <a href="product.html" class="b-product-carousel__link">Оригинал ONDA V820w X86 Intel Z3735F Quad Core 2 ГБ 32 ГБ</a>
-                      <span class="b-product-carousel__price">$ 39.99</span>
-                    </div>
-
-                    <div class="b-product-carousel__item">
-                      <div class="b-product-carousel__img">
-                        <img src="catalog/view/theme/simplica/img/product/foto2.png" alt="">
-                      </div>
-                      <a href="product.html" class="b-product-carousel__link">Оригинал Teclast X98 Air/X98 Plus II 9.7 дюймов Intel Cherry Trail</a>
-                      <span class="b-product-carousel__price">$ 42.99</span>
-                    </div>
-
-                    <div class="b-product-carousel__item">
-                      <div class="b-product-carousel__img">
-                        <img src="catalog/view/theme/simplica/img/product/foto3.png" alt="">
-                      </div>
-                      <a href="product.html" class="b-product-carousel__link">14 дюймов 8 ГБ оперативной памяти и 256 ГБ SSD ноутбук ноутбука с Intel Celeron</a>
-                      <span class="b-product-carousel__price">$ 75.99</span>
-                    </div>
-
-                    <div class="b-product-carousel__item">
-                      <div class="b-product-carousel__img">
-                        <img src="catalog/view/theme/simplica/img/product/foto4.png" alt="">
-                      </div>
-                      <a href="product.html" class="b-product-carousel__link">14 дюймов 8 ГБ оперативной памяти и 256 ГБ SSD ноутбук ноутбука с Intel Celeron</a>
-                      <span class="b-product-carousel__price">$ 75.99</span>
-                    </div>
-
-                  </div>
-                </div>
-                <div id="js-block-product_tabs-4">
-                  <div class="b-product-carousel owl-carousel js-product_owl-carousel"></div>
-                </div>
-                <div id="js-block-product_tabs-5">
-                  <div class="b-product-carousel owl-carousel js-product_owl-carousel"></div>
-                </div>
-                <div id="js-block-product_tabs-6">
-                  <div class="b-product-carousel owl-carousel js-product_owl-carousel"></div>
-                </div>
+                <?php } ?>
               </div>
             </div>
           </div>  <!-- end g-row -->
