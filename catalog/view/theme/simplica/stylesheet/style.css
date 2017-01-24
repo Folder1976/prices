@@ -2516,6 +2516,12 @@ a:hover {
 .b-upcoming-prod_type1 .b-upcoming-prod__block-price {
   display: none;
 }
+.b-upcoming-prod_type1 .b-upcoming-prod__block-text {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  font-size: 20px;
+}
 .b-upcoming-prod_type1 .b-upcoming-prod__banner {
   margin-bottom: 8px;
 }
