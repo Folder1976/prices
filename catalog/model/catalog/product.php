@@ -616,7 +616,7 @@ class ModelCatalogProduct extends Model {
 
 		if(isset($product_ids) AND count($product_ids) > 0){
 			if (isset($data['lastviewed'])){
-				$sql .= ' AND pv.id IN ('.implode(',', $product_ids).')';
+				//$sql .= ' AND pv.id IN ('.implode(',', $product_ids).')';
 			}else{
 				$sql .= ' AND p.product_id IN ('.implode(',', $product_ids).')';
 			}
@@ -781,7 +781,7 @@ class ModelCatalogProduct extends Model {
 				$product_data[$result['product_id']]['viewed'] = date('Y-m-d', strtotime($result['date']));
 			}
 		}
-//echo $sql;		
+//echo $sql.'<hr>';		
 //echo '<br><br>'.count($product_data);
 
 		return $product_data;
