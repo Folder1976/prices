@@ -35,6 +35,12 @@ class ControllerCatalogCategory extends Controller {
 				$this->request->post['is_filter'] = 0;
 			}
 		
+			if(isset($this->request->post['on_main_page'])){
+				$this->request->post['on_main_page'] = 1;
+			}else{
+				$this->request->post['on_main_page'] = 0;
+			}
+		
 			
 			$category_id = $this->model_catalog_category->addCategory($this->request->post);
 
@@ -789,6 +795,12 @@ public function setAllAttribute(){
 				$this->request->post['is_menu'] = 0;
 			}
 			
+			if(isset($this->request->post['on_main_page'])){
+				$this->request->post['on_main_page'] = 1;
+			}else{
+				$this->request->post['on_main_page'] = 0;
+			}
+		
 			if(isset($this->request->post['is_filter'])){
 				$this->request->post['is_filter'] = 1;
 			}else{
@@ -1195,6 +1207,14 @@ public function setAllAttribute(){
 			$data['is_filter'] = $category_info['is_filter'];
 		} else {
 			$data['is_filter'] = 0;
+		}
+
+		if (isset($this->request->post['on_main_page'])) {
+			$data['on_main_page'] = 1;
+		} elseif (!empty($category_info)) {
+			$data['on_main_page'] = $category_info['on_main_page'];
+		} else {
+			$data['on_main_page'] = 0;
 		}
 
 		if (isset($this->request->post['domain_is_menu'])) {

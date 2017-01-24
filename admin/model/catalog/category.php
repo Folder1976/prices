@@ -21,6 +21,7 @@ class ModelCatalogCategory extends Model {
 						 `column` = '" . (int)$data['column'] . "', 
 						 is_menu = '" . (int)$data['is_menu'] . "',
 						 is_filter = '" . (int)$data['is_filter'] . "',
+						 on_main_page = '" . (int)$data['on_main_page'] . "',
 						 sort_order = '" . (int)$data['sort_order'] . "',
 						 status = '" . (int)$data['status'] . "',
 						 date_modified = NOW(), date_added = NOW()");
@@ -146,6 +147,7 @@ class ModelCatalogCategory extends Model {
 		$data['code'] = $data['keyword'];
 		if(!isset($data['is_menu'])) $data['is_menu'] = '0';
 		if(!isset($data['is_filter'])) $data['is_filter'] = '0';
+		if(!isset($data['on_main_page'])) $data['on_main_page'] = '0';
 		
 		$this->db->query("UPDATE " . DB_PREFIX . "category SET
 									parent_id = '" . (int)$data['parent_id'] . "',
@@ -154,6 +156,7 @@ class ModelCatalogCategory extends Model {
 									`code` = '" . $data['code'] . "',
 									is_menu = '" . (int)$data['is_menu'] . "',
 									is_filter = '" . (int)$data['is_filter'] . "',
+									on_main_page = '" . (int)$data['on_main_page'] . "',
 									sort_order = '" . (int)$data['sort_order'] . "',
 									status = '" . (int)$data['status'] . "',
 									date_modified = NOW() WHERE category_id = '" . (int)$category_id . "'");
@@ -455,7 +458,9 @@ class ModelCatalogCategory extends Model {
 				c1.parent_id,
 				c1.sort_order,
 				c1.is_menu,
-				c1.is_filter
+				c1.is_filter,
+				c1.on_main_page
+				
 				FROM " . DB_PREFIX . "category_path cp
 				LEFT JOIN " . DB_PREFIX . "category c1 ON (cp.category_id = c1.category_id)
 				LEFT JOIN " . DB_PREFIX . "category c2 ON (cp.path_id = c2.category_id)

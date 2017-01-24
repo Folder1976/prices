@@ -76,6 +76,30 @@ class ModelCatalogCategory extends Model {
 		return $query->rows;
 	}
 
+	public function getMainPageCategories() {
+		
+		$sql = "SELECT * FROM " . DB_PREFIX . "category c
+						LEFT JOIN " . DB_PREFIX . "category_description cd ON (c.category_id = cd.category_id)
+						LEFT JOIN " . DB_PREFIX . "category_to_store c2s ON (c.category_id = c2s.category_id)
+						LEFT JOIN " . DB_PREFIX . "category_path cp ON (c.category_id = cp.category_id)
+						LEFT JOIN " . DB_PREFIX . "url_alias A ON (query = CONCAT('category_id=',c.category_id))
+						WHERE ";
+		$sql .= "c.on_main_page = '1' AND ";
+		
+		$sql .= "cd.language_id = '" . (int)$this->config->get('config_language_id') . "' AND
+						c2s.store_id = '" . (int)$this->config->get('config_store_id') . "'  AND
+						c.status = '1'
+						
+						GROUP BY c.category_id
+						
+						ORDER BY c.sort_order, LCASE(cd.name)
+						";
+	
+		$query = $this->db->query($sql) or die($sql);
+
+		return $query->rows;
+	}
+
 	public function getCategoriesTree($parent_id = 0, $tree = false) {
 		
 		$sql = "SELECT c.category_id, c.parent_id, cd.name, A.keyword FROM " . DB_PREFIX . "category c

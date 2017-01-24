@@ -1,6 +1,9 @@
 <?php
 class ControllerCommonHome extends Controller {
 	public function index() {
+		
+		$this->load->model('catalog/category');
+		
 		$this->document->setTitle($this->config->get('config_meta_title'));
 		$this->document->setDescription($this->config->get('config_meta_description'));
 		$this->document->setKeywords($this->config->get('config_meta_keyword'));
@@ -85,7 +88,7 @@ class ControllerCommonHome extends Controller {
 
 		/*
 		$this->load->model('catalog/mainmenu');
-		$this->load->model('catalog/category');
+		
 		$this->load->model('catalog/product');
 		$this->load->model('catalog/manufacturer');
 		$this->load->model('design/banner');
@@ -190,7 +193,7 @@ class ControllerCommonHome extends Controller {
 		unset($viewed_products);
 	*/	
 		
-		
+		$data['main_page_categories'] = $this->model_catalog_category->getMainPageCategories();
 		//$data['left_category'] = $left_menu_categorys;
 		$data['large_banners'] = $this->model_design_banner->getBannerLargeAll();
 		//$data['large_banner'] = $this->model_design_banner->getBannerLarge();
@@ -199,7 +202,7 @@ class ControllerCommonHome extends Controller {
 		//$data['season_products'] = $this->model_design_banner->getBannerRandom('season_pro', 5);
 		//$data['manufacturer_baners'] = $this->model_catalog_manufacturer->getManufacturerBanner();
 		
-		
+	
 		if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/common/home.tpl')) {
 			$this->response->setOutput($this->load->view($this->config->get('config_template') . '/template/common/home.tpl', $data));
 		} else {
