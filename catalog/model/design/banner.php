@@ -28,7 +28,24 @@ class ModelDesignBanner extends Model {
 	
 	public function getBannerLargeAll() {
 		
-		$sql = "SELECT * FROM " . DB_PREFIX . "baner  WHERE baner_type='large' AND is_view='1';";
+		$sql = "SELECT
+					B.baner_id,
+					B.baner_name,
+					B.is_view,
+					B.baner_url,
+					B.baner_pic,
+					B.baner_type,
+					B.baner_place,
+					BD.text AS baner_text,
+					B.baner_text_color,
+					BD.header AS baner_header,
+					BD.title AS baner_title,
+					BD.price AS baner_price,
+					BD.slogan AS baner_slogan,
+					B.baner_sort
+					FROM " . DB_PREFIX . "baner B
+					LEFT JOIN " . DB_PREFIX . "baner_description BD ON B.baner_id = BD.baner_id
+					WHERE baner_type='large' AND language_id = '" . (int)$this->config->get('config_language_id') . "' AND is_view='1';";
 		$query = $this->db->query($sql);
 		return $query->rows;
 
@@ -36,8 +53,26 @@ class ModelDesignBanner extends Model {
 	
 	public function getBannerMediumAll() {
 		
-		$sql = "SELECT * FROM " . DB_PREFIX . "baner  WHERE baner_type='medium' AND is_view='1';";
+		$sql = "SELECT
+					B.baner_id,
+					B.baner_name,
+					B.is_view,
+					B.baner_url,
+					B.baner_pic,
+					B.baner_type,
+					B.baner_place,
+					BD.text AS baner_text,
+					B.baner_text_color,
+					BD.header AS baner_header,
+					BD.title AS baner_title,
+					BD.price AS baner_price,
+					BD.slogan AS baner_slogan,
+					B.baner_sort
+					FROM " . DB_PREFIX . "baner B
+					LEFT JOIN " . DB_PREFIX . "baner_description BD ON B.baner_id = BD.baner_id
+					WHERE baner_type='medium' AND language_id = '" . (int)$this->config->get('config_language_id') . "' AND is_view='1';";
 		$query = $this->db->query($sql);
+		
 		return $query->rows;
 
 	}
