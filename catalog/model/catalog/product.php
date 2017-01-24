@@ -787,6 +787,22 @@ class ModelCatalogProduct extends Model {
 		return $product_data;
 	}
 
+	
+	public function getMainPageProducts() {
+		$sql = "SELECT DISTINCT product_id FROM " . DB_PREFIX . "product WHERE on_main_page = '1'";
+		
+		$query = $this->db->query($sql);
+
+		$product_data = array();
+		
+		foreach ($query->rows as $result) {
+			$product_data[$result['product_id']] = $this->getProduct($result['product_id']);
+		}
+
+		return $product_data;
+		
+	}
+	
 	public function getProductSpecials($data = array()) {
 		
 		$status = "status='1'";

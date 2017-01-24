@@ -194,6 +194,27 @@ class ControllerCommonHome extends Controller {
 	*/	
 		
 		$data['main_page_categories'] = $this->model_catalog_category->getMainPageCategories();
+		$data['main_page_products'] = $this->model_catalog_product->getMainPageProducts();
+		
+		
+		$main_product_sorted_by_categs = array();
+		if(count($data['main_page_products']) > 0 ){
+			
+			foreach($data['main_page_products'] as $row){
+				
+				if(!isset($main_product_sorted_by_categs[$row['category_id']])){
+					$main_product_sorted_by_categs[$row['category_id']] = $this->model_catalog_category->getCategory($row['category_id']);
+				}
+					
+				$main_product_sorted_by_categs[$row['category_id']]['products'][] = $row;
+				
+			}
+			
+		}
+		
+		$data['main_product_sorted_by_categs'] = $main_product_sorted_by_categs;
+		unset($main_product_sorted_by_categs);
+	
 		//$data['left_category'] = $left_menu_categorys;
 		$data['large_banners'] = $this->model_design_banner->getBannerLargeAll();
 		//$data['large_banner'] = $this->model_design_banner->getBannerLarge();

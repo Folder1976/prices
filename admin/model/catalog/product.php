@@ -26,6 +26,7 @@ class ModelCatalogProduct extends Model {
 									mpn = '" . $this->db->escape($data['mpn']) . "',
 									location = '" . $this->db->escape($data['location']) . "',
 									quantity = '" . (int)$data['quantity'] . "',
+									on_main_page = '" . (int)$data['on_main_page'] . "',
 									garant = '" . (int)$data['garant'] . "',
 									minimum = '" . (int)$data['minimum'] . "',
 									subtract = '" . (int)$data['subtract'] . "',
@@ -280,6 +281,7 @@ class ModelCatalogProduct extends Model {
 								date_available = '" . $this->db->escape($data['date_available']) . "',
 								manufacturer_id = '" . (int)$data['manufacturer_id'] . "',
 								shipping = '" . (int)$data['shipping'] . "',
+								on_main_page = '" . (int)$data['on_main_page'] . "',
 								zakup = '" . (float)$data['zakup'] . "',
 								price = '" . (float)$data['price'] . "',
 								points = '" . 1/*(int)$data['points']*/ . "',
@@ -574,7 +576,7 @@ class ModelCatalogProduct extends Model {
 	}
 
 	public function getProduct($product_id) {
-		$query = $this->db->query("SELECT DISTINCT *, p.code AS keyword
+		$query = $this->db->query("SELECT DISTINCT *, p.code AS keyword, p.on_main_page
 								  
 								  /*(SELECT keyword FROM " . DB_PREFIX . "url_alias WHERE query = 'product_id=" . (int)$product_id . "') AS keyword*/
 								  

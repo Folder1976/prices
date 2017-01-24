@@ -367,6 +367,18 @@
               </div>
             </div>
             <div class="tab-pane" id="tab-links">
+              
+              <div class="form-group">
+                <label class="col-sm-2 control-label" for="input-on_main_page">Этот товар на главную страницу</label>
+                <div class="col-sm-10">
+                  <?php if (isset($on_main_page) AND $on_main_page == 1) { ?>
+                    <input type="checkbox" name="on_main_page" checked="checked" />
+                  <?php } else { ?>
+                    <input type="checkbox" name="on_main_page"/>
+                  <?php } ?>
+                </div>
+              </div>
+              
               <div class="form-group">
                 <label class="col-sm-2 control-label" for="input-manufacturer"><span data-toggle="tooltip" title="<?php echo $help_manufacturer; ?>"><?php echo $entry_manufacturer; ?></span></label>
                 <div class="col-sm-10">

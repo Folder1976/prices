@@ -28,6 +28,13 @@ class ControllerCatalogProduct extends Controller {
 				]
 			);
 			
+			if(isset($this->request->post['on_main_page'])){
+				$this->request->post['on_main_page'] = 1;
+			}else{
+				$this->request->post['on_main_page'] = 0;
+			}
+		
+			
 			$product_id = $this->model_catalog_product->addProduct($this->request->post);
 
 			$this->session->data['success'] = $this->language->get('text_success');
@@ -65,6 +72,8 @@ class ControllerCatalogProduct extends Controller {
 			if (isset($this->request->get['page'])) {
 				$url .= '&page=' . $this->request->get['page'];
 			}
+			
+		
 
 			$this->response->redirect($this->url->link('catalog/product/edit', 'product_id=' . $product_id . '&token=' . $this->session->data['token'] . $url, 'SSL'));
 		}
@@ -126,7 +135,15 @@ class ControllerCatalogProduct extends Controller {
 
 		}
 		
+		
 		if (($this->request->server['REQUEST_METHOD'] == 'POST') && $this->validateForm()) {
+			
+			if(isset($this->request->post['on_main_page'])){
+				$this->request->post['on_main_page'] = 1;
+			}else{
+				$this->request->post['on_main_page'] = 0;
+			}
+	
 			
 			$data = array_merge(
 				$this->request->post,
@@ -818,6 +835,7 @@ class ControllerCatalogProduct extends Controller {
 			$data['product_id'] = $this->request->get['product_id'];
 		}
 
+	
 		$data['token'] = $this->session->data['token'];
 
 		$this->load->model('localisation/language');
@@ -867,6 +885,16 @@ class ControllerCatalogProduct extends Controller {
 		} else {
 			$data['sku'] = '';
 		}
+	
+		
+		if (isset($this->request->post['on_main_page'])) {
+			$data['on_main_page'] = $this->request->post['on_main_page'];
+		} elseif (!empty($product_info)) {
+			$data['on_main_page'] = $product_info['on_main_page'];
+		} else {
+			$data['on_main_page'] = 0;
+		}
+
 
 		if (isset($this->request->post['original_url'])) {
 			$data['original_url'] = $this->request->post['original_url'];
