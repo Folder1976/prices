@@ -827,9 +827,11 @@ class ControllerProductCategory extends Controller {
 					/*'size'        		=> $result['size'],*/
 					'shop_id'        	=> $result['shop_id'],
 					'shop_name'        	=> $result['shop_name'],
+					'videos'        	=> $result['videos'],
 					'shop_href'        	=> $result['shop_href'],
 					'manufacturer_id'   => $result['manufacturer_id'],
 					'manufacturer'      => $result['manufacturer'],
+					'manufacturer_image'      => $result['manufacturer_image'],
 					'manufacturer_href' => $result['manufacturer_href'],
 					'description' => utf8_substr(strip_tags(html_entity_decode($result['description'], ENT_QUOTES, 'UTF-8')), 0, $this->config->get('config_product_description_length')) . '..',
 					'price'       => $price,

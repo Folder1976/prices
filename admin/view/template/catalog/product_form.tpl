@@ -34,7 +34,8 @@
             <!--li><a href="#tab-recurring" data-toggle="tab"><?php echo $tab_recurring; ?></a></li-->
             <li><a href="#tab-discount" data-toggle="tab"><?php echo $tab_discount; ?></a></li>
             <li><a href="#tab-special" data-toggle="tab"><?php echo $tab_special; ?></a></li>
-            <li><a href="#tab-image" data-toggle="tab"><?php echo $tab_image; ?></a></li>
+            <li><a href="#$main_key" data-toggle="tab"><?php echo $tab_image; ?></a></li>
+            <li><a href="#tab-video" data-toggle="tab">Видео</a></li>
             <li><a href="#tab-reward" data-toggle="tab"><?php echo $tab_reward; ?></a></li>
             <li><a href="#tab-design" data-toggle="tab"><?php echo $tab_design; ?></a></li>
           </ul>
@@ -960,6 +961,7 @@
                 </table>
               </div>
             </div>
+
             <div class="tab-pane" id="tab-image">
               <div class="table-responsive">
                 <table id="images" class="table table-striped table-bordered table-hover">
@@ -991,6 +993,49 @@
                 </table>
               </div>
             </div>
+
+            <div class="tab-pane" id="tab-video">
+              <div class="table-responsive">
+                <table id="video" class="table table-striped table-bordered table-hover">
+                  <thead>
+                    <tr>
+                      <td class="text-left">Код для видео</td>
+                      <td class="text-left">Активный</td>
+                      <td class="text-right"><?php echo $entry_sort_order; ?></td>
+                      <td>
+                      </td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <?php $video_row = 0; ?>
+                    <?php foreach ($product_videos as $product_video) { ?>
+                    <tr id="video-row<?php echo $video_row; ?>">
+                      <td class="text-right"><input type="text" name="product_videos[<?php echo $video_row; ?>][video]" value="<?php echo $product_video['video']; ?>" placeholder="html code" class="form-control" /></td>
+                      <td class="text-right">
+                        <label>
+                          <?php if ($product_video['status'] == 1) { ?>
+                            <input type="checkbox" name="product_videos[<?php echo $video_row; ?>][status]" value="1" checked="checked" />
+                          <?php } else { ?>
+                            <input type="checkbox" name="product_videos[<?php echo $video_row; ?>][status]" value="0" />
+                          <?php } ?>
+                         </label>
+                      </td>
+                      <td class="text-right"><input type="text" name="product_videos[<?php echo $video_row; ?>][sort]" value="<?php echo $product_video['sort']; ?>" placeholder="<?php echo $entry_sort_order; ?>" class="form-control" /></td>
+                      <td class="text-left"><button type="button" onclick="$('#video-row<?php echo $video_row; ?>').remove();" data-toggle="tooltip" title="<?php echo $button_remove; ?>" class="btn btn-danger"><i class="fa fa-minus-circle"></i></button></td>
+                    </tr>
+                    <?php $video_row++; ?>
+                    <?php } ?>
+                  </tbody>
+                  <tfoot>
+                    <tr>
+                      <td colspan="3"></td>
+                      <td class="text-left"><button type="button" onclick="addVideo();" data-toggle="tooltip" title="<?php echo $button_image_add; ?>" class="btn btn-primary"><i class="fa fa-plus-circle"></i></button></td>
+                    </tr>
+                  </tfoot>
+                </table>
+              </div>
+            </div>
+
             <div class="tab-pane" id="tab-reward">
               <div class="form-group">
                 <label class="col-sm-2 control-label" for="input-points"><span data-toggle="tooltip" title="<?php echo $help_points; ?>"><?php echo $entry_points; ?></span></label>
@@ -1569,6 +1614,7 @@ function addSpecial() {
 //--></script>
   <script type="text/javascript"><!--
 var image_row = <?php echo $image_row; ?>;
+var video_row = <?php echo $video_row; ?>;
 
 function addImage() {
 	html  = '<tr id="image-row' + image_row + '">';
@@ -1580,6 +1626,18 @@ function addImage() {
 	$('#images tbody').append(html);
 
 	image_row++;
+}
+function addVideo() {
+	html  = '<tr id="video-row' + video_row + '">';
+	html += '  <td class="text-right"><input type="text" name="product_videos[' + video_row + '][video]" value="" placeholder="html code" class="form-control" /></td>';
+	html += '  <td class="text-right"><label><input type="checkbox" name="product_videos[' + video_row + '][status]" value="1" checked="checked" /></label></td>';
+	html += '  <td class="text-right"><input type="text" name="product_videos[' + video_row + '][sort]" value="" placeholder="<?php echo $entry_sort_order; ?>" class="form-control" /></td>';
+	html += '  <td class="text-left"><button type="button" onclick="$(\'#image-row' + video_row  + '\').remove();" data-toggle="tooltip" title="<?php echo $button_remove; ?>" class="btn btn-danger"><i class="fa fa-minus-circle"></i></button></td>';
+	html += '</tr>';
+
+	$('#video tbody').append(html);
+
+	video_row++;
 }
 //--></script>
   <script type="text/javascript"><!--

@@ -175,6 +175,7 @@ class ControllerCatalogManufacturer extends Controller {
 			$data['manufacturers'][] = array(
 				'manufacturer_id' => $result['manufacturer_id'],
 				'name'            => $result['name'],
+				'enable'            => $result['enable'],
 				'sort_order'      => $result['sort_order'],
 				'edit'            => $this->url->link('catalog/manufacturer/edit', 'token=' . $this->session->data['token'] . '&manufacturer_id=' . $result['manufacturer_id'] . $url, 'SSL')
 			);
@@ -259,6 +260,13 @@ class ControllerCatalogManufacturer extends Controller {
 		$this->response->setOutput($this->load->view('catalog/manufacturer_list.tpl', $data));
 	}
 
+	public function setstatus(){
+		
+		$this->load->model('catalog/manufacturer');
+		
+		$this->model_catalog_manufacturer->editManufacturerStatus($this->request->get['manufacturer_id'],$this->request->get['status']);
+	}
+	
 	protected function getForm() {
 		$data['heading_title'] = $this->language->get('heading_title');
 
@@ -404,36 +412,18 @@ class ControllerCatalogManufacturer extends Controller {
 			$data['image'] = '';
 		}
 
-		if (!empty($manufacturer_info)) {
-			$data['title_h1'] = $manufacturer_info['title_h1'];
-		} else {
-			$data['title_h1'] = '';
-		}
+		
+		$this->load->model('localisation/language');
 
+		$data['languages'] = $this->model_localisation_language->getLanguages();
+	
 		if (!empty($manufacturer_info)) {
 			$data['description'] = $manufacturer_info['description'];
 		} else {
 			$data['description'] = '';
 		}
 
-		if (!empty($manufacturer_info)) {
-			$data['meta_title'] = $manufacturer_info['meta_title'];
-		} else {
-			$data['meta_title'] = '';
-		}
-
-		if (!empty($manufacturer_info)) {
-			$data['meta_description'] = $manufacturer_info['meta_description'];
-		} else {
-			$data['meta_description'] = '';
-		}
-
-		if (!empty($manufacturer_info)) {
-			$data['meta_keyword'] = $manufacturer_info['meta_keyword'];
-		} else {
-			$data['meta_keyword'] = '';
-		}
-
+	
 		if (!empty($manufacturer_info)) {
 			$data['name_sush'] = $manufacturer_info['name_sush'];
 		} else {

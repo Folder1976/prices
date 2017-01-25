@@ -3,7 +3,11 @@ class ModelCatalogManufacturer extends Model {
 	public function addManufacturer($data) {
 		$this->event->trigger('pre.admin.manufacturer.add', $data);
 
+		$manufacturer_id = '';
+		if(isset($data['manufacturer_id']) AND (int)$data['manufacturer_id'] > 0) $manufacturer_id = (int)$data['manufacturer_id'];
+		
 		$this->db->query("INSERT INTO " . DB_PREFIX . "manufacturer SET
+						 manufacturer_id = '".$manufacturer_id."',
 						 name = '" . $this->db->escape($data['name']) . "',
 						 code = '" . $this->db->escape($data['code']) . "',
 						 name_sush = '" . $this->db->escape($data['name_sush']) . "',
@@ -27,14 +31,17 @@ class ModelCatalogManufacturer extends Model {
 		$this->db->query("DELETE FROM " . DB_PREFIX . "manufacturer_description WHERE manufacturer_id = '" . (int)$manufacturer_id . "'");
 
 		if (isset($data['manufacturer_description'])) {
-			$this->db->query("INSERT INTO " . DB_PREFIX . "manufacturer_description SET
+			foreach ($data['manufacturer_description'] as $language_id => $value) {
+				$this->db->query("INSERT INTO " . DB_PREFIX . "manufacturer_description SET
 								manufacturer_id = '" . (int)$manufacturer_id . "',
-								title_h1 = '" . $this->db->escape($data['manufacturer_description']['title_h1']) . "',
-								description = '" . $this->db->escape($data['manufacturer_description']['description']) . "',
-								meta_title = '" . $this->db->escape($data['manufacturer_description']['meta_title']) . "',
-								meta_description = '" . $this->db->escape($data['manufacturer_description']['meta_description']) . "',
-								meta_keyword = '" . $this->db->escape($data['manufacturer_description']['meta_keyword']) . "'
+								language_id = '".$language_id."',
+								title_h1 = '" . $this->db->escape($value['title_h1']) . "',
+								description = '" . $this->db->escape($value['description']) . "',
+								meta_title = '" . $this->db->escape($value['meta_title']) . "',
+								meta_description = '" . $this->db->escape($value['meta_description']) . "',
+								meta_keyword = '" . $this->db->escape($value['meta_keyword']) . "'
 								");
+			}
 		}
 
 		if (isset($data['keyword'])) {
@@ -48,6 +55,16 @@ class ModelCatalogManufacturer extends Model {
 		return $manufacturer_id;
 	}
 
+	public function editManufacturerStatus($manufacturer_id, $status) {
+		
+		$sql = "UPDATE " . DB_PREFIX . "manufacturer SET
+							enable = '" . (int)$status . "'
+							WHERE manufacturer_id = '" . (int)$manufacturer_id . "'";
+		
+		$this->db->query($sql);
+		$this->cache->delete('manufacturer');
+	}
+	
 	public function editManufacturer($manufacturer_id, $data) {
 		
 		$this->event->trigger('pre.admin.manufacturer.edit', $data);
@@ -79,14 +96,17 @@ class ModelCatalogManufacturer extends Model {
 		$this->db->query("DELETE FROM " . DB_PREFIX . "manufacturer_description WHERE manufacturer_id = '" . (int)$manufacturer_id . "'");
 
 		if (isset($data['manufacturer_description'])) {
-			$this->db->query("INSERT INTO " . DB_PREFIX . "manufacturer_description SET
+			foreach ($data['manufacturer_description'] as $language_id => $value) {
+				$this->db->query("INSERT INTO " . DB_PREFIX . "manufacturer_description SET
 								manufacturer_id = '" . (int)$manufacturer_id . "',
-								title_h1 = '" . $this->db->escape($data['manufacturer_description']['title_h1']) . "',
-								description = '" . $this->db->escape($data['manufacturer_description']['description']) . "',
-								meta_title = '" . $this->db->escape($data['manufacturer_description']['meta_title']) . "',
-								meta_description = '" . $this->db->escape($data['manufacturer_description']['meta_description']) . "',
-								meta_keyword = '" . $this->db->escape($data['manufacturer_description']['meta_keyword']) . "'
+								language_id = '".$language_id."',
+								title_h1 = '" . $this->db->escape($value['title_h1']) . "',
+								description = '" . $this->db->escape($value['description']) . "',
+								meta_title = '" . $this->db->escape($value['meta_title']) . "',
+								meta_description = '" . $this->db->escape($value['meta_description']) . "',
+								meta_keyword = '" . $this->db->escape($value['meta_keyword']) . "'
 								");
+			}
 		}
 
 		$this->db->query("DELETE FROM " . DB_PREFIX . "url_alias WHERE query = 'manufacturer_id=" . (int)$manufacturer_id . "'");
@@ -121,15 +141,23 @@ class ModelCatalogManufacturer extends Model {
 		
 		$query1 = $this->db->query("SELECT *
 									FROM " . DB_PREFIX . "manufacturer_description
-									WHERE manufacturer_id = '" . (int)$manufacturer_id . "' LIMIT 0, 1");
+									WHERE manufacturer_id = '" . (int)$manufacturer_id . "'");
 		
 		$return = $query->row;
+		
+		$return['name'] = html_entity_decode($return['name'], ENT_QUOTES, 'UTF-8');
+		$return['code'] = html_entity_decode($return['code'], ENT_QUOTES, 'UTF-8');
+		
 		if($query1->num_rows){
-			$return['title_h1'] = $query1->row['title_h1'];
-			$return['meta_title'] = $query1->row['meta_title'];
-			$return['meta_keyword'] = $query1->row['meta_keyword'];
-			$return['meta_description'] = $query1->row['meta_description'];
-			$return['description'] = $query1->row['description'];
+			foreach($query1->rows as $row){
+				$return['description'][$row['language_id']]['name'] = ($row['name'] != '') ? $row['name'] : $query->row['name'];
+				$return['description'][$row['language_id']]['name'] = html_entity_decode($return['description'][$row['language_id']]['name'], ENT_QUOTES, 'UTF-8');
+				$return['description'][$row['language_id']]['title_h1'] = html_entity_decode($row['title_h1'], ENT_QUOTES, 'UTF-8');
+				$return['description'][$row['language_id']]['meta_title'] = html_entity_decode($row['meta_title'], ENT_QUOTES, 'UTF-8');
+				$return['description'][$row['language_id']]['meta_keyword'] = html_entity_decode($row['meta_keyword'], ENT_QUOTES, 'UTF-8');
+				$return['description'][$row['language_id']]['meta_description'] = html_entity_decode($row['meta_description'], ENT_QUOTES, 'UTF-8');
+				$return['description'][$row['language_id']]['description'] = html_entity_decode($row['description'], ENT_QUOTES, 'UTF-8');
+			}
 		}else{
 			$return['title_h1'] = '';
 			$return['name'] = '';
@@ -180,7 +208,15 @@ class ModelCatalogManufacturer extends Model {
 
 		$query = $this->db->query($sql);
 
-		return $query->rows;
+		$return = array();
+		foreach($query->rows as $row){
+			
+			$return[$row['manufacturer_id']] = $row;
+			$return[$row['manufacturer_id']]['name'] = html_entity_decode($row['name'], ENT_QUOTES, 'UTF-8');
+			
+		}
+		
+		return $return;
 	}
 
 	public function getManufacturerStores($manufacturer_id) {

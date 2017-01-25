@@ -1402,7 +1402,8 @@ class ControllerCatalogProduct extends Controller {
 		} else {
 			$product_images = array();
 		}
-
+		
+		//Images
 		$data['product_images'] = array();
 
 		foreach ($product_images as $product_image) {
@@ -1420,6 +1421,17 @@ class ControllerCatalogProduct extends Controller {
 				'sort_order' => $product_image['sort_order']
 			);
 		}
+
+		//Videos
+		if (isset($this->request->post['product_videos'])) {
+			$product_videos = $this->request->post['product_videos'];
+		} elseif (isset($this->request->get['product_id'])) {
+			$product_videos = $this->model_catalog_product->getProductVideos($this->request->get['product_id']);
+		} else {
+			$product_videos = array();
+		}
+	
+		$data['product_videos'] = $product_videos;
 
 		// Downloads
 		$this->load->model('catalog/download');

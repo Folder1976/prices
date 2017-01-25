@@ -150,6 +150,21 @@ class ModelCatalogProduct extends Model {
 			}
 		}
 
+		
+		if (isset($data['product_videos'])) {
+			foreach ($data['product_videos'] as $product_video) {
+				
+				if(!isset($product_video['status'])) $product_video['status'] = 0;
+				
+				$this->db->query("INSERT INTO " . DB_PREFIX . "product_videos SET
+								 product_id = '" . (int)$product_id . "',
+								 status = '" . (int)$product_video['status'] . "',
+								 video = '" . $this->db->escape($product_video['video']) . "',
+								 sort = '" . (int)$product_video['sort'] . "'");
+			}
+		}
+
+		
 		if (isset($data['product_download'])) {
 			foreach ($data['product_download'] as $download_id) {
 				$this->db->query("INSERT INTO " . DB_PREFIX . "product_to_download SET product_id = '" . (int)$product_id . "', download_id = '" . (int)$download_id . "'");
@@ -424,6 +439,22 @@ class ModelCatalogProduct extends Model {
 			}
 		}
 
+		$this->db->query("DELETE FROM " . DB_PREFIX . "product_videos WHERE product_id = '" . (int)$product_id . "'");
+
+			
+		if (isset($data['product_videos'])) {
+			foreach ($data['product_videos'] as $product_video) {
+				
+				if(!isset($product_video['status'])) $product_video['status'] = 0;
+				
+				$this->db->query("INSERT INTO " . DB_PREFIX . "product_videos SET
+								 product_id = '" . (int)$product_id . "',
+								 status = '" . (int)$product_video['status'] . "',
+								 video = '" . $this->db->escape($product_video['video']) . "',
+								 sort = '" . (int)$product_video['sort'] . "'");
+			}
+		}
+
 		$this->db->query("DELETE FROM " . DB_PREFIX . "product_to_download WHERE product_id = '" . (int)$product_id . "'");
 
 		if (isset($data['product_download'])) {
@@ -555,6 +586,7 @@ class ModelCatalogProduct extends Model {
 		$this->db->query("DELETE FROM " . DB_PREFIX . "product_discount WHERE product_id = '" . (int)$product_id . "'");
 		$this->db->query("DELETE FROM " . DB_PREFIX . "product_filter WHERE product_id = '" . (int)$product_id . "'");
 		$this->db->query("DELETE FROM " . DB_PREFIX . "product_image WHERE product_id = '" . (int)$product_id . "'");
+		$this->db->query("DELETE FROM " . DB_PREFIX . "product_videos WHERE product_id = '" . (int)$product_id . "'");
 		$this->db->query("DELETE FROM " . DB_PREFIX . "product_option WHERE product_id = '" . (int)$product_id . "'");
 		$this->db->query("DELETE FROM " . DB_PREFIX . "product_option_value WHERE product_id = '" . (int)$product_id . "'");
 		$this->db->query("DELETE FROM " . DB_PREFIX . "product_related WHERE product_id = '" . (int)$product_id . "'");
@@ -813,6 +845,12 @@ class ModelCatalogProduct extends Model {
 
 	public function getProductImages($product_id) {
 		$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "product_image WHERE product_id = '" . (int)$product_id . "' ORDER BY sort_order ASC");
+
+		return $query->rows;
+	}
+
+	public function getProductVideos($product_id) {
+		$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "product_videos WHERE product_id = '" . (int)$product_id . "' ORDER BY sort ASC");
 
 		return $query->rows;
 	}
