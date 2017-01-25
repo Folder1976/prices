@@ -10,7 +10,7 @@ if(strpos($_SERVER['PHP_SELF'], $file[count($file)-1]) !== false){
 
 set_time_limit(0);
 ini_set("max_execution_time","0");
-ini_set("memory_limit","256G");
+ini_set("memory_limit","-1");
 error_reporting(E_ALL ^ E_DEPRECATED);
 
 	include_once('class/alias.class.php');

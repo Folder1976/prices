@@ -8,8 +8,6 @@ $text_popular_products = 'Самые просматриваемые товары
 
 
 //echo "<pre>";  print_r(var_dump( get_defined_vars() )); echo "</pre>";
-//echo "<pre>";  print_r(var_dump( $main_page_products )); echo "</pre>";
-//echo "<pre>";  print_r(var_dump( $main_product_sorted_by_categs )); echo "</pre>";
 
 
 
@@ -97,7 +95,7 @@ $text_popular_products = 'Самые просматриваемые товары
 
 
           <!-- Популярные за день -->
-          <?php if ( isset($last_viewed_products_day) ) { ?>
+          <?php if ( isset($last_viewed_products_day) && count($last_viewed_products_day) > 0 ) { ?>
           <div class="g-row">
             <div class="b-block-product b-block-product_popular">
               <div class="b-block-product__title">
@@ -121,7 +119,7 @@ $text_popular_products = 'Самые просматриваемые товары
           <?php } ?>
 
           <!-- Популярные за неделю -->
-          <?php if ( isset($last_viewed_products_week) ) { ?>
+          <?php if ( isset($last_viewed_products_week) && count($last_viewed_products_week) > 0 ) { ?>
           <div class="g-row">
             <div class="b-block-product b-block-product_popular">
               <div class="b-block-product__title">
@@ -145,7 +143,7 @@ $text_popular_products = 'Самые просматриваемые товары
           <?php } ?>
 
           <!-- Популярные за месяц -->
-          <?php if ( isset($last_viewed_products_month) ) { ?>
+          <?php if ( isset($last_viewed_products_month) && count($last_viewed_products_month) > 0 ) { ?>
           <div class="g-row">
             <div class="b-block-product b-block-product_popular">
               <div class="b-block-product__title">
@@ -171,75 +169,27 @@ $text_popular_products = 'Самые просматриваемые товары
 
 
 
+          <?php if ( isset($main_page_categories) && count($main_page_categories) > 0 ) { ?>
           <div class="g-row">
             <div class="b-block-category">
               <div class="b-block-category__title">
                 <span>По категориям</span>
               </div>
               <ul>
+                <?php foreach ($main_page_categories as $cat) { ?>
                 <li>
                   <div class="b-block-category__img">
-                    <span class="ic-apple"></span>
+                    <img src="/image/<?php echo $cat['image']; ?>" alt="<?php echo $cat['name']; ?>">
                   </div>
-                  <a href="category.html">Apple</a>
+                  <a href="/<?php echo $cat['keyword']; ?>"><?php echo $cat['name']; ?></a>
                 </li>
-                <li>
-                  <div class="b-block-category__img">
-                    <span class="ic-auto"></span>
-                  </div>
-                  <a href="category.html">Auto</a>
-                </li>
-                <li>
-                  <div class="b-block-category__img">
-                    <span class="ic-bags"></span>
-                  </div>
-                  <a href="category.html">Bags & Luggage</a>
-                </li>
-                <li>
-                  <div class="b-block-category__img">
-                    <span class="ic-boolks"></span>
-                  </div>
-                  <a href="category.html">Boolks & Magazines</a>
-                </li>
-                <li>
-                  <div class="b-block-category__img">
-                    <span class="ic-children"></span>
-                  </div>
-                  <a href="category.html">Children</a>
-                </li>
-                <li>
-                  <div class="b-block-category__img">
-                    <span class="ic-entertainment"></span>
-                  </div>
-                  <a href="category.html">Entertainment</a>
-                </li>
-                <li>
-                  <div class="b-block-category__img">
-                    <span class="ic-finance"></span>
-                  </div>
-                  <a href="category.html">Finance</a>
-                </li>
-                <li>
-                  <div class="b-block-category__img">
-                    <span class="ic-flowers"></span>
-                  </div>
-                  <a href="category.html">Flowers & Gifts</a>
-                </li>
-                <li>
-                  <div class="b-block-category__img">
-                    <span class="ic-freebies"></span>
-                  </div>
-                  <a href="category.html">Freebies</a>
-                </li>
-                <li>
-                  <div class="b-block-category__img">
-                    <span class="ic-freebies2"></span>
-                  </div>
-                  <a href="category.html">Freebies</a>
-                </li>
+                <?php } ?>
               </ul>
             </div>
           </div>  <!-- end g-row -->
+          <?php } ?>
+
+
 
           <div class="g-row">
             <div class="b-block-product b-block-product_tabs">
