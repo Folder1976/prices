@@ -819,6 +819,36 @@ class ModelCatalogProduct extends Model {
 		return $product_data;
 		
 	}
+	public function getCategoryPageProducts($category_id) {
+		
+		$rows = $this->getTotalProductIds(array(
+													'filter_category_id' 	=> $category_id,
+													'filter_sub_category' 	=> true
+													)
+												 );
+		
+		if(count($rows) == 0) return array();
+		
+		$product_ids = array();
+		foreach($rows as $row){
+			$product_ids[] = $row['product_id'];
+		}
+		
+		$sql = "SELECT DISTINCT product_id FROM " . DB_PREFIX . "product
+											WHERE on_main_category = '1' AND
+											product_id IN (".implode(',', $product_ids).");";
+		
+		$query = $this->db->query($sql);
+
+		$product_data = array();
+		
+		foreach ($query->rows as $result) {
+			$product_data[$result['product_id']] = $this->getProduct($result['product_id']);
+		}
+
+		return $product_data;
+		
+	}
 	
 	public function getProductSpecials($data = array()) {
 		

@@ -1032,6 +1032,32 @@ class ControllerProductCategory extends Controller {
 			}
 
 			
+			//Получим 20 самых просматриваемых
+			$filter_data = array(
+					'filter_category_id' 	=> $category_id,
+					'filter_sub_category' 	=> true,
+					'sort'               	=> 'p.count_view DESC',
+					'order'              	=> '',
+					'start'              	=> 0,
+					'limit'              	=> 20
+				);
+		
+			$data['popular_products'] = $this->model_catalog_product->getProducts($filter_data);
+			
+			$filter_data['sort']	= 'count(pv.date) DESC';
+			$filter_data['lastviewed']	= true;
+			$filter_data['lastviewed_where']	= ' AND pv.date > "'.date('Y-m-d H:i:s', strtotime('-24 hour')).'"';
+			$data['last_viewed_products_day'] = $this->model_catalog_product->getProducts($filter_data);
+			
+			$filter_data['lastviewed_where'] = ' AND pv.date > "'.date('Y-m-d H:i:s', strtotime('-1 week')).'"';
+			$data['last_viewed_products_week'] = $this->model_catalog_product->getProducts($filter_data);
+			
+			$filter_data['lastviewed_where'] = ' AND pv.date > "'.date('Y-m-d H:i:s', strtotime('-1 month')).'"';
+			$data['last_viewed_products_month'] = $this->model_catalog_product->getProducts($filter_data);
+	
+			$data['main_page_products'] = $this->model_catalog_product->getCategoryPageProducts($category_id);
+			
+				
 			$data['sorts'][] = array(
 				'text'  => $this->language->get('text_default'),
 				'value' => 'p.sort_order-ASC',

@@ -27,6 +27,7 @@ class ModelCatalogProduct extends Model {
 									location = '" . $this->db->escape($data['location']) . "',
 									quantity = '" . (int)$data['quantity'] . "',
 									on_main_page = '" . (int)$data['on_main_page'] . "',
+									on_main_category = '" . (int)$data['on_main_category'] . "',
 									garant = '" . (int)$data['garant'] . "',
 									minimum = '" . (int)$data['minimum'] . "',
 									subtract = '" . (int)$data['subtract'] . "',
@@ -297,6 +298,7 @@ class ModelCatalogProduct extends Model {
 								manufacturer_id = '" . (int)$data['manufacturer_id'] . "',
 								shipping = '" . (int)$data['shipping'] . "',
 								on_main_page = '" . (int)$data['on_main_page'] . "',
+								on_main_category = '" . (int)$data['on_main_category'] . "',
 								zakup = '" . (float)$data['zakup'] . "',
 								price = '" . (float)$data['price'] . "',
 								points = '" . 1/*(int)$data['points']*/ . "',
@@ -608,7 +610,7 @@ class ModelCatalogProduct extends Model {
 	}
 
 	public function getProduct($product_id) {
-		$query = $this->db->query("SELECT DISTINCT *, p.code AS keyword, p.on_main_page
+		$query = $this->db->query("SELECT DISTINCT *, p.code AS keyword, p.on_main_page, p.on_main_category
 								  
 								  /*(SELECT keyword FROM " . DB_PREFIX . "url_alias WHERE query = 'product_id=" . (int)$product_id . "') AS keyword*/
 								  

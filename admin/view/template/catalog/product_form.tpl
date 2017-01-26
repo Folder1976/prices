@@ -380,6 +380,17 @@
                 </div>
               </div>
               
+             <div class="form-group">
+                <label class="col-sm-2 control-label" for="input-on_main_category">Этот товар на главную в своей категории</label>
+                <div class="col-sm-10">
+                  <?php if (isset($on_main_category) AND $on_main_category == 1) { ?>
+                    <input type="checkbox" name="on_main_category" checked="checked" />
+                  <?php } else { ?>
+                    <input type="checkbox" name="on_main_category"/>
+                  <?php } ?>
+                </div>
+              </div>
+              
               <div class="form-group">
                 <label class="col-sm-2 control-label" for="input-manufacturer"><span data-toggle="tooltip" title="<?php echo $help_manufacturer; ?>"><?php echo $entry_manufacturer; ?></span></label>
                 <div class="col-sm-10">

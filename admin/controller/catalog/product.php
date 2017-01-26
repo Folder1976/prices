@@ -33,6 +33,12 @@ class ControllerCatalogProduct extends Controller {
 			}else{
 				$this->request->post['on_main_page'] = 0;
 			}
+			
+			if(isset($this->request->post['on_main_category'])){
+				$this->request->post['on_main_category'] = 1;
+			}else{
+				$this->request->post['on_main_category'] = 0;
+			}
 		
 			
 			$product_id = $this->model_catalog_product->addProduct($this->request->post);
@@ -142,6 +148,12 @@ class ControllerCatalogProduct extends Controller {
 				$this->request->post['on_main_page'] = 1;
 			}else{
 				$this->request->post['on_main_page'] = 0;
+			}
+	
+			if(isset($this->request->post['on_main_category'])){
+				$this->request->post['on_main_category'] = 1;
+			}else{
+				$this->request->post['on_main_category'] = 0;
 			}
 	
 			
@@ -893,6 +905,14 @@ class ControllerCatalogProduct extends Controller {
 			$data['on_main_page'] = $product_info['on_main_page'];
 		} else {
 			$data['on_main_page'] = 0;
+		}
+
+		if (isset($this->request->post['on_main_category'])) {
+			$data['on_main_category'] = $this->request->post['on_main_category'];
+		} elseif (!empty($product_info)) {
+			$data['on_main_category'] = $product_info['on_main_category'];
+		} else {
+			$data['on_main_category'] = 0;
 		}
 
 
