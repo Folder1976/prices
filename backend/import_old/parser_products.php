@@ -1115,7 +1115,8 @@ if(isset($_POST['importlist'])){
 
                         if(isset($_POST['addautomate']) && $mymenuid>0){
 
-							if($_POST['selectmenues'][$mymenuid]){
+							//if($_POST['selectmenues'][$mymenuid]){
+							if($mymenuid){
 
 								$mysqli->query("insert into ".DB_PREFIX."product SET
 												moderation_id = 0,
@@ -1126,19 +1127,21 @@ if(isset($_POST['importlist'])){
 												date_added = '$dater',
 												manufacturer_id = $mybrendid");
 								
-								$pid=queryresult("select product_id from ".DB_PREFIX."product order by product_id desc limit 0,1",'product_id');
+								$pid = $mysqli->insert_id;
+								//$pid=queryresult("select product_id from ".DB_PREFIX."product order by product_id desc limit 0,1",'product_id');
 								
-								$mysqli->query("insert into ".DB_PREFIX."product_description SET product_id = $pid, name = $name, description = '".$xmlProp."', language_id = 1");
-								$mysqli->query("insert into ".DB_PREFIX."product_description SET product_id = $pid, name = $name, description = '".$xmlProp."', language_id = 2");
-								$mysqli->query("insert into ".DB_PREFIX."product_description SET product_id = $pid, name = $name, description = '".$xmlProp."', language_id = 3");
+								$mysqli->query("insert into ".DB_PREFIX."product_description SET product_id = $pid, name = '$name', description = '".$xmlProp."', language_id = 1") or die('1');
+								$mysqli->query("insert into ".DB_PREFIX."product_description SET product_id = $pid, name = '$name', description = '".$xmlProp."', language_id = 3") or die('2');
+								$mysqli->query("insert into ".DB_PREFIX."product_description SET product_id = $pid, name = '$name', description = '".$xmlProp."', language_id = 4") or die('3');
 												
 								$mysqli->query("insert into ".DB_PREFIX."product_to_category SET product_id = $pid, is_main = 1, category_id = $mymenuid");
 								$mysqli->query("insert into ".DB_PREFIX."product_to_layout SET product_id = $pid, store_id = 0, layout_id = 0");
 								$mysqli->query("insert into ".DB_PREFIX."product_to_shop SET product_id = $pid, shop_id = '".number_format($conect[5],2,',','')."'");
 								$mysqli->query("insert into ".DB_PREFIX."product_to_store SET product_id = $pid, store_id = '0'");
+								$mysqli->query("insert into ".DB_PREFIX."url_alias SET `query` = 'product_id=$pid', keyword = '$name'");
 								$mysqli->query("insert into ".DB_PREFIX."product_prices SET productid = $pid, garant = '".ltrim(rtrim($list[$i][$conect[2]]))."', price = $price, magazinid = '".number_format($conect[5],2,',','')."',dater=curdate()");
 												
-							
+						//die();	
 
 							}
 
@@ -1175,7 +1178,8 @@ if(isset($_POST['importlist'])){
 						
 
 							//Обновление характеристик
-							$productRes=queryresult("select PD.product_id, P2C.category_id, PD.description from ".DB_PREFIX."product_description PD
+							/*
+							$productRes=queryresults("select PD.product_id, P2C.category_id, PD.description from ".DB_PREFIX."product_description PD
 																		LEFY JOIN ".DB_PREFIX."product_to_category P2C ON P2C.product_id = PD.product_id AND is_main = '1'
 																		LEFY JOIN ".DB_PREFIX."product_description PD ON PD.product_id = P.product_id
 																		LEFY JOIN ".DB_PREFIX."product_to_shop P2S ON P2S.product_id = P.product_id
@@ -1191,7 +1195,7 @@ if(isset($_POST['importlist'])){
 										//mysql_query("UPDATE ".DB_PREFIX."product SET menuid1='0', wmotmenuid='$mymenuid' where product_id=$pid");
 									}
 
-							}
+							}*/
 
 						}
 

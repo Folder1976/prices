@@ -1055,7 +1055,7 @@ class ControllerProductCategory extends Controller {
 			$filter_data['lastviewed_where'] = ' AND pv.date > "'.date('Y-m-d H:i:s', strtotime('-1 month')).'"';
 			$data['last_viewed_products_month'] = $this->model_catalog_product->getProducts($filter_data);
 	
-			$data['main_page_products'] = $this->model_catalog_product->getCategoryPageProducts($category_id);
+			$data['category_page_products'] = $this->model_catalog_product->getCategoryPageProducts($category_id);
 			
 				
 			$data['sorts'][] = array(
