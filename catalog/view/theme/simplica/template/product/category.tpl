@@ -8,6 +8,8 @@ $text_sort = 'Выводить: ';
 //echo "<pre>";  print_r(var_dump( get_defined_vars() )); echo "</pre>";
 //echo "<pre>";  print_r(var_dump( $selected_attributes_alias )); echo "</pre>";
 //echo "<pre>";  print_r(var_dump( $product_attributes )); echo "</pre>";
+//echo "<pre>";  print_r(var_dump( $products  )); echo "</pre>";
+
 ?>
 
 
@@ -270,77 +272,26 @@ $text_sort = 'Выводить: ';
             </div>
           </div>  <!-- end g-row -->
 
+
+          <?php if ( isset($category_page_products) && count($category_page_products) > 0 ) { ?>
           <div class="g-row">
             <div class="b-product-carousel-wrapper">
               <div class="b-product-carousel owl-carousel js-product_owl-carousel">
 
+                <?php foreach ( $category_page_products as $prod) { ?>
                 <div class="b-product-carousel__item">
                   <div class="b-product-carousel__img">
-                    <img src="catalog/view/theme/simplica/img/product/foto3.png" alt="">
+                    <img src="<?php echo $prod['image']; ?>" alt="<?php echo $prod['name']; ?>">
                   </div>
-                  <a href="product.html" class="b-product-carousel__link">Apple MC968 MacBook Air 11"  Dual-Core i5 1.6GHz/2GB</a>
-                  <span class="b-product-carousel__price">$ 39.99</span>
+                  <a href="/<?php echo $language_href; ?><?php echo $prod['href']; ?>" class="b-product-carousel__link"><?php echo $prod['name']; ?></a>
+                  <span class="b-product-carousel__price"><?php echo /*$currencies[$_SESSION ['currency']]['symbol_left'].' '.*/sprintf("%.2f", $prod['price'])/*.' '.$currencies[$_SESSION ['currency']]['symbol_right']*/; ?></span>
                 </div>
-
-                <div class="b-product-carousel__item">
-                  <div class="b-product-carousel__img">
-                    <img src="catalog/view/theme/simplica/img/product/foto3.png" alt="">
-                  </div>
-                  <a href="product.html" class="b-product-carousel__link">Apple MC968 MacBook Air 11"  Dual-Core i5 1.6GHz/2GB</a>
-                  <span class="b-product-carousel__price">$ 39.99</span>
-                </div>
-
-                <div class="b-product-carousel__item">
-                  <div class="b-product-carousel__img">
-                    <img src="catalog/view/theme/simplica/img/product/foto3.png" alt="">
-                  </div>
-                  <a href="product.html" class="b-product-carousel__link">Apple MC968 MacBook Air 11"  Dual-Core i5 1.6GHz/2GB</a>
-                  <span class="b-product-carousel__price">$ 39.99</span>
-                </div>
-
-                <div class="b-product-carousel__item">
-                  <div class="b-product-carousel__img">
-                    <img src="catalog/view/theme/simplica/img/product/foto3.png" alt="">
-                  </div>
-                  <a href="product.html" class="b-product-carousel__link">Apple MC968 MacBook Air 11"  Dual-Core i5 1.6GHz/2GB</a>
-                  <span class="b-product-carousel__price">$ 39.99</span>
-                </div>
-
-                <div class="b-product-carousel__item">
-                  <div class="b-product-carousel__img">
-                    <img src="catalog/view/theme/simplica/img/product/foto3.png" alt="">
-                  </div>
-                  <a href="product.html" class="b-product-carousel__link">Apple MC968 MacBook Air 11"  Dual-Core i5 1.6GHz/2GB</a>
-                  <span class="b-product-carousel__price">$ 39.99</span>
-                </div>
-
-                <div class="b-product-carousel__item">
-                  <div class="b-product-carousel__img">
-                    <img src="catalog/view/theme/simplica/img/product/foto3.png" alt="">
-                  </div>
-                  <a href="product.html" class="b-product-carousel__link">Apple MC968 MacBook Air 11"  Dual-Core i5 1.6GHz/2GB</a>
-                  <span class="b-product-carousel__price">$ 39.99</span>
-                </div>
-
-                <div class="b-product-carousel__item">
-                  <div class="b-product-carousel__img">
-                    <img src="catalog/view/theme/simplica/img/product/foto3.png" alt="">
-                  </div>
-                  <a href="product.html" class="b-product-carousel__link">Apple MC968 MacBook Air 11"  Dual-Core i5 1.6GHz/2GB</a>
-                  <span class="b-product-carousel__price">$ 39.99</span>
-                </div>
-
-                <div class="b-product-carousel__item">
-                  <div class="b-product-carousel__img">
-                    <img src="catalog/view/theme/simplica/img/product/foto3.png" alt="">
-                  </div>
-                  <a href="product.html" class="b-product-carousel__link">Apple MC968 MacBook Air 11"  Dual-Core i5 1.6GHz/2GB</a>
-                  <span class="b-product-carousel__price">$ 39.99</span>
-                </div>
+                <?php } ?>
 
               </div>
             </div>
           </div>  <!-- end g-row -->
+          <?php } ?>
 
           <div class="b-products-container__title">
             <h2>Мобильные телефоны</h2>
@@ -413,13 +364,13 @@ $text_sort = 'Выводить: ';
                       <a href="/<?php echo $language_href; ?><?php echo $product['href']; ?>"><img src="<?php echo $product['thumb']; ?>" alt="<?php echo $product['name']; ?>"></a>
                     </div>
                     <div class="b-prod__brand-img">
-                      <img src="catalog/view/theme/simplica/img/brands/apple.png" alt="<?php echo $product['name']; ?>">
+                      <img src="/image/<?php if ( $product['manufacturer_image'] != NULL ) { echo $product['manufacturer_image']; }else{ echo 'no_image.png';} ?>" alt="<?php echo $product['name']; ?>">
                     </div>
                     <div class="b-prod__links">
                       <ul>
                         <li><a href="/<?php echo $language_href; ?><?php echo $product['href']; ?>"><span class="ic-prod_more"></span>Подробнее</a></li>
-                        <li><a href="/<?php echo $language_href; ?><?php echo $product['href']; ?>"><span class="ic-prod_photos"></span>Все фото (5)</a></li>
-                        <li><a href="/<?php echo $language_href; ?><?php echo $product['href']; ?>"><span class="ic-prod_video"></span>Все видео (1)</a></li>
+                        <li><a href="/<?php echo $language_href; ?><?php echo $product['href']; ?>"><span class="ic-prod_photos"></span>Все фото (<?php if ( !isset($product['images']) ) { echo 0; } else { echo count($product['images']); } ?>)</a></li>
+                        <li><a href="/<?php echo $language_href; ?><?php echo $product['href']; ?>"><span class="ic-prod_video"></span>Все видео (<?php echo count($product['videos']); ?>)</a></li>
                       </ul>
                       <div class="b-prod__color">
                         <span style="background: #474747;"></span>
