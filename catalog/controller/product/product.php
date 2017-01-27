@@ -517,6 +517,8 @@ class ControllerProductProduct extends Controller {
 				
 			}
 
+			$data['videos'] = $product_info['videos'];
+			
 			if ($product_info['minimum']) {
 				$data['minimum'] = $product_info['minimum'];
 			} else {

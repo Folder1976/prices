@@ -1,3 +1,4 @@
+<div class="main_wrapper">
 <title>Адреса магазинов</title>
 <?php
 $file = explode('/', __FILE__);
@@ -59,7 +60,7 @@ if(strpos($_SERVER['PHP_SELF'], $file[count($file)-1]) !== false){
 				
 			
 ?>
-		<table>
+		<table style="margin-top:20px;">
 				<tr>
 						<th rowspan="2">id</th>
 						<th rowspan="2">Актив.</th>
@@ -141,28 +142,36 @@ if(strpos($_SERVER['PHP_SELF'], $file[count($file)-1]) !== false){
 				
 		<?php } ?>
 		</table>
-		
+</div>		
 		   <script>
 		//Определение координат
 		$(document).on('click', '.setcoordinate', function(){
 				var elem = $(this);
 				var target = elem.parent('td').parent('tr').attr('id');
-				var google = $('#google'+target).val();
+				var address = $('#google'+target).val();
+				
+				//console.log("id="+target+"&google="+google+"&key=get_coordiname");
 				
 				$.ajax({
-						type: "GET",
-						url: "ajax/ajax_save_address.php",
-						dataType: "json",
-						data: "id="+target+"&google="+google+"&key=get_coordiname",
-						beforeSend: function(){
-						},
-						success: function(msg){
-							console.log( msg );
-							$('#lat'+target).val(msg.lat[0]);
-							$('#lng'+target).val(msg.lng[0]);
-							
-						}
+					url: 'http://maps.googleapis.com/maps/api/geocode/json',
+					data: {
+						sensor: false,
+						address: address
+					},
+					dataType:'json',
+					success: function (data) {
+						
+						//console.log(data);
+						//console.log(data['results']['0']['geometry']['location']['lat']);
+						
+						$('#lat'+target).val(data['results']['0']['geometry']['location']['lat']);
+						$('#lng'+target).val(data['results']['0']['geometry']['location']['lng']);
+						
+						$('#lat'+target).trigger('change');
+					}
 				});
+	
+	
 				
 		});
 		
@@ -172,37 +181,40 @@ if(strpos($_SERVER['PHP_SELF'], $file[count($file)-1]) !== false){
         var elem = $(this);
         var target = elem.parent('td').parent('tr').attr('id');
         
-        var address = $('#address'+target).val();
-        var google = $('#google'+target).val();
-        var phone = $('#phone'+target).val();
-        var lat = $('#lat'+target).val();
-        var lng = $('#lng'+target).val();
-        var time1 = $('#worktime1'+target).val();
-        var time2 = $('#worktime2'+target).val();
-        var time3 = $('#worktime3'+target).val();
-        var time4 = $('#worktime4'+target).val();
-        var time5 = $('#worktime5'+target).val();
-        var time6 = $('#worktime6'+target).val();
-        var time7 = $('#worktime7'+target).val();
+		var post = "";
+        post = post + "id="+target;
+        post = post + "&address="+$('#address'+target).val();
+        post = post + "&google="+$('#google'+target).val();
+        post = post + "&phone="+$('#phone'+target).val();
+        post = post + "&lat="+$('#lat'+target).val();
+        post = post + "&lng="+$('#lng'+target).val();
+        post = post + "&worktime1="+$('#worktime1'+target).val();
+        post = post + "&worktime2="+$('#worktime2'+target).val();
+        post = post + "&worktime3="+$('#worktime3'+target).val();
+        post = post + "&worktime4="+$('#worktime4'+target).val();
+        post = post + "&worktime5="+$('#worktime5'+target).val();
+        post = post + "&worktime6="+$('#worktime6'+target).val();
+        post = post + "&worktime7="+$('#worktime7'+target).val();
+        post = post + "&mainkey=id";
+        post = post + "&table=shop_address";
         
 		var status = 0;
 		if($('#status'+target).prop('checked') == true){
 				status = 1;	
 		}
-        //console.log("id="+target+"&filter="+filter+"&disable="+disable+"&sort="+sort);
+        post = post + "&status="+status;
+        
+		
+		//console.log("id="+target+"&filter="+filter+"&disable="+disable+"&sort="+sort);
         
         $.ajax({
-            type: "GET",
-            url: "ajax/ajax_save_address.php",
+            type: "POST",
+            url: "/<?php echo TMP_DIR; ?>backend/ajax/ajax_edit_universal.php",
             dataType: "text",
-            data: "id="+target+"&address="+address+"&google="+google+"&status="+status+"&phone="+phone+"&lat="+lat+"&lng="+lng+"&time1="+time1+"&time2="+time2+"&time3="+time3+"&time4="+time4+"&time5="+time5+"&time6="+time6+"&time7="+time7+"&key=edit",
+            data: post+"&key=edit",
             beforeSend: function(){
             },
             success: function(msg){
-                
-                $('.msg').html(msg);
-                $('.msg').show();
-                $('.msg').hide(1000);
                 
                 console.log( msg );
             }
@@ -211,35 +223,43 @@ if(strpos($_SERVER['PHP_SELF'], $file[count($file)-1]) !== false){
     });
         
     $(document).on('click', '#add', function(){
-		var address = $('#address').val();
-        var google = $('#google').val();
-        var phone = $('#phone').val();
-        var lat = $('#lat').val();
-        var lng = $('#lng').val();
-		var time1 = $('#worktime1').val();
-        var time2 = $('#worktime2').val();
-        var time3 = $('#worktime3').val();
-        var time4 = $('#worktime4').val();
-        var time5 = $('#worktime5').val();
-        var time6 = $('#worktime6').val();
-        var time7 = $('#worktime7').val();
-      
+		
+		var post = "";
+        post = post + "shop_id=<?php echo $_GET['shop_id']; ?>";
+        post = post + "&address="+$('#address').val();
+        post = post + "&google="+$('#google').val();
+        post = post + "&phone="+$('#phone').val();
+        post = post + "&lat="+$('#lat').val();
+        post = post + "&lng="+$('#lng').val();
+        post = post + "&worktime1="+$('#worktime1').val();
+        post = post + "&worktime2="+$('#worktime2').val();
+        post = post + "&worktime3="+$('#worktime3').val();
+        post = post + "&worktime4="+$('#worktime4').val();
+        post = post + "&worktime5="+$('#worktime5').val();
+        post = post + "&worktime6="+$('#worktime6').val();
+        post = post + "&worktime7="+$('#worktime7').val();
+        post = post + "&mainkey=id";
+        post = post + "&table=shop_address";
+        
 		var status = 0;
 		if($('#status').prop('checked') == true){
 				status = 1;	
 		}
-    			$.ajax({
-					type: "GET",
-					url: "ajax/ajax_save_address.php",
-					dataType: "text",
-				   data: "shop_id=<?php echo $_GET['shop_id']; ?>&address="+address+"&status="+status+"&google="+google+"&phone="+phone+"&lat="+lat+"&lng="+lng+"&time1="+time1+"&time2="+time2+"&time3="+time3+"&time4="+time4+"&time5="+time5+"&time6="+time6+"&time7="+time7+"&key=add",
-				beforeSend: function(){
-					},
-					success: function(msg){
-					    location.reload();
-						console.log( msg );
-					}
-				});
+        post = post + "&status="+status;
+    
+		
+		$.ajax({
+			type: "POST",
+			url: "/<?php echo TMP_DIR; ?>backend/ajax/ajax_edit_universal.php",
+			dataType: "text",
+		   data: post+"&key=add",
+		beforeSend: function(){
+			},
+			success: function(msg){
+				location.reload();
+				console.log( msg );
+			}
+		});
 		
     });
     
@@ -251,9 +271,9 @@ if(strpos($_SERVER['PHP_SELF'], $file[count($file)-1]) !== false){
         
         $.ajax({
             type: "GET",
-            url: "ajax/ajax_save_address.php",
+            url: "/<?php echo TMP_DIR; ?>backend/ajax/ajax_edit_universal.php",
             dataType: "text",
-            data: "id="+target+"&key=dell",
+            data: "id="+id+"&table=shop_address&mainkey=id&key=dell",
             beforeSend: function(){
             },
             success: function(msg){
@@ -278,26 +298,33 @@ if(strpos($_SERVER['PHP_SELF'], $file[count($file)-1]) !== false){
 				 }
 		</style>
 	<style>
- table tr td {
-	border: 1px solid gray;
-	margin: 0;
-	border-spacing: 0;
-	border-collapse: collapse;
-	padding: 10px 5px 10px 5px;
- }
- table tr th {
-	border: 1px solid gray;
-	margin: 0;
-	border-spacing: 0;
-	border-collapse: collapse;
- }
- table {
-	border: 1px solid gray;
-	margin: 0;
-	border-spacing: 0;
-	border-collapse: collapse;
- }
- .product_type:hover {
-	cursor: pointer;
- }
+		.main_wrapper{
+			margin-left: 30px;
+			margin-top: 20px;
+		}
+		table{
+		   margin-left: 30px;
+		}
+		table tr td {
+		   border: 1px solid gray;
+		   margin: 0;
+		   border-spacing: 0;
+		   border-collapse: collapse;
+		   padding: 10px 5px 10px 5px;
+		}
+		table tr th {
+		   border: 1px solid gray;
+		   margin: 0;
+		   border-spacing: 0;
+		   border-collapse: collapse;
+		}
+		table {
+		   border: 1px solid gray;
+		   margin: 0;
+		   border-spacing: 0;
+		   border-collapse: collapse;
+		}
+		.product_type:hover {
+		   cursor: pointer;
+		}
 </style>		   

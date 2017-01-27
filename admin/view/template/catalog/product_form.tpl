@@ -34,7 +34,7 @@
             <!--li><a href="#tab-recurring" data-toggle="tab"><?php echo $tab_recurring; ?></a></li-->
             <li><a href="#tab-discount" data-toggle="tab"><?php echo $tab_discount; ?></a></li>
             <li><a href="#tab-special" data-toggle="tab"><?php echo $tab_special; ?></a></li>
-            <li><a href="#$main_key" data-toggle="tab"><?php echo $tab_image; ?></a></li>
+            <li><a href="#tab-image" data-toggle="tab"><?php echo $tab_image; ?></a></li>
             <li><a href="#tab-video" data-toggle="tab">Видео</a></li>
             <li><a href="#tab-reward" data-toggle="tab"><?php echo $tab_reward; ?></a></li>
             <li><a href="#tab-design" data-toggle="tab"><?php echo $tab_design; ?></a></li>
