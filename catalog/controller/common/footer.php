@@ -149,6 +149,9 @@ class ControllerCommonFooter extends Controller {
 		$this->document->setCategoryMenu($data['categories']);
 		
 		
+		$this->load->model('blog/blog_category');
+		$data['blog_main_categories'] = $this->model_blog_blog_category->getBlogCategories(0);
+
 		$this->load->model('localisation/language');
 		$data['languages'] = $this->model_localisation_language->getLanguages();
 		

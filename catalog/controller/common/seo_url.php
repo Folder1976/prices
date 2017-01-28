@@ -489,7 +489,7 @@ class ControllerCommonSeoUrl extends Controller {
 		//Проверим магазин - Он без фильтров
 		if(isset($this->request->get['_route_'])){
 			
-			$sql = "SELECT id AS shop_id FROM " . DB_PREFIX . "shops WHERE href = '" . $this->db->escape($this->request->get['_route_']) . "' LIMIT 0,1;";
+			$sql = "SELECT id AS shop_id FROM " . DB_PREFIX . "shop WHERE href = '" . $this->db->escape($this->request->get['_route_']) . "' LIMIT 0,1;";
 			$query = $this->db->query($sql);
 		
 			if ($query->num_rows) {

@@ -64,8 +64,8 @@ class ControllerCommonHome extends Controller {
 		$data['last_viewed_products_month'] = $this->model_catalog_product->getProducts($filter_data);
 		
 		//Массив магазинов
-		$this->load->model('catalog/shop');
-		$data['shops'] = $this->model_catalog_shop->getShops();
+		$this->load->model('catalog/shops');
+		$data['shops'] = $this->model_catalog_shops->getShops();
 		
 		//Массив Брендов
 	 	$this->load->model('catalog/manufacturer');

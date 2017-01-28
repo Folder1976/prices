@@ -158,7 +158,9 @@ class ModelBlogBlogCategory extends Model {
 		if (!$blog_category_data) {
 			$blog_category_data = array();
 		
-			$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "blog_category c LEFT JOIN " . DB_PREFIX . "blog_category_description cd ON (c.blog_category_id = cd.blog_category_id) WHERE c.parent_id = '" . (int)$parent_id . "' AND cd.language_id = '" . (int)$this->config->get('config_language_id') . "' ORDER BY c.sort_order, cd.name ASC");
+			$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "blog_category c
+									  LEFT JOIN " . DB_PREFIX . "blog_category_description cd ON (c.blog_category_id = cd.blog_category_id)
+									  WHERE c.blog_category_id > 0 AND c.parent_id = '" . (int)$parent_id . "' AND cd.language_id = '" . (int)$this->config->get('config_language_id') . "' ORDER BY c.sort_order, cd.name ASC");
 		
 			foreach ($query->rows as $result) {
 				$blog_category_data[] = array(
