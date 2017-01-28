@@ -370,7 +370,7 @@ class ModelCatalogProduct extends Model {
 						LEFT JOIN " . DB_PREFIX . "manufacturer m ON (p.manufacturer_id = m.manufacturer_id)
 						LEFT JOIN " . DB_PREFIX . "url_alias ua ON ua.query = CONCAT('manufacturer_id=',m.manufacturer_id)
 						LEFT JOIN " . DB_PREFIX . "product_to_shop p2sh ON (p.product_id = p2sh.product_id)
-						LEFT JOIN " . DB_PREFIX . "shops s ON (s.id = p2sh.shop_id)
+						LEFT JOIN " . DB_PREFIX . "shop s ON (s.id = p2sh.shop_id)
 						LEFT JOIN " . DB_PREFIX . "product_money_limit pml ON (p.product_id = pml.money_product_id)
 						LEFT JOIN " . DB_PREFIX . "product_money_click pclik ON (p.product_id = pclik.click_product_id)
 						

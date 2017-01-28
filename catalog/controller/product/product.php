@@ -18,8 +18,8 @@ class ControllerProductProduct extends Controller {
 		$this->load->model('catalog/product');
 
 		//Массив магазинов
-		$this->load->model('catalog/shop');
-		$data['shops'] = $this->model_catalog_shop->getShops();
+		$this->load->model('catalog/shops');
+		$data['shops'] = $this->model_catalog_shops->getShops();
 		
 		//===========================================================================
 		$url = '';

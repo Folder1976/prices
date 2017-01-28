@@ -421,5 +421,28 @@ $text_sort = 'Выводить: ';
 
     </main>
 
+<script>
+  //Аякс на получение данных по магазину
+  $(document).ready(function() {
+    $.ajax({
+        url: 'index.php?route=product/shops/getShopInfoAjax',
+        type: 'post',
+        data: "shop_id=5",
+        dataType: 'json',
+        beforeSend: function() {
+        	console.log('loading msg');
+        },
+        complete: function() {
+          console.log('reset msg');
+        },
+        success: function(json) {
+            console.log(json);
+		    },
+        error: function(xhr, ajaxOptions, thrownError) {
+            alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+        }
+    });
+});
+</script>
 
 <?php echo $footer; ?>
