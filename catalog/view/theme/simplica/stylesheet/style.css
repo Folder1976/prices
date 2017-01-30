@@ -4228,11 +4228,26 @@ main.b-product .b-brands {
 .b-video__list li {
   overflow: hidden;
   padding-bottom: 14px;
+  position: relative;
 }
-.b-video__list img {
+.b-video__list li:before {
+  content: '';
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  cursor: pointer;
+}
+.b-video__list img, .b-video__list-mini {
   float: left;
   width: 36%;
   max-width: 180px;
+}
+.b-video__list img iframe, .b-video__list-mini iframe {
+  width: 178px;
+  height: 100px;
 }
 .b-video__list-title {
   color: #131313;

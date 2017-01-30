@@ -108,7 +108,7 @@ $text_popular_products = 'Самые просматриваемые товары
                     <div class="b-block-product__img">
                       <img src="/image/<?php if ( $prod['image'] != '' ) { echo $prod['image']; }else{ echo 'no_image.png';} ?>" alt="<?php echo $prod['name']; ?>">
                     </div>
-                    <a href="<?php echo $prod['original_url']; ?>"><?php echo $prod['name']; ?></a>
+                    <a href="<?php echo $prod['href']; ?>"><?php echo $prod['name']; ?></a>
                     <span class="b-block-product__price"><?php echo $currencies[$_SESSION ['currency']]['symbol_left'].' '.sprintf("%.2f", $prod['price']).' '.$currencies[$_SESSION ['currency']]['symbol_right']; ?></span>
                   </li>
                   <?php } ?>
@@ -132,7 +132,7 @@ $text_popular_products = 'Самые просматриваемые товары
                     <div class="b-block-product__img">
                       <img src="/image/<?php if ( $prod['image'] != '' ) { echo $prod['image']; }else{ echo 'no_image.png';} ?>" alt="<?php echo $prod['name']; ?>">
                     </div>
-                    <a href="<?php echo $prod['original_url']; ?>"><?php echo $prod['name']; ?></a>
+                    <a href="<?php echo $prod['href']; ?>"><?php echo $prod['name']; ?></a>
                     <span class="b-block-product__price"><?php echo $currencies[$_SESSION ['currency']]['symbol_left'].' '.sprintf("%.2f", $prod['price']).' '.$currencies[$_SESSION ['currency']]['symbol_right']; ?></span>
                   </li>
                   <?php } ?>
@@ -156,7 +156,7 @@ $text_popular_products = 'Самые просматриваемые товары
                     <div class="b-block-product__img">
                       <img src="/image/<?php if ( $prod['image'] != '' ) { echo $prod['image']; }else{ echo 'no_image.png';} ?>" alt="<?php echo $prod['name']; ?>">
                     </div>
-                    <a href="<?php echo $prod['original_url']; ?>"><?php echo $prod['name']; ?></a>
+                    <a href="<?php echo $prod['href']; ?>"><?php echo $prod['name']; ?></a>
                     <span class="b-block-product__price"><?php echo $currencies[$_SESSION ['currency']]['symbol_left'].' '.sprintf("%.2f", $prod['price']).' '.$currencies[$_SESSION ['currency']]['symbol_right']; ?></span>
                   </li>
                   <?php } ?>

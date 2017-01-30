@@ -6,9 +6,8 @@ $text_sort = 'Выводить: ';
 
     
 //echo "<pre>";  print_r(var_dump( get_defined_vars() )); echo "</pre>";
-//echo "<pre>";  print_r(var_dump( $selected_attributes_alias )); echo "</pre>";
-//echo "<pre>";  print_r(var_dump( $product_attributes )); echo "</pre>";
-//echo "<pre>";  print_r(var_dump( $products  )); echo "</pre>";
+
+
 
 ?>
 
@@ -23,27 +22,20 @@ $text_sort = 'Выводить: ';
       <div class="b-business-card__top">
         <div class="b-business-card__schedule">
           <p><span class="ic-business-card-schedule"></span>График работы</p>
-          <p>ПН - СБ 10:00  20:00</p>
-          <p>ВС 10:00  17:00</p>
+          <p class="js-ajax-worktime"></p>
         </div>
-        <div class="b-business-card__name">
-          Maximum
+        <div class="b-business-card__name js-ajax-shop-name">
         </div>
         <div class="b-business-card__phones">
           <p><span class="ic-business-card-phones"></span>Номера телефона:</p>
-          <p>022-522-190, 022-859-773</p>
-          <p></p>
+          <p class="js-ajax-phone"></p>
         </div>
       </div>
 
       <div class="b-business-card__address">
         <div class="g-span-select b-business-card__address-select js-span-select">
-          <span class="g-span-select__title">бул. Дечебал, 139</span>
-          <ul class="g-span-select__ul g-span-select__hidden">
-            <li class="active" data-value="1">бул. Дечебал, 139</li>
-            <li data-value="2">бул. Дечебал, 140</li>
-            <li data-value="3">бул. Дечебал Дечебал, 141</li>
-            <li data-value="4">бул. Дечебал Дечебал Дечебал, 142</li>
+          <span class="g-span-select__title"></span>
+          <ul class="g-span-select__ul g-span-select__hidden js-ajax-addresses">
           </ul>
         </div>
       </div>
@@ -54,38 +46,13 @@ $text_sort = 'Выводить: ';
 
       <div class="b-business-card__tabs js-business-card__tabs">
         <ul>
-          <li><a href="/<?php echo $_GET['_route_']; ?>#js-business-card_tabs-2">Показать карту</a></li>
-          <li><a href="/<?php echo $_GET['_route_']; ?>#js-business-card_tabs-1">Все филиалы</a></li>
+          <li><a href="<?php echo $_SERVER['REQUEST_URI']; ?>#js-business-card_tabs-2">Показать карту</a></li>
+          <li><a href="<?php echo $_SERVER['REQUEST_URI']; ?>#js-business-card_tabs-1">Все филиалы</a></li>
         </ul>
 
         <!-- Все филиалы -->
         <div id="js-business-card_tabs-1" class="b-business-card_tabs-branches">
-          <ul>
-            <li>
-              <span>R.Moldova, or.Chisinau</span>
-              <span>Str. Kiev, 4</span>
-              <a href="tel:+37322855718">Tel:(+373 22) 855 718</a>
-            </li>
-            <li>
-              <span>R.Moldova, or.Chisinau</span>
-              <span>Bd. Decebal, 61</span>
-              <a href="tel:+37322855718">Tel:(+373 22) 855 719</a>
-            </li>
-            <li>
-              <span>R.Moldova, or.Chisinau</span>
-              <span>Str. Ismail, 84</span>
-              <a href="tel:+37322855718">Tel:(+373 22) 855 720</a>
-            </li>
-            <li>
-              <span>R.Moldova, or.Chisinau</span>
-              <span>Str. Kiev, 4</span>
-              <a href="tel:+37322855718">Tel:(+373 22) 855 718</a>
-            </li>
-            <li>
-              <span>R.Moldova, or.Chisinau</span>
-              <span>Bd. Decebal, 61</span>
-              <a href="tel:+37322855718">Tel:(+373 22) 855 719</a>
-            </li>
+          <ul class="js-ajax-addresses-list">
           </ul>
         </div>
 
@@ -251,7 +218,9 @@ $text_sort = 'Выводить: ';
         </div>  <!-- end g-col-left -->
 
         <div class="g-col-center">
-          <div class="g-row">
+
+
+<!--           <div class="g-row">
             <div class="b-business-card">
               <div class="b-business-card__top">
                 <div class="b-business-card__schedule">
@@ -270,7 +239,7 @@ $text_sort = 'Выводить: ';
                 <span class="ic-phone"></span> <span class="b-business-card__show-number js-open-popup-link" data-mfp-src=".js-popup-business-card">Показать номер</span>
               </div>
             </div>
-          </div>  <!-- end g-row -->
+          </div> -->  <!-- end g-row -->
 
 
           <?php if ( isset($category_page_products) && count($category_page_products) > 0 ) { ?>
@@ -364,7 +333,9 @@ $text_sort = 'Выводить: ';
                       <a href="/<?php echo $language_href; ?><?php echo $product['href']; ?>"><img src="<?php echo $product['thumb']; ?>" alt="<?php echo $product['name']; ?>"></a>
                     </div>
                     <div class="b-prod__brand-img">
-                      <img src="/image/<?php if ( $product['manufacturer_image'] != NULL ) { echo $product['manufacturer_image']; }else{ echo 'no_image.png';} ?>" alt="<?php echo $product['name']; ?>">
+                      <a href="javascript:void(0)" class="js-business-card-href js-open-popup-link" data-shop-id="<?php echo $product['shop_id']; ?>" data-shop-name="<?php echo $product['shop_name']; ?>" data-mfp-src=".js-popup-business-card">
+                        <img src="/image/<?php if ( $product['manufacturer_image'] != NULL ) { echo $product['manufacturer_image']; }else{ echo 'no_image.png';} ?>" alt="<?php echo $product['name']; ?>">
+                      </a>
                     </div>
                     <div class="b-prod__links">
                       <ul>
@@ -422,27 +393,85 @@ $text_sort = 'Выводить: ';
     </main>
 
 <script>
-  //Аякс на получение данных по магазину
-  $(document).ready(function() {
-    $.ajax({
-        url: 'index.php?route=product/shops/getShopInfoAjax',
-        type: 'post',
-        data: "shop_id=5",
-        dataType: 'json',
-        beforeSend: function() {
-        	console.log('loading msg');
-        },
-        complete: function() {
-          console.log('reset msg');
-        },
-        success: function(json) {
-            console.log(json);
-		    },
-        error: function(xhr, ajaxOptions, thrownError) {
-            alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
-        }
-    });
+// визитка магазина
+$('.js-business-card-href').on('click', function(){
+  var shop_id = $(this).data('shop-id');
+  var shop_name = $(this).data('shop-name');
+
+  $.ajax({
+      url: 'index.php?route=product/shops/getShopInfoAjax',
+      type: 'post',
+      data: "shop_id="+shop_id,
+      dataType: 'json',
+      beforeSend: function() {
+        //console.log('loading msg');
+        var loading_msg = 'Загружаю...';
+        $('.js-ajax-phone').html(loading_msg);
+        $('.js-ajax-worktime').html(loading_msg);
+        $('.js-ajax-shop-name').html(loading_msg);
+        $('.js-ajax-addresses').html('<li>'+loading_msg+'</li>');
+        $('.js-ajax-addresses li:first-child').click().click();
+        $('.js-ajax-addresses-list').html('<li>'+loading_msg+'</li>');
+      },
+      complete: function() {
+        console.log('reset msg');
+      },
+      success: function(json) {
+          //console.log(json);
+          $('.js-ajax-phone').html(json['phone']);
+          $('.js-ajax-worktime').html(json['worktime']);
+          $('.js-ajax-shop-name').html(shop_name);
+
+          // список филиалов для select
+          var html = '';
+          $.each(json['addresses'], function(index, value){
+            html = html + '<li>';
+            html= html + value['country_name'] + ', ' + value['city_name'] + ', ' + value['address'];
+            html = html + '</li>';
+          });
+          $('.js-ajax-addresses').html(html);
+          $('.js-ajax-addresses li:first-child').click().click();
+
+          // список филиалов для вкладки "все филиалы"
+          var html = '';
+          $.each(json['addresses'], function(index, value){
+            html = html + '<li>';
+            html = html + '<span>' + value['country_name'] + ', ' + value['city_name'] + '</span>';
+            html = html + '<span>' + value['address'] + '</span>';
+            html = html + '<a href="tel:' + value['phone'] + '">Tel:' + value['phone'] + '</a>';
+            html = html + '</li>';
+          });
+          $('.js-ajax-addresses-list').html(html);
+      },
+      error: function(xhr, ajaxOptions, thrownError) {
+          alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+      }
+  });
 });
+
+
+  //Аякс на получение данных по магазину
+  // $(document).ready(function() {
+  //   $.ajax({
+  //       url: 'index.php?route=product/shops/getShopInfoAjax',
+  //       type: 'post',
+  //       data: "shop_id=5",
+  //       dataType: 'json',
+  //       beforeSend: function() {
+  //       	console.log('loading msg');
+  //       },
+  //       complete: function() {
+  //         console.log('reset msg');
+  //       },
+  //       success: function(json) {
+  //           console.log(json);
+  //           $('.js-ajax-phone').html(json['phone']);
+  //     },
+  //       error: function(xhr, ajaxOptions, thrownError) {
+  //           alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+  //       }
+  //   });
+  // });
 </script>
 
 <?php echo $footer; ?>

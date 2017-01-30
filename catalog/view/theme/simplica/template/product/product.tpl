@@ -1,7 +1,8 @@
 <?php echo $header; ?>
 
 <?php
-//echo "<pre>";  print_r(var_dump( $attribute_groups )); echo "</pre>";
+//echo "<pre>";  print_r(var_dump( get_defined_vars() )); echo "</pre>";
+//echo "<pre>";  print_r(var_dump( $videos )); echo "</pre>";
 ?>
 
 <div class="b-popup b-prod-img-popup js-popup-prod-img mfp-hide">
@@ -42,6 +43,56 @@
   </div>
 </div>
 
+<div class="b-popup b-business-card-popup js-popup-business-card mfp-hide">
+  <div class="b-popup__content">
+    <div class="b-business-card">
+
+      <div class="b-business-card__top">
+        <div class="b-business-card__schedule">
+          <p><span class="ic-business-card-schedule"></span>График работы</p>
+          <p class="js-ajax-worktime"></p>
+        </div>
+        <div class="b-business-card__name js-ajax-shop-name">
+        </div>
+        <div class="b-business-card__phones">
+          <p><span class="ic-business-card-phones"></span>Номера телефона:</p>
+          <p class="js-ajax-phone"></p>
+        </div>
+      </div>
+
+      <div class="b-business-card__address">
+        <div class="g-span-select b-business-card__address-select js-span-select">
+          <span class="g-span-select__title"></span>
+          <ul class="g-span-select__ul g-span-select__hidden js-ajax-addresses">
+          </ul>
+        </div>
+      </div>
+
+      <div class="b-business-card__send-message">
+        <a href="#" class="b-business-card__send-message-btn">Отправить сообщение</a>
+      </div>
+
+      <div class="b-business-card__tabs js-business-card__tabs">
+        <ul>
+          <li><a href="<?php echo $_SERVER['REQUEST_URI']; ?>#js-business-card_tabs-2">Показать карту</a></li>
+          <li><a href="<?php echo $_SERVER['REQUEST_URI']; ?>#js-business-card_tabs-1">Все филиалы</a></li>
+        </ul>
+
+        <!-- Все филиалы -->
+        <div id="js-business-card_tabs-1" class="b-business-card_tabs-branches">
+          <ul class="js-ajax-addresses-list">
+          </ul>
+        </div>
+
+        <!-- Показать карту -->
+        <div id="js-business-card_tabs-2" class="b-business-card_tabs-map">
+          <img src="catalog/view/theme/simplica/img/map.jpg" alt="">
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
 
 
     <main class="b-product">
@@ -218,38 +269,31 @@
           </ul>
         </div>  <!-- end b-prod-other-info -->
 
+        <!-- Видео -->
+        <?php if ( isset($videos) && count($videos) > 0 ) { ?>
         <div class="g-row">
           <div class="b-block-product">
             <div class="b-block-product__title">
               <span>Видео</span>
             </div>
             <div class="b-block-product__content">
-              <div class="b-video__main">
-                <img src="img/video/homepageimage.png" alt="">
-              </div>
+              <div class="b-video__main"><?php echo htmlspecialchars_decode($videos[0]['video']); ?></div>
               <div class="b-video__list">
                 <ul>
+                  <?php foreach($videos as $video) { ?>
                   <li>
-                    <img src="img/video/homepageimage-------5.png" alt="">
+                    <div class="b-video__list-mini"><?php echo htmlspecialchars_decode($video['video']); ?></div>
                     <h3 class="b-video__list-title">Топ 5 элитных домов на колесах</h3>
                     <p class="b-video__list-author">Авто тайм</p>
                   </li>
-                  <li>
-                    <img src="img/video/homepageimage-------5.png" alt="">
-                    <h3 class="b-video__list-title">Топ 5 элитных домов на колесах</h3>
-                    <p class="b-video__list-author">Авто тайм</p>
-                  </li>
-                  <li>
-                    <img src="img/video/homepageimage-------5.png" alt="">
-                    <h3 class="b-video__list-title">Топ 5 элитных домов на колесах</h3>
-                    <p class="b-video__list-author">Авто тайм</p>
-                  </li>
+                  <?php } ?>
                 </ul>
               </div>
               <div class="g-clear"></div>
             </div>
           </div>
         </div>  <!-- end g-row -->
+        <?php } ?>
 
         <?php if ( $products ) { ?>
         <!-- Похожие товары -->
@@ -324,7 +368,7 @@
 
             <div class="b-table__row">
               <div class="b-col__shop">
-                <img src="img/product/shop.png" alt="">
+                <img src="/image/catalog/shop.png" alt="">
               </div>
               <div class="b-col__description">
                 <span class="b-color" style="background: #474747;"></span>
@@ -335,7 +379,10 @@
                   <span class="b-price__number">25 000</span> <span class="b-price__currency">руб</span>
                 </div>
                 <div class="b-phone-number">
-                  <span class="ic-phone"></span><span class="b-show-number js-remove-this">Показать номер</span> <span class="b-number">123-45-67</span>
+                  <span class="ic-phone"></span><span class="b-show-number js-open-popup-link js-business-card-href"
+                                                      data-shop-id="<?php echo 10/*$shop_id*/; ?>"
+                                                      data-shop-name="<?php echo 'depo.md'/*$shop_name*/; ?>"
+                                                      data-mfp-src=".js-popup-business-card">Показать номер</span>
                 </div>
               </div>
               <div class="b-col__delivery">
@@ -349,7 +396,7 @@
 
             <div class="b-table__row">
               <div class="b-col__shop">
-                <img src="img/product/shop.png" alt="">
+                <img src="/image/catalog/shop.png" alt="">
               </div>
               <div class="b-col__description">
                 <span class="b-color" style="background: #474747;"></span>
@@ -360,7 +407,10 @@
                   <span class="b-price__number">25 000</span> <span class="b-price__currency">руб</span>
                 </div>
                 <div class="b-phone-number">
-                  <span class="ic-phone"></span><span class="b-show-number js-remove-this">Показать номер</span> <span class="b-number">123-45-67</span>
+                  <span class="ic-phone"></span><span class="b-show-number js-open-popup-link js-business-card-href"
+                                                      data-shop-id="<?php echo 10/*$shop_id*/; ?>"
+                                                      data-shop-name="<?php echo 'depo.md'/*$shop_name*/; ?>"
+                                                      data-mfp-src=".js-popup-business-card">Показать номер</span>
                 </div>
               </div>
               <div class="b-col__delivery">
@@ -374,7 +424,7 @@
 
             <div class="b-table__row">
               <div class="b-col__shop">
-                <img src="img/product/shop.png" alt="">
+                <img src="/image/catalog/shop.png" alt="">
               </div>
               <div class="b-col__description">
                 <span class="b-color" style="background: #474747;"></span>
@@ -385,7 +435,10 @@
                   <span class="b-price__number">25 000</span> <span class="b-price__currency">руб</span>
                 </div>
                 <div class="b-phone-number">
-                  <span class="ic-phone"></span><span class="b-show-number js-remove-this">Показать номер</span> <span class="b-number">123-45-67</span>
+                  <span class="ic-phone"></span><span class="b-show-number js-open-popup-link js-business-card-href"
+                                                      data-shop-id="<?php echo 10/*$shop_id*/; ?>"
+                                                      data-shop-name="<?php echo 'depo.md'/*$shop_name*/; ?>"
+                                                      data-mfp-src=".js-popup-business-card">Показать номер</span>
                 </div>
               </div>
               <div class="b-col__delivery">
@@ -846,26 +899,88 @@ $('#button-cart, .js-add_to_cart').on('click', function() {
 </script>
 
 <script>
-  //Аякс на получение данных по магазину
-  $(document).ready(function() {
-    $.ajax({
-        url: 'index.php?route=product/shops/getShopInfoAjax',
-        type: 'post',
-        data: "shop_id=5",
-        dataType: 'json',
-        beforeSend: function() {
-        	console.log('loading msg');
-        },
-        complete: function() {
-          console.log('reset msg');
-        },
-        success: function(json) {
-            console.log(json);
-		    },
-        error: function(xhr, ajaxOptions, thrownError) {
-            alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
-        }
-    });
+// визитка магазина
+$('.js-business-card-href').on('click', function(){
+  var shop_id = $(this).data('shop-id');
+  var shop_name = $(this).data('shop-name');
+
+  $.ajax({
+      url: 'index.php?route=product/shops/getShopInfoAjax',
+      type: 'post',
+      data: "shop_id="+shop_id,
+      dataType: 'json',
+      beforeSend: function() {
+        //console.log('loading msg');
+        var loading_msg = 'Загружаю...';
+        $('.js-ajax-phone').html(loading_msg);
+        $('.js-ajax-worktime').html(loading_msg);
+        $('.js-ajax-shop-name').html(loading_msg);
+        $('.js-ajax-addresses').html('<li>'+loading_msg+'</li>');
+        $('.js-ajax-addresses li:first-child').click().click();
+        $('.js-ajax-addresses-list').html('<li>'+loading_msg+'</li>');
+      },
+      complete: function() {
+        console.log('reset msg');
+      },
+      success: function(json) {
+          //console.log(json);
+          $('.js-ajax-phone').html(json['phone']);
+          $('.js-ajax-worktime').html(json['worktime']);
+          $('.js-ajax-shop-name').html(shop_name);
+
+          // список филиалов для select
+          var html = '';
+          $.each(json['addresses'], function(index, value){
+            html = html + '<li>';
+            html= html + value['country_name'] + ', ' + value['city_name'] + ', ' + value['address'];
+            html = html + '</li>';
+          });
+          $('.js-ajax-addresses').html(html);
+          $('.js-ajax-addresses li:first-child').click().click();
+
+          // список филиалов для вкладки "все филиалы"
+          var html = '';
+          $.each(json['addresses'], function(index, value){
+            html = html + '<li>';
+            html = html + '<span>' + value['country_name'] + ', ' + value['city_name'] + '</span>';
+            html = html + '<span>' + value['address'] + '</span>';
+            html = html + '<a href="tel:' + value['phone'] + '">Tel:' + value['phone'] + '</a>';
+            html = html + '</li>';
+          });
+          $('.js-ajax-addresses-list').html(html);
+      },
+      error: function(xhr, ajaxOptions, thrownError) {
+          alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+      }
+  });
+});
+//   //Аякс на получение данных по магазину
+//   $(document).ready(function() {
+//     $.ajax({
+//         url: 'index.php?route=product/shops/getShopInfoAjax',
+//         type: 'post',
+//         data: "shop_id=5",
+//         dataType: 'json',
+//         beforeSend: function() {
+//         	console.log('loading msg');
+//         },
+//         complete: function() {
+//           console.log('reset msg');
+//         },
+//         success: function(json) {
+//             console.log(json);
+// 		    },
+//         error: function(xhr, ajaxOptions, thrownError) {
+//             alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+//         }
+//     });
+// });
+
+
+// Видео
+$('.b-video__list').on('click', 'li', function(){
+  var src_video = $(this).find('.b-video__list-mini iframe').attr('src');
+  $('.b-video__main iframe').attr('src', src_video);
 });
 </script>
 

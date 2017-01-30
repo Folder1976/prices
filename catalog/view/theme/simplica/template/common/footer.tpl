@@ -14,7 +14,8 @@ if($_SERVER['REQUEST_URI'] == '/'){
 }
 
 
-//echo "<pre>";  print_r(var_dump( $viewed_products )); echo "</pre>";
+//echo "<pre>";  print_r(var_dump( get_defined_vars() )); echo "</pre>";
+//echo "<pre>";  print_r(var_dump( $blog_main_categories )); echo "</pre>";
 
 ?>
 
@@ -124,19 +125,19 @@ if($_SERVER['REQUEST_URI'] == '/'){
 
         <li class="b-footer-nav__block">
           <div class="b-footer-nav__block-title">
-            <span>Product</span>
+            <span>Информация</span>
           </div>
           <ul>
-            <li><a href="#">Popular</a></li>
-            <li><a href="#">Trending</a></li>
-            <li><a href="#">Catalog</a></li>
-            <li><a href="#">Features</a></li>
+            <?php foreach( $informations as $info ) { ?>
+            <li><a href="<?php echo $info['href']; ?>"><?php echo $info['title']; ?></a></li>
+            <?php } ?>
           </ul>
         </li>
 
+        <?php foreach($blog_main_categories as $blog_group) { ?>
         <li class="b-footer-nav__block">
           <div class="b-footer-nav__block-title">
-            <span>Info</span>
+            <span><?php echo $blog_group['name']; ?></span>
           </div>
           <ul>
             <li><a href="#">Support</a></li>
@@ -145,47 +146,12 @@ if($_SERVER['REQUEST_URI'] == '/'){
             <li><a href="#">Ger Started </a></li>
           </ul>
         </li>
-
-        <li class="b-footer-nav__block">
-          <div class="b-footer-nav__block-title">
-            <span>Company</span>
-          </div>
-          <ul>
-            <li><a href="#">Press Releases</a></li>
-            <li><a href="#">Mission</a></li>
-            <li><a href="#">Strategy</a></li>
-            <li><a href="#">Works</a></li>
-          </ul>
-        </li>
-
-        <li class="b-footer-nav__block">
-          <div class="b-footer-nav__block-title">
-            <span>Contact</span>
-          </div>
-          <ul>
-            <li><a href="#">Popular</a></li>
-            <li><a href="#">Trending</a></li>
-            <li><a href="#">Catalog</a></li>
-            <li><a href="#">Features</a></li>
-          </ul>
-        </li>
-
-        <li class="b-footer-nav__block">
-          <div class="b-footer-nav__block-title">
-            <span>Learn More</span>
-          </div>
-          <ul>
-            <li><a href="#">Support</a></li>
-            <li><a href="#">Developers</a></li>
-            <li><a href="#">Service</a></li>
-            <li><a href="#">Ger Started </a></li>
-          </ul>
-        </li>
+        <?php } ?>
 
       </ul>
 
       <div class="b-footer__bottom">
-        <span>&copy; 2016 <a href="/">Prices</a>. All rights reserved.</span>
+        <span><?php echo $powered; ?></span>
       </div>
     </div>
   </footer> 
