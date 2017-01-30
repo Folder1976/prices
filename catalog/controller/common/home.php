@@ -196,7 +196,7 @@ class ControllerCommonHome extends Controller {
 		$data['main_page_categories'] = $this->model_catalog_category->getMainPageCategories();
 		$data['main_page_products'] = $this->model_catalog_product->getMainPageProducts();
 		
-		
+	
 		$main_product_sorted_by_categs = array();
 		if(count($data['main_page_products']) > 0 ){
 			
