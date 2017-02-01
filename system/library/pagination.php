@@ -42,7 +42,7 @@ class Pagination {
 		if(strpos($_SERVER['REQUEST_URI'],'/admin/') !== false){
 			$output = '<ul class="pagination">';
 		}else{
-			$output = '<ul class="clearfix">';
+			$output = '<div class="b-pagination">';
 		}
 
 		
@@ -53,9 +53,11 @@ class Pagination {
 			}	
 		}else{
 			if ($page > 1) {
-				$output .= '<li><div class="links" data-link="' . str_replace('{page}', 1, $this->url) . '">' . $this->text_first . '</div></li>';
-				$output .= '<li><div class="links" data-link="' . str_replace('{page}', $page - 1, $this->url) . '">' . $this->text_prev . '</div></li>';
-			}	
+				$output .= '<a href="'.str_replace('{page}', $page - 1, $this->url).'" class="b-pagination__prev"><span class="ic-arrow-prev3"></span> <span class="g-mob-hidden">'.$this->text_prev.'</span></a>';
+			}
+			if ($page < $num_pages) {
+				$output .= '<a href="'.str_replace('{page}', $page + 1, $this->url).'" class="b-pagination__next"><span class="g-mob-hidden">'.$this->text_next.'</span> <span class="ic-arrow-next3"></span></a>';
+			}
 		}
 		
 
@@ -78,16 +80,24 @@ class Pagination {
 				}
 			}
 
-			for ($i = $start; $i <= $end; $i++) {
-				if ($page == $i) {
-					$output .= '<li class="active"><span>' . $i . '</span></li>';
-				} else {
-					if(strpos($_SERVER['REQUEST_URI'],'/admin/') !== false){
+			if(strpos($_SERVER['REQUEST_URI'],'/admin/') !== false){
+				for ($i = $start; $i <= $end; $i++) {
+					if ($page == $i) {
+						$output .= '<li class="active"><span>' . $i . '</span></li>';
+					} else {
 						$output .= '<li><a href="' . str_replace('{page}', $i, $this->url) . '">' . $i . '</a></li>';
-					}else{
-						$output .= '<li><div class="links" data-link="' . str_replace('{page}', $i, $this->url) . '">' . $i . '</div></li>';
 					}
 				}
+			} else {
+				$output .= '<ul class="b-pagination__list">';
+				for ($i = $start; $i <= $end; $i++) {
+					if ($page == $i) {
+						$output .= '<li class="active"><span>' . $i . '</span></li>';
+					} else {
+						$output .= '<li><a href="' . str_replace('{page}', $i, $this->url) . '">' . $i . '</a></li>';
+					}
+				}
+				$output .= '</ul>';
 			}
 		}
 
@@ -97,12 +107,18 @@ class Pagination {
 				$output .= '<li><a href="' . str_replace('{page}', $page + 1, $this->url) . '">' . $this->text_next . '</a></li>';
 				$output .= '<li><a href="' . str_replace('{page}', $num_pages, $this->url) . '">' . $this->text_last . '</a></li>';
 			}else{
-				$output .= '<li><div class="links" data-link="' . str_replace('{page}', $page + 1, $this->url) . '">' . $this->text_next . '</div></li>';
-				$output .= '<li><div class="links" data-link="' . str_replace('{page}', $num_pages, $this->url) . '">' . $this->text_last . '</div></li>';
+				//$output .= '<li><div class="links" data-link="' . str_replace('{page}', $page + 1, $this->url) . '">' . $this->text_next . '</div></li>';
+				//$output .= '<li><div class="links" data-link="' . str_replace('{page}', $num_pages, $this->url) . '">' . $this->text_last . '</div></li>';
 			}
 		}
 
-		$output .= '</ul>';
+		if(strpos($_SERVER['REQUEST_URI'],'/admin/') !== false){
+			$output .= '</ul>';
+		}else{
+			$output .= '</div>';
+		}
+
+		//$output = '<pre>$num_pages='.$num_pages.'  page = '.$page.'</pre>';
 
 		if ($num_pages > 1) {
 			return $output;
