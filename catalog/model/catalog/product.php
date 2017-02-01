@@ -1,5 +1,16 @@
 <?php
 class ModelCatalogProduct extends Model {
+	
+	public $mr_tablename="review";
+	public function __construct($params) {
+		parent::__construct($params);
+		$this->load->model('setting/setting');
+		$settings=$this->model_setting_setting->getSetting('megareviews');
+		if(!isset($settings['megareviews_module'][0]['status']))return;
+		if($settings['megareviews_module'][0]['status'])$this->mr_tablename="megareviews";
+	  
+	}
+	
 	public function updateViewed($product_id, $source = 0) {
 		$this->db->query("UPDATE " . DB_PREFIX . "product SET viewed = (viewed + 1) WHERE product_id = '" . (int)$product_id . "'");
 	}
@@ -354,7 +365,7 @@ class ModelCatalogProduct extends Model {
 							ua.keyword AS manufacturer_href,
 							(SELECT price FROM " . DB_PREFIX . "product_discount pd2 WHERE pd2.product_id = p.product_id AND pd2.quantity = '1' AND ((pd2.date_start = '0000-00-00' OR pd2.date_start < NOW()) AND (pd2.date_end = '0000-00-00' OR pd2.date_end > NOW())) ORDER BY pd2.priority ASC, pd2.price ASC LIMIT 1) AS discount,
 							(SELECT price FROM " . DB_PREFIX . "product_special ps WHERE ps.product_id = p.product_id AND ((ps.date_start = '0000-00-00' OR ps.date_start < NOW()) AND (ps.date_end = '0000-00-00' OR ps.date_end > NOW())) ORDER BY ps.priority ASC, ps.price ASC LIMIT 1) AS special,
-							(SELECT AVG(rating) AS total FROM " . DB_PREFIX . "review r1 WHERE r1.product_id = p.product_id AND r1.$status GROUP BY r1.product_id) AS rating,
+							(SELECT AVG(rating) AS total FROM " . DB_PREFIX . $this->mr_tablename . " r1 WHERE r1.product_id = p.product_id AND r1.$status GROUP BY r1.product_id) AS rating,
 							(SELECT ss.name FROM " . DB_PREFIX . "stock_status ss WHERE ss.stock_status_id = p.stock_status_id AND ss.language_id = '" . (int)$this->config->get('config_language_id') . "') AS stock_status,
 							p.sort_order,
 							s.id AS shop_id,
@@ -503,7 +514,7 @@ class ModelCatalogProduct extends Model {
 		
 	
 		$sql = "SELECT p.product_id, $filds p2c.category_id, MIN(p.price) AS min_price, 
-				(SELECT AVG(rating) AS total FROM " . DB_PREFIX . "review r1 WHERE r1.product_id = p.product_id AND r1.$status GROUP BY r1.product_id) AS rating,
+				(SELECT AVG(rating) AS total FROM " . DB_PREFIX . $this->mr_tablename . " r1 WHERE r1.product_id = p.product_id AND r1.$status GROUP BY r1.product_id) AS rating,
 				(SELECT price FROM " . DB_PREFIX . "product_discount pd2 WHERE pd2.product_id = p.product_id  AND pd2.quantity = '1' AND ((pd2.date_start = '0000-00-00' OR pd2.date_start < NOW()) AND (pd2.date_end = '0000-00-00' OR pd2.date_end > NOW())) ORDER BY pd2.priority ASC, pd2.price ASC LIMIT 1) AS discount,
 				(SELECT price FROM " . DB_PREFIX . "product_special ps WHERE ps.product_id = p.product_id AND ((ps.date_start = '0000-00-00' OR ps.date_start < NOW()) AND (ps.date_end = '0000-00-00' OR ps.date_end > NOW())) ORDER BY ps.priority ASC, ps.price ASC LIMIT 1) AS special";
 
@@ -861,7 +872,7 @@ class ModelCatalogProduct extends Model {
 			}
 		}
 		
-		$sql = "SELECT DISTINCT ps.product_id, (SELECT AVG(rating) FROM " . DB_PREFIX . "review r1 WHERE r1.product_id = ps.product_id AND r1.$status GROUP BY r1.product_id) AS rating FROM " . DB_PREFIX . "product_special ps LEFT JOIN " . DB_PREFIX . "product p ON (ps.product_id = p.product_id)
+		$sql = "SELECT DISTINCT ps.product_id, (SELECT AVG(rating) FROM " . DB_PREFIX . $this->mr_tablename ." r1 WHERE r1.product_id = ps.product_id AND r1.$status GROUP BY r1.product_id) AS rating FROM " . DB_PREFIX . "product_special ps LEFT JOIN " . DB_PREFIX . "product p ON (ps.product_id = p.product_id)
 		LEFT JOIN " . DB_PREFIX . "product_description pd ON (p.product_id = pd.product_id) LEFT JOIN " . DB_PREFIX . "product_to_store p2s ON (p.product_id = p2s.product_id) WHERE p.$status AND p.date_available <= NOW() AND p2s.store_id = '" . (int)$this->config->get('config_store_id') . "' AND ps.customer_group_id = '" . (int)$this->config->get('config_customer_group_id') . "' AND ((ps.date_start = '0000-00-00' OR ps.date_start < NOW()) AND  p.moderation_id = 0 AND  (ps.date_end = '0000-00-00' OR ps.date_end > NOW())) GROUP BY ps.product_id";
 
 		$sort_data = array(

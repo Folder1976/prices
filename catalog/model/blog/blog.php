@@ -73,6 +73,32 @@ class ModelBlogBlog extends Model {
 		return $query->rows;
 	}
 	
+	public function getBlogsByBlogCategoryIdMainInfo($blog_category_id, $start = 0, $limit = 40) {
+		$query = $this->db->query("SELECT n.blog_id,
+											n.author,
+											n.date_added,
+											n.image,
+											u.keyword,
+											n2c.blog_category_id,
+											nd.title,
+											nd.page_title,
+											nd.meta_keyword,
+											nd.meta_description
+											
+								  
+								  FROM " . DB_PREFIX . "blog n
+								  LEFT JOIN " . DB_PREFIX . "blog_description nd ON (n.blog_id = nd.blog_id)
+								  LEFT JOIN " . DB_PREFIX . "url_alias u ON (u.query = CONCAT('blog_id=',n.blog_id))
+								  LEFT JOIN " . DB_PREFIX . "blog_to_store n2s ON (n.blog_id = n2s.blog_id)
+								  LEFT JOIN " . DB_PREFIX . "blog_to_category n2c ON (n.blog_id = n2c.blog_id)
+								  WHERE nd.language_id = '" . (int)$this->config->get('config_language_id') . "' AND
+								  n2s.store_id = '" . (int)$this->config->get('config_store_id') . "' AND
+								  n2c.blog_category_id = '" . (int)$blog_category_id . "' AND
+								  n.status = '1' AND n.sort_order <> '-1' ORDER BY n.sort_order, n.blog_id DESC LIMIT " . (int)$start . "," . (int)$limit);
+		
+		return $query->rows;
+	}
+	
 	public function getTotalBlogsByBlogCategoryId($blog_category_id = 0) {
 		$query = $this->db->query("SELECT COUNT(*) AS total FROM " . DB_PREFIX . "blog WHERE status = '1'");
 		$query = $this->db->query("SELECT COUNT(*) AS total FROM " . DB_PREFIX . "blog_to_category n2c LEFT JOIN " . DB_PREFIX . "blog n ON (n2c.blog_id = n.blog_id) LEFT JOIN " . DB_PREFIX . "blog_to_store n2s ON (n.blog_id = n2s.blog_id) WHERE n.status = '1' AND n2s.store_id = '" . (int)$this->config->get('config_store_id') . "' AND n2c.blog_category_id = '" . (int)$blog_category_id . "'");

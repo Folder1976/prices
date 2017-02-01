@@ -806,12 +806,78 @@
 
     </main>
 
+<?php if ($mr_tab || (!$mr_status && $review_status)) { ?>
+ <li><a href="#tab-review" data-toggle="tab"><?php echo $tab_review; ?></a></li>
+<?php } ?>
 
+<?php if ($mr_tab) echo '<div class="tab-pane" id="tab-review">'.$content_megareviews.'</div>'; ?>
+ 
+<?php if ($review_status) { ?>
+  <div class="tab-pane" id="tab-review">
+    <form class="form-horizontal" id="form-review">
+      <div id="review"></div>
+      <h2><?php echo $text_write; ?></h2>
+      <?php if ($review_guest) { ?>
+      <div class="form-group required">
+        <div class="col-sm-12">
+          <label class="control-label" for="input-name"><?php echo $entry_name; ?></label>
+          <input type="text" name="name" value="" id="input-name" class="form-control" />
+        </div>
+      </div>
+      <div class="form-group required">
+        <div class="col-sm-12">
+          <label class="control-label" for="input-review"><?php echo $entry_review; ?></label>
+          <textarea name="text" rows="5" id="input-review" class="form-control"></textarea>
+          <div class="help-block"><?php echo $text_note; ?></div>
+        </div>
+      </div>
+      <div class="form-group required">
+        <div class="col-sm-12">
+          <label class="control-label"><?php echo $entry_rating; ?></label>
+          &nbsp;&nbsp;&nbsp; <?php echo $entry_bad; ?>&nbsp;
+          <input type="radio" name="rating" value="1" />
+          &nbsp;
+          <input type="radio" name="rating" value="2" />
+          &nbsp;
+          <input type="radio" name="rating" value="3" />
+          &nbsp;
+          <input type="radio" name="rating" value="4" />
+          &nbsp;
+          <input type="radio" name="rating" value="5" />
+          &nbsp;<?php echo $entry_good; ?></div>
+      </div>
+      <?php echo $captcha; ?>
+      <div class="buttons clearfix">
+        <div class="pull-right">
+          <button type="button" id="button-review" data-loading-text="<?php echo $text_loading; ?>" class="btn btn-primary"><?php echo $button_continue; ?></button>
+        </div>
+      </div>
+      <?php } else { ?>
+      <?php echo $text_login; ?>
+      <?php } ?>
+    </form>
+  </div>
+<?php } ?>
 
-
-
-
-
+<?php if ($review_status || $mr_status) { ?>
+  <div class="rating">
+    <p>
+      <?php for ($i = 1; $i <= 5; $i++) { ?>
+      <?php if ($rating < $i) { ?>
+      <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i></span>
+      <?php } else { ?>
+      <span class="fa fa-stack"><i class="fa fa-star fa-stack-1x"></i><i class="fa fa-star-o fa-stack-1x"></i></span>
+      <?php } ?>
+      <?php } ?>
+      <!--a href="" onclick="$('a[href=\'#tab-review\']').trigger('click'); return false;"><?php echo $reviews; ?></a> / <a href="" onclick="$('a[href=\'#tab-review\']').trigger('click'); return false;"><?php echo $text_write; ?></a></p-->
+      <a href="" onclick="$('a[href=\'#tab-review\']').trigger('click');if($('#megareviews_box').length>0)$('html,body').animate({scrollTop: $('#megareviews_box').offset().top}, 500);return false;"><?php echo $reviews; ?></a> / <a href="" onclick="$('a[href=\'#tab-review\']').trigger('click');if($('#megareviews_box').length>0)$('html,body').animate({scrollTop: $('#megareviews_box').offset().top}, 500);return false;"><?php echo $text_write; ?></a></p>
+    <hr>
+    <!-- AddThis Button BEGIN -->
+    <div class="addthis_toolbox addthis_default_style"><a class="addthis_button_facebook_like" fb:like:layout="button_count"></a> <a class="addthis_button_tweet"></a> <a class="addthis_button_pinterest_pinit"></a> <a class="addthis_counter addthis_pill_style"></a></div>
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-515eeaf54693130e"></script>
+    <!-- AddThis Button END -->
+  </div>
+<?php } ?>
 
 
 

@@ -10,6 +10,16 @@ class ControllerProductCategory extends Controller {
 	public function index() {
 
 		
+		$this->load->model('setting/setting');
+		$settings=$this->model_setting_setting->getSetting('megareviews');	
+		if(isset($settings['megareviews_module'][0]['status'])){
+			$data['mr_tab']=($settings['megareviews_module'][0]['position']=="content_mr" && $settings['megareviews_module'][0]['status']);
+			$data['mr_status']=$settings['megareviews_module'][0]['status'];    
+		}else{
+			$data['mr_status']=0;
+			$data['mr_tab']=0;
+		}
+		
 		$this->load->language('product/category');
 
 		$this->load->model('catalog/category');

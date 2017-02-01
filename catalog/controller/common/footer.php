@@ -156,12 +156,14 @@ class ControllerCommonFooter extends Controller {
 		$this->load->model('blog/blog');
 		$data['blog_main_categories'] = $this->model_blog_blog_category->getBlogCategories(0);
 		
-		$data['blogs'] = array();
+		//$data['blogs'] = array();
 		
 		
 		foreach($data['blog_main_categories'] as $row){
 			
-			$data['blogs'][$row['blog_category_id']] = $this->model_blog_blog->getBlogsByBlogCategoryId($row['blog_category_id']);
+			if(isset($data['blog_main_categories']['children'])) $data['blog_main_categories']['children'] = array();
+			
+			$data['blog_main_categories']['children'][$row['blog_category_id']] = $this->model_blog_blog->getBlogsByBlogCategoryIdMainInfo($row['blog_category_id']);
 			
 		}
 		

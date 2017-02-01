@@ -3,6 +3,17 @@ class ControllerProductProduct extends Controller {
 	private $error = array();
 
 	public function index() {
+		
+		$this->load->model('setting/setting');
+		$settings=$this->model_setting_setting->getSetting('megareviews');	
+		if(isset($settings['megareviews_module'][0]['status'])){
+			$data['mr_tab']=($settings['megareviews_module'][0]['position']=="content_mr" && $settings['megareviews_module'][0]['status']);
+			$data['mr_status']=$settings['megareviews_module'][0]['status'];    
+		}else{
+			$data['mr_status']=0;
+			$data['mr_tab']=0;
+		} 
+		
 		$this->load->language('product/product');
 
 		$data['language_href'] = $this->session->data['language_href'];
@@ -526,8 +537,9 @@ class ControllerProductProduct extends Controller {
 				$data['minimum'] = 1;
 			}
 
-			$data['review_status'] = $this->config->get('config_review_status');
-
+			//$data['review_status'] = $this->config->get('config_review_status');
+			if($data['mr_status'])$data['review_status'] = 0; else $data['review_status'] = $this->config->get('config_review_status');
+			
 			if ($this->config->get('config_review_guest') || $this->customer->isLogged()) {
 				$data['review_guest'] = true;
 			} else {
@@ -629,6 +641,8 @@ class ControllerProductProduct extends Controller {
 			$this->model_catalog_product->updateViewed($this->request->get['product_id']);
 			$this->model_catalog_product->uppProduct($this->request->get['product_id']);
 
+			if($data['mr_tab'] && $data['mr_status']) $data['content_megareviews'] = $this->load->controller('common/content_megareviews');
+			
 			$data['column_left'] = $this->load->controller('common/column_left');
 			$data['column_right'] = $this->load->controller('common/column_right');
 			$data['content_top'] = $this->load->controller('common/content_top');

@@ -447,7 +447,7 @@ class ControllerCommonSeoUrl extends Controller {
 		//end Если нам прилетело чтото в ГЕТ кроме _roure_
 		
 		//А это блог Новостей
-		if ($this->request->get['route'] != 'product/product' && $this->request->get['route'] != 'product/category' && $this->request->get['route'] != 'product/manufacturer/info' && $this->request->get['route'] != 'information/information') {
+		if (isset($this->request->get['_route_'])) {
 			$blog_headlines = $this->config->get('ncategory_bnews_headlines_url') ? $this->config->get('ncategory_bnews_headlines_url') : 'blog-headlines';
 			
 			$blogparts = explode('/', $this->request->get['_route_']);
@@ -515,11 +515,7 @@ class ControllerCommonSeoUrl extends Controller {
 		//end А это блог Новостей2
 		
 		//А это блог Новостей
-		if ($this->request->get['route'] != 'product/product' &&
-				$this->request->get['route'] != 'product/category' &&
-				$this->request->get['route'] != 'product/category' &&
-				$this->request->get['route'] != 'product/manufacturer/info' &&
-				$this->request->get['route'] != 'information/information') {
+		if (isset($this->request->get['_route_'])) {
 			$blog_headlines = $this->config->get('ncategory_bnews_headlines_url') ? $this->config->get('ncategory_bnews_headlines_url') : 'blog-headlines';
 			
 			$blogparts = explode('/', $this->request->get['_route_']);
