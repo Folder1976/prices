@@ -123,29 +123,19 @@ if($_SERVER['REQUEST_URI'] == '/'){
     <div class="g-container">
       <ul class="b-footer-nav">
 
-        <li class="b-footer-nav__block">
-          <div class="b-footer-nav__block-title">
-            <span>Информация</span>
-          </div>
-          <ul>
-            <?php foreach( $informations as $info ) { ?>
-            <li><a href="<?php echo $info['href']; ?>"><?php echo $info['title']; ?></a></li>
-            <?php } ?>
-          </ul>
-        </li>
-
         <?php foreach($blog_main_categories as $blog_group) { ?>
+        <?php if ( isset($blog_group['children']) ) { ?>
         <li class="b-footer-nav__block">
           <div class="b-footer-nav__block-title">
             <span><?php echo $blog_group['name']; ?></span>
           </div>
           <ul>
-            <li><a href="#">Support</a></li>
-            <li><a href="#">Developers</a></li>
-            <li><a href="#">Service</a></li>
-            <li><a href="#">Ger Started </a></li>
+            <?php foreach($blog_group['children'] as $link) { ?>
+            <li><a href="/<?php echo $link['keyword']; ?>"><?php echo $link['title']; ?></a></li>
+            <?php } ?>
           </ul>
         </li>
+        <?php } ?>
         <?php } ?>
 
       </ul>
