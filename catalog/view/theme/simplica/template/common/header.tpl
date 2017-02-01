@@ -60,6 +60,11 @@ if($_SERVER['REQUEST_URI'] == '/'){
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <title><?php echo $title; ?></title>
 <base href="<?php echo $base; ?>" />
+
+<?php foreach($extra_tags as $extra_tag) {?>
+<meta <?php echo ($extra_tag['name']) ? 'name="' . $extra_tag['name'] . '" ' : ''; ?><?php echo (!in_array($extra_tag['property'], array("noprop", "noprop1", "noprop2", "noprop3", "noprop4"))) ? 'property="' . $extra_tag['property'] . '" ' : ''; ?> content="<?php echo addslashes($extra_tag['content']); ?>" />
+<?php } ?>
+
 <?php if ($description) { ?>
 <meta name="description" content="<?php echo $description; ?>" />
 <?php } ?>
@@ -390,7 +395,7 @@ if (typeof jQuery == 'undefined') {
 
 <script>
 $('#lang').on('change', function() {
-  window.location.replace("<?php if ($url_no_lang == '/') { echo $url_no_lang; } else { echo $url_no_lang.'/'; }?>" + $(this).val());
+  window.location.replace( "/"+$(this).val()+"/<?php if ($url_no_lang == '/') { echo $url_no_lang; } else { echo $url_no_lang; }?>");
 });
 </script>
 

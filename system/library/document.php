@@ -14,7 +14,20 @@ class Document {
 	private $scripts = array();
 	private $shop = array();
 	private $ip_list = array();
+	private $extra_tags = array();
 
+	public function addExtraTag($property, $content = '', $name=''){
+		$this->extra_tags[md5($property)] = array(
+			'property' => $property,
+			'content'  => $content,
+			'name'     => $name,
+		);
+	}
+	
+	public function getExtraTags(){
+		return $this->extra_tags;
+	}
+	
 	public function setSale($is_sale) {
 		$this->is_sale = $is_sale;
 	}

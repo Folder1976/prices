@@ -24,6 +24,19 @@ class ControllerCommonColumnRight extends Controller {
 			$layout_id = $this->model_catalog_category->getCategoryLayoutId(end($path));
 		}
 
+		$this->load->model('catalog/news');
+		$this->load->model('catalog/ncategory');
+		
+		if ($route == 'news/article' && isset($this->request->get['news_id'])) {
+			$layout_id = $this->model_catalog_news->getNewsLayoutId($this->request->get['news_id']);
+		}
+		
+		if ($route == 'news/ncategory' && isset($this->request->get['ncat'])) {
+			$ncat = explode('_', (string)$this->request->get['ncat']);
+			
+			$layout_id = $this->model_catalog_ncategory->getncategoryLayoutId(end($ncat));			
+		}
+		
 		if ($route == 'product/product' && isset($this->request->get['product_id'])) {
 			$this->load->model('catalog/product');
 

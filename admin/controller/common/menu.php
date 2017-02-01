@@ -106,6 +106,23 @@ class ControllerCommonMenu extends Controller {
 		$data['text_length_class'] = $this->language->get('text_length_class');
 		$data['text_zone'] = $this->language->get('text_zone');
 		$data['text_recurring'] = $this->language->get('text_recurring');
+		
+		$this->language->load('common/newspanel');
+			$data['nmod'] = $this->url->link('module/news', 'token=' . $this->session->data['token'], 'SSL');
+			$data['ncmod'] = $this->url->link('module/ncategory', 'token=' . $this->session->data['token'], 'SSL');
+			$data['namod'] = $this->url->link('module/news_archive', 'token=' . $this->session->data['token'], 'SSL');
+			$data['npages'] = $this->url->link('catalog/news', 'token=' . $this->session->data['token'], 'SSL');
+			$data['ncategory'] = $this->url->link('catalog/ncategory', 'token=' . $this->session->data['token'], 'SSL');
+			$data['tocomments'] = $this->url->link('catalog/ncomments', 'token=' . $this->session->data['token'], 'SSL');	
+			$data['nauthor'] = $this->url->link('catalog/nauthor', 'token=' . $this->session->data['token'], 'SSL');
+			$data['text_commod'] = $this->language->get('text_commod');
+			$data['entry_npages'] = $this->language->get('entry_npages');
+			$data['entry_nmod'] = $this->language->get('entry_nmod');
+			$data['entry_ncmod'] = $this->language->get('entry_ncmod');
+			$data['entry_namod'] = $this->language->get('entry_namod');
+			$data['entry_ncategory'] = $this->language->get('entry_ncategory');
+			$data['text_nauthor'] = $this->language->get('text_nauthor');
+		
 		$data['text_order_recurring'] = $this->language->get('text_order_recurring');
 		$data['text_openbay_extension'] = $this->language->get('text_openbay_extension');
 		$data['text_openbay_dashboard'] = $this->language->get('text_openbay_dashboard');

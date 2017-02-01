@@ -94,6 +94,7 @@ class ControllerCommonHeader extends Controller {
 		$data['links'] = $this->document->getLinks();
 		$data['styles'] = $this->document->getStyles();
 		$data['scripts'] = $this->document->getScripts();
+		$data['extra_tags'] = $this->document->getExtraTags();
 		$data['lang'] = $this->language->get('code');
 		$data['direction'] = $this->language->get('direction');
 	
@@ -252,6 +253,20 @@ $data[''] = $this->language->get('');
 		$data['search'] = $this->load->controller('common/search');
 		$data['cart'] = $this->load->controller('common/cart');
 		$data['cart_array'] = $this->load->controller('common/cart/getArray');
+		
+		if ($this->config->get('ncategory_bnews_top_link')) {
+			$this->language->load('module/news');
+			$blog_url = $this->url->link('news/ncategory');
+			$blog_name = $this->language->get('text_blogpage');
+			if (isset($data['categories']) && count($data['categories'])) {
+				$data['categories'][] = array(
+					'name'     => $blog_name,
+					'children' => array(),
+					'column'   => 1,
+					'href'     => $blog_url
+				);
+			}
+		}
 		
 		if($this->customer->isLogged()){
 			$data['total_viewed_products'] = (int)$this->model_catalog_product->getTotalViewedProducts();

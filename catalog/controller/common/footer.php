@@ -61,6 +61,9 @@ class ControllerCommonFooter extends Controller {
 			
 		}
 	
+		$this->language->load('module/news');
+		$data['blog_url'] = $this->url->link('news/ncategory');
+		$data['blog_name'] = $this->language->get('text_blogpage');
 
 		$this->load->model('catalog/information');
 
@@ -150,8 +153,19 @@ class ControllerCommonFooter extends Controller {
 		
 		
 		$this->load->model('blog/blog_category');
+		$this->load->model('blog/blog');
 		$data['blog_main_categories'] = $this->model_blog_blog_category->getBlogCategories(0);
-
+		
+		$data['blogs'] = array();
+		
+		
+		foreach($data['blog_main_categories'] as $row){
+			
+			$data['blogs'][$row['blog_category_id']] = $this->model_blog_blog->getBlogsByBlogCategoryId($row['blog_category_id']);
+			
+		}
+		
+	
 		$this->load->model('localisation/language');
 		$data['languages'] = $this->model_localisation_language->getLanguages();
 		

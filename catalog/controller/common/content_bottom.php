@@ -16,6 +16,22 @@ class ControllerCommonContentBottom extends Controller {
 		if ($route == 'blog/category' && isset($this->request->get['blogpath'])) { $this->load->model('blog/blog_category');
 		$layout_id = $this->model_blog_blog_category->getBlogCategoryLayoutId($this->request->get['blogpath']);}
 		
+		
+		$this->load->model('catalog/news');
+		$this->load->model('catalog/ncategory');
+		
+		if ($route == 'news/article' && isset($this->request->get['news_id'])) {
+			$layout_id = $this->model_catalog_news->getNewsLayoutId($this->request->get['news_id']);
+		}
+		
+		if ($route == 'news/ncategory' && isset($this->request->get['ncat'])) {
+			$ncat = explode('_', (string)$this->request->get['ncat']);
+			
+			$layout_id = $this->model_catalog_ncategory->getncategoryLayoutId(end($ncat));			
+		}
+		
+		
+		
 		if ($route == 'product/category' && isset($this->request->get['path'])) {
 			$this->load->model('catalog/category');
 

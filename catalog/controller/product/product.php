@@ -86,6 +86,7 @@ class ControllerProductProduct extends Controller {
 					
 					$category_info = $this->model_catalog_category->getCategory($row['path_id']);
 					
+					
 					$data['breadcrumbs'][] = array(
 						'text' => $category_info['name'],
 						'href' => $data['language_href'].$category_info['keyword']

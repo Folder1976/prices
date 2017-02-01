@@ -1,6 +1,6 @@
 <?php
 // Heading
-$_['heading_title']          = 'WIKI Categories';
+$_['heading_title']          = 'Статьи Categories';
 $_['heading_list']           = 'Categories';
 $_['heading_form']           = 'Category Form';
 

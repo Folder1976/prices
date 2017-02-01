@@ -44,6 +44,7 @@ class ControllerCommonDashboard extends Controller {
 		$data['activity'] = $this->load->controller('dashboard/activity');
 		$data['recent'] = $this->load->controller('dashboard/recent');
 		$data['footer'] = $this->load->controller('common/footer');
+		$data['newspanel'] = $this->load->controller('common/newspanel');
 
 		// Run currency update
 		if ($this->config->get('config_currency_auto')) {

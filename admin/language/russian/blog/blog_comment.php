@@ -1,9 +1,9 @@
 <?php
 // Heading
-$_['heading_title']       = 'WIKI Comments';
+$_['heading_title']       = 'Статьи Comments';
 // Text
 $_['column_comment']       = 'Comment';
-$_['column_post']       = 'WIKI Post';
+$_['column_post']       = 'Статьи Post';
 $_['column_name']       = 'Author';
 $_['column_date']       = 'Date Added';
 $_['column_status']       = 'Status';

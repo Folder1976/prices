@@ -1,10 +1,10 @@
 <?php
-$_['heading_title']     	= 'WIKI Settings';
-$_['heading_blog_home']     = 'WIKI Home Page';
-$_['heading_blog_listing']  = 'WIKI Listings';
+$_['heading_title']     	= 'Статьи Settings';
+$_['heading_blog_home']     = 'Статьи Home Page';
+$_['heading_blog_listing']  = 'Статьи Listings';
 $_['heading_blog_listing_h'] = 'These settings applies on blog posts listed on the blog home page, in categories etc.';
-$_['heading_blog_post']  	= 'WIKI Post Pages';
-$_['heading_related']  		= 'Related WIKI Posts';
+$_['heading_blog_post']  	= 'Статьи Post Pages';
+$_['heading_related']  		= 'Related Статьи Posts';
 $_['heading_related_products']  = 'Related Products';
 $_['heading_comments']  	= 'Comments';
 $_['heading_author']  		= 'Authors';
@@ -25,9 +25,9 @@ $_['entry_blogsetting_home_url'] 				= 'SEO URL';
 
 $_['entry_blogsetting_home_url_h'] 				= 'This will be the URL for the blog homepage. For example, SEO URL=blog will set the blog url to yourstore.com/blog. Use a globally unique word, without blank spaces';
 
-$_['entry_blogsetting_blogs_per_page'] 			= 'WIKI Posts Per Page';
-$_['entry_blogsetting_layout'] 					= 'WIKI Posts Per Row';
-$_['entry_blogsetting_thumb_size'] 				= 'WIKI Post Thumb Size (W x H)';
+$_['entry_blogsetting_blogs_per_page'] 			= 'Статьи Posts Per Page';
+$_['entry_blogsetting_layout'] 					= 'Статьи Posts Per Row';
+$_['entry_blogsetting_thumb_size'] 				= 'Статьи Post Thumb Size (W x H)';
 
 $_['entry_blogsetting_rel_prod_per_row'] 		= 'Products Per Row';
 $_['entry_blogsetting_rel_prod_thumbs_size'] 	= 'Product Thumb Size (W x H)';
@@ -36,19 +36,19 @@ $_['entry_blogsetting_rel_prod_thumbs_size'] 	= 'Product Thumb Size (W x H)';
 $_['entry_blogsetting_date_added'] 				= 'View Date Added';
 $_['entry_blogsetting_comments_count'] 			= 'View Number Of Comments';
 $_['entry_blogsetting_page_view'] 				= 'View Times Read';
-$_['entry_blogsetting_author'] 					= 'View WIKI Author';
+$_['entry_blogsetting_author'] 					= 'View Статьи Author';
 
 $_['entry_blogsetting_share'] 					= 'Use Sharing Buttons';
-$_['entry_blogsetting_post_thumb'] 				= 'Show WIKI Post Thumb';
+$_['entry_blogsetting_post_thumb'] 				= 'Show Статьи Post Thumb';
 $_['entry_blogsetting_share_code'] 				= 'Custom Sharing Code';
 $_['entry_blogsetting_post_date_added'] 		= 'View Date Added';
 $_['entry_blogsetting_post_comments_count'] 	= 'View Number Of Comments';
 $_['entry_blogsetting_post_page_view'] 			= 'View Times Read';
-$_['entry_blogsetting_post_author'] 			= 'View WIKI Author';
+$_['entry_blogsetting_post_author'] 			= 'View Статьи Author';
 
-$_['entry_blogsetting_rel_blog_per_row'] 		= 'WIKI Posts Per Row';
-$_['entry_blogsetting_rel_thumb'] 				= 'View WIKI Post Thumb';
-$_['entry_blogsetting_rel_thumbs'] 				= 'WIKI Post Thumb Size (W X H)';
+$_['entry_blogsetting_rel_blog_per_row'] 		= 'Статьи Posts Per Row';
+$_['entry_blogsetting_rel_thumb'] 				= 'View Статьи Post Thumb';
+$_['entry_blogsetting_rel_thumbs'] 				= 'Статьи Post Thumb Size (W X H)';
 $_['entry_blogsetting_rel_characters'] 			= 'Short Description Character Length ';
 
 $_['entry_blogsetting_comment_per_page'] 		= 'Comments Per Page';

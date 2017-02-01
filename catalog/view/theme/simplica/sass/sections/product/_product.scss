@@ -324,27 +324,11 @@ main.b-product {
         li {
             overflow: hidden;
             padding-bottom: 14px;
-            position: relative;
-            &:before {
-                content: '';
-                position: absolute;
-                z-index: 1;
-                top: 0;
-                left: 0;
-                right: 0;
-                bottom: 0;
-                cursor: pointer;
-            }
         }
-        & img,
-        &-mini {
+        img {
             float: left;
             width: 36%;
             max-width: 180px;
-            & iframe {
-                width: 178px;
-                height: 100px;
-            }
         }
         &-title {
             color: #131313;

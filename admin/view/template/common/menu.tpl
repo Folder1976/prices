@@ -172,6 +172,17 @@
       <li><a href="<?php echo $blog_comment; ?>"><?php echo $text_blog_comment; ?></a></li>
     </ul>
   </li>
+  <li id="blog"><a class="parent"><i class="fa fa-book fa-fw"></i> <span>News/Blog</span></a>
+				<ul>
+					<li><a href="<?php echo $npages; ?>"><?php echo $entry_npages; ?></a></li>
+					<li><a href="<?php echo $ncategory; ?>"><?php echo $entry_ncategory; ?></a></li>
+					<li><a href="<?php echo $tocomments; ?>"><?php echo $text_commod; ?></a></li>
+					<li><a href="<?php echo $nauthor; ?>"><?php echo $text_nauthor; ?></a></li>
+					<li><a href="<?php echo $nmod; ?>"><?php echo $entry_nmod; ?></a></li>
+					<li><a href="<?php echo $ncmod; ?>"><?php echo $entry_ncmod; ?></a></li>
+					<li><a href="<?php echo $namod; ?>"><?php echo $entry_namod; ?></a></li>
+				</ul>
+			</li>
   <li id="reports"><a class="parent"><i class="fa fa-bar-chart-o fa-fw"></i> <span><?php echo $text_reports; ?></span></a>
     <ul>
       <li><a class="parent"><?php echo $text_sale; ?></a>
