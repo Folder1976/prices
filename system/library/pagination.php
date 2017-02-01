@@ -106,9 +106,6 @@ class Pagination {
 			if(strpos($_SERVER['REQUEST_URI'],'/admin/') !== false){
 				$output .= '<li><a href="' . str_replace('{page}', $page + 1, $this->url) . '">' . $this->text_next . '</a></li>';
 				$output .= '<li><a href="' . str_replace('{page}', $num_pages, $this->url) . '">' . $this->text_last . '</a></li>';
-			}else{
-				//$output .= '<li><div class="links" data-link="' . str_replace('{page}', $page + 1, $this->url) . '">' . $this->text_next . '</div></li>';
-				//$output .= '<li><div class="links" data-link="' . str_replace('{page}', $num_pages, $this->url) . '">' . $this->text_last . '</div></li>';
 			}
 		}
 
@@ -117,8 +114,6 @@ class Pagination {
 		}else{
 			$output .= '</div>';
 		}
-
-		//$output = '<pre>$num_pages='.$num_pages.'  page = '.$page.'</pre>';
 
 		if ($num_pages > 1) {
 			return $output;
