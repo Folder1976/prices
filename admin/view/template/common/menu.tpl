@@ -164,6 +164,12 @@
       </li>
     </ul>
   </li>
+  <li><a class="parent"><i class="fa fa-newspaper-o fa-fw"></i> <span>Коменты</span></a>
+    <ul>
+      <li><a href="/admin/index.php?route=module/megareviews&token=<?php echo $_GET['token']; ?>">Коментарии</a></li>
+      <li><a href="/admin/index.php?route=module/megareviews/settings&token=<?php echo $_GET['token']; ?>">Настройки</a></li>
+    </ul>
+  </li>
   <li><a class="parent"><i class="fa fa-newspaper-o fa-fw"></i> <span><?php echo $text_blog; ?></span></a>
     <ul>
       <li><a href="<?php echo $blog_setting; ?>"><?php echo $text_blog_setting; ?></a></li>

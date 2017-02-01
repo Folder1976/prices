@@ -363,6 +363,8 @@ class ControllerProductProduct extends Controller {
 			$data['tab_attribute'] = $this->language->get('tab_attribute');
 			$data['tab_review'] = sprintf($this->language->get('tab_review'), $product_info['reviews']);
 
+
+
 			$data['product_id'] = (int)$this->request->get['product_id'];
 			$data['garant'] = $product_info['garant'];
 			$data['manufacturer'] = $product_info['manufacturer'];
@@ -788,22 +790,24 @@ class ControllerProductProduct extends Controller {
 	public function write() {
 		$this->load->language('product/product');
 
+
 		$json = array();
 
 		if ($this->request->server['REQUEST_METHOD'] == 'POST') {
 			if ((utf8_strlen($this->request->post['name']) < 3) || (utf8_strlen($this->request->post['name']) > 25)) {
-				$json['error'] = $this->language->get('error_name');
+				$json['error'] = ''.$this->language->get('error_name');
 			}
 
-			if ((utf8_strlen($this->request->post['text']) < 25) || (utf8_strlen($this->request->post['text']) > 1000)) {
-				$json['error'] = $this->language->get('error_text');
+			if ((utf8_strlen($this->request->post['text']) < 5) || (utf8_strlen($this->request->post['text']) > 1000)) {
+				$json['error'] = ''.$this->language->get('error_text');
 			}
 
 			if (empty($this->request->post['rating']) || $this->request->post['rating'] < 0 || $this->request->post['rating'] > 5) {
-				$json['error'] = $this->language->get('error_rating');
+				$json['error'] = ''.$this->language->get('error_rating');
 			}
 
 			// Captcha
+			/*
 			if ($this->config->get($this->config->get('config_captcha') . '_status') && in_array('review', (array)$this->config->get('config_captcha_page'))) {
 				$captcha = $this->load->controller('captcha/' . $this->config->get('config_captcha') . '/validate');
 
@@ -811,7 +815,8 @@ class ControllerProductProduct extends Controller {
 					$json['error'] = $captcha;
 				}
 			}
-
+			*/
+			
 			if (!isset($json['error'])) {
 				$this->load->model('catalog/review');
 

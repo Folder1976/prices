@@ -870,13 +870,15 @@
       <?php } ?>
       <?php } ?>
       <!--a href="" onclick="$('a[href=\'#tab-review\']').trigger('click'); return false;"><?php echo $reviews; ?></a> / <a href="" onclick="$('a[href=\'#tab-review\']').trigger('click'); return false;"><?php echo $text_write; ?></a></p-->
-      <a href="" onclick="$('a[href=\'#tab-review\']').trigger('click');if($('#megareviews_box').length>0)$('html,body').animate({scrollTop: $('#megareviews_box').offset().top}, 500);return false;"><?php echo $reviews; ?></a> / <a href="" onclick="$('a[href=\'#tab-review\']').trigger('click');if($('#megareviews_box').length>0)$('html,body').animate({scrollTop: $('#megareviews_box').offset().top}, 500);return false;"><?php echo $text_write; ?></a></p>
+      <!--a href="" onclick="$('a[href=\'#tab-review\']').trigger('click');if($('#megareviews_box').length>0)$('html,body').animate({scrollTop: $('#megareviews_box').offset().top}, 500);return false;"><?php echo $reviews; ?></a> / <a href="" onclick="$('a[href=\'#tab-review\']').trigger('click');if($('#megareviews_box').length>0)$('html,body').animate({scrollTop: $('#megareviews_box').offset().top}, 500);return false;"><?php echo $text_write; ?></a></p-->
+      <a href="javascript:;" id="btn-review"><?php echo $text_write; ?></a></p>
     <hr>
     <!-- AddThis Button BEGIN -->
     <div class="addthis_toolbox addthis_default_style"><a class="addthis_button_facebook_like" fb:like:layout="button_count"></a> <a class="addthis_button_tweet"></a> <a class="addthis_button_pinterest_pinit"></a> <a class="addthis_counter addthis_pill_style"></a></div>
     <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-515eeaf54693130e"></script>
     <!-- AddThis Button END -->
   </div>
+  <div id="review-title"></div>
 <?php } ?>
 
 
@@ -1049,5 +1051,62 @@ $('.b-video__list').on('click', 'li', function(){
   $('.b-video__main iframe').attr('src', src_video);
 });
 </script>
+<script>
+   //$(function () {
+	$(document).ready(function () {
+        $('#review .pagination a').on('click', function () {
+            $('#review').fadeOut('slow');
 
+            $('#review').load(this.href);
+
+            $('#review').fadeIn('slow');
+
+            return false;
+        });
+
+        $('#review').load('/index.php?route=product/product/review&product_id=<?php echo $product_id; ?>');
+
+		
+        $("#btn-review").on("click", function () {
+           //debugger;
+		    
+            $.ajax({
+                url: '/index.php?route=product/product/write&product_id=170487',
+                type: 'post',
+                dataType: 'json',
+                data: 'name=' + encodeURIComponent($('input[name=\'name\']').val()) + '&text=' + encodeURIComponent($('textarea[name=\'text\']').val()) + '&rating=' + encodeURIComponent($('input[name=\'rating\']:checked').val() ? $('input[name=\'rating\']:checked').val() : '') + '&captcha=' + encodeURIComponent($('input[name=\'captcha\']').val()),
+                beforeSend: function () {
+                    $('.success, .warning').remove();
+                    $('#button_review').attr('disabled', true);
+                    $('#review-title').after('<div class="attention"><img src="//cdn.alta-karter.ru/catalog/view/theme/default/image/loading.gif" alt="" /></div>');
+                },
+                complete: function () {
+                    $('#button_review').attr('disabled', false);
+                    $('.attention').remove();
+                },
+                success: function (data) {
+                  console.log(data);
+                  
+                    if (data['error']) {
+                        $('#review-title').after('<div class="warning">' + data['error'] + '</div>');
+                    }
+
+                    if (data['success']) {
+                        $('#review-title').after('<div class="success">' + data['success'] + '</div>');
+
+                        $('input[name=\'name\']').val('');
+                        $('textarea[name=\'text\']').val('');
+                        $('input[name=\'rating\']:checked').attr('checked', '');
+                        $('input[name=\'captcha\']').val('');
+                    }
+                }
+            });
+        });
+    });
+	
+	
+	$(document).ready(function(){
+	console.log('product_page111');
+});
+</script>
 <?php echo $footer; ?>
