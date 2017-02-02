@@ -2,7 +2,7 @@
 
 <?php
 //echo "<pre>";  print_r(var_dump( get_defined_vars() )); echo "</pre>";
-//echo "<pre>";  print_r(var_dump( $videos )); echo "</pre>";
+//echo "<pre>";  print_r(var_dump( $attribute_groups )); echo "</pre>";
 ?>
 
 <div class="b-popup b-prod-img-popup js-popup-prod-img mfp-hide">
@@ -178,55 +178,31 @@
                   </div>
                 </div>  <!-- end b-prod-info__block -->
 
+                <!-- Атрибуты -->
+                <?php if ( isset($attribute_groups) ) { ?>
+                <?php $count_attr = 0; ?>
                 <div class="b-prod-info__content">
+                  <?php foreach( $attribute_groups as $group ) { ?>
                   <div class="g-row">
-                    <div class="b-prod-info__content-key">ДРУГИЕ ХАРАКЕРИСТКИ</div>
+                    <div class="b-prod-info__content-key"><?php echo $group['name']; ?></div>
                     <div class="b-prod-info__content-val"></div>
                   </div>
-                  <div class="g-row">
-                    <div class="b-prod-info__content-key">Hyper-Threading (HT):</div>
-                    <div class="b-prod-info__content-val">-</div>
-                  </div>
-                  <div class="g-row">
-                    <div class="b-prod-info__content-key">Коеффициент умножения:</div>
-                    <div class="b-prod-info__content-val">26</div>
-                  </div>
-                  <div class="g-row">
-                    <div class="b-prod-info__content-key">Максимальная полоса пропускания памяти:</div>
-                    <div class="b-prod-info__content-val">17 Гб/c</div>
-                  </div>
-                  <div class="g-row">
-                    <div class="b-prod-info__content-key">Сокет:</div>
-                    <div class="b-prod-info__content-val">LGA1155</div>
-                  </div>
-                  <div class="g-row">
-                    <div class="b-prod-info__content-key">Тепловыделение:</div>
-                    <div class="b-prod-info__content-val">65 Вт</div>
-                  </div>
-                  <div class="g-row">
-                    <div class="b-prod-info__content-key">Техпроцесс</div>
-                    <div class="b-prod-info__content-val">32нм</div>
-                  </div>
+                    <?php foreach( $group['attribute'] as $attribut ) { ?>
+                    <div class="g-row">
+                      <div class="b-prod-info__content-key"><?php echo $attribut['name']; ?></div>
+                      <div class="b-prod-info__content-val"><?php echo $attribut['text']; ?></div>
+                    </div>
 
-                  <div class="b-prod-info__content-more js-prod-info__content-more">Ещё</div>
+                      <?php if ($count_attr++ > 7) { ?>
+                      <div class="b-prod-info__content-more js-prod-info__content-more">Ещё</div>
+                      <?php } ?>
 
-                  <div class="g-row">
-                    <div class="b-prod-info__content-key">Максимальная полоса пропускания памяти:</div>
-                    <div class="b-prod-info__content-val">17 Гб/c</div>
-                  </div>
-                  <div class="g-row">
-                    <div class="b-prod-info__content-key">Сокет:</div>
-                    <div class="b-prod-info__content-val">LGA1155</div>
-                  </div>
-                  <div class="g-row">
-                    <div class="b-prod-info__content-key">Тепловыделение:</div>
-                    <div class="b-prod-info__content-val">65 Вт</div>
-                  </div>
-                  <div class="g-row">
-                    <div class="b-prod-info__content-key">Техпроцесс</div>
-                    <div class="b-prod-info__content-val">32нм</div>
-                  </div>
+                    <?php } ?>
+
+                  <?php } ?>
                 </div>  <!-- end b-prod-info__content -->
+                <?php } ?>
+
 
                 <div class="b-prod-info__btn-buy">
                   <a href="#" class="g-btn">Где купить ></a>
@@ -326,34 +302,30 @@
         <div class="b-prod__tabs js-prod_tabs">
           <div class="g-scroll-line js-scroll-line">
             <ul>
+              <?php if ( isset($attribute_groups) ) { ?>
               <li><a href="/<?php echo $_GET['_route_']; ?>#js-block-product_tabs-1">Характеристики</a></li>
+              <?php } ?>
               <li><a href="/<?php echo $_GET['_route_']; ?>#js-block-product_tabs-2">Предложения</a></li>
               <li><a href="/<?php echo $_GET['_route_']; ?>#js-block-product_tabs-3">Отзывы 173</a></li>
               <li><a href="/<?php echo $_GET['_route_']; ?>#js-block-product_tabs-4">Вопросы и ответы</a></li>
             </ul>
           </div>
 
+
           <!-- Характеристики -->
+          <?php if ( isset($attribute_groups) ) { ?>
           <div id="js-block-product_tabs-1" class="b-tab-characteristics">
             <ul>
-              <li class="title">Графика</li>
-              <li><span class="key">Графическое ядро</span><span class="val">Intel HD graphics</span></li>
-              <li><span class="key">Интегрированное графическое ядро</span><span class="val">+</span></li>
-              <li><span class="key">Интегрированное графическое ядро</span><span class="val">+</span></li>
-              <li class="title">Графика</li>
-              <li><span class="key">ИКоличество ядер</span><span class="val">2</span></li>
-              <li><span class="key">Частота процессора</span><span class="val">2600 мгц</span></li>
-              <li><span class="key">Частота процессора</span><span class="val">2600 мгц</span></li>
-              <li class="title">Графика</li>
-              <li><span class="key">Графическое ядро</span><span class="val">Intel HD graphics</span></li>
-              <li><span class="key">Интегрированное графическое ядро</span><span class="val">+</span></li>
-              <li><span class="key">Интегрированное графическое ядро</span><span class="val">+</span></li>
-              <li class="title">Графика</li>
-              <li><span class="key">ИКоличество ядер</span><span class="val">2</span></li>
-              <li><span class="key">ИКоличество ядер</span><span class="val">2</span></li>
-              <li><span class="key">Частота процессора</span><span class="val">2600 мгц</span></li>
+              <?php foreach( $attribute_groups as $group ) { ?>
+              <li class="title"><?php echo $group['name']; ?></li>
+                <?php foreach( $group['attribute'] as $attribut ) { ?>
+                <li><span class="key"><?php echo $attribut['name']; ?></span><span class="val"><?php echo $attribut['text']; ?></span></li>
+                <?php } ?>
+              <?php } ?>
             </ul>
           </div>  <!-- end Характеристики -->
+          <?php } ?>
+
 
           <!-- Предложения -->
           <div id="js-block-product_tabs-2" class="b-tab-prices">
