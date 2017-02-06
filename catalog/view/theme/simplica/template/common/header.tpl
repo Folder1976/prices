@@ -29,13 +29,6 @@ $_SESSION ["currency"] - выбранная валюта
 */
 
 
-
-
-
-
-
-
-
 if($_SERVER['REQUEST_URI'] == '/'){
     $curr_href = '/'.$language_href.'index.php?currency=';
 }else{
@@ -225,16 +218,22 @@ if (typeof jQuery == 'undefined') {
       </div>
        
 
-       
-
       <div class="b-header__middle">
         <div class="b-location">
           <span class="ic-location"></span>
           <span class="b-location__city" id="location_city"><?php echo $loc_array['name']; ?></span>
         </div>
         <div class="b-weather">
-          <img src="catalog/view/theme/simplica/img/weather.png" alt="weather">
+          <!--img src="catalog/view/theme/simplica/img/weather.png" alt="weather"-->
+          <span><img src="//openweathermap.org/img/w/<?php echo $weather['weather']['0']['icon']; ?>.png" style="width: 22px;height: 22px;position: relative;top: -2px;left: -2px;display: inline-block;"></span>
+          <span class="b-location__city" id="weather_city"><?php echo $loc_array['name']; ?> - <?php echo $weather['weather']['0']['description']; ?> <?php echo $weather['main']['temp']; ?>&#176;</span>
         </div>
+        
+        <?php foreach($currency_line as $row){ ?>
+            <div class="b-weather" style="min-width: 70px;margin-left: 20px;">
+              <span class="b-location__city"><?php echo $row['symbol_left'].$row['kurs'].$row['symbol_right'].$row['up_down']; ?></span>
+            </div>
+        <?php } ?>
       </div>
 
       <div class="b-header__bottom">

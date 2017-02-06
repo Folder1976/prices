@@ -2,8 +2,10 @@
 class ControllerCommonHeader extends Controller {
 	public function index() {
 		
+		//Префикс языка
 		$data['language_href'] = $this->session->data['language_href'];
 		
+		//Город по ИП
         $ip = $_SERVER['REMOTE_ADDR'];
         $url = 'http://api.sypexgeo.net/xml/'. $ip .'';
         $xml = simplexml_load_string(file_get_contents($url));
@@ -16,8 +18,17 @@ class ControllerCommonHeader extends Controller {
 		}else{
 			$loc_array['name'] = $xml->ip->city->name_en;
 		}
-		
 		$data['loc_array'] = $loc_array;
+		
+		//Погода
+		if($data['language_href'] == ''){
+			$api = 'http://api.openweathermap.org/data/2.5/weather?lat='.$loc_array['lat'].'&lon='.$loc_array['lon'].'&units=metric&lang=ru&apikey=696ae1f68d3357bed87558d884706976';
+		}else{
+			$api = 'api.openweathermap.org/data/2.5/weather?lat='.$loc_array['lat'].'&lon='.$loc_array['lon'].'&units=metric&lang=en&apikey=696ae1f68d3357bed87558d884706976';
+		}
+		$data['weather'] = json_decode(file_get_contents($api), true);
+		
+		
 		
 		
 		//Урл для блока выбора языка
@@ -36,6 +47,8 @@ class ControllerCommonHeader extends Controller {
 		$this->load->model('localisation/currency');
 		$data['currencies'] = $this->model_localisation_currency->getCurrencies();
 		$data['currency'] = $this->load->controller('common/currency');
+		$data['currency_line'] = $this->model_localisation_currency->getCurrenciesLine();
+		
 		
 		//$this->load->model('catalog/shop');
 		//$data['shops'] = $this->model_catalog_shop->getShops();
