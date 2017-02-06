@@ -772,7 +772,7 @@ class ModelCatalogProduct extends Model {
 				$sql .= " ORDER BY (CASE WHEN special IS NOT NULL THEN special WHEN discount IS NOT NULL THEN discount ELSE p.price END)";
 			} else {
 				
-				$sql .= " ORDER BY " . $data['sort'];
+				$sql .= " ORDER BY pd.name "; // . $data['sort'];
 			}
 		} else {
 			$sql .= " ORDER BY p.click_price DESC, p.price ASC, pd.name ASC";

@@ -2,6 +2,9 @@
 class ControllerCommonSeoUrl extends Controller {
 	public function index() {
 		
+		
+		
+		
 		//Если прилетел мусор в УРЛ (-)
 		if (isset($this->request->get['_route_']) AND substr($this->request->get['_route_'], -1, 1) == '-') {
 	
@@ -24,8 +27,9 @@ class ControllerCommonSeoUrl extends Controller {
 			
 		}
 
-
-
+		if(isset($this->request->get['_route_']) AND $this->request->get['_route_'] == '') unset($this->request->get['_route_']);
+		
+	
 		//Если прилетела смена валюты
 		if (isset($this->request->get['currency'])) {
 			
@@ -91,6 +95,8 @@ class ControllerCommonSeoUrl extends Controller {
 			}
 	
 		}
+		
+		
 		//Проверяем или это не город в адресной строке
 		$pach_city = '';
 		if(isset($this->request->get['_route_'])){
@@ -152,11 +158,10 @@ class ControllerCommonSeoUrl extends Controller {
 		if(strpos($_SERVER['REQUEST_URI'], '//') !== false){
 			
 			header('HTTP/1.1 301 Moved Permanently');
-			header("Location: http://".$_SERVER['SERVER_NAME'] ."");
+			header("Location: http://".trim($_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI'],'/') ."");
 			exit(0);
 			
 		}
-		
 		
 		//Обрежем динамическую приставку языка
 		if(isset($this->request->get['_route_'])){
@@ -366,11 +371,12 @@ class ControllerCommonSeoUrl extends Controller {
 		}
 		
 		//Если прилетел поиск
+		/*
 		if (isset($this->request->get['search'])) {
 			$this->request->get['route'] = 'product/category';
 			return new Action($this->request->get['route']);
 		}
-		
+		*/
 
 		//Если нам прилетело чтото в ГЕТ кроме _roure_
 		if(isset($_GET) AND count($_GET) > 1 AND !isset($GET['reload']) AND isset($_GET['_route_']) AND false){

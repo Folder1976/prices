@@ -37,7 +37,7 @@ $_SESSION ["currency"] - выбранная валюта
 
 
 if($_SERVER['REQUEST_URI'] == '/'){
-    $curr_href = 'index.php?currency=';
+    $curr_href = '/'.$language_href.'index.php?currency=';
 }else{
     if(strpos($_SERVER['REQUEST_URI'],'?') !== false){
         $curr_href =  $_SERVER['REQUEST_URI'].'&currency=';
@@ -148,7 +148,7 @@ if (typeof jQuery == 'undefined') {
           <div class="b-auth-social__title"><?php echo $text_through_social_networks; ?></div>
           <div class="b-auth-social__content">
           <?php foreach ($adapters as $title => $adapter) { ?>
-            <a href="<?php echo $adapter->getAuthUrl(); ?>"><span class="ic-<?php echo $title; ?>"></span></a>
+            <a href="/<?php echo $language_href; ?><?php echo $adapter->getAuthUrl(); ?>"><span class="ic-<?php echo $title; ?>"></span></a>
           <?php } ?>
           </div>
         </div>
@@ -159,8 +159,8 @@ if (typeof jQuery == 'undefined') {
     </div>
   </div>
   <div class="b-popup__footer">
-    <span class="g-span-link_dotted"><a href="index.php?route=account/register"><?php echo $text_register; ?></a></span>
-    <span class="g-span-link_dotted"><a href="index.php?route=account/forgotten"><?php echo $text_password_reset; ?></a></span>
+    <span class="g-span-link_dotted"><a href="/<?php echo $language_href; ?>index.php?route=account/register"><?php echo $text_register; ?></a></span>
+    <span class="g-span-link_dotted"><a href="/<?php echo $language_href; ?>index.php?route=account/forgotten"><?php echo $text_password_reset; ?></a></span>
   </div>
 </div>
 
@@ -223,11 +223,14 @@ if (typeof jQuery == 'undefined') {
           </div>
         </div>
       </div>
+       
+
+       
 
       <div class="b-header__middle">
         <div class="b-location">
           <span class="ic-location"></span>
-          <span class="b-location__city">Киев</span>
+          <span class="b-location__city" id="location_city"><?php echo $loc_array['name']; ?></span>
         </div>
         <div class="b-weather">
           <img src="catalog/view/theme/simplica/img/weather.png" alt="weather">
@@ -349,25 +352,33 @@ if (typeof jQuery == 'undefined') {
 
           <div class="g-col-center">
             <div class="b-search">
-              <form action="#" method="post">
-                <div class="f-form-wrap">
+                <div class="f-form-wrap" id="search">
                   <div class="g-span-select b-search__select js-span-select js-span-select-search">
                     <span class="g-span-select__title">Все</span>
-                    <ul class="g-span-select__ul g-span-select__hidden js-popup-sort">
+                    <ul class="g-span-select__ul g-span-select__hidden js-popup-sort select_category">
 
-                      <li class="active" data-value="1">Все</li>
+                      <li class="active" data-value="0">Все</li>
                       <?php foreach ($categories as $category) { ?>
                       <li data-value="<?php echo $category['category_id']; ?>"><?php echo $category['name']; ?></li>
                       <?php } ?>
 
                     </ul>
                   </div>
-                  <input type="text" class="b-search__input" name="search_input" value="">
-                  <button class="b-search__button" type="submit"><span class="ic-search"></span></button>
+                  <input type="hidden" name="category_id" id="search_category_id" value="0">
+                  <input type="text" class="b-search__input" name="search" value="">
+                  <button class="b-search__button" type="button"><span class="ic-search"></span></button>
                 </div>
-              </form>
             </div>
           </div>
+    <script>
+        
+        $("ul.select_category.active").click(function(){
+            debugger;    
+        });
+        
+    </script>
+
+
 
           <div class="g-col-right">
             <div class="b-header-box-cart-account">

@@ -1,6 +1,10 @@
 <?php
 class ControllerInformationInformation extends Controller {
 	public function index() {
+		
+		$data['language_href'] = $this->session->data['language_href'];
+		
+		
 		$this->load->language('information/information');
 
 		$this->load->model('catalog/information');

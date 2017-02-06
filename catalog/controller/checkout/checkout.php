@@ -1,6 +1,9 @@
 <?php
 class ControllerCheckoutCheckout extends Controller {
 	public function index() {
+		
+		$data['language_href'] = $this->session->data['language_href'];
+		
 		// Validate cart has products and has stock.
 		if ((!$this->cart->hasProducts() && empty($this->session->data['vouchers'])) || (!$this->cart->hasStock() && !$this->config->get('config_stock_checkout'))) {
 			

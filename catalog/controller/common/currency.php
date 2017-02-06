@@ -1,6 +1,9 @@
 <?php
 class ControllerCommonCurrency extends Controller {
 	public function index() {
+		
+		$data['language_href'] = $this->session->data['language_href'];
+		
 		$this->load->language('common/currency');
 
 		$data['text_currency'] = $this->language->get('text_currency');

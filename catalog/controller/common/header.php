@@ -1,7 +1,25 @@
 <?php
 class ControllerCommonHeader extends Controller {
 	public function index() {
-
+		
+		$data['language_href'] = $this->session->data['language_href'];
+		
+        $ip = $_SERVER['REMOTE_ADDR'];
+        $url = 'http://api.sypexgeo.net/xml/'. $ip .'';
+        $xml = simplexml_load_string(file_get_contents($url));
+        $loc_array = array('lat' => $xml->ip->city->lat,
+                           'lon' => $xml->ip->city->lon,
+                           );
+        
+		if($data['language_href']  == ''){
+			$loc_array['name'] = $xml->ip->city->name_ru;
+		}else{
+			$loc_array['name'] = $xml->ip->city->name_en;
+		}
+		
+		$data['loc_array'] = $loc_array;
+		
+		
 		//Урл для блока выбора языка
 		if(isset($this->request->get['_route_'])){
 			$data['url_no_lang'] = str_replace($this->session->data['language'].'/','/',$this->request->get['_route_']);

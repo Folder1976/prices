@@ -1,6 +1,9 @@
 <?php
 class ControllerErrorNotFound extends Controller {
 	public function index() {
+		
+		$data['language_href'] = $this->session->data['language_href'];
+		
 		$this->load->language('error/not_found');
 
 		$this->response->addHeader($this->request->server['SERVER_PROTOCOL'] . ' 404 Not Found');

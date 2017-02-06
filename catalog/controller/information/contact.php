@@ -3,6 +3,10 @@ class ControllerInformationContact extends Controller {
 	private $error = array();
 
 	public function index() {
+		
+		$data['language_href'] = $this->session->data['language_href'];
+		
+		
 		$this->load->language('information/contact');
 
 		$this->document->setMetaTeg('<meta name="robots"  content="noindex">');

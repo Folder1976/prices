@@ -1,6 +1,6 @@
 <?php
 // Heading
-$_['heading_title']       = '<img width="16" height="14" src="http://viequeshilltopretreat.com/wp-content/uploads/2014/08/Igniyte-Icons-Stars.png" /> <b><span style="color:rgb(137, 64, 12);font-size:14px;">Mega Reviews</span></b>';
+$_['heading_title']       = '<img width="16" height="14" src="/admin/view/image/Igniyte-Icons-Stars.png" /> <b><span style="color:rgb(137, 64, 12);font-size:14px;">Mega Reviews</span></b>';
 $_['simple_heading_title']       = 'Mega Reviews';
 
 // Text

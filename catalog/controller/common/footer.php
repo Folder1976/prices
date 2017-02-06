@@ -1,6 +1,9 @@
 <?php
 class ControllerCommonFooter extends Controller {
 	public function index() {
+		
+		$data['language_href'] = $this->session->data['language_href'];
+		
 		$this->load->language('common/footer');
 		$this->load->model('catalog/category');
 		$this->load->model('catalog/product');

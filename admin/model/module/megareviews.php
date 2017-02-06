@@ -25,12 +25,20 @@ class ModelModuleMegareviews extends Model {
 	}
 	
 	public function addOption($data) {
-		$this->db->query("INSERT INTO " . DB_PREFIX . "megareviews_options SET min = '" . $this->db->escape($data['min']) . "', max = '" . $this->db->escape($data['max']) . "', name = '" . $this->db->escape(strip_tags($data['name'])) . "' , `values` = '" . $this->db->escape(strip_tags($data['values'])) . "',sort_order = '" . (int)$data['sort_order'] . "'");
+		$this->db->query("INSERT INTO " . DB_PREFIX . "megareviews_options SET
+						 min = '" . $this->db->escape($data['min']) . "',
+						 max = '" . $this->db->escape($data['max']) . "',
+						 name = '" . $this->db->escape(strip_tags($data['name'])) . "' ,
+						 `values` = '" . $this->db->escape(strip_tags($data['values'])) . "',
+						 sort_order = '" . (int)$data['sort_order'] . "'");
 		$this->cache->delete('product');
 	}
 	
 	public function addAy($data) {
-		$this->db->query("INSERT INTO " . DB_PREFIX . "megareviews_ays SET name = '" . $this->db->escape(strip_tags($data['name'])) . "' , `values` = '" . $this->db->escape(strip_tags($data['values'])) . "' ,sort_order = '" . (int)$data['sort_order'] . "'");
+		$this->db->query("INSERT INTO " . DB_PREFIX . "megareviews_ays SET
+						 name = '" . $this->db->escape(strip_tags($data['name'])) . "' ,
+						 `values` = '" . $this->db->escape(strip_tags($data['values'])) . "' ,
+						 sort_order = '" . (int)$data['sort_order'] . "'");
 		$this->cache->delete('product');
 	}
 
@@ -69,7 +77,12 @@ class ModelModuleMegareviews extends Model {
 	}
 
 	public function getReview($review_id) {
-		$query = $this->db->query("SELECT DISTINCT *, (SELECT pd.name FROM " . DB_PREFIX . "product_description pd WHERE pd.product_id = r.product_id AND pd.language_id = '" . (int)$this->config->get('config_language_id') . "') AS product FROM " . DB_PREFIX . "megareviews r WHERE r.review_id = '" . (int)$review_id . "'");
+		$query = $this->db->query("SELECT DISTINCT *,
+								  (SELECT pd.name FROM " . DB_PREFIX . "product_description pd
+										WHERE pd.product_id = r.product_id
+											AND pd.language_id = '" . (int)$this->config->get('config_language_id') . "') AS product
+								  FROM " . DB_PREFIX . "megareviews r
+								  WHERE r.review_id = '" . (int)$review_id . "'");
 
 		return $query->row;
 	}
@@ -80,7 +93,9 @@ class ModelModuleMegareviews extends Model {
 	}
 
 	public function getReviews($data = array()) {
-		$sql = "SELECT pd.name,r.review_id,r.product_id, r.author, r.rating, r.status, r.date_added, r.videotitle,r.upvotes,r.downvotes, r.text,r.title,r.recommend,r.videourl FROM " . DB_PREFIX . "megareviews r LEFT JOIN " . DB_PREFIX . "product_description pd ON (r.product_id = pd.product_id)  WHERE TRUE";																																					  
+		$sql = "SELECT pd.name,r.review_id,r.product_id, r.author, r.rating, r.status, r.date_added, r.videotitle,r.upvotes,r.downvotes, r.text,r.title,r.recommend,r.videourl FROM " . DB_PREFIX . "megareviews r
+					LEFT JOIN " . DB_PREFIX . "product_description pd ON (r.product_id = pd.product_id AND pd.language_id = '" . (int)$this->config->get('config_language_id') . "')
+					WHERE TRUE";																																					  
 		if (!empty($data['filter_product'])) {
             $sql .= " AND pd.name LIKE '" . $this->db->escape($data['filter_product']) . "%'";
         }

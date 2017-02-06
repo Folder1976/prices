@@ -4,6 +4,9 @@ class ControllerProductProduct extends Controller {
 
 	public function index() {
 		
+		$data['language_href'] = $this->session->data['language_href'];
+		
+		
 		$this->load->model('setting/setting');
 		$settings=$this->model_setting_setting->getSetting('megareviews');	
 		if(isset($settings['megareviews_module'][0]['status'])){
@@ -12,7 +15,9 @@ class ControllerProductProduct extends Controller {
 		}else{
 			$data['mr_status']=0;
 			$data['mr_tab']=0;
-		} 
+		}
+		
+		
 		
 		$this->load->language('product/product');
 

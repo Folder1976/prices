@@ -45,7 +45,7 @@ $count=0;
 	 }
 	 
 	 if($type == 'shops'){
-		$sql = 'UPDATE '.DB_PREFIX.'shops SET image = \''. $filename .'\' WHERE id=\''.$_POST['filename'].'\';';
+		$sql = 'UPDATE '.DB_PREFIX.'shop SET image = \''. $filename .'\' WHERE id=\''.$_POST['filename'].'\';';
 	 }
 	 
 	 if($type == 'brands'){

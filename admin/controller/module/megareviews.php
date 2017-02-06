@@ -66,7 +66,7 @@ class ControllerModuleMegareviews extends Controller {
 	    $version=$this->defaults['version'];
         $this->load->model('setting/setting');
         $module= $this->config->get('megareviews_settings'); 
-        $lastversion=$module['version'];       
+        $lastversion=isset($module['version']) ? $module['version'] : 1;       
         foreach($this->defaults as $key=>$value ){
             if(!isset($module[$key]))$module[$key]=$value;
         }

@@ -244,6 +244,7 @@ $('.js-nav__mob-tabs').on('click', 'span', function(){
 
 // g-span-select START
 $('.js-span-select').on('click', function(e){
+ 
   if ( e.target.nodeName == 'SPAN' || e.target == this ) {
     $(this).closest('div').find('ul').toggleClass('g-span-select__hidden');
     return;
@@ -255,10 +256,17 @@ $('.js-span-select').on('click', function(e){
     $(this).find('ul').toggleClass('g-span-select__hidden');
     $(this).find('li').removeClass('active');
     $(e.target).addClass('active');
+    
   }
+  
+  $("#search_category_id").val(e.target.dataset.value);
+  
+  //console.log(e.target.dataset.value);
+   
 });
 
 $(document).mouseup(function (e){
+  
     if ( $(e.target).closest('.js-span-select').length === 0 ) {
         $('.js-span-select ul').addClass('g-span-select__hidden');
     }

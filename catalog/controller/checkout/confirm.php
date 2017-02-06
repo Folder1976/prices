@@ -1,6 +1,9 @@
 <?php
 class ControllerCheckoutConfirm extends Controller {
 	public function index() {
+		
+		$data['language_href'] = $this->session->data['language_href'];
+		
 		$redirect = '';
 		
 		if ($this->cart->hasShipping()) {

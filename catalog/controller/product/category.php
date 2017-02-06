@@ -9,6 +9,8 @@ class ControllerProductCategory extends Controller {
 	
 	public function index() {
 
+		$data['language_href'] = $this->session->data['language_href'];
+		
 		
 		$this->load->model('setting/setting');
 		$settings=$this->model_setting_setting->getSetting('megareviews');	
@@ -493,6 +495,8 @@ class ControllerProductCategory extends Controller {
 				if(isset($category_info['name']))
 						$data['categories']['header'] = $category_info['name'];
 			}
+
+
 
 			foreach ($results as $result) {
 				$filter_data = array(

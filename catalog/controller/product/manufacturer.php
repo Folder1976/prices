@@ -1,6 +1,10 @@
 <?php
 class ControllerProductManufacturer extends Controller {
 	public function index() {
+		
+		$data['language_href'] = $this->session->data['language_href'];
+		
+		
 		$this->load->language('product/manufacturer');
 
 		$this->load->model('catalog/manufacturer');
@@ -77,7 +81,7 @@ class ControllerProductManufacturer extends Controller {
 		
 		$this->load->model('catalog/category');
 
-		$this->load->model('catalog/shop');
+		$this->load->model('catalog/shops');
 		
 		$this->load->model('tool/image');
 		
@@ -190,7 +194,7 @@ class ControllerProductManufacturer extends Controller {
 		);
 
 		if(isset($shop_id) AND $shop_id > 0){
-			$manufacturer_info = $this->model_catalog_shop->getShop((int)$shop_id);
+			$manufacturer_info = $this->model_catalog_shops->getShop((int)$shop_id);
 			$manufacturer_info['keyword'] = $manufacturer_info['href'];
 		}else{
 			$manufacturer_info = $this->model_catalog_manufacturer->getManufacturer((int)$manufacturer_id);	

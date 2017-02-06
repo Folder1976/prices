@@ -1,6 +1,9 @@
 <?php
 class ControllerCommonCart extends Controller {
 	public function index() {
+
+		$data['language_href'] = $this->session->data['language_href'];
+		
 		$this->load->language('common/cart');
 
 		// Totals

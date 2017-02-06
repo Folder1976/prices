@@ -101,9 +101,9 @@
       <?php $count = 0; ?>
       <?php foreach ($breadcrumbs as $breadcrumb) { ?>
         <?php if ($count == 0) { ?>
-          <a href="<?php echo $breadcrumb['href']; ?>" title=""><span class="ic-home"></span><?php echo $breadcrumb['text']; ?></a>
+          <a href="<?php echo $language_href; ?><?php echo $breadcrumb['href']; ?>" title=""><span class="ic-home"></span><?php echo $breadcrumb['text']; ?></a>
         <?php } else { ?>
-          <span>&nbsp;>&nbsp;</span><a href="<?php echo $breadcrumb['href']; ?>" title="<?php echo $breadcrumb['text']; ?>"><?php echo $breadcrumb['text']; ?></a>
+          <span>&nbsp;>&nbsp;</span><a href="<?php echo $language_href; ?><?php echo $breadcrumb['href']; ?>" title="<?php echo $breadcrumb['text']; ?>"><?php echo $breadcrumb['text']; ?></a>
         <?php } ?>
       <?php $count++;} ?>
       </div>
@@ -139,12 +139,12 @@
             </div>  <!-- end g-row -->
             <div class="g-row">
               <div class="b-col-left-prod__bottom">
-                <a href="#"><span class="ic-fb-grey"></span></a>
-                <a href="#"><span class="ic-twitter-grey"></span></a>
-                <a href="#"><span class="ic-linked-in-grey"></span></a>
-                <a href="#"><span class="ic-pininterest-grey"></span></a>
+                <a href="/<?php echo $language_href; ?>#"><span class="ic-fb-grey"></span></a>
+                <a href="/<?php echo $language_href; ?>#"><span class="ic-twitter-grey"></span></a>
+                <a href="/<?php echo $language_href; ?>#"><span class="ic-linked-in-grey"></span></a>
+                <a href="/<?php echo $language_href; ?>#"><span class="ic-pininterest-grey"></span></a>
                 <div class="b-compare-btn">
-                  <a href="#">Сравнить</a>
+                  <a href="/<?php echo $language_href; ?>#">Сравнить</a>
                 </div>
               </div>
             </div>
@@ -205,7 +205,7 @@
 
 
                 <div class="b-prod-info__btn-buy">
-                  <a href="#" class="g-btn">Где купить ></a>
+                  <a href="/<?php echo $language_href; ?>#" class="g-btn">Где купить ></a>
                 </div>
               </div>
 
@@ -214,10 +214,10 @@
           <div class="g-clear"></div>
 
         <div class="b-breadcrumb b-breadcrumb_mob">
-          <a href="index.html"><span class="ic-home"></span></a><span>&nbsp;>&nbsp;</span>
-          <a href="category.html">Комплектующие</a><span>&nbsp;>&nbsp;</span>
-          <a href="category.html">Материнские платы</a><span>&nbsp;>&nbsp;</span>
-          <a href="product.html">Original Letv Le 1 Pro 5.5</a>
+          <a href="/<?php echo $language_href; ?>index.html"><span class="ic-home"></span></a><span>&nbsp;>&nbsp;</span>
+          <a href="/<?php echo $language_href; ?>category.html">Комплектующие</a><span>&nbsp;>&nbsp;</span>
+          <a href="/<?php echo $language_href; ?>category.html">Материнские платы</a><span>&nbsp;>&nbsp;</span>
+          <a href="/<?php echo $language_href; ?>product.html">Original Letv Le 1 Pro 5.5</a>
         </div>
 
         <div class="b-prod-other-info">
@@ -286,7 +286,7 @@
                   <div class="b-product-carousel__img">
                     <img src="<?php echo $prod['thumb']; ?>" alt="<?php echo $prod['name']; ?>">
                   </div>
-                  <a href="<?php echo $prod['href']; ?>" class="b-product-carousel__link"><?php echo $prod['name']; ?></a>
+                  <a href="/<?php echo $language_href; ?><?php echo $prod['href']; ?>" class="b-product-carousel__link"><?php echo $prod['name']; ?></a>
                   <span class="b-product-carousel__price"><?php echo $prod['price']; ?></span>
                 </div>
                 <?php } ?>
@@ -303,11 +303,11 @@
           <div class="g-scroll-line js-scroll-line">
             <ul>
               <?php if ( isset($attribute_groups) ) { ?>
-              <li><a href="/<?php echo $_GET['_route_']; ?>#js-block-product_tabs-1">Характеристики</a></li>
+              <li><a href="/<?php echo $language_href; ?><?php echo $_GET['_route_']; ?>#js-block-product_tabs-1">Характеристики</a></li>
               <?php } ?>
-              <li><a href="/<?php echo $_GET['_route_']; ?>#js-block-product_tabs-2">Предложения</a></li>
-              <li><a href="/<?php echo $_GET['_route_']; ?>#js-block-product_tabs-3">Отзывы 173</a></li>
-              <li><a href="/<?php echo $_GET['_route_']; ?>#js-block-product_tabs-4">Вопросы и ответы</a></li>
+              <li><a href="/<?php echo $language_href; ?><?php echo $_GET['_route_']; ?>#js-block-product_tabs-2">Предложения</a></li>
+              <li><a href="/<?php echo $language_href; ?><?php echo $_GET['_route_']; ?>#js-block-product_tabs-3">Отзывы 173</a></li>
+              <li><a href="/<?php echo $language_href; ?><?php echo $_GET['_route_']; ?>#js-block-product_tabs-4">Вопросы и ответы</a></li>
             </ul>
           </div>
 
@@ -362,7 +362,7 @@
               </div>
               <div class="b-col__distance">20 км</div>
               <div class="b-col__button">
-                <a href="#">Заказать</a>
+                <a href="/<?php echo $language_href; ?>">Заказать</a>
               </div>
             </div>  <!-- end b-table__row -->
 
@@ -390,7 +390,7 @@
               </div>
               <div class="b-col__distance">20 км</div>
               <div class="b-col__button">
-                <a href="#">Заказать</a>
+                <a href="/<?php echo $language_href; ?>">Заказать</a>
               </div>
             </div>  <!-- end b-table__row -->
 
@@ -418,7 +418,7 @@
               </div>
               <div class="b-col__distance">20 км</div>
               <div class="b-col__button">
-                <a href="#">Заказать</a>
+                <a href="/<?php echo $language_href; ?>">Заказать</a>
               </div>
             </div>  <!-- end b-table__row -->
           </div>  <!-- end Предложения -->
@@ -449,11 +449,11 @@
                 </div>
               </div>
               <div class="b-reviews__buttons">
-                <a href="#" class="b-reviews__answer">Ответить</a>
+                <a href="/<?php echo $language_href; ?>" class="b-reviews__answer">Ответить</a>
               </div>
               <div class="g-clear"></div>
               <div class="b-reviews__bottom">
-              <p>Отзыв полезен? <a href="#" class="b-reviews__answer-useful">Да</a> / <a href="#" class="b-reviews__answer-not-useful">Нет</a></p>
+              <p>Отзыв полезен? <a href="/<?php echo $language_href; ?>" class="b-reviews__answer-useful">Да</a> / <a href="/<?php echo $language_href; ?>" class="b-reviews__answer-not-useful">Нет</a></p>
               </div>
             </div>  <!-- end b-reviews -->
 
@@ -778,80 +778,92 @@
 
     </main>
 
-<?php if ($mr_tab || (!$mr_status && $review_status)) { ?>
- <li><a href="#tab-review" data-toggle="tab"><?php echo $tab_review; ?></a></li>
-<?php } ?>
 
-<?php if ($mr_tab) echo '<div class="tab-pane" id="tab-review">'.$content_megareviews.'</div>'; ?>
- 
-<?php if ($review_status) { ?>
-  <div class="tab-pane" id="tab-review">
-    <form class="form-horizontal" id="form-review">
-      <div id="review"></div>
-      <h2><?php echo $text_write; ?></h2>
-      <?php if ($review_guest) { ?>
-      <div class="form-group required">
-        <div class="col-sm-12">
-          <label class="control-label" for="input-name"><?php echo $entry_name; ?></label>
-          <input type="text" name="name" value="" id="input-name" class="form-control" />
-        </div>
-      </div>
-      <div class="form-group required">
-        <div class="col-sm-12">
-          <label class="control-label" for="input-review"><?php echo $entry_review; ?></label>
-          <textarea name="text" rows="5" id="input-review" class="form-control"></textarea>
-          <div class="help-block"><?php echo $text_note; ?></div>
-        </div>
-      </div>
-      <div class="form-group required">
-        <div class="col-sm-12">
-          <label class="control-label"><?php echo $entry_rating; ?></label>
-          &nbsp;&nbsp;&nbsp; <?php echo $entry_bad; ?>&nbsp;
-          <input type="radio" name="rating" value="1" />
-          &nbsp;
-          <input type="radio" name="rating" value="2" />
-          &nbsp;
-          <input type="radio" name="rating" value="3" />
-          &nbsp;
-          <input type="radio" name="rating" value="4" />
-          &nbsp;
-          <input type="radio" name="rating" value="5" />
-          &nbsp;<?php echo $entry_good; ?></div>
-      </div>
-      <?php echo $captcha; ?>
-      <div class="buttons clearfix">
-        <div class="pull-right">
-          <button type="button" id="button-review" data-loading-text="<?php echo $text_loading; ?>" class="btn btn-primary"><?php echo $button_continue; ?></button>
-        </div>
-      </div>
-      <?php } else { ?>
-      <?php echo $text_login; ?>
-      <?php } ?>
-    </form>
-  </div>
-<?php } ?>
+<!-- ==================================================================================== -->
+<!-- =====Коментарии=============================================================================== -->
+<!-- ==================================================================================== -->
+<!-- ==================================================================================== -->
+         
+        <?php if ($mr_tab) echo '<div class="tab-pane" id="tab-review">'.$content_megareviews.'</div>'; ?>
 
-<?php if ($review_status || $mr_status) { ?>
-  <div class="rating">
-    <p>
-      <?php for ($i = 1; $i <= 5; $i++) { ?>
-      <?php if ($rating < $i) { ?>
-      <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i></span>
-      <?php } else { ?>
-      <span class="fa fa-stack"><i class="fa fa-star fa-stack-1x"></i><i class="fa fa-star-o fa-stack-1x"></i></span>
-      <?php } ?>
-      <?php } ?>
-      <!--a href="" onclick="$('a[href=\'#tab-review\']').trigger('click'); return false;"><?php echo $reviews; ?></a> / <a href="" onclick="$('a[href=\'#tab-review\']').trigger('click'); return false;"><?php echo $text_write; ?></a></p-->
-      <!--a href="" onclick="$('a[href=\'#tab-review\']').trigger('click');if($('#megareviews_box').length>0)$('html,body').animate({scrollTop: $('#megareviews_box').offset().top}, 500);return false;"><?php echo $reviews; ?></a> / <a href="" onclick="$('a[href=\'#tab-review\']').trigger('click');if($('#megareviews_box').length>0)$('html,body').animate({scrollTop: $('#megareviews_box').offset().top}, 500);return false;"><?php echo $text_write; ?></a></p-->
-      <a href="javascript:;" id="btn-review"><?php echo $text_write; ?></a></p>
-    <hr>
-    <!-- AddThis Button BEGIN -->
-    <div class="addthis_toolbox addthis_default_style"><a class="addthis_button_facebook_like" fb:like:layout="button_count"></a> <a class="addthis_button_tweet"></a> <a class="addthis_button_pinterest_pinit"></a> <a class="addthis_counter addthis_pill_style"></a></div>
-    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-515eeaf54693130e"></script>
-    <!-- AddThis Button END -->
-  </div>
-  <div id="review-title"></div>
-<?php } ?>
+<!-- =====Старый коментарий=============================================================================== -->
+<!-- ==================================================================================== -->
+      <div style="display:none;">
+          <?php if ($mr_tab || (!$mr_status && $review_status)) { ?>
+            <div class="tab-pane" id="tab-review">
+              <form class="form-horizontal" id="form-review">
+                <div id="review"></div>
+                <h2><?php echo $text_write; ?></h2>
+                <?php if ($review_guest) { ?>
+                <div class="form-group required">
+                  <div class="col-sm-12">
+                    <label class="control-label" for="input-name"><?php echo $entry_name; ?></label>
+                    <input type="text" name="name" value="<?php echo $customer_name; ?>" id="input-name" class="form-control" />
+                  </div>
+                </div>
+                <div class="form-group required">
+                  <div class="col-sm-12">
+                    <label class="control-label" for="input-review"><?php echo $entry_review; ?></label>
+                    <textarea name="text" rows="5" id="input-review" class="form-control"></textarea>
+                    <div class="help-block"><?php echo $text_note; ?></div>
+                  </div>
+                </div>
+                <div class="form-group required">
+                  <div class="col-sm-12">
+                    <label class="control-label"><?php echo $entry_rating; ?></label>
+                    &nbsp;&nbsp;&nbsp; <?php echo $entry_bad; ?>&nbsp;
+                    <input type="radio" name="rating" value="1" />
+                    &nbsp;
+                    <input type="radio" name="rating" value="2" />
+                    &nbsp;
+                    <input type="radio" name="rating" value="3" />
+                    &nbsp;
+                    <input type="radio" name="rating" value="4" />
+                    &nbsp;
+                    <input type="radio" name="rating" value="5" />
+                    &nbsp;<?php echo $entry_good; ?></div>
+                </div>
+                <?php echo $captcha; ?>
+                <div class="buttons clearfix">
+                  <div class="pull-right">
+                    <button type="button" id="button-review" data-loading-text="<?php echo $text_loading; ?>" class="btn btn-primary"><?php echo $button_continue; ?></button>
+                  </div>
+                </div>
+                <?php } else { ?>
+                <?php echo $text_login; ?>
+                <?php } ?>
+              </form>
+            </div>
+            <?php } ?>
+
+
+     ***************     
+
+          <?php if ($review_status || $mr_status) { ?>
+          <div class="rating">
+            <p>
+              <?php for ($i = 1; $i <= 5; $i++) { ?>
+              <?php if ($rating < $i) { ?>
+              <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i></span>
+              <?php } else { ?>
+              <span class="fa fa-stack"><i class="fa fa-star fa-stack-1x"></i><i class="fa fa-star-o fa-stack-1x"></i></span>
+              <?php } ?>
+              <?php } ?>
+              <a href="" onclick="$('a[href=\'#tab-review\']').trigger('click');if($('#megareviews_box').length>0)$('html,body').animate({scrollTop: $('#megareviews_box').offset().top}, 500);return false;"><?php echo $reviews; ?></a> /
+              <a href="" onclick="$('a[href=\'#tab-review\']').trigger('click'); return false;"><?php echo $text_write; ?></a></p>
+            <hr>
+            <!-- AddThis Button BEGIN -->
+            <div class="addthis_toolbox addthis_default_style" data-url="<?php echo $share; ?>"><a class="addthis_button_facebook_like" fb:like:layout="button_count"></a> <a class="addthis_button_tweet"></a> <a class="addthis_button_pinterest_pinit"></a> <a class="addthis_counter addthis_pill_style"></a></div>
+            <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-515eeaf54693130e"></script>
+            <!-- AddThis Button END -->
+          </div>
+          <?php } ?>
+        </div>
+<!-- ==================================================================================== -->
+<!-- ===Конец коментарий================================================================================= -->
+<!-- ==================================================================================== -->
+<!-- ==================================================================================== -->
+
 
 
 

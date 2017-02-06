@@ -1,6 +1,10 @@
 <?php
 class ControllerCommonContentMegareviews extends Controller {
 	public function index() {
+		
+		$data['language_href'] = $this->session->data['language_href'];
+		
+		
 		$this->load->model('design/layout');
 
 		if (isset($this->request->get['route'])) {

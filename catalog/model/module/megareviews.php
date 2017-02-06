@@ -1,15 +1,32 @@
 <?php
 class ModelModuleMegareviews extends Model {
 	public function addReview($data) {
-		$this->db->query("INSERT INTO " . DB_PREFIX . "megareviews SET author = '" . $this->db->escape($data['author']) . "', title = '" . $this->db->escape($data['title']) . "',videotitle = '" . $this->db->escape($data['videotitle']) . "',videourl= '" . $this->db->escape($data['videourl']) . "', product_id = '" . (int)($data['product_id']) . "', text = '" . $this->db->escape(strip_tags($data['text'])) . "', rating = '" . (int)$data['rating'] . "',recommend = '" . (int)$data['recommend'] . "', status = '" . (int)$data['status'] . "', date_added = NOW()");
+		$this->db->query("INSERT INTO " . DB_PREFIX . "megareviews SET
+						 author = '" . $this->db->escape($data['author']) . "',
+						 title = '" . $this->db->escape($data['title']) . "',
+						 videotitle = '" . $this->db->escape($data['videotitle']) . "',
+						 videourl= '" . $this->db->escape($data['videourl']) . "',
+						 product_id = '" . (int)($data['product_id']) . "',
+						 text = '" . $this->db->escape(strip_tags($data['text'])) . "',
+						 rating = '" . (int)$data['rating'] . "',
+						 recommend = '" . (int)$data['recommend'] . "',
+						 status = '" . (int)$data['status'] . "',
+						 date_added = NOW()");
 		$review_id = $this->db->getLastId();
 		foreach($data['options'] as $id=>$value)
-			if((int)$value>-1)$this->db->query("INSERT INTO " . DB_PREFIX . "megareviewsoptions_to_review SET option_id = '" . (int)($id) . "', review_id = '" . (int)$review_id . "', value = '" . (int)$value . "' ");
+			if((int)$value>-1)$this->db->query("INSERT INTO " . DB_PREFIX . "megareviewsoptions_to_review SET
+											   option_id = '" . (int)($id) . "',
+											   review_id = '" . (int)$review_id . "',
+											   value = '" . (int)$value . "' ");
 		unset($id);unset($value);
 		foreach($data['ay'] as $id=>$value)
-			if((int)$value>-1)$this->db->query("INSERT INTO " . DB_PREFIX . "megareviewsays_to_review SET ay_id = '" . (int)($id) . "', review_id = '" . (int)$review_id . "', value = '" . (int)$value . "' ");
+			if((int)$value>-1)$this->db->query("INSERT INTO " . DB_PREFIX . "megareviewsays_to_review SET
+											   ay_id = '" . (int)($id) . "',
+											   review_id = '" . (int)$review_id . "',
+											   value = '" . (int)$value . "' ");
 		foreach($data['files'] as $value)
-			if((int)$value>-1)$this->db->query("INSERT INTO " . DB_PREFIX . "megareviewsimg_to_review SET url = '" . $this->db->escape($value) . "', review_id = '" . (int)$review_id . "'");
+			if((int)$value>-1)$this->db->query("INSERT INTO " . DB_PREFIX . "megareviewsimg_to_review SET
+											   url = '" . $this->db->escape($value) . "', review_id = '" . (int)$review_id . "'");
 		
 		$this->cache->delete('product');
 	}
@@ -23,7 +40,11 @@ class ModelModuleMegareviews extends Model {
 	}
 	
 	public function addOption($data) {
-		$this->db->query("INSERT INTO " . DB_PREFIX . "megareviews_options_to_review SET option_id = '" . $this->db->escape($data['min']) . "', max = '" . $this->db->escape($data['max']) . "', name = '" . $this->db->escape(strip_tags($data['name'])) . "' , `values` = '" . $this->db->escape(strip_tags($data['values'])) . "'");
+		$this->db->query("INSERT INTO " . DB_PREFIX . "megareviews_options_to_review SET
+						 option_id = '" . $this->db->escape($data['min']) . "',
+						 max = '" . $this->db->escape($data['max']) . "',
+						 name = '" . $this->db->escape(strip_tags($data['name'])) . "' ,
+						 `values` = '" . $this->db->escape(strip_tags($data['values'])) . "'");
 		$this->cache->delete('product');
 	}
 

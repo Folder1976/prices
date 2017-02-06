@@ -84,9 +84,13 @@ $(document).ready(function() {
 		url = $('base').attr('href') + 'index.php?route=product/search';
 
 		var value = $('header input[name=\'search\']').val();
+		var value2 = $('header input[name=\'category_id\']').val();
 
 		if (value) {
 			url += '&search=' + encodeURIComponent(value);
+		}
+		if (value2 > 0) {
+			url += '&category_id=' + encodeURIComponent(value2);
 		}
 
 		location = url;

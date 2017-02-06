@@ -1,6 +1,9 @@
 <?php
 class ControllerCommonSearch extends Controller {
 	public function index() {
+		
+		$data['language_href'] = $this->session->data['language_href'];
+		
 		$this->load->language('common/search');
 
 		$data['text_search'] = $this->language->get('text_search');
