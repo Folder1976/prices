@@ -32,7 +32,7 @@ class ModelBlogBlogCategory extends Model {
 		
 		$blog_category_data[] = $blog_category_id;
 		
-		$blog_category_query = $this->db->query("SELECT blog_category_id FROM " . DB_PREFIX . "blog_category WHERE parent_id = '" . (int)$blog_category_id . "'");
+		$blog_category_query = $this->db->query("SELECT blog_category_id FROM " . DB_PREFIX . "blog_category WHERE blog_category_id <> '" . (int)$blog_category_id . "' AND parent_id = '" . (int)$blog_category_id . "'");
 		
 		foreach ($blog_category_query->rows as $blog_category) {
 			$children = $this->getBlogCategoriesByParentId($blog_category['blog_category_id']);

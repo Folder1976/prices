@@ -4,18 +4,14 @@ $text_password_reset = 'Напомнить пароль';
 
 // новые текстовые переменные:
 $text_through_social_networks = 'Через соц сети';
+$text_profile = "Профиль";
+$text_cart = "Корзина";
+$text_categories = "Категории";
+$text_setup = "Настройки";
+$text_main = "Главная";
+$shopping_cart = 'Корзина';
 
 
-//echo "<pre>";  print_r(var_dump( $categories )); echo "</pre>";
-//echo "========================<br>";
-//echo "<pre>";  print_r(var_dump( $menu )); echo "</pre>";
-//echo "<pre>";  print_r(var_dump( $large_banners )); echo "</pre>";
-//echo "========================<br>";
-//echo "<pre>";  print_r(var_dump( $url_no_lang )); echo "</pre>"; //УРЛ без языка
-//echo "<pre>";  print_r(var_dump( $language_href )); echo "</pre>"; //Префикс выбранного языка
-//echo "<pre>";  print_r(var_dump( $language_code )); echo "</pre>"; //Код выбранного языка
-//echo "<pre>";  print_r(var_dump( $_SESSION ["currency"] )); echo "</pre>"; // выбранная валюта
-//echo "<pre>";  print_r(var_dump( $currencies )); echo "</pre>"; // Список валют
 /*
 $url_no_lang - тут УРЛ без языка
 $languages - список языков
@@ -168,7 +164,7 @@ if (typeof jQuery == 'undefined') {
 
           <div class="b-header-account g-tablet-show js-open-popup-link" data-mfp-src=".js-popup-account">
             <span class="ic-account"></span>
-            <span class="b-header-account__title">Профиль</span>
+            <span class="b-header-account__title"><?php echo $text_profile; ?></span>
           </div>
 
           <a href="/" class="b-logo"><img src="catalog/view/theme/simplica/img/logo.png" alt="Prices.md"></a>
@@ -199,10 +195,10 @@ if (typeof jQuery == 'undefined') {
           </ul>
 
           <div class="b-header-cart g-tablet-show">
-            <a href="<?php echo shopping_cart; ?>">
+            <a href="<?php echo $shopping_cart; ?>">
               <span class="b-header-cart__quantity">2</span>
               <span class="ic-cart"></span>
-              <span class="b-header-cart__title">Корзина</span>
+              <span class="b-header-cart__title"><?php echo $text_cart; ?></span>
             </a>
           </div>
 
@@ -210,11 +206,13 @@ if (typeof jQuery == 'undefined') {
       </div>
 
       <div class="b-header__news">
+        <?php if(isset($main_top_polosa)){ ?>
         <div class="g-container">
           <div class="b-header__news-text">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            <p><?php echo $main_top_polosa; ?></p>
           </div>
         </div>
+        <?php } ?>
       </div>
        
 
@@ -236,24 +234,26 @@ if (typeof jQuery == 'undefined') {
         <?php } ?>
       </div>
 
+
+
       <div class="b-header__bottom">
         <div class="g-container">
           <div class="g-col-left b-menu js-mob-menu">
             <div class="b-button-nav js-open-mob-menu-link" data-mfp-src=".js-popup-mob-menu">
               <div class="b-button-nav__wrap">
                 <span class="ic-menu"></span>
-                <span class="b-button-nav__title">Категирии</span>
+                <span class="b-button-nav__title"><?php echo $text_categories; ?></span>
                 <span class="ic-arrow-down"></span>
               </div>
             </div>
             <nav class="b-nav-level-1 js-nav-level-1 js-popup-mob-menu">
               <div class="b-nav__mob-header">
                 <div class="b-nav__mob-header-title">
-                  <a href="/"><span class="ic-mob-menu-home"></span>Главная</a>
+                  <a href="/"><span class="ic-mob-menu-home"></span><?php echo $text_main; ?></a>
                 </div>
                 <div class="b-nav__mob-tabs js-nav__mob-tabs">
-                  <span class="active" data-tabs=".b-nav__mob-tabs-1">Категории</span>
-                  <span data-tabs=".b-nav__mob-tabs-2">Настройки</span>
+                  <span class="active" data-tabs=".b-nav__mob-tabs-1"><?php echo $text_categories; ?></span>
+                  <span data-tabs=".b-nav__mob-tabs-2"><?php echo $text_setup; ?></span>
                 </div>
                 <hr>
               </div>
@@ -382,15 +382,15 @@ if (typeof jQuery == 'undefined') {
           <div class="g-col-right">
             <div class="b-header-box-cart-account">
               <div class="b-header-cart">
-                <a href="<?php echo shopping_cart; ?>">
+                <a href="<?php echo $shopping_cart; ?>">
                   <span class="b-header-cart__quantity">2</span>
                   <span class="ic-cart"></span>
-                  <span class="g-tablet-hidden b-header-cart__title">Корзина</span>
+                  <span class="g-tablet-hidden b-header-cart__title"><?php echo $text_cart; ?></span>
                 </a>
               </div>
               <div class="b-header-account js-open-popup-link" data-mfp-src=".js-popup-account">
                 <span class="ic-account"></span>
-                <span class="g-tablet-hidden b-header-account__title">Профиль</span>
+                <span class="g-tablet-hidden b-header-account__title"><?php echo $text_profile; ?></span>
               </div>
             </div>
           </div>

@@ -342,6 +342,8 @@ $text_sort = 'Выводить: ';
                         <li><a href="/<?php echo $language_href; ?><?php echo $product['href']; ?>"><span class="ic-prod_more"></span>Подробнее</a></li>
                         <li><a href="/<?php echo $language_href; ?><?php echo $product['href']; ?>"><span class="ic-prod_photos"></span>Все фото (<?php if ( !isset($product['images']) ) { echo 0; } else { echo count($product['images']); } ?>)</a></li>
                         <li><a href="/<?php echo $language_href; ?><?php echo $product['href']; ?>"><span class="ic-prod_video"></span>Все видео (<?php echo count($product['videos']); ?>)</a></li>
+                        <li><button type="button" data-toggle="tooltip" class="btn btn-default" title="" onclick="wishlist.add('<?php echo $product['product_id'];?>');" data-original-title="В закладки">В ЗАКЛАДКИ</button>
+                 </li>
                       </ul>
                       <div class="b-prod__color">
                         <span style="background: #474747;"></span>

@@ -63,6 +63,17 @@ if(strpos($_SERVER['PHP_SELF'], $file[count($file)-1]) !== false){
 				background-color: #ffffff;
 				border: 2px solid #BABABA;
 			}
+			.top_polosa{
+				display: block;
+				position: absolute;
+				top: 235px;
+				left: 186px;
+				width: 1055px;
+				height: 35px;
+				opacity: 0.5;
+				background-color: #ffffff;
+				border: 2px solid #BABABA;
+			}
 			.baners{
 				display: block;
 				position: absolute;
@@ -98,13 +109,111 @@ if(strpos($_SERVER['PHP_SELF'], $file[count($file)-1]) !== false){
 				
 		<!--a href="/<?php echo TMP_DIR;?>backend/index.php?route=category/category.index.php" title="Редактор категорий"><div class="main_menu link"></div></a-->
 		<!--a href="/<?php echo TMP_DIR;?>backend/index.php?route=main_page/main_page.index.php&modul=main_page.left_menu.php" title="Редактор главного списка категорий"><div class="left_menu link"></div></a-->
+		<a href="javascript:;" title="Основной банер"><div class="top_polosa link"></div></a>
 		<a href="/<?php echo TMP_DIR;?>backend/index.php?route=main_page/main_page.index.php&modul=main_page.main_baner.php" title="Основной банер"><div class="main_baner link"></div></a>
 		<a href="/<?php echo TMP_DIR;?>backend/index.php?route=main_page/main_page.index.php&modul=main_page.baners.php" title="Дополнительные 2 банера"><div class="baners link"></div></a>
 		<!--a href="/<?php echo TMP_DIR;?>backend/index.php?route=main_page/main_page.index.php&modul=main_page.season_products.php" title="Сезонные продукты"><div class="season_products link"></div></a-->
 <?php } ?>
 <!-- Конец меню выбора -->
 
+<div class="inputs_top_polosa_back">
+</div>
+<div class="inputs_top_polosa">
+	<?php
+		$sql = 'SELECT * FROM '.DB_PREFIX.'language ORDER BY language_id ASC;';
+		$r_lang = $mysqli->query($sql);
+	?>
+	<?php while($row = $r_lang->fetch_assoc()){ ?>
+		<?php
+			$sql = 'SELECT * FROM '.DB_PREFIX.'content 
+						WHERE language_id = "'.$row['language_id'].'" AND code="main_top_polosa" LIMIT 1;';
+			$r_desc = $mysqli->query($sql);
+		?>
+		<br><?php echo $row['name']; ?>
+		<input type="text"
+				id="main_top_polosa<?php echo $row['language_id'];?>"
+				data-language_id="<?php echo $row['language_id'];?>"
+				class="main_top_polosa_edit"
+		
+		<?php if($r_desc->num_rows){
+			$row2 = $r_desc->fetch_assoc()
+			?>	
+			value="<?php echo $row2['value']; ?>"
+		<?php } ?>	
+		><br>
+	<?php } ?>		
+</div>
+<style>
+	.inputs_top_polosa_back{
+		display: none;
+		position: fixed;
+		width: 100%;
+		height: 100%;
+		top:0;
+		left:0;
+		background-color: #7A7A7A;
+		opacity: 0.5;
+	}
+	.inputs_top_polosa {
+		display: none;
+		position: absolute;
+		top: 235px;
+		left: 190px;
+		background-color: white;
+		border: 2px solid gray;
+		padding: 3px;
+	}
+	.inputs_top_polosa input{
+		width: 900px;
+		
+	}
+</style>
+<script>
+	
+	$(document).on('click', '.top_polosa', function(){
+		$('.inputs_top_polosa_back').show(0);
+		$('.inputs_top_polosa').show(500);
+	});
+	$(document).on('click', '.inputs_top_polosa_back', function(){
+		$('.inputs_top_polosa_back').hide(0);
+		$('.inputs_top_polosa').hide(500);
+	});
+	$(document).on('change', '.inputs_top_polosa input', function(){
+		
+		var language = $(this).data('language_id');
+		var value = $(this).val();
+		
+		$.ajax({
+		  type: "POST",
+		  url: "/<?php echo TMP_DIR; ?>backend/ajax/ajax_edit_universal.php",
+		  dataType: "text",
+		  data: "id=main_top_polosa&table=content&language_id="+language+"&mainkey=code&key=dell",
+		  beforeSend: function(){
+			
+		  },
+		  success: function(msg){
+			console.log(  msg );
+		  }
+		});
+		
+		setTimeout(function(){
+			$.ajax({
+			  type: "POST",
+			  url: "/<?php echo TMP_DIR; ?>backend/ajax/ajax_edit_universal.php",
+			  dataType: "text",
+			  data: "value="+value+"&code=main_top_polosa&table=content&language_id="+language+"&mainkey=code&key=add",
+			  beforeSend: function(){
+				
+			  },
+			  success: function(msg){
+				console.log(  msg );
+			  }
+			});
+		}, 500);
+		
+	});
 
+</script>
 
 
 <!-- ================================================================== -->

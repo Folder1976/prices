@@ -58,7 +58,10 @@ class ControllerCommonHome extends Controller {
 		$filter_data['lastviewed']	= true;
 		$filter_data['lastviewed_where']	= ' AND pv.date > "'.date('Y-m-d H:i:s', strtotime('-24 hour')).'"';
 		$data['last_viewed_products_day'] = $this->model_catalog_product->getProducts($filter_data);
-		
+//	header("Content-Type: text/html; charset=UTF-8");
+//	echo "<pre>";  print_r(var_dump( $data['last_viewed_products_day'] )); echo "</pre>";
+	
+	
 		$filter_data['lastviewed_where'] = ' AND pv.date > "'.date('Y-m-d H:i:s', strtotime('-1 week')).'"';
 		$data['last_viewed_products_week'] = $this->model_catalog_product->getProducts($filter_data);
 		

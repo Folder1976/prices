@@ -380,7 +380,7 @@ class ModelCatalogProduct extends Model {
 						LEFT JOIN " . DB_PREFIX . "product_to_category p2c ON (p.product_id = p2c.product_id AND is_main=1)
 						LEFT JOIN " . DB_PREFIX . "product_loved pl ON (p.product_id = pl.product_id AND customer_id > 0 AND customer_id = '".$this->customer->isLogged()."')
 						LEFT JOIN " . DB_PREFIX . "manufacturer m ON (p.manufacturer_id = m.manufacturer_id)
-						LEFT JOIN " . DB_PREFIX . "url_alias ua ON ua.query = CONCAT('product_id=',m.manufacturer_id)
+						LEFT JOIN " . DB_PREFIX . "url_alias ua ON ua.query = CONCAT('product_id=',p.product_id)
 						LEFT JOIN " . DB_PREFIX . "product_to_shop p2sh ON (p.product_id = p2sh.product_id)
 						LEFT JOIN " . DB_PREFIX . "shop s ON (s.id = p2sh.shop_id)
 						LEFT JOIN " . DB_PREFIX . "product_money_limit pml ON (p.product_id = pml.money_product_id)
@@ -390,7 +390,7 @@ class ModelCatalogProduct extends Model {
 	
 		$query = $this->db->query($sql);
 
-	
+	//echo '<hr>'.$sql;
 	
 		if ($query->num_rows) {
 			

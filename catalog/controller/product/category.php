@@ -841,8 +841,8 @@ class ControllerProductCategory extends Controller {
 					'name'        		=> $result['name'],
 					'loved'        		=> $result['loved'],
 					'garant'        		=> $result['garant'],
-					'total_comments' => $this->model_module_megareviews->getProductTotalReviews($product_id),
-					'total_images' => $this->model_catalog_product->getProductTotalImages($product_id),
+					'total_comments' => $this->model_module_megareviews->getProductTotalReviews($result['product_id']),
+					'total_images' => $this->model_catalog_product->getProductTotalImages($result['product_id']),
 					/*'size'        		=> $result['size'],*/
 					'shop_id'        	=> $result['shop_id'],
 					'shop_name'        	=> $result['shop_name'],

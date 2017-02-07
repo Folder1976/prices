@@ -23,6 +23,8 @@ foreach($_POST as $index => $value){
         $table = $value;
     }elseif($index == 'id'){
         $id = str_replace($find,$replace,$value);
+    }elseif($index == 'language_id'){
+        $language_id = $value;
     }elseif($index == 'mainkey'){
         $mainkey = $value;
     }elseif($index == 'radio_name'){
@@ -38,7 +40,14 @@ if($key == 'add'){
 			foreach($data as $index => $value){
 				 $sql .= " `$index` = '$value',";		
 			}
-			$sql = trim($sql, ',');
+			
+			
+		if(isset($language_id)){
+			$sql .=	" `language_id` = '" . $language_id . "',";
+		}
+		
+		$sql = trim($sql, ',');
+		
 	echo $sql;
 	$mysqli->query($sql) or die('sad54yfljsad bf;j '.$sql);
 	
@@ -66,14 +75,30 @@ if($key == 'edit'){
 	}
 	$sql = trim($sql, ',');
 	$sql .=	" WHERE `$mainkey` = '" . $id . "'";
+	
+	if(isset($language_id)){
+		$sql .=	" AND `language_id` = '" . $language_id . "'";
+	}
+	
 echo $sql;
 	$mysqli->query($sql) or die('sadlkjgfljsad bf;j '.$sql);
+		
+}
+if($key == 'copy'){
+    
+	$mysqli->query("CREATE TEMPORARY TABLE foo AS SELECT * FROM " . DB_PREFIX . $table . " WHERE `$mainkey` = '" . $id . "'") or die('1');
+	$mysqli->query("UPDATE foo SET `$mainkey`=NULL;") or die('2');
+	$mysqli->query("INSERT INTO " . DB_PREFIX . $table . " SELECT * FROM foo;") or die('3');
+	$mysqli->query("DROP TABLE foo;") or die('4');
 		
 }
 
 if($key == 'dell'){
 	
 	$sql = "DELETE FROM " . DB_PREFIX . $table ." WHERE `$mainkey` = '" . $id . "'";
+	if(isset($language_id)){
+		$sql .=	" AND `language_id` = '" . $language_id . "'";
+	}
 	echo $sql;
 	$mysqli->query($sql) or die('sadlkjgfljsad bf;j '.$sql);
 	

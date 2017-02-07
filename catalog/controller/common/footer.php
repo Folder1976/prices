@@ -163,7 +163,9 @@ class ControllerCommonFooter extends Controller {
 		
 		
 		foreach($data['blog_main_categories'] as $key => $row){
+	
 			$data['blog_main_categories'][$key]['children'] = $this->model_blog_blog->getBlogsByBlogCategoryIdMainInfo($row['blog_category_id']);
+	
 		}
 		
 	
