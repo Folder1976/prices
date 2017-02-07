@@ -178,6 +178,12 @@ class ModelModuleMegareviews extends Model {
 		return $query->row['total'];
 	}
 
+	public function getProductTotalReviews($product_id) {
+		$query = $this->db->query("SELECT COUNT(*) AS total FROM " . DB_PREFIX . "megareviews WHERE product_id = '$product_id' AND status='1'");
+
+		return $query->row['total'];
+	}
+
 	public function getTotalReviewsAwaitingApproval() {
 		$query = $this->db->query("SELECT COUNT(*) AS total FROM " . DB_PREFIX . "review WHERE status = '0'");
 

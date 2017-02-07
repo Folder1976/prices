@@ -13,6 +13,7 @@ class ControllerProductCategory extends Controller {
 		
 		
 		$this->load->model('setting/setting');
+		$this->load->model('module/megareviews');
 		$settings=$this->model_setting_setting->getSetting('megareviews');	
 		if(isset($settings['megareviews_module'][0]['status'])){
 			$data['mr_tab']=($settings['megareviews_module'][0]['position']=="content_mr" && $settings['megareviews_module'][0]['status']);
@@ -729,6 +730,8 @@ class ControllerProductCategory extends Controller {
 		
 			//Тут будут ИД всех категорий продуктов которые мы выводим
 			$product_attributes = array();
+
+		
 		
 			//Прилепим рекламные продукты если есть
 			foreach ($results as $result) {
@@ -838,6 +841,8 @@ class ControllerProductCategory extends Controller {
 					'name'        		=> $result['name'],
 					'loved'        		=> $result['loved'],
 					'garant'        		=> $result['garant'],
+					'total_comments' => $this->model_module_megareviews->getProductTotalReviews($product_id),
+					'total_images' => $this->model_catalog_product->getProductTotalImages($product_id),
 					/*'size'        		=> $result['size'],*/
 					'shop_id'        	=> $result['shop_id'],
 					'shop_name'        	=> $result['shop_name'],

@@ -6,7 +6,7 @@ class ControllerProductProduct extends Controller {
 		
 		$data['language_href'] = $this->session->data['language_href'];
 		
-		
+		//Подключаем мудуль коментов
 		$this->load->model('setting/setting');
 		$settings=$this->model_setting_setting->getSetting('megareviews');	
 		if(isset($settings['megareviews_module'][0]['status'])){
@@ -225,6 +225,13 @@ class ControllerProductProduct extends Controller {
 		} else {
 			$product_id = 0;
 		}
+		
+		
+		//количество коментов
+		$this->load->model('module/megareviews');
+		$data['total_comments'] = $this->model_module_megareviews->getProductTotalReviews($product_id);	
+	
+
 
 		$this->load->model('catalog/product');
 

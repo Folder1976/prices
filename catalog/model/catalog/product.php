@@ -1127,6 +1127,20 @@ class ModelCatalogProduct extends Model {
 
 		return $query->rows;
 	}
+	
+	public function getProductTotalImages($product_id) {
+		
+		$query = $this->db->query("SELECT COUNT(*) AS total FROM " . DB_PREFIX . "product_image WHERE product_id = '$product_id'");
+
+		$total = $query->row['total'];
+		
+		$query = $this->db->query("SELECT image FROM " . DB_PREFIX . "product WHERE product_id = '$product_id' LIMIT 1");
+		if($query->row['image'] != ''){
+			$total++;
+		}
+		
+		return $total;	
+	}
 
 	public function getProductRelated($product_id) {
 		$product_data = array();
