@@ -290,41 +290,24 @@ label{
 	font-style: none;
 }
 .mr-addbutton{
-	background-image: -webkit-gradient(linear,left top,left center,from(#e63d3d),to(#F72800));
-  background-image: -moz-linear-gradient(top,#e63d3d,#F72800);
-  background-image: -ms-linear-gradient(top,#e63d3d 0%,#f72800 100%);
-  background-image: linear-gradient(top,#e63d3d 0%,#f72800 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#e63d3d,endColorstr=#F72800);
-  position: relative;
-  -moz-border-radius: 3px;
-  -webkit-border-radius: 3px;
-  border-radius: 3px;
-  -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, .25);
-  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .25);
-  box-shadow: 0 1px 1px rgba(0, 0, 0, .25);
-  border-style: solid;
-  border-width: 1px;
-  border-color: #FD8D2E #F24A00 #B51D00;
+  background: #697aa8;
+  border: 1px solid #697aa8;
+  color: #fff;
+  min-width: 150px;
+  -webkit-box-shadow: 0 3px 7px rgba(0, 0, 0, 0.22);
+  -moz-box-shadow: 0 3px 7px rgba(0, 0, 0, 0.22);
+  box-shadow: 0 3px 7px rgba(0, 0, 0, 0.22);
+  line-height: 36px;
+  text-align: center;
   height: 36px;
   padding: 0 20px;
   display: block;
-  zoom: 1;
-  font-family:Open Sans,Impact, Charcoal, sans-serif;text-transform: uppercase;
-  letter-spacing: -0.9px;
-  font-size: 15px;
-  text-decoration: none;
-  color: #ffffff;
-  letter-spacing: -0.02em;
-  line-height: 36px;
-  text-align: center;
-  cursor:pointer;
-  margin:0 auto;
-  width:150px;
-  margin-bottom:20px;
+  margin: 0 auto;
+  width: 150px;
 }
 .mr-addbutton:hover{
-	background:#e63d3d;
-	 color: #ffffff;
+  background: #fff;
+  color: #697aa8;
 }
 /* UI-styles */
 
@@ -417,29 +400,28 @@ label.filebtn:hover {
   text-decoration: none;
 }
 .mr-submit{
-	background-image: -webkit-gradient(linear,left top,left center,from(#4D4D4D),to(#191919));
-  background-image: -moz-linear-gradient(top,#4D4D4D,#191919);
-  background-image: -ms-linear-gradient(top,#4d4d4d 0%,#191919 100%);
-  background-image: linear-gradient(top,#4d4d4d 0%,#191919 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#4D4D4D,endColorstr=#191919);
-  
-  -moz-border-radius: 3px;
-  -webkit-border-radius: 3px;
-  border-radius: 3px;
-  -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, .25);
-  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .25);
-  box-shadow: 0 1px 1px rgba(0, 0, 0, .25);
-  border-style: solid;
-  border-width: 1px;
-  border-color: #636363 #3A3A3A #545454 #303030;
-  padding: 0 25px;
-  font-size: 15px;
-  text-decoration: none;
-  color: #ffffff;
-  letter-spacing: -0.02em;
+  background: #697aa8;
+  border: 1px solid #697aa8;
+  color: #fff;
+  min-width: 150px;
+  -webkit-box-shadow: 0 3px 7px rgba(0, 0, 0, 0.22);
+  -moz-box-shadow: 0 3px 7px rgba(0, 0, 0, 0.22);
+  box-shadow: 0 3px 7px rgba(0, 0, 0, 0.22);
   line-height: 36px;
   text-align: center;
   height: 42px;
+  padding: 0 25px;
+  display: block;
+  margin: 0 auto;
+  width: 150px;
+  font-size: 15px;
+  font-weight: bold;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+.mr-submit:hover{
+  background: #fff;
+  color: #697aa8;
 }
 
 //MISC
@@ -593,9 +575,10 @@ label.filebtn:hover {
 }
 .popup-gallery{
 	margin-top:10px;
+    margin-left: 155px;
 }
 .mr-list-vote a{
-	background-image: -webkit-gradient(linear,left top,left center,from(#F8F8F8),to(#E5E5E5));
+  background-image: -webkit-gradient(linear,left top,left center,from(#F8F8F8),to(#E5E5E5));
   background-image: -moz-linear-gradient(top,#F8F8F8,#E5E5E5);
   
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#F8F8F8,endColorstr=#E5E5E5);
@@ -616,7 +599,7 @@ label.filebtn:hover {
   letter-spacing: -0.9px;
   font-size: 13px;
   text-decoration: none;
-  color: #666666;
+  color: #000;
   letter-spacing: -0.02em;
   line-height: 28px;
   text-align: center;
@@ -651,7 +634,7 @@ label.filebtn:hover {
 	margin-right:10px;
 }
 .mr-list-vote{
-	display:inline-block;
+	display: block;
 	margin-right:10px;
 	vertical-align:middle;
 }
@@ -660,7 +643,11 @@ label.filebtn:hover {
 	
 }
 
-
+@media screen and (max-width: 700px) {
+    .popup-gallery {
+        margin-left: 0;
+    }
+}
 
  @media screen and (max-width:768px) {
  	.mr-list-options,.mr-list-main, .mr-rate, .mr-aboutyou{

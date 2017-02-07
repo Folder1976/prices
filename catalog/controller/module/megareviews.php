@@ -35,7 +35,7 @@ class ControllerModuleMegareviews extends Controller {
 			$this->document->addStyle('catalog/view/theme/default/stylesheet/magnific-popup.css');
     		$data['path']='catalog/view/theme/default';
 		}
-		$this->document->addStyle('https://code.jquery.com/ui/1.8.23/themes/smoothness/jquery-ui.css');
+		//$this->document->addStyle('https://code.jquery.com/ui/1.8.23/themes/smoothness/jquery-ui.css');
 		$this->document->addStyle('https://fonts.googleapis.com/css?family=Open+Sans');
         
        

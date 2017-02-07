@@ -73,7 +73,6 @@ if($_SERVER['REQUEST_URI'] == '/'){
 <link rel="stylesheet" type="text/css" href="catalog/view/theme/simplica/stylesheet/owl.carousel.css" />
 
 <link rel="stylesheet" type="text/css" href="catalog/view/theme/simplica/stylesheet/style.css" />
-<link rel="stylesheet" type="text/css" href="catalog/view/theme/simplica/stylesheet/style.develop.css" />
 
 <link rel="shortcut icon" href="catalog/view/theme/simplica/img/favicon.ico" type="image/x-icon">
 <!-- 
@@ -93,6 +92,7 @@ if (typeof jQuery == 'undefined') {
 <?php foreach ($styles as $style) { ?>
 <link href="<?php echo $style['href']; ?>" type="text/css" rel="<?php echo $style['rel']; ?>" media="<?php echo $style['media']; ?>" />
 <?php } ?>
+<link rel="stylesheet" type="text/css" href="catalog/view/theme/simplica/stylesheet/style.develop.css" />
 
 <script src="/catalog/view/javascript/common.js" type="text/javascript"></script>
 

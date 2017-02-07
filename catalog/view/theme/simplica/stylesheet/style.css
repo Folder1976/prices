@@ -4609,6 +4609,11 @@ main.b-product .b-brands {
 .b-tab-reviews .b-reviews {
   padding: 30px 0;
 }
+.b-tab-reviews .b-reviews__title {
+  font-weight: bold;
+  display: inline;
+  margin-left: 15px;
+}
 .b-tab-reviews .b-reviews__date {
   text-align: right;
   color: #747474;
@@ -4634,12 +4639,14 @@ main.b-product .b-brands {
   float: left;
   padding: 25px 15px 0 35px;
 }
+.b-tab-reviews .b-reviews__rating {
+  margin-bottom: 15px;
+}
 .b-tab-reviews .b-reviews__rating .b-rating {
   background: url(../img/stars14.png);
   width: 70px;
   height: 14px;
   position: relative;
-  margin-bottom: 15px;
 }
 .b-tab-reviews .b-reviews__rating .b-rating div {
   background: url(../img/stars14.png) left bottom;
@@ -4721,12 +4728,6 @@ main.b-product .b-brands {
   text-align: right;
   color: #2c2c2c;
   font-size: 16px;
-}
-.b-tab-reviews .b-reviews__answer-useful {
-  color: #39adff;
-}
-.b-tab-reviews .b-reviews__answer-not-useful {
-  color: #fc732c;
 }
 .b-tab-reviews .b-question {
   margin-top: 10px;
@@ -4924,7 +4925,7 @@ main.b-product .b-brands {
   }
   .b-tab-reviews .b-reviews__content {
     width: calc(100% - 150px);
-    padding: 0 15px 0 0;
+    padding: 25px 15px 0 0;
   }
   .b-tab-reviews .b-reviews__rating .b-rating {
     margin: 0 auto;
@@ -4977,9 +4978,7 @@ main.b-product .b-brands {
     padding: 0 0 25px;
   }
   .b-tab-reviews .b-reviews__bottom {
-    position: absolute;
-    bottom: 15px;
-    left: 0;
+    text-align: left;
   }
   .b-tab-reviews .b-reviews__message-title {
     text-align: right;
@@ -5003,11 +5002,6 @@ main.b-product .b-brands {
   }
 }
 @media screen and (max-width: 360px) {
-  .b-reviews__rating {
-    padding-right: 110px;
-    text-align: right;
-  }
-
   .b-tab-reviews .b-reviews__rating .b-rating {
     margin: 0 0 0 auto;
   }
