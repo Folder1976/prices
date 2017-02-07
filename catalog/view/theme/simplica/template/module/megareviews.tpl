@@ -3,6 +3,12 @@ error_reporting(0); ?>
 <?php if($settings['mr_status']){ ?>
 <div id="megareviews_box">
 
+<?php if(!$reviewsinfo['count']>0){ ?>
+	<div class="mr-reviews-count"><?php echo $text_haveyoursay;?></div>
+	<div class="mr-reviews-recommend"><?echo $text_bethefirst;?></div>
+	<button class="f-button mr-addbutton"><?php echo $text_addreview;?></button>
+<?php } ?>
+
 	<div id="mr-list">
 		<?php if ($reviews) { ?>
 		<?php foreach ($reviews as $review) { ?>
