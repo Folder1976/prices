@@ -111,10 +111,38 @@ if(strpos($_SERVER['PHP_SELF'], $file[count($file)-1]) !== false){
 		<!--a href="/<?php echo TMP_DIR;?>backend/index.php?route=main_page/main_page.index.php&modul=main_page.left_menu.php" title="Редактор главного списка категорий"><div class="left_menu link"></div></a-->
 		<a href="javascript:;" title="Основной банер"><div class="top_polosa link"></div></a>
 		<a href="/<?php echo TMP_DIR;?>backend/index.php?route=main_page/main_page.index.php&modul=main_page.main_baner.php" title="Основной банер"><div class="main_baner link"></div></a>
-		<a href="/<?php echo TMP_DIR;?>backend/index.php?route=main_page/main_page.index.php&modul=main_page.baners.php" title="Дополнительные 2 банера"><div class="baners link"></div></a>
+		<a href="javascript:;" title="Дополнительные боковые банера"><div class="baners link"></div></a>
 		<!--a href="/<?php echo TMP_DIR;?>backend/index.php?route=main_page/main_page.index.php&modul=main_page.season_products.php" title="Сезонные продукты"><div class="season_products link"></div></a-->
 <?php } ?>
 <!-- Конец меню выбора -->
+
+<!-- ======================================================= -->
+
+<div class="baners_right">
+	<a href="/<?php echo TMP_DIR;?>backend/index.php?route=main_page/main_page.index.php&modul=main_page.baners.php" title="Дополнительные боковые банера">Банера</a>
+	<hr>
+	<a href="/<?php echo TMP_DIR;?>backend/index.php?route=main_page/main_page.index.php&modul=main_page.baner_products.php" title="Дополнительные боковые банера">Список продуктов</a>
+</div>
+<style>
+	.baners_right {
+		display: none;
+		position: absolute;
+		top: 390px;
+		left: 1060px;
+		background-color: white;
+		border: 2px solid gray;
+		padding: 3px;
+		z-index:9999;
+	}
+</style>
+<script>
+	$(document).on('click', '.baners', function(){
+		$('.inputs_top_polosa_back').show(0);
+		$('.baners_right').show(500);
+	});
+
+</script>
+<!-- ======================================================= -->
 
 <div class="inputs_top_polosa_back">
 </div>
@@ -177,6 +205,7 @@ if(strpos($_SERVER['PHP_SELF'], $file[count($file)-1]) !== false){
 	$(document).on('click', '.inputs_top_polosa_back', function(){
 		$('.inputs_top_polosa_back').hide(0);
 		$('.inputs_top_polosa').hide(500);
+		$('.baners_right').hide(500);
 	});
 	$(document).on('change', '.inputs_top_polosa input', function(){
 		
