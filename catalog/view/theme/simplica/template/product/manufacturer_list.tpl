@@ -1,13 +1,13 @@
 <?php echo $header; ?>
 
-<main role="main" class="l-brand_page">
+<main role="main" class="b-brand_page g-container">
 
 
 <pre><?php //var_dump($categories); ?></pre>
 
 
 
-  <div class="l-brand_content">
+  <div class="b-brand_content">
     
     <?php if ($categories) { ?>
     <?php foreach (array_chunk($categories, 4) as $cat) { ?>

@@ -1,0 +1,46 @@
+.b-brand_page {
+    .b-brand_content {
+        margin: 10 0 30px;
+    }
+    .b-brand-row {
+        overflow: hidden;
+    }
+    .b-brand-block {
+        float: left;
+        width: 25%;
+        padding: 0 1%;
+        h2 {
+            padding-bottom: 1.5em;
+        }
+        ul {
+            margin-bottom: 50px;
+            li {
+                padding: 0.2em 0;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .b-brand_page {
+        .b-brand-block {
+            width: 33%;
+        }
+    }
+} // end max-width: 1000px
+
+@media screen and (max-width: 800px) {
+    .b-brand_page {
+        .b-brand-block {
+            width: 50%;
+        }
+    }
+} // end max-width: 800px
+
+@media screen and (max-width: 500px) {
+    .b-brand_page {
+        .b-brand-block {
+            width: 100%;
+        }
+    }
+} // end max-width: 500px
