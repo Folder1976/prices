@@ -34,7 +34,7 @@ if($_SERVER['REQUEST_URI'] == '/'){
         $curr_href =  $_SERVER['REQUEST_URI'].'?currency=';
     } 
 }
-
+//echo "<pre>";  print_r(var_dump( get_defined_vars() )); echo "</pre>";
 ?>
 <!DOCTYPE html>
 <!--[if IE]><![endif]-->
@@ -221,17 +221,19 @@ if (typeof jQuery == 'undefined') {
           <span class="ic-location"></span>
           <span class="b-location__city" id="location_city"><?php echo $loc_array['name']; ?></span>
         </div>
+        <?php if ( $weather !== NULL ) { ?>
         <div class="b-weather">
-          <!--img src="catalog/view/theme/simplica/img/weather.png" alt="weather"-->
-          <span><img src="//openweathermap.org/img/w/<?php echo $weather['weather']['0']['icon']; ?>.png" style="width: 22px;height: 22px;position: relative;top: -2px;left: -2px;display: inline-block;"></span>
-          <span class="b-location__city" id="weather_city"><?php echo $loc_array['name']; ?> - <?php echo $weather['weather']['0']['description']; ?> <?php echo $weather['main']['temp']; ?>&#176;</span>
+          <span><img src="//openweathermap.org/img/w/<?php echo $weather['weather']['0']['icon']; ?>.png" style="width: 22px;height: 22px;position: relative;left: -2px;display: inline-block;"></span>
+          <span class="b-location__city" id="weather_city"><?php echo $loc_array['name']; ?> <?php //echo $weather['weather']['0']['description']; ?> <?php echo $weather['main']['temp']; ?>&#176;</span>
         </div>
-        
+        <?php } ?>
+        <div class="b-kurs">
         <?php foreach($currency_line as $row){ ?>
-            <div class="b-weather" style="min-width: 70px;margin-left: 20px;">
-              <span class="b-location__city"><?php echo $row['symbol_left'].$row['kurs'].$row['symbol_right'].$row['up_down']; ?></span>
+            <div class="b-kurs__item">
+              <span class="symbol"><?php echo $row['symbol_left'];?></span><span class="kurs"><?php echo $row['kurs']; ?></span><span class="symbol"><?php echo $row['symbol_right']; ?></span><span class="<?php if ($row['up_down']=='+') { echo 'up'; }else{ echo 'down';}; ?>"></span>
             </div>
         <?php } ?>
+        </div>
       </div>
 
 

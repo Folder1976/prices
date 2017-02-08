@@ -327,7 +327,7 @@ $text_sort = 'Выводить: ';
                       </ul>
                       <?php } ?>
                       <a href="/<?php echo $language_href; ?><?php echo $product['href']; ?>" class="g-btn b-prod__btn_buy">Купить</a>
-                      <a href="/<?php echo $language_href; ?><?php echo $product['href']; ?>" class="b-prod__comments-link">3 отзыва</a>
+                      <a href="/<?php echo $language_href; ?><?php echo $product['href']; ?>" class="b-prod__comments-link">Отзывы (<?php echo $product['total_comments']; ?>)</a>
                     </div>
                     <div class="b-prod__photo">
                       <a href="/<?php echo $language_href; ?><?php echo $product['href']; ?>"><img src="<?php echo $product['thumb']; ?>" alt="<?php echo $product['name']; ?>"></a>
@@ -340,7 +340,7 @@ $text_sort = 'Выводить: ';
                     <div class="b-prod__links">
                       <ul>
                         <li><a href="/<?php echo $language_href; ?><?php echo $product['href']; ?>"><span class="ic-prod_more"></span>Подробнее</a></li>
-                        <li><a href="/<?php echo $language_href; ?><?php echo $product['href']; ?>"><span class="ic-prod_photos"></span>Все фото (<?php if ( !isset($product['images']) ) { echo 0; } else { echo count($product['images']); } ?>)</a></li>
+                        <li><a href="/<?php echo $language_href; ?><?php echo $product['href']; ?>"><span class="ic-prod_photos"></span>Все фото (<?php echo $product['total_images']; ?>)</a></li>
                         <li><a href="/<?php echo $language_href; ?><?php echo $product['href']; ?>"><span class="ic-prod_video"></span>Все видео (<?php echo count($product['videos']); ?>)</a></li>
                         <li><button type="button" data-toggle="tooltip" class="btn btn-default" title="" onclick="wishlist.add('<?php echo $product['product_id'];?>');" data-original-title="В закладки">В ЗАКЛАДКИ</button>
                  </li>

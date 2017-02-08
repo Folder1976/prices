@@ -1481,16 +1481,46 @@ a:hover {
 .b-location,
 .b-weather {
   display: inline-block;
-  vertical-align: middle;
 }
 
 .b-location {
-  min-width: 130px;
   margin-right: 35px;
 }
 
 .b-weather img {
   width: 100%;
+}
+
+.b-kurs {
+  display: inline-block;
+  margin-left: 20px;
+}
+.b-kurs__item {
+  display: inline-block;
+  margin-left: 20px;
+}
+.b-kurs__item .symbol {
+  color: #9C9C9C;
+}
+.b-kurs__item .kurs {
+  color: #323232;
+  padding: 0 3px;
+}
+.b-kurs__item .up:before {
+  content: '\2191';
+  color: #0f0;
+  font-size: 1em;
+  padding: 0 5px;
+  position: relative;
+  top: -2px;
+}
+.b-kurs__item .down:before {
+  content: '\2193';
+  color: #f00;
+  font-size: 1em;
+  padding: 0 5px;
+  position: relative;
+  top: -2px;
 }
 
 .b-search {
@@ -5554,6 +5584,42 @@ main.b-product .b-brands {
   .b-checkout-form .b-checkout-form__summary-bottom .b-checkout__clear {
     float: none;
     margin-top: 50px;
+  }
+}
+.b-brand_page .b-brand_content {
+  margin: 10 0 30px;
+}
+.b-brand_page .b-brand-row {
+  overflow: hidden;
+}
+.b-brand_page .b-brand-block {
+  float: left;
+  width: 25%;
+  padding: 0 1%;
+}
+.b-brand_page .b-brand-block h2 {
+  padding-bottom: 1.5em;
+}
+.b-brand_page .b-brand-block ul {
+  margin-bottom: 50px;
+}
+.b-brand_page .b-brand-block ul li {
+  padding: 0.2em 0;
+}
+
+@media screen and (max-width: 1000px) {
+  .b-brand_page .b-brand-block {
+    width: 33%;
+  }
+}
+@media screen and (max-width: 800px) {
+  .b-brand_page .b-brand-block {
+    width: 50%;
+  }
+}
+@media screen and (max-width: 500px) {
+  .b-brand_page .b-brand-block {
+    width: 100%;
   }
 }
 
