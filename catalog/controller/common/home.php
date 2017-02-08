@@ -200,6 +200,7 @@ class ControllerCommonHome extends Controller {
 		
 		$data['main_page_categories'] = $this->model_catalog_category->getMainPageCategories();
 		$data['main_page_products'] = $this->model_catalog_product->getMainPageProducts();
+		$data['medium_banner_products'] = $this->model_catalog_product->getBannerProducts();
 		
 	
 		$main_product_sorted_by_categs = array();

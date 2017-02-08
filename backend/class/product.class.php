@@ -770,6 +770,7 @@ class Product
 				LEFT JOIN " . $this->pp . "manufacturer m ON (p.manufacturer_id = m.manufacturer_id)
 				WHERE p.product_id = '" . (int)$product_id . "' AND
 						p.status = '1' AND
+						pd.language_id = 1 AND
 						p.date_available <= NOW()
 						;";
 	
