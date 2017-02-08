@@ -119,8 +119,8 @@ if (typeof jQuery == 'undefined') {
                    value=""
                    placeholder="Логин"
                    required="required"
-                   pattern="^[a-zA-Zа-яА-Я0-9]{3,}$"
-                   title="минимум 3 символа (a-z, A-Z, а-я, А-Я, 0-9)">
+                   pattern=".{3,}"
+                   title="минимум 3 символа">
           </div>
         </div>
         <div class="f-group">
@@ -130,7 +130,9 @@ if (typeof jQuery == 'undefined') {
                    name="password"
                    value=""
                    placeholder="Пароль"
-                   required="required">
+                   pattern=".{3,}"
+                   required="required"
+                   title="минимум 3 символа">
           </div>
         </div>
         <div class="b-auth-social">

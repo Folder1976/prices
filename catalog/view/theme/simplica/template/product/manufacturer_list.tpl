@@ -2,12 +2,20 @@
 
 <main role="main" class="b-brand_page g-container">
 
+  <!-- Хлебные крошки. START -->
+  <div class="b-breadcrumb">
+  <?php $count = 0; ?>
+  <?php foreach ($breadcrumbs as $breadcrumb) { ?>
+    <?php if ($count == 0) { ?>
+      <a href="<?php echo $breadcrumb['href']; ?>" title=""><span class="ic-home"></span><?php echo $breadcrumb['text']; ?></a>
+    <?php } else { ?>
+      <span>&nbsp;>&nbsp;</span><a href="<?php echo $breadcrumb['href']; ?>" title="<?php echo $breadcrumb['text']; ?>"><?php echo $breadcrumb['text']; ?></a>
+    <?php } ?>
+  <?php $count++;} ?>
+  </div>
+  <!-- Хлебные крошки. END -->
 
-<pre><?php //var_dump($categories); ?></pre>
-
-
-
-  <div class="b-brand_content">
+  <div class="b-brand__content">
     
     <?php if ($categories) { ?>
     <?php foreach (array_chunk($categories, 4) as $cat) { ?>

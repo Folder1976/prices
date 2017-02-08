@@ -310,6 +310,7 @@
               <?php } ?>
               <li><a href="/<?php echo $language_href; ?><?php echo $_GET['_route_']; ?>#js-block-product_tabs-2">Предложения</a></li>
               <li><a href="/<?php echo $language_href; ?><?php echo $_GET['_route_']; ?>#js-block-product_tabs-3">Отзывы</a></li>
+              <li><a href="/<?php echo $language_href; ?><?php echo $_GET['_route_']; ?>#js-block-product_tabs-4">Вопросы и ответы</a></li>
             </ul>
           </div>
 
@@ -431,7 +432,180 @@
           </div>
           <!-- end  Отзывы -->
 
+<!-- Вопросы и ответы -->
+          <div id="js-block-product_tabs-4" class="b-tab-reviews b-tab-questions">
+
+            <div class="b-question">
+              <div class="b-question__question-block">
+                <p>Безусловно, камера: в дневное время снимает на уровне Флагманов 15-16 года, в ночное уже похуже;</p>
+                <div class="b-reviews__buttons">
+                  <a href="#" class="b-reviews__answer">Ответить</a>
+                </div>
+              </div>
+
+              <div class="b-question__answer-block">
+                <div class="b-question__answer-message">
+                  <p>Динамик, Звук на слабую 4-ку. было бы здорово, если было два динамика (где-то читал, что можно через root сделать верхний динамик рабочим не только для звонков, а, например, для прослушивания музыки, но я не стал этого делать); гигабйтов, доступ</p>
+                  <div class="b-question__answer-message-bottom">
+                    <a href="javascript:void(0)" class="b-question__answer-all-message js-show-all-answer">
+                      <span class="ic-two-arrow-down"></span>Показать ещё ответы (2)
+                    </a>
+                    <div class="b-reviews__bottom">
+                      <p>Отзыв полезен? <a href="#" class="b-reviews__answer-useful">Да</a> / <a href="#" class="b-reviews__answer-not-useful">Нет</a></p>
+                    </div>
+                    <div class="b-reviews__date">01 сентября 2016</div>
+                  </div>
+                </div>
+                <div class="b-reviews__author">
+                  <div class="b-reviews__author-name">Sergei ddd</div>
+                  <div class="b-reviews__author-foto"><img src="img/reviews/man-dark-avatar-318-9118.png" alt=""></div>
+                </div>
+              </div>  <!-- end b-question__answer-block -->
+
+              <div class="b-question__answer-block g-hidden">
+                <div class="b-question__answer-message">
+                  <p>Динамик, Звук на слабую 4-ку. было бы здорово, если было два динамика (где-то читал, что можно через root сделать верхний динамик рабочим не только для звонков, а, например, для прослушивания музыки, но я не стал этого делать); гигабйтов, доступ</p>
+                  <div class="b-question__answer-message-bottom">
+                    <div class="b-reviews__bottom">
+                      <p>Отзыв полезен? <a href="#" class="b-reviews__answer-useful">Да</a> / <a href="#" class="b-reviews__answer-not-useful">Нет</a></p>
+                    </div>
+                    <div class="b-reviews__date">01 сентября 2016</div>
+                  </div>
+                </div>
+                <div class="b-reviews__author">
+                  <div class="b-reviews__author-name">Sergei ddd</div>
+                  <div class="b-reviews__author-foto"><img src="img/reviews/man-dark-avatar-318-9118.png" alt=""></div>
+                </div>
+              </div>  <!-- end b-question__answer-block -->
+
+              <div class="b-question__answer-block g-hidden">
+                <div class="b-question__answer-message">
+                  <p>Динамик, Звук на слабую 4-ку. было бы здорово, если было два динамика (где-то читал, что можно через root сделать верхний динамик рабочим не только для звонков, а, например, для прослушивания музыки, но я не стал этого делать); гигабйтов, доступ</p>
+                  <div class="b-question__answer-message-bottom">
+                    <div class="b-reviews__bottom">
+                      <p>Отзыв полезен? <a href="#" class="b-reviews__answer-useful">Да</a> / <a href="#" class="b-reviews__answer-not-useful">Нет</a></p>
+                    </div>
+                    <div class="b-reviews__date">01 сентября 2016</div>
+                  </div>
+                </div>
+                <div class="b-reviews__author">
+                  <div class="b-reviews__author-name">Sergei ddd</div>
+                  <div class="b-reviews__author-foto"><img src="img/reviews/man-dark-avatar-318-9118.png" alt=""></div>
+                </div>
+              </div>  <!-- end b-question__answer-block -->
+
+              <div class="b-reviews__buttons">
+                <a href="#" class="b-reviews__answer">Ответить</a>
+              </div>
+            </div>  <!-- end b-question -->
+
+            <div class="b-question">
+              <div class="b-question__question-block">
+                <p>Безусловно, камера: в дневное время снимает на уровне Флагманов 15-16 года, в ночное уже похуже;</p>
+                <div class="b-reviews__buttons">
+                  <a href="#" class="b-reviews__answer">Ответить</a>
+                </div>
+              </div>
+
+              <div class="b-question__answer-block">
+                <div class="b-question__answer-message">
+                  <p>Динамик, Звук на слабую 4-ку. было бы здорово, если было два динамика (где-то читал, что можно через root сделать верхний динамик рабочим не только для звонков, а, например, для прослушивания музыки, но я не стал этого делать); гигабйтов, доступ</p>
+                  <div class="b-question__answer-message-bottom">
+                    <a href="javascript:void(0)" class="b-question__answer-all-message js-show-all-answer">
+                      <span class="ic-two-arrow-down"></span>Показать ещё ответы (2)
+                    </a>
+                    <div class="b-reviews__bottom">
+                      <p>Отзыв полезен? <a href="#" class="b-reviews__answer-useful">Да</a> / <a href="#" class="b-reviews__answer-not-useful">Нет</a></p>
+                    </div>
+                    <div class="b-reviews__date">01 сентября 2016</div>
+                  </div>
+                </div>
+                <div class="b-reviews__author">
+                  <div class="b-reviews__author-name">Sergei ddd</div>
+                  <div class="b-reviews__author-foto"><img src="img/reviews/man-dark-avatar-318-9118.png" alt=""></div>
+                </div>
+              </div>  <!-- end b-question__answer-block -->
+
+              <div class="b-question__answer-block g-hidden">
+                <div class="b-question__answer-message">
+                  <p>Динамик, Звук на слабую 4-ку. было бы здорово, если было два динамика (где-то читал, что можно через root сделать верхний динамик рабочим не только для звонков, а, например, для прослушивания музыки, но я не стал этого делать); гигабйтов, доступ</p>
+                  <div class="b-question__answer-message-bottom">
+                    <div class="b-reviews__bottom">
+                      <p>Отзыв полезен? <a href="#" class="b-reviews__answer-useful">Да</a> / <a href="#" class="b-reviews__answer-not-useful">Нет</a></p>
+                    </div>
+                    <div class="b-reviews__date">01 сентября 2016</div>
+                  </div>
+                </div>
+                <div class="b-reviews__author">
+                  <div class="b-reviews__author-name">Sergei ddd</div>
+                  <div class="b-reviews__author-foto"><img src="img/reviews/man-dark-avatar-318-9118.png" alt=""></div>
+                </div>
+              </div>  <!-- end b-question__answer-block -->
+
+              <div class="b-question__answer-block g-hidden">
+                <div class="b-question__answer-message">
+                  <p>Динамик, Звук на слабую 4-ку. было бы здорово, если было два динамика (где-то читал, что можно через root сделать верхний динамик рабочим не только для звонков, а, например, для прослушивания музыки, но я не стал этого делать); гигабйтов, доступ</p>
+                  <div class="b-question__answer-message-bottom">
+                    <div class="b-reviews__bottom">
+                      <p>Отзыв полезен? <a href="#" class="b-reviews__answer-useful">Да</a> / <a href="#" class="b-reviews__answer-not-useful">Нет</a></p>
+                    </div>
+                    <div class="b-reviews__date">01 сентября 2016</div>
+                  </div>
+                </div>
+                <div class="b-reviews__author">
+                  <div class="b-reviews__author-name">Sergei ddd</div>
+                  <div class="b-reviews__author-foto"><img src="img/reviews/man-dark-avatar-318-9118.png" alt=""></div>
+                </div>
+              </div>  <!-- end b-question__answer-block -->
+
+              <div class="b-reviews__buttons">
+                <a href="#" class="b-reviews__answer">Ответить</a>
+              </div>
+            </div>  <!-- end b-question -->
+
+            <div class="b-question">
+              <div class="b-question__question-block">
+                <p>Безусловно, камера: в дневное время снимает на уровне Флагманов 15-16 года, в ночное уже похуже;</p>
+                <div class="b-reviews__buttons">
+                  <a href="#" class="b-reviews__answer">Ответить</a>
+                </div>
+                <div class="b-question__no-answer">0 ответов</div>
+              </div>
+
+              <div class="b-reviews__buttons">
+                <a href="#" class="b-reviews__answer">Ответить</a>
+              </div>
+            </div>  <!-- end b-question -->
+
+            <div class="b-question">
+              <div class="b-question__question-block">
+                <p>Безусловно, камера: в дневное время снимает на уровне Флагманов 15-16 года, в ночное уже похуже;</p>
+                <div class="b-reviews__buttons">
+                  <a href="#" class="b-reviews__answer">Ответить</a>
+                </div>
+                <div class="b-question__no-answer">0 ответов</div>
+              </div>
+
+              <div class="b-reviews__buttons">
+                <a href="#" class="b-reviews__answer">Ответить</a>
+              </div>
+            </div>  <!-- end b-question -->
+
+            <div class="b-add-message">
+              <form action="">
+                <div class="f-field-wrapper f-field-wrapper_textarea">
+                  <textarea name="question_message" class="f-textarea" placeholder="Добавить вопрос"></textarea>
+                </div>
+                <div class="f-group">
+                  <button type="submit" class="f-button">Добавить вопрос</button>
+                </div>
+              </form>
+            </div>  <!-- end b-add-message -->
+
+          </div>  <!-- end Вопросы и ответы -->
+
         </div>  <!-- end b-prod__tabs -->
+
 
         <div class="js-mob-prod-tabs"></div>
 

@@ -1,0 +1,12 @@
+.b-shops_page {
+    .b-shops_content {
+        margin: 30px 0;
+    }
+    ul {
+        @include column-count(4);
+        li {
+            padding: 0.5em 0;
+        }
+
+    }
+}

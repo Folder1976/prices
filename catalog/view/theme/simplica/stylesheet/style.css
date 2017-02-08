@@ -800,6 +800,14 @@ a:hover {
   background: #fff;
 }
 
+a.f-button {
+  padding: 10px;
+  display: inline-block;
+}
+a.f-button:hover {
+  text-decoration: none;
+}
+
 .f-textarea {
   width: 100%;
   max-width: 100%;
@@ -819,6 +827,10 @@ a:hover {
 }
 .g-btn:hover {
   opacity: 0.7;
+}
+
+.f-text-right {
+  text-align: right;
 }
 
 [class*="ic-"] {
@@ -5586,8 +5598,73 @@ main.b-product .b-brands {
     margin-top: 50px;
   }
 }
-.b-brand_page .b-brand_content {
-  margin: 10 0 30px;
+.l-main_account__content {
+  margin: 30px 0;
+  display: flex;
+}
+.l-main_account__left {
+  width: 270px;
+}
+.l-main_account__right {
+  width: calc(100% - 270px - 15px);
+  padding-left: 15px;
+}
+.l-main_account .list-group-item {
+  display: block;
+  width: 100%;
+  line-height: 1.5em;
+  padding: 0 15px;
+  font-size: 15px;
+}
+.l-main_account .list-group-item:hover {
+  background: #39adff;
+  color: #fff;
+  text-decoration: none;
+}
+.l-main_account p {
+  padding: 0.3em 0 1em;
+}
+
+.b-account-form {
+  margin-bottom: 20px;
+}
+.b-account-form__title {
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase;
+  padding-bottom: 1em;
+}
+.b-account-form .f-field-wrapper .f-label {
+  width: 37%;
+  line-height: 35px;
+}
+.b-account-form .f-field-wrapper .f-label + .f-field {
+  width: 61%;
+}
+.b-account-form .f-group {
+  width: 100%;
+  margin-bottom: 15px;
+}
+.b-account-form .f-label {
+  color: #303030;
+  font-size: 16px;
+}
+.b-account-form .f-input {
+  padding: 10px;
+  color: #303030;
+}
+.b-account-form .f-input:focus {
+  border: 1px solid #39adff;
+}
+.b-account-form .f-field-group {
+  width: 61%;
+}
+.b-account-form .f-field-group_radio {
+  width: 61%;
+}
+
+.b-brand_page .b-brand__content {
+  margin: 30px 0;
 }
 .b-brand_page .b-brand-row {
   overflow: hidden;
@@ -5621,6 +5698,19 @@ main.b-product .b-brands {
   .b-brand_page .b-brand-block {
     width: 100%;
   }
+}
+.b-shops_page .b-shops_content {
+  margin: 30px 0;
+}
+.b-shops_page ul {
+  -moz-column-count: 4;
+  /* Firefox */
+  -webkit-column-count: 4;
+  /* Safari and Chrome */
+  column-count: 4;
+}
+.b-shops_page ul li {
+  padding: 0.5em 0;
 }
 
 /*# sourceMappingURL=style.css.map */

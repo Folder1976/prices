@@ -1,9 +1,35 @@
 <?php echo $header; ?>
 
+<main class="b-shops_page g-container">
+  <!-- Хлебные крошки. START -->
+  <div class="b-breadcrumb">
+  <?php $count = 0; ?>
+  <?php foreach ($breadcrumbs as $breadcrumb) { ?>
+    <?php if ($count == 0) { ?>
+      <a href="<?php echo $breadcrumb['href']; ?>" title=""><span class="ic-home"></span><?php echo $breadcrumb['text']; ?></a>
+    <?php } else { ?>
+      <span>&nbsp;>&nbsp;</span><a href="<?php echo $breadcrumb['href']; ?>" title="<?php echo $breadcrumb['text']; ?>"><?php echo $breadcrumb['text']; ?></a>
+    <?php } ?>
+  <?php $count++;} ?>
+  </div>
+  <!-- Хлебные крошки. END -->
+
+  <div class="b-shops_content">
+    <ul>
+      <?php foreach($shops as $shop){ ?>
+      <li><a href="http://<?php echo $_SERVER['HTTP_HOST'].'/'.TMP_URL; ?><?php echo $shop['href']; ?>"><?php echo $shop['name']; ?></a></li>
+      <?php } ?>
+    </ul>
+  </div>
+
+
+</main>
+
+
 
 
   <!--content section-->
-  <section class="content-section">
+  <section class="content-section" style="display: none">
       <div class="inner-block">
 
           <div class="special-row clearfix">

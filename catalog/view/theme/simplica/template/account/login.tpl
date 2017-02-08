@@ -1,82 +1,91 @@
 <?php echo $header; ?>
 
-<main class="l-main_account">
+<main class="l-main_account g-container">
   
-  <div class="l-main_account-header">
+  <div class="l-main_account__header">
     <!-- Хлебные крошки. START -->
-    <ul class="b-product_breadcrumbs" itemscope itemtype="http://schema.org/BreadcrumbList">
-      <?php $count = 0; ?>
-      <?php foreach ($breadcrumbs as $breadcrumb) { ?>
-        <li class="b-breadcrumb-item" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem" <?php if ($count == 0) { echo ' style="display: none;"';} ?>>
-          <a  class="b-breadcrumb-link js-breadcrumb_refinement-link" href="<?php echo $breadcrumb['href']; ?>" itemprop="item" title="<?php echo $breadcrumb['text']; ?>"><span itemprop="name"><?php echo $breadcrumb['text']; ?></span></a>
-          <meta content="<?php echo $count++; ?>">
-        </li>
+    <div class="b-breadcrumb">
+    <?php $count = 0; ?>
+    <?php foreach ($breadcrumbs as $breadcrumb) { ?>
+      <?php if ($count == 0) { ?>
+        <a href="<?php echo $breadcrumb['href']; ?>" title=""><span class="ic-home"></span><?php echo $breadcrumb['text']; ?></a>
+      <?php } else { ?>
+        <span>&nbsp;>&nbsp;</span><a href="<?php echo $breadcrumb['href']; ?>" title="<?php echo $breadcrumb['text']; ?>"><?php echo $breadcrumb['text']; ?></a>
       <?php } ?>
-    </ul>
+    <?php $count++;} ?>
+    </div>
     <!-- Хлебные крошки. END -->
   </div>
 
-  <div class="l-main_account-content">
+  <div class="l-main_account__content">
 <!-- Левая колонка. START -->
-    <div class="l-main_account-left-mob-button js-toggler"
-                 data-slide=".js-l-main_account-left"
-                 data-toggle-class="h-minimized-main_account-left"
-                 data-toggle-elem-class="h-toggled"></div>
-    <div class="l-main_account-left js-l-main_account-left h-minimized-main_account-left">
+    <div class="l-main_account__left">
       <?php echo $column_right; ?>
     </div>
 <!-- Левая колонка. END -->
 
 <!-- Правая колонка. START -->
-    <div class="l-main_account-right">
-      <div class="b-account-login-form">
-        <h2 class="b-account-login-form-title"><?php echo $text_returning_customer; ?></h2>
-        <p><strong><?php echo $text_i_am_returning_customer; ?></strong></p>
+    <div class="l-main_account__right">
+      <div class="b-account-form">
+        <h2 class="b-account-form__title"><?php echo $text_returning_customer; ?></h2>
+        <p><?php echo $text_i_am_returning_customer; ?></p>
         <form action="<?php echo $action; ?>" method="post" enctype="multipart/form-data">
-          <div class="form-group f-field f-field-email f-state-required">
-            <label class="control-label f-label" for="input-email">
-              <span class="f-label-value"><?php echo $entry_email; ?></span>
-            </label>
+
+          <div class="f-group">
             <div class="f-field-wrapper">
-              <input type="text"
-                     name="email"
-                     value="<?php echo $email; ?>"
-                     placeholder="<?php echo $entry_email; ?>"
-                     id="input-email"
-                     class="form-control f-email f-state-required js-state-required" />
-              <span class="f-error_message">
-                <span class="f-error_message-block js-error_input-email"></span>
-              </span>
+              <div class="f-label">
+                <label for="input-email"><?php echo $entry_email; ?></label>
+              </div>
+              <div class="f-field">
+                <input type="text"
+                       name="email"
+                       value="<?php echo $email; ?>"
+                       placeholder="<?php echo $entry_email; ?>"
+                       id="input-email"
+                       class="f-input"
+                       required="required"
+                       pattern=".{3,}"
+                       title="минимум 3 символа" />
+              </div>
             </div>
           </div>
-          <div class="form-group f-field f-field-password f-state-required">
-            <label class="control-label f-label" for="input-password">
-              <span class="f-label-value"><?php echo $entry_password; ?></span>              
-            </label>
+
+          <div class="f-group">
             <div class="f-field-wrapper">
-              <input type="password"
-                     name="password"
-                     value="<?php echo $password; ?>"
-                     placeholder="<?php echo $entry_password; ?>"
-                     id="input-password"
-                     class="form-control f-password f-state-required js-state-required" />
-              <span class="f-error_message">
-                <span class="f-error_message-block js-error_input-password"></span>
-              </span>
-              <a href="<?php echo $forgotten; ?>"><?php echo $text_forgotten; ?></a></div>
+              <div class="f-label">
+                <label for="input-password"><?php echo $entry_password; ?></label>
+              </div>
+              <div class="f-field">
+                <input type="password"
+                       name="password"
+                       value="<?php echo $password; ?>"
+                       placeholder="<?php echo $entry_password; ?>"
+                       id="input-password"
+                       class="f-input"
+                       required="required"
+                       pattern=".{3,}"
+                       title="минимум 3 символа" />
+              </div>
             </div>
-          <input type="submit" value="<?php echo $button_login; ?>" class="btn btn-primary g-button" />
+            <a href="<?php echo $forgotten; ?>"><?php echo $text_forgotten; ?></a>
+          </div>
+
+          <div class="f-group f-text-right">
+            <input type="submit" value="<?php echo $button_login; ?>" class="f-button" />
+          </div>
+
           <?php if ($redirect) { ?>
           <input type="hidden" name="redirect" value="<?php echo $redirect; ?>" />
           <?php } ?>
+
         </form>
       </div>
 
       <div class="b-account-registration">
-        <h2 class="b-account-login-form-title"><?php echo $text_new_customer; ?></h2>
-        <p><strong><?php echo $text_register; ?></strong></p>
+        <h2 class="b-account-form__title"><?php echo $text_new_customer; ?></h2>
+        <p><?php echo $text_register; ?></p>
         <p><?php echo $text_register_account; ?></p>
-        <a href="<?php echo $register; ?>" class="btn btn-primary g-button"><?php echo $button_continue; ?></a>
+        <a href="<?php echo $register; ?>" class="f-button"><?php echo $button_continue; ?></a>
       </div>
 
     </div>

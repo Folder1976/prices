@@ -1,0 +1,70 @@
+.l-main_account {
+    &__header {
+    }
+    &__content {
+        margin: 30px 0;
+        display: flex;
+    }
+    &__left {
+        width: 270px;
+    }
+    &__right {
+        width: calc(100% - 270px - 15px);
+        padding-left: 15px;
+    }
+    .list-group {
+        &-item {
+            display: block;
+            width: 100%;
+            line-height: 1.5em;
+            padding: 0 15px;
+            font-size: 15px;
+            &:hover {
+                background: #39adff;
+                color: #fff;
+                text-decoration: none;
+            }
+        }
+    }
+    p {
+        padding: 0.3em 0 1em;
+    }
+}
+
+.b-account-form {
+    margin-bottom: 20px;
+    &__title {
+        font-size: 16px;
+        font-weight: bold;
+        text-transform: uppercase;
+        padding-bottom: 1em;
+    }
+    .f-field-wrapper .f-label {
+        width: 37%;
+        line-height: 35px;
+    }
+    .f-field-wrapper .f-label + .f-field {
+        width: 61%;
+    }
+    .f-group {
+        width: 100%;
+        margin-bottom: 15px;
+    }
+    .f-label {
+        color: #303030;
+        font-size: 16px;
+    }
+    .f-input {
+        padding: 10px;
+        color: #303030;
+        &:focus {
+            border: 1px solid #39adff;
+        }
+    }
+    .f-field-group {
+        width: 61%;
+        &_radio {
+            width: 61%;
+        }
+    }
+}

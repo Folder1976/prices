@@ -289,6 +289,14 @@ a:hover {
         background: $color_button_text1;
     }
 }
+a.f-button {
+    padding: 10px;
+    display: inline-block;
+    &:hover {
+        text-decoration: none;
+    }
+}
+
 .f-textarea {
     width: 100%;
     max-width: 100%;
@@ -308,7 +316,9 @@ a:hover {
         opacity: 0.7;
     }
 }
-
+.f-text-right {
+    text-align: right;
+}
 
 
 
