@@ -31,13 +31,13 @@
         <p><?php echo $text_i_am_returning_customer; ?></p>
         <form action="<?php echo $action; ?>" method="post" enctype="multipart/form-data">
 
-          <div class="f-group">
+          <div class="f-group f-required">
             <div class="f-field-wrapper">
               <div class="f-label">
                 <label for="input-email"><?php echo $entry_email; ?></label>
               </div>
               <div class="f-field">
-                <input type="text"
+                <input type="email"
                        name="email"
                        value="<?php echo $email; ?>"
                        placeholder="<?php echo $entry_email; ?>"
@@ -50,7 +50,7 @@
             </div>
           </div>
 
-          <div class="f-group">
+          <div class="f-group f-required">
             <div class="f-field-wrapper">
               <div class="f-label">
                 <label for="input-password"><?php echo $entry_password; ?></label>
