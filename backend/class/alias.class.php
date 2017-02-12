@@ -44,7 +44,7 @@ class Alias
 			$row['sku'] = urldecode($row['sku']);
 			
 			if($row['code'] != ''){
-				$alias .= '/'.strtolower($row['code']);
+				$alias .= '/'.strtolower($this->translitArtkl(strtolower($row['code'])));
 			}elseif($row['sku'] != ''){
 				$alias .= '/'.strtolower($this->translitArtkl($row['name'].'-'.$row['sku']));
 			}else{
