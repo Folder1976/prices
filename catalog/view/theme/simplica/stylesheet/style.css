@@ -801,7 +801,7 @@ a:hover {
 }
 
 a.f-button {
-  padding: 10px;
+  padding: 9px;
   display: inline-block;
 }
 a.f-button:hover {
@@ -5621,6 +5621,12 @@ main.b-product .b-brands {
   color: #fff;
   text-decoration: none;
 }
+.l-main_account h1, .l-main_account h2 {
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase;
+  padding-bottom: 1em;
+}
 .l-main_account p {
   padding: 0.3em 0 1em;
 }
@@ -5634,6 +5640,9 @@ main.b-product .b-brands {
   text-transform: uppercase;
   padding-bottom: 1em;
 }
+.b-account-form .f-field.f-radio-group {
+  padding: 10px;
+}
 .b-account-form .f-field-wrapper .f-label {
   width: 37%;
   line-height: 35px;
@@ -5644,6 +5653,9 @@ main.b-product .b-brands {
 .b-account-form .f-group {
   width: 100%;
   margin-bottom: 15px;
+}
+.b-account-form .f-group.f-required label:after {
+  content: '*';
 }
 .b-account-form .f-label {
   color: #303030;
@@ -5656,11 +5668,59 @@ main.b-product .b-brands {
 .b-account-form .f-input:focus {
   border: 1px solid #39adff;
 }
+.b-account-form .f-select {
+  width: 100%;
+  padding: 10px;
+  color: #303030;
+  border: 1px solid #aaa;
+}
+.b-account-form .f-radio {
+  margin-right: 20px;
+}
 .b-account-form .f-field-group {
   width: 61%;
 }
 .b-account-form .f-field-group_radio {
   width: 61%;
+}
+.b-account-form .f-buttons {
+  margin-top: 10px;
+}
+
+.table-addresses__row {
+  overflow: hidden;
+  margin: 10px 0;
+  border-bottom: 1px solid #39adff;
+  padding: 10px;
+}
+.table-addresses__row > div {
+  float: left;
+}
+.table-addresses__row:last-child {
+  border-bottom: none;
+}
+.table-addresses__count {
+  width: 20%;
+  padding-left: 5%;
+}
+.table-addresses__result {
+  width: 50%;
+}
+.table-addresses__result-title {
+  width: 25%;
+  display: inline-block;
+  text-align: right;
+}
+.table-addresses__result-value {
+  width: 69%;
+  display: inline-block;
+  margin-left: 3%;
+}
+.table-addresses__edit {
+  width: 15%;
+}
+.table-addresses__remove {
+  width: 15%;
 }
 
 .b-brand_page .b-brand__content {

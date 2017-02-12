@@ -26,6 +26,12 @@
             }
         }
     }
+    h1, h2 {
+        font-size: 16px;
+        font-weight: bold;
+        text-transform: uppercase;
+        padding-bottom: 1em;
+    }
     p {
         padding: 0.3em 0 1em;
     }
@@ -39,6 +45,9 @@
         text-transform: uppercase;
         padding-bottom: 1em;
     }
+    .f-field.f-radio-group {
+        padding: 10px;
+    }
     .f-field-wrapper .f-label {
         width: 37%;
         line-height: 35px;
@@ -49,6 +58,9 @@
     .f-group {
         width: 100%;
         margin-bottom: 15px;
+        &.f-required label:after {
+            content: '*';
+        }
     }
     .f-label {
         color: #303030;
@@ -61,10 +73,60 @@
             border: 1px solid #39adff;
         }
     }
+    .f-select {
+        width: 100%;
+        padding: 10px;
+        color: #303030;
+        border: 1px solid #aaa;
+    }
+    .f-radio {
+        margin-right: 20px;
+    }
     .f-field-group {
         width: 61%;
         &_radio {
             width: 61%;
         }
+    }
+    .f-buttons {
+        margin-top: 10px;
+    }
+}
+
+.table-addresses {
+    &__row {
+        overflow: hidden;
+        margin: 10px 0;
+        border-bottom: 1px solid #39adff;
+        padding: 10px;
+        & > div {
+            float: left;
+        }
+        &:last-child {
+            border-bottom: none;
+        }
+    }
+    &__count {
+        width: 20%;
+        padding-left: 5%;
+    }
+    &__result {
+        width: 50%;
+        &-title {
+            width: 25%;
+            display: inline-block;
+            text-align: right;
+        }
+        &-value {
+            width: 69%;
+            display: inline-block;
+            margin-left: 3%;
+        }
+    }
+    &__edit {
+        width: 15%;
+    }
+    &__remove {
+        width: 15%;
     }
 }
