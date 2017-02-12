@@ -282,6 +282,101 @@ class Alias
 	
 	}
 	
+	
+	public function getBlogCategoryAlias($category_id){
+		$pp = $this->pp;
+		$alias = '';
+		
+		/*
+		$sql = 'SELECT C.category_id, parent_id, C.code, name FROM `'.$pp.'category` C
+						LEFT JOIN `'.$pp.'category_description` CD ON CD.category_id = C.category_id AND CD.language_id = 1
+						WHERE C.category_id = "'.$category_id.'";';
+						*/
+		$sql = 'SELECT blog_category_id, name FROM `'.$pp.'blog_category_description` WHERE language_id = "1" AND blog_category_id = "'.$category_id.'"';
+		$r = $this->db->query($sql) or die($sql);
+		
+		if($r->num_rows > 0){
+		
+			$row = $r->fetch_assoc();
+			
+			$alias = strtolower($this->translitArtkl(trim($row['name'])));	
+			
+		}
+			
+		return trim($alias,'-');
+		
+	}
+
+	public function getBlogAlias($blog_id){
+		$pp = $this->pp;
+		$alias = 'blog_id='.$blog_id;
+		
+		/*
+		$sql = 'SELECT C.category_id, parent_id, C.code, name FROM `'.$pp.'category` C
+						LEFT JOIN `'.$pp.'category_description` CD ON CD.category_id = C.category_id AND CD.language_id = 1
+						WHERE C.category_id = "'.$category_id.'";';
+						*/
+		$sql = 'SELECT blog_id, title FROM `'.$pp.'blog_description` WHERE language_id = "1" AND blog_id = "'.$blog_id.'"';
+		$r = $this->db->query($sql) or die($sql);
+		
+		$alias = '';
+		
+		if($r->num_rows > 0){
+	
+			$row = $r->fetch_assoc();
+			
+			$alias = strtolower($this->translitArtkl(trim($row['title'])));	
+			
+		}
+		
+			
+		return trim($alias,'-');
+		
+	}
+
+	public function setBlogAlias($alias, $blog_id){
+		
+		$pp = $this->pp;
+		
+		$sql = 'SELECT keyword FROM `'.$pp.'url_alias` where `query` = "blog_id='.$blog_id.'" LIMIT 0,1;';
+		$r = $this->db->query($sql) or die($sql);
+		
+		if($r->num_rows > 0){
+			
+			$sql = 'UPDATE `'.$pp.'url_alias` SET keyword = "'.$alias.'" where `query` = "blog_id='.$blog_id.'";';
+			
+		}else{
+			
+			$sql = 'INSERT INTO `'.$pp.'url_alias` SET keyword = "'.$alias.'", `query` = "blog_id='.$blog_id.'";';
+			
+		}
+		
+		$this->db->query($sql);// or die($sql);
+		
+	}
+	public function setBlogCategoryAlias($alias, $blog_category_id){
+		
+		$pp = $this->pp;
+		
+		$sql = 'SELECT keyword FROM `'.$pp.'url_alias` where `query` = "blog_category_id='.$blog_category_id.'" LIMIT 0,1;';
+		$r = $this->db->query($sql) or die($sql);
+		
+		if($r->num_rows > 0){
+			
+			$sql = 'UPDATE `'.$pp.'url_alias` SET keyword = "'.$alias.'" where `query` = "blog_category_id='.$blog_category_id.'";';
+			
+		}else{
+			
+			$sql = 'INSERT INTO `'.$pp.'url_alias` SET keyword = "'.$alias.'", `query` = "blog_category_id='.$blog_category_id.'";';
+			
+		}
+		
+		$this->db->query($sql);// or die($sql);
+		
+	}
+	
+	
+	
 	private function translitArtkl($str) {
 		$rus = array('?','~','+','и','<','>','/','%20','(',')',':','.',',','і','є','Є','ї','\"','\'','.',' ','А', 'Б', 'В', 'Г', 'Д', 'Е', 'Ё', 'Ж', 'З', 'И', 'Й', 'К', 'Л', 'М', 'Н', 'О', 'П', 'Р', 'С', 'Т', 'У', 'Ф', 'Х', 'Ц', 'Ч', 'Ш', 'Щ', 'Ъ', 'Ы', 'Ь', 'Э', 'Ю', 'Я', 'а', 'б', 'в', 'г', 'д', 'е', 'ё', 'ж', 'з', 'и', 'й', 'к', 'л', 'м', 'н', 'о', 'п', 'р', 'с', 'т', 'у', 'ф', 'х', 'ц', 'ч', 'ш', 'щ', 'ъ', 'ы', 'ь', 'э', 'ю', 'я');
 	    $lat = array('','','','u','','','','-','','','','','','i','e','E','i','','','','-','A', 'B', 'V', 'G', 'D', 'E', 'E', 'Gh', 'Z', 'I', 'Y', 'K', 'L', 'M', 'N', 'O', 'P', 'R', 'S', 'T', 'U', 'F', 'H', 'C', 'Ch', 'Sh', 'Sch', 'Y', 'Y', 'Y', 'E', 'Yu', 'Ya', 'a', 'b', 'v', 'g', 'd', 'e', 'e', 'gh', 'z', 'i', 'y', 'k', 'l', 'm', 'n', 'o', 'p', 'r', 's', 't', 'u', 'f', 'h', 'c', 'ch', 'sh', 'sch', 'y', 'y', 'y', 'e', 'yu', 'ya');
