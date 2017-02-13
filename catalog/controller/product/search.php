@@ -8,7 +8,10 @@ class ControllerProductSearch extends Controller {
 		$this->load->model('catalog/product');
 
 		$this->load->model('tool/image');
-
+		
+		$this->load->model('module/megareviews');
+		
+	
 		if (isset($this->request->get['search'])) {
 			$search = $this->request->get['search'];
 		} else {
@@ -243,10 +246,50 @@ class ControllerProductSearch extends Controller {
 				} else {
 					$rating = false;
 				}
+				
+				$options = array();
+				foreach ($this->model_catalog_product->getProductOptions($result['product_id']) as $option) {
+					$product_option_value_data = array();
+	
+					foreach ($option['product_option_value'] as $option_value) {
+						//if (!$option_value['subtract'] || ($option_value['quantity'] > 0)) {
+							$product_option_value_data[] = array(
+								'product_option_value_id' => $option_value['product_option_value_id'],
+								'option_value_id'         => $option_value['option_value_id'],
+								'quantity'         => $option_value['quantity'],
+								'name'                    => $option_value['name'],
+								'image'                   => $this->model_tool_image->resize($option_value['image'], 50, 50),
+								'price_prefix'            => $option_value['price_prefix']
+							);
+						//}
+					}
+	
+					$options[] = array(
+						'product_option_id'    => $option['product_option_id'],
+						'product_option_value' => $product_option_value_data,
+						'option_id'            => $option['option_id'],
+						'name'                 => $option['name'],
+						'type'                 => $option['type'],
+						'value'                => $option['value'],
+						'required'             => $option['required']
+					);
+				}
 
 				$data['products'][] = array(
 					'product_id'  => $result['product_id'],
 					'thumb'       => $image,
+					'options'       => $options,
+					'total_comments' => $this->model_module_megareviews->getProductTotalReviews($result['product_id']),
+					'total_images' => $this->model_catalog_product->getProductTotalImages($result['product_id']),
+					'shop_id'        	=> $result['shop_id'],
+					'shop_name'        	=> $result['shop_name'],
+					'videos'        	=> $result['videos'],
+					'shop_href'        	=> $result['shop_href'],
+					'manufacturer_id'   => $result['manufacturer_id'],
+					'manufacturer'      => $result['manufacturer'],
+					'manufacturer_image'      => $result['manufacturer_image'],
+					'manufacturer_href' => $result['manufacturer_href'],
+				
 					'name'        => $result['name'],
 					'description' => utf8_substr(strip_tags(html_entity_decode($result['description'], ENT_QUOTES, 'UTF-8')), 0, $this->config->get('config_product_description_length')) . '..',
 					'price'       => $price,
