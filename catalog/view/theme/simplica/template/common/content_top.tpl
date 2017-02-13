@@ -10,12 +10,12 @@ $text_more = 'Еще...';
 ?>
 
 <div class="b-acc-top">
-  <a href="<?php echo $history; ?>" class="b-acc-top__item"><span class="ic-acc-history"></span> <?php echo $text_history; ?></a>
-  <a href="<?php echo $order; ?>" class="b-acc-top__item"><span class="ic-acc-order"></span> <?php echo $text_order; ?></a>
-  <a href="<?php echo $messages; ?>" class="b-acc-top__item active"><span class="ic-acc-message"></span> <?php echo $text_messages; ?></a>
-  <a href="<?php echo $reviews; ?>" class="b-acc-top__item"><span class="ic-acc-reviews"></span> <?php echo $text_reviews; ?></a>
-  <a href="<?php echo $questions; ?>" class="b-acc-top__item"><span class="ic-acc-questions"></span> <?php echo $text_questions; ?></a>
-  <a href="<?php echo $edit; ?>" class="b-acc-top__item"><span class="ic-acc-profile"></span> <?php echo $text_edit; ?></a>
+  <a href="<?php echo $href_history; ?>" class="b-acc-top__item"><span class="ic-acc-history"></span> <?php echo $text_history; ?></a>
+  <a href="<?php echo $href_order; ?>" class="b-acc-top__item"><span class="ic-acc-order"></span> <?php echo $text_order; ?></a>
+  <a href="<?php echo $href_messages; ?>" class="b-acc-top__item active"><span class="ic-acc-message"></span> <?php echo $text_messages; ?></a>
+  <a href="<?php echo $href_reviews; ?>" class="b-acc-top__item"><span class="ic-acc-reviews"></span> <?php echo $text_reviews; ?></a>
+  <a href="<?php echo $href_questions; ?>" class="b-acc-top__item"><span class="ic-acc-questions"></span> <?php echo $text_questions; ?></a>
+  <a href="<?php echo $href_edit; ?>" class="b-acc-top__item"><span class="ic-acc-profile"></span> <?php echo $text_edit; ?></a>
   <span class="b-acc-top__item js-custom-toggler js-acc-top__hidden-items-title"
         data-slide=".js-acc-top__hidden-items"
         data-toggle-class="g-minimized"
