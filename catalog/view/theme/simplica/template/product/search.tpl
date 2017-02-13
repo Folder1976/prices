@@ -1,27 +1,39 @@
 <?php echo $header; ?>
-<div class="container">
-  <ul class="breadcrumb">
-    <?php foreach ($breadcrumbs as $breadcrumb) { ?>
-    <li><a href="<?php echo $breadcrumb['href']; ?>"><?php echo $breadcrumb['text']; ?></a></li>
-    <?php } ?>
-  </ul>
-  <div class="row"><?php echo $column_left; ?>
-    <?php if ($column_left && $column_right) { ?>
-    <?php $class = 'col-sm-6'; ?>
-    <?php } elseif ($column_left || $column_right) { ?>
-    <?php $class = 'col-sm-9'; ?>
+
+<main class="b-search">
+  <!-- Хлебные крошки. START -->
+  <div class="b-breadcrumb">
+  <?php $count = 0; ?>
+  <?php foreach ($breadcrumbs as $breadcrumb) { ?>
+    <?php if ($count == 0) { ?>
+      <a href="<?php echo $language_href; ?><?php echo $breadcrumb['href']; ?>" title=""><span class="ic-home"></span><?php echo $breadcrumb['text']; ?></a>
     <?php } else { ?>
-    <?php $class = 'col-sm-12'; ?>
+      <span>&nbsp;>&nbsp;</span><a href="<?php echo $language_href; ?><?php echo $breadcrumb['href']; ?>" title="<?php echo $breadcrumb['text']; ?>"><?php echo $breadcrumb['text']; ?></a>
     <?php } ?>
-    <div id="content" class="<?php echo $class; ?>"><?php echo $content_top; ?>
-      <h1><?php echo $heading_title; ?></h1>
-      <label class="control-label" for="input-search"><?php echo $entry_search; ?></label>
-      <div class="row">
-        <div class="col-sm-4">
-          <input type="text" name="search" value="<?php echo $search; ?>" placeholder="<?php echo $text_keyword; ?>" id="input-search" class="form-control" />
+  <?php $count++;} ?>
+  </div>
+  <!-- Хлебные крошки. END -->
+
+  <div class="g-container" id="content"><?php echo $content_top; ?>
+    <h1><?php echo $heading_title; ?></h1>
+
+    <div class="f-group">
+      <div class="f-field-wrapper">
+        <div class="f-label">
+          <label for="input-search"><?php echo $entry_search; ?></label>
         </div>
-        <div class="col-sm-3">
-          <select name="category_id" class="form-control">
+
+        <div class="f-field">
+          <input type="text"
+                 name="search"
+                 value="<?php echo $search; ?>"
+                 placeholder="<?php echo $text_keyword; ?>"
+                 id="input-search"
+                 class="f-input" />
+        </div>
+
+        <div class="f-field">
+          <select name="category_id" class="f-select">
             <option value="0"><?php echo $text_category; ?></option>
             <?php foreach ($categories as $category_1) { ?>
             <?php if ($category_1['category_id'] == $category_id) { ?>
@@ -46,117 +58,143 @@
             <?php } ?>
           </select>
         </div>
-        <div class="col-sm-3">
+
+        <div class="f-field">
           <label class="checkbox-inline">
             <?php if ($sub_category) { ?>
             <input type="checkbox" name="sub_category" value="1" checked="checked" />
             <?php } else { ?>
             <input type="checkbox" name="sub_category" value="1" />
             <?php } ?>
-            <?php echo $text_sub_category; ?></label>
+            <?php echo $text_sub_category; ?>
+          </label>
         </div>
+
       </div>
-      <p>
-        <label class="checkbox-inline">
-          <?php if ($description) { ?>
-          <input type="checkbox" name="description" value="1" id="description" checked="checked" />
-          <?php } else { ?>
-          <input type="checkbox" name="description" value="1" id="description" />
-          <?php } ?>
-          <?php echo $entry_description; ?></label>
-      </p>
-      <input type="button" value="<?php echo $button_search; ?>" id="button-search" class="btn btn-primary" />
-      <h2><?php echo $text_search; ?></h2>
-      <?php if ($products) { ?>
-      <p><a href="<?php echo $compare; ?>" id="compare-total"><?php echo $text_compare; ?></a></p>
-      <div class="row">
-        <div class="col-sm-3 hidden-xs">
-          <div class="btn-group">
-            <button type="button" id="list-view" class="btn btn-default" data-toggle="tooltip" title="<?php echo $button_list; ?>"><i class="fa fa-th-list"></i></button>
-            <button type="button" id="grid-view" class="btn btn-default" data-toggle="tooltip" title="<?php echo $button_grid; ?>"><i class="fa fa-th"></i></button>
-          </div>
-        </div>
-        <div class="col-sm-1 col-sm-offset-2 text-right">
-          <label class="control-label" for="input-sort"><?php echo $text_sort; ?></label>
-        </div>
-        <div class="col-sm-3 text-right">
-          <select id="input-sort" class="form-control col-sm-3" onchange="location = this.value;">
-            <?php foreach ($sorts as $sorts) { ?>
-            <?php if ($sorts['value'] == $sort . '-' . $order) { ?>
-            <option value="<?php echo $sorts['href']; ?>" selected="selected"><?php echo $sorts['text']; ?></option>
-            <?php } else { ?>
-            <option value="<?php echo $sorts['href']; ?>"><?php echo $sorts['text']; ?></option>
-            <?php } ?>
-            <?php } ?>
-          </select>
-        </div>
-        <div class="col-sm-1 text-right">
-          <label class="control-label" for="input-limit"><?php echo $text_limit; ?></label>
-        </div>
-        <div class="col-sm-2 text-right">
-          <select id="input-limit" class="form-control" onchange="location = this.value;">
-            <?php foreach ($limits as $limits) { ?>
-            <?php if ($limits['value'] == $limit) { ?>
-            <option value="<?php echo $limits['href']; ?>" selected="selected"><?php echo $limits['text']; ?></option>
-            <?php } else { ?>
-            <option value="<?php echo $limits['href']; ?>"><?php echo $limits['text']; ?></option>
-            <?php } ?>
-            <?php } ?>
-          </select>
-        </div>
-      </div>
-      <br />
-      <div class="row">
-        <?php foreach ($products as $product) { ?>
-        <div class="product-layout product-list col-xs-12">
-          <div class="product-thumb">
-            <div class="image"><a href="<?php echo $product['href']; ?>"><img src="<?php echo $product['thumb']; ?>" alt="<?php echo $product['name']; ?>" title="<?php echo $product['name']; ?>" class="img-responsive" /></a></div>
-            <div class="caption">
-              <h4><a href="<?php echo $product['href']; ?>"><?php echo $product['name']; ?></a></h4>
-              <p><?php echo $product['description']; ?></p>
-              <?php if ($product['price']) { ?>
-              <p class="price">
-                <?php if (!$product['special']) { ?>
-                <?php echo $product['price']; ?>
-                <?php } else { ?>
-                <span class="price-new"><?php echo $product['special']; ?></span> <span class="price-old"><?php echo $product['price']; ?></span>
-                <?php } ?>
-                <?php if ($product['tax']) { ?>
-                <span class="price-tax"><?php echo $text_tax; ?> <?php echo $product['tax']; ?></span>
-                <?php } ?>
-              </p>
-              <?php } ?>
-              <?php if ($product['rating']) { ?>
-              <div class="rating">
-                <?php for ($i = 1; $i <= 5; $i++) { ?>
-                <?php if ($product['rating'] < $i) { ?>
-                <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span>
-                <?php } else { ?>
-                <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span>
-                <?php } ?>
-                <?php } ?>
+    </div>
+
+    <input type="button" value="<?php echo $button_search; ?>" id="button-search" class="f-button" />
+    <h2><?php echo $text_search; ?></h2>
+
+
+    <?php if ($products) { ?>
+    <div class="">
+
+          <div class="b-products-container__sort-row">
+
+            <div class="b-filter-header b-filter-header_mob js-open-popup-link" data-mfp-src=".js-popup-filter">
+              <span class="ic-mob-filter"></span>
+              <span>Фильтрация</span>
+            </div>
+
+            <div class="b-view-header">
+              <div class="b-change_view__list js-change_view">
+                <span class="ic-view_list active" data-view="list"></span>
+                <span class="ic-view_grid-3" data-view="grid-3"></span>
+                <span class="ic-view_grid-4" data-view="grid-4"></span>
               </div>
+            </div>
+
+            <div class="b-count-product">3125 Найдено</div>
+
+            <div class="b-sort-header">
+              <?php echo $text_sort; ?>
+              <div class="g-span-select js-span-select">
+                <span class="g-span-select__title">от дешевых к дорогим</span>
+                <ul class="g-span-select__ul g-span-select__hidden js-popup-sort">
+                <?php foreach ($sorts as $sorts) { ?>
+                  <?php if ($sorts['value'] == $sort . '-' . $order) { ?>
+                    <li class="active"><a href="/<?php echo ltrim($selected_attributes_alias.$category_alias,'-'); ?><?php echo substr_replace($sorts['href'],'?',0,1); ?>"><?php echo $sorts['text']; ?></a></li>
+                  <?php } else { ?>
+                    <li><a href="/<?php echo ltrim($selected_attributes_alias.$category_alias,'-'); ?><?php echo substr_replace($sorts['href'],'?',0,1); ?>""><?php echo $sorts['text']; ?></a></li>
+                  <?php } ?>
+                <?php } ?>
+                </ul>
+              </div>
+            </div>
+
+            <div class="b-sort-header b-sort-header_mob js-open-popup-link" data-mfp-src=".js-popup-sort">
+              <span class="ic-mob-sotr"></span>
+              <span>Сортировать</span>
+            </div>
+
+          </div>  <!-- end b-products-container__sort-row -->
+
+          <div class="g-row">
+            <div class="b-products-container">
+
+              <div class="b-products-container__content b-products-container__content_list js-view-content">
+
+              <?php foreach ($products as $product) { ?>
+                <div class="b-prod__wrapper">
+                  <div class="b-prod">
+                    <div class="b-prod__title"><a href="/<?php echo $language_href; ?><?php echo $product['href']; ?>"><?php echo $product['name']; ?></a></div>
+                    <div class="b-prod__options">
+                      <span class="b-prod__options-color"></span>
+                      <?php if ($product['options']) { ?>
+                      <ul class="b-prod__options-list">
+                        <?php foreach ($product['options'] as $option) { ?>
+                        <?php foreach ($option['product_option_value'] as $option_value) { ?>
+                        <li class="b-prod__options-list-item"><?php echo $option_value['name']; ?></li>
+                        <?php } ?>
+                        <?php } ?>
+                      </ul>
+                      <?php } ?>
+                      <a href="/<?php echo $language_href; ?><?php echo $product['href']; ?>" class="g-btn b-prod__btn_buy">Купить</a>
+                      <a href="/<?php echo $language_href; ?><?php echo $product['href']; ?>" class="b-prod__comments-link">Отзывы (<?php echo $product['total_comments']; ?>)</a>
+                    </div>
+                    <div class="b-prod__photo">
+                      <a href="/<?php echo $language_href; ?><?php echo $product['href']; ?>"><img src="<?php echo $product['thumb']; ?>" alt="<?php echo $product['name']; ?>"></a>
+                    </div>
+                    <div class="b-prod__brand-img">
+                      <a href="javascript:void(0)" class="js-business-card-href js-open-popup-link" data-shop-id="<?php echo $product['shop_id']; ?>" data-shop-name="<?php echo $product['shop_name']; ?>" data-mfp-src=".js-popup-business-card">
+                        <img src="/image/<?php if ( $product['manufacturer_image'] != NULL ) { echo $product['manufacturer_image']; }else{ echo 'no_image.png';} ?>" alt="<?php echo $product['name']; ?>">
+                      </a>
+                    </div>
+                    <div class="b-prod__links">
+                      <ul>
+                        <li><a href="/<?php echo $language_href; ?><?php echo $product['href']; ?>"><span class="ic-prod_more"></span>Подробнее</a></li>
+                        <li><a href="/<?php echo $language_href; ?><?php echo $product['href']; ?>"><span class="ic-prod_photos"></span>Все фото (<?php echo $product['total_images']; ?>)</a></li>
+                        <li><a href="/<?php echo $language_href; ?><?php echo $product['href']; ?>"><span class="ic-prod_video"></span>Все видео (<?php echo count($product['videos']); ?>)</a></li>
+                        <li><button type="button" data-toggle="tooltip" class="btn btn-default" title="" onclick="wishlist.add('<?php echo $product['product_id'];?>');" data-original-title="В закладки">В ЗАКЛАДКИ</button>
+                 </li>
+                      </ul>
+                      <div class="b-prod__color">
+                        <span style="background: #474747;"></span>
+                      </div>
+                      <a href="/<?php echo $language_href; ?><?php echo $product['href']; ?>" class="b-prod__links-more-btn">Подробнее</a>
+                    </div>
+                    <div class="b-prod__price-block">
+                      <div class="b-price">
+                        <span class="b-price__number">9999 - 20000</span> <span class="b-price__currency">грн</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>  <!-- end b-prod__wrapper -->
               <?php } ?>
+
+              </div>  <!-- end b-products-container__content -->
+
+              <div class="b-products-container__pagination">
+              <?php echo $pagination; ?>
+              </div>
             </div>
-            <div class="button-group">
-              <button type="button" onclick="cart.add('<?php echo $product['product_id']; ?>', '<?php echo $product['minimum']; ?>');"><i class="fa fa-shopping-cart"></i> <span class="hidden-xs hidden-sm hidden-md"><?php echo $button_cart; ?></span></button>
-              <button type="button" data-toggle="tooltip" title="<?php echo $button_wishlist; ?>" onclick="wishlist.add('<?php echo $product['product_id']; ?>');"><i class="fa fa-heart"></i></button>
-              <button type="button" data-toggle="tooltip" title="<?php echo $button_compare; ?>" onclick="compare.add('<?php echo $product['product_id']; ?>');"><i class="fa fa-exchange"></i></button>
-            </div>
-          </div>
-        </div>
-        <?php } ?>
-      </div>
-      <div class="row">
-        <div class="col-sm-6 text-left"><?php echo $pagination; ?></div>
-        <div class="col-sm-6 text-right"><?php echo $results; ?></div>
-      </div>
-      <?php } else { ?>
-      <p><?php echo $text_empty; ?></p>
-      <?php } ?>
-      <?php echo $content_bottom; ?></div>
-    <?php echo $column_right; ?></div>
-</div>
+          </div>  <!-- end g-row -->
+
+        </div>  <!-- end g-col-center -->
+
+    <?php } else { ?>
+    <p><?php echo $text_empty; ?></p>
+    <?php } ?>
+    <?php echo $content_bottom; ?>
+  </div>
+</main>
+
+
+
+
+
+
 <script type="text/javascript"><!--
 $('#button-search').bind('click', function() {
 	url = 'index.php?route=product/search';

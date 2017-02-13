@@ -212,6 +212,8 @@ if (typeof jQuery == 'undefined') {
         <div class="g-container">
           <div class="b-header__news-text">
             <p><?php echo $main_top_polosa; ?></p>
+            <img src="/image/catalog/6.jpg" alt="" class="b-header__news-img b-header__news-img_left">
+            <img src="/image/catalog/6.jpg" alt="" class="b-header__news-img b-header__news-img_right">
           </div>
         </div>
         <?php } ?>

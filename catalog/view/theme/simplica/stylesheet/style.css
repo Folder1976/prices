@@ -1473,12 +1473,25 @@ a.f-button:hover {
   margin: 30px 0 22px;
 }
 .b-header__news-text {
-  width: 90%;
+  width: 80%;
   margin: 0 auto;
   text-align: center;
   background: #697aa8;
   padding: 10px 60px;
   color: #fff;
+  position: relative;
+}
+.b-header__news-img {
+  position: absolute;
+  position: absolute;
+  max-height: 50px;
+  top: -9px;
+}
+.b-header__news-img_left {
+  left: -9%;
+}
+.b-header__news-img_right {
+  right: -9%;
 }
 .b-header__middle {
   text-align: left;
@@ -1704,6 +1717,9 @@ a.f-button:hover {
   }
   .b-header__news .g-container {
     padding: 0;
+  }
+  .b-header__news-img {
+    display: none;
   }
 
   .b-header__middle {
@@ -5771,6 +5787,52 @@ main.b-product .b-brands {
 }
 .b-shops_page ul li {
   padding: 0.5em 0;
+}
+
+.b-search h1,
+.b-search h2 {
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase;
+  padding-top: 1em;
+  padding-bottom: 1em;
+}
+.b-search h2 {
+  font-size: 15px;
+}
+.b-search .f-field-wrapper .f-label {
+  line-height: 35px;
+  float: none;
+}
+.b-search .f-field-wrapper .f-field {
+  float: left;
+  width: 30%;
+  margin-right: 1%;
+}
+.b-search .f-field-wrapper .f-field:first-child {
+  width: 40%;
+}
+.b-search .f-field-wrapper .f-field:last-child {
+  width: auto;
+}
+.b-search .f-field label {
+  line-height: 36px;
+}
+.b-search .f-input {
+  padding: 10px;
+  color: #303030;
+}
+.b-search .f-input:focus {
+  border: 1px solid #39adff;
+}
+.b-search .f-select {
+  width: 100%;
+  padding: 6px;
+  color: #303030;
+  border: 1px solid #aaa;
+}
+.b-search .f-buttons {
+  margin-top: 10px;
 }
 
 /*# sourceMappingURL=style.css.map */

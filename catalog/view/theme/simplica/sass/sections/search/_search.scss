@@ -1,0 +1,47 @@
+.b-search {
+    h1,
+    h2 {
+        font-size: 16px;
+        font-weight: bold;
+        text-transform: uppercase;
+        padding-top: 1em;
+        padding-bottom: 1em;
+    }
+    h2 {
+        font-size: 15px;
+    }
+    .f-field-wrapper .f-label {
+        line-height: 35px;
+        float: none;
+    }
+    .f-field-wrapper .f-field {
+        float: left;
+        width: 30%;
+        margin-right: 1%;
+        &:first-child {
+            width: 40%;
+        }
+        &:last-child {
+            width: auto;
+        }
+    }
+    .f-field label {
+        line-height: 36px;
+    }
+    .f-input {
+        padding: 10px;
+        color: #303030;
+        &:focus {
+            border: 1px solid #39adff;
+        }
+    }
+    .f-select {
+        width: 100%;
+        padding: 6px;
+        color: #303030;
+        border: 1px solid #aaa;
+    }
+    .f-buttons {
+        margin-top: 10px;
+    }
+}

@@ -52,12 +52,25 @@
     &__news {
         margin: 30px 0 22px;
         &-text {
-            width: 90%;
+            width: 80%;
             margin: 0 auto;
             text-align: center;
             background: $color_blue_gray;
             padding: 10px 60px;
-            color: #fff
+            color: #fff;
+            position: relative;
+        }
+        &-img {
+            position: absolute;
+            position: absolute;
+            max-height: 50px;
+            top: -9px;
+            &_left {
+                left: -9%;
+            }
+            &_right {
+                right: -9%;
+            }
         }
     }
 
@@ -292,6 +305,9 @@
         }
         .g-container {
             padding: 0;
+        }
+        &-img {
+            display: none;
         }
     }
     .b-header__middle {
