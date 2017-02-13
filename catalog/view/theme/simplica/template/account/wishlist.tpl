@@ -1,17 +1,19 @@
 <?php echo $header; ?>
-<main class="l-main_account">
-  
-  <div class="l-main_account-header">
+
+<main class="l-main_account g-container">
+
+<div class="l-main_account__header">
     <!-- Хлебные крошки. START -->
-    <ul class="b-product_breadcrumbs" itemscope itemtype="http://schema.org/BreadcrumbList">
-      <?php $count = 0; ?>
-      <?php foreach ($breadcrumbs as $breadcrumb) { ?>
-        <li class="b-breadcrumb-item" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem" <?php if ($count == 0) { echo ' style="display: none;"';} ?>>
-          <a  class="b-breadcrumb-link js-breadcrumb_refinement-link" href="<?php echo $breadcrumb['href']; ?>" itemprop="item" title="<?php echo $breadcrumb['text']; ?>"><span itemprop="name"><?php echo $breadcrumb['text']; ?></span></a>
-          <meta content="<?php echo $count++; ?>">
-        </li>
+    <div class="b-breadcrumb">
+    <?php $count = 0; ?>
+    <?php foreach ($breadcrumbs as $breadcrumb) { ?>
+      <?php if ($count == 0) { ?>
+        <a href="<?php echo $breadcrumb['href']; ?>" title=""><span class="ic-home"></span><?php echo $breadcrumb['text']; ?></a>
+      <?php } else { ?>
+        <span>&nbsp;>&nbsp;</span><a href="<?php echo $breadcrumb['href']; ?>" title="<?php echo $breadcrumb['text']; ?>"><?php echo $breadcrumb['text']; ?></a>
       <?php } ?>
-    </ul>
+    <?php $count++;} ?>
+    </div>
     <!-- Хлебные крошки. END -->
   </div>
 
@@ -20,17 +22,11 @@
   if ($logged) { echo $content_top; }
   ?>
 
-  <div class="l-main_account-content">
-<!-- Левая колонка. START -->
-    <div class="l-main_account-left">
-      <?php echo $column_right; ?>
-    </div>
-<!-- Левая колонка. END -->
+  <div class="l-main_account__content_full">
 
-<!-- Правая колонка. START -->
-    <div class="l-main_account-right">
       <h1><?php echo $heading_title; ?></h1>
       <?php if ($products) { ?>
+
       <div class="table-responsive">
         <table class="table table-bordered table-hover">
           <thead>
@@ -61,23 +57,25 @@
                   <?php } ?>
                 </div>
                 <?php } ?></td>
-              <td class="text-right"><button type="button" onclick="cart.add('<?php echo $product['product_id']; ?>');" data-toggle="tooltip" title="<?php echo $button_cart; ?>" class="btn btn-primary"><i class="fa fa-shopping-cart"></i></button>
-                <a href="<?php echo $product['remove']; ?>" data-toggle="tooltip" title="<?php echo $button_remove; ?>" class="btn btn-danger"><i class="fa fa-times"></i></a></td>
+              <td><button type="button" onclick="cart.add('<?php echo $product['product_id']; ?>');" title="<?php echo $button_cart; ?>"><span class="ic-acc-order"></span></button>
+                <a href="<?php echo $product['remove']; ?>" title="<?php echo $button_remove; ?>"><span class="ic-delete"></span></a></td>
             </tr>
             <?php } ?>
           </tbody>
         </table>
       </div>
+
+
       <?php } else { ?>
       <p><?php echo $text_empty; ?></p>
       <?php } ?>
-      <div class="buttons clearfix">
-        <a href="<?php echo $continue; ?>" class="btn btn-primary g-button"><?php echo $button_continue; ?></a>
+      <div class="buttons f-text-right">
+        <a href="<?php echo $continue; ?>" class="f-button"><?php echo $button_continue; ?></a>
       </div>
-    </div>
-<!-- Правая колонка. END -->
 
   </div>
+  <div style="clear: both;"></div>
 </main>
 
 <?php echo $footer; ?>
+
