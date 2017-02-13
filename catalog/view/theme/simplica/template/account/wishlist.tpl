@@ -19,7 +19,7 @@
 
   <?php
   // топ-меню для авторизированых пользователей
-  if ($logged) { echo $content_top; }
+  echo $content_top;
   ?>
 
   <div class="l-main_account__content_full">

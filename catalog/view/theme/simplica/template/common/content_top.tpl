@@ -54,7 +54,7 @@ function show_a() {
 
 function mobTabs() {
   // сумарная ширина всех ссылок топ-меню
-  var width_a = 0;
+  var width_a = 30;
   $('.b-acc-top > a:visible').each(function() {
     width_a += $(this).width();
     width_a += parseInt($(this).css('padding-left'));

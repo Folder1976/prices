@@ -4,6 +4,9 @@
     &__content {
         margin: 30px 0;
         display: flex;
+        &_full {
+            margin: 30px 0;
+        }
     }
     &__left {
         width: 270px;
@@ -61,11 +64,11 @@
         &:focus:after {
             content: '';
             position: absolute;
-            width: 92%;
+            width: 80%;
             height: 3px;
             background: #39adff;
-            left: 4%;
-            right: 4%;
+            left: 10%;
+            right: 10%;
             bottom: -22px;
         }
     }

@@ -173,7 +173,7 @@
                   </div>
                   <div class="b-prod-info__block-summary">
                     
-                    <button type="button" data-toggle="tooltip" class="btn btn-default" title="" onclick="wishlist.add('<?php echo $product_id;?>');" data-original-title="В закладки">В ЗАКЛАДКИ</button>
+                    <span class="b-wishlist" onclick="wishlist.add('<?php echo $product_id;?>');">В закладки</span>
                     
                     <span class="b-offers">40 предложений</span>
                     <span class="b-recall">Отзывы (<?php echo $total_comments; ?>)</span>

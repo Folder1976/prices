@@ -815,6 +815,13 @@ a.f-button {
         border-bottom: 1px solid #c1c1c1;
         height: 30px;
     }
+    &.alert {
+        line-height: 1.8em;
+        & .b-popup__content {
+            min-height: auto;
+            margin-bottom: 20px;
+        }
+    }
 }
 
 // ******************************************
