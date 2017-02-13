@@ -30,13 +30,8 @@ class ControllerCommonHeader extends Controller {
 		
 		
 		//Получим строку прям из базы
-		$query = $this->db->query("SELECT value FROM " . DB_PREFIX . "content										
-										WHERE code = 'main_top_polosa' AND language_id = '" . (int)$this->config->get('config_language_id') . "'
-										LIMIT 1;");
-		
-		if($query->num_rows){
-			$data['main_top_polosa'] = $query->row['value'];
-		}
+		$this->load->model('design/banner');
+		$data['main_top_polosa'] = $this->model_design_banner->getMainTopPolosa();
 		
 		
 		//Урл для блока выбора языка

@@ -211,9 +211,13 @@ if (typeof jQuery == 'undefined') {
         <?php if(isset($main_top_polosa)){ ?>
         <div class="g-container">
           <div class="b-header__news-text">
-            <p><?php echo $main_top_polosa; ?></p>
-            <img src="/image/catalog/6.jpg" alt="" class="b-header__news-img b-header__news-img_left">
-            <img src="/image/catalog/6.jpg" alt="" class="b-header__news-img b-header__news-img_right">
+            <p><?php echo $main_top_polosa['text']; ?></p>
+            <?php if(isset($main_top_polosa['image_left'])){ ?>
+                <img src="<?php echo $main_top_polosa['image_left']; ?>" alt="" class="b-header__news-img b-header__news-img_left">
+            <?php } ?>
+            <?php if(isset($main_top_polosa['image_right'])){ ?>
+                <img src="<?php echo $main_top_polosa['image_right']; ?>" alt="" class="b-header__news-img b-header__news-img_right">
+            <?php } ?>
           </div>
         </div>
         <?php } ?>

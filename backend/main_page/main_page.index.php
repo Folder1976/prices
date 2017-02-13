@@ -109,7 +109,8 @@ if(strpos($_SERVER['PHP_SELF'], $file[count($file)-1]) !== false){
 				
 		<!--a href="/<?php echo TMP_DIR;?>backend/index.php?route=category/category.index.php" title="Редактор категорий"><div class="main_menu link"></div></a-->
 		<!--a href="/<?php echo TMP_DIR;?>backend/index.php?route=main_page/main_page.index.php&modul=main_page.left_menu.php" title="Редактор главного списка категорий"><div class="left_menu link"></div></a-->
-		<a href="javascript:;" title="Основной банер"><div class="top_polosa link"></div></a>
+		<!--a href="javascript:;" title="Основной банер"><div class="top_polosa link"></div></a-->
+		<a href="/<?php echo TMP_DIR;?>backend/index.php?route=main_page/main_page.index.php&modul=main_page.baner_line.php" title="Строковые банера"><div class="top_polosa link"></div></a>
 		<a href="/<?php echo TMP_DIR;?>backend/index.php?route=main_page/main_page.index.php&modul=main_page.main_baner.php" title="Основной банер"><div class="main_baner link"></div></a>
 		<a href="javascript:;" title="Дополнительные боковые банера"><div class="baners link"></div></a>
 		<!--a href="/<?php echo TMP_DIR;?>backend/index.php?route=main_page/main_page.index.php&modul=main_page.season_products.php" title="Сезонные продукты"><div class="season_products link"></div></a-->

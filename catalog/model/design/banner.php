@@ -5,6 +5,33 @@ class ModelDesignBanner extends Model {
 
 		return $query->rows;
 	}
+
+	public function getMainTopPolosa() {
+		
+		if(!isset($_SESSION['MainTopPolosa'])) $_SESSION['MainTopPolosa'] = 0;
+		
+		$sql = "SELECT * FROM " . DB_PREFIX . "baner_line  BL
+						LEFT JOIN " . DB_PREFIX . "baner_line_description  BLD ON BL.baner_line_id = BLD.baner_line_id
+						WHERE BL.`enable`= 1 AND BLD.language_id = " . (int)$this->config->get('config_language_id') . "
+						ORDER BY sort LIMIT ".(int)$_SESSION['MainTopPolosa'].", 1;";
+		$query = $this->db->query($sql);
+		$row = $query->row;
+		
+		
+		$sql = "SELECT count(baner_line_id) as total FROM " . DB_PREFIX . "baner_line WHERE `enable`=1 ;";
+		$query = $this->db->query($sql);
+		$row2 = $query->row;
+		
+		if($_SESSION['MainTopPolosa'] >= ($row2['total'] - 1)){
+			$_SESSION['MainTopPolosa'] = 0;
+		}else{
+			$_SESSION['MainTopPolosa']++;
+		}
+		
+		
+		return $row;
+
+	}	
 	
 	public function getBannerLarge() {
 	

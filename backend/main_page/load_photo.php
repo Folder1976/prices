@@ -30,6 +30,9 @@ $count=0;
 	if($type == 'shops') $catalog = 'shops';
 	if($type == 'brands') $catalog = 'brands';
 
+	if($type == 'baner_line_left') $catalog = 'banners/baner_line';
+	if($type == 'baner_line_right') $catalog = 'banners/baner_line';
+
   $uploaddir = DIR_IMAGE . $catalog.'/';
 
   $filename = $_POST['filename'].'_'.$_FILES['userfile']['name'];
@@ -48,6 +51,14 @@ $count=0;
 		$sql = 'UPDATE '.DB_PREFIX.'shop SET image = \'/image/shops/'. $filename .'\' WHERE id=\''.$_POST['filename'].'\';';
 	 }
 	 
+	if($type == 'baner_line_left'){
+		$sql = 'UPDATE '.DB_PREFIX.'baner_line SET image_left = \'/image/banners/baner_line/'. $filename .'\' WHERE baner_line_id=\''.$_POST['filename'].'\';';
+	}
+	 
+	if($type == 'baner_line_right'){
+		$sql = 'UPDATE '.DB_PREFIX.'baner_line SET image_right = \'/image/banners/baner_line/'. $filename .'\' WHERE baner_line_id=\''.$_POST['filename'].'\';';
+	}
+	 
 	 if($type == 'brands'){
 		$sql = 'UPDATE '.DB_PREFIX.'manufacturer SET image = \''. $filename .'\' WHERE manufacturer_id=\''.$_POST['filename'].'\';';
 	 }
@@ -65,5 +76,7 @@ $count=0;
 	if($type == 'season_pro') header('Location: /'.TMP_DIR.'backend/index.php?route=main_page/main_page.index.php&modul=main_page.season_products.php');
 	if($type == 'shops') header('Location: /'.TMP_DIR.'backend/index.php?route=shops/shops.index.php');
 	if($type == 'brands') header('Location: /'.TMP_DIR.'backend/index.php?route=brands/brands.index.php');
+	
+	if($type == 'baner_line_left' OR $type == 'baner_line_right') header('Location: /'.TMP_DIR.'backend/index.php?route=main_page/main_page.index.php&modul=main_page.baner_line.php');
 
 ?>
