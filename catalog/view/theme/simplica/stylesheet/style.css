@@ -1325,6 +1325,54 @@ a.f-button:hover {
   height: 38px;
 }
 
+.ic-acc-history {
+  background-position: 0px -1786px;
+  width: 21px;
+  height: 19px;
+}
+
+.ic-acc-order {
+  background-position: 0px -1806px;
+  width: 19px;
+  height: 19px;
+}
+
+.ic-acc-message {
+  background-position: 0px -1826px;
+  width: 14px;
+  height: 10px;
+}
+
+.ic-acc-message_orang {
+  background-position: 0px -1902px;
+  width: 15px;
+  height: 13px;
+}
+
+.ic-acc-reviews {
+  background-position: 0px -1837px;
+  width: 19px;
+  height: 15px;
+}
+
+.ic-acc-questions {
+  background-position: 0px -1853px;
+  width: 18px;
+  height: 18px;
+}
+
+.ic-acc-profile {
+  background-position: 0px -1872px;
+  width: 13px;
+  height: 15px;
+}
+
+.ic-acc-search {
+  background-position: 0px -1888px;
+  width: 13px;
+  height: 13px;
+}
+
 .b-popup {
   position: relative;
   background: #fff;
@@ -5645,6 +5693,63 @@ main.b-product .b-brands {
 }
 .l-main_account p {
   padding: 0.3em 0 1em;
+}
+
+.b-acc-top {
+  display: flex;
+  justify-content: space-around;
+  padding: 20px 0;
+  border-bottom: 1px solid #c0c0c0;
+  color: #9399aa;
+  font-size: 14px;
+  position: relative;
+}
+.b-acc-top a, .b-acc-top__item {
+  color: #9399aa;
+  font-size: 14px;
+  position: relative;
+  white-space: nowrap;
+  cursor: pointer;
+  padding: 0 10px;
+}
+.b-acc-top a:hover, .b-acc-top__item:hover {
+  text-decoration: none;
+}
+.b-acc-top a.active:after, .b-acc-top a:hover:after, .b-acc-top a:focus:after, .b-acc-top__item.active:after, .b-acc-top__item:hover:after, .b-acc-top__item:focus:after {
+  content: '';
+  position: absolute;
+  width: 92%;
+  height: 3px;
+  background: #39adff;
+  left: 4%;
+  right: 4%;
+  bottom: -22px;
+}
+.b-acc-top__hidden-items {
+  width: auto;
+  position: absolute;
+  background: #fff;
+  -webkit-box-shadow: 0 5px 21px rgba(22, 23, 24, 0.28);
+  -moz-box-shadow: 0 5px 21px rgba(22, 23, 24, 0.28);
+  box-shadow: 0 5px 21px rgba(22, 23, 24, 0.28);
+  right: 0;
+  top: 45px;
+  background: #fff;
+  padding: 10px;
+}
+.b-acc-top__hidden-items a {
+  width: 100%;
+  display: block;
+  text-align: right;
+  line-height: 1.5em;
+  padding: 5px 15px;
+}
+.b-acc-top__hidden-items a.active, .b-acc-top__hidden-items a:focus, .b-acc-top__hidden-items a:hover {
+  background: #39adff;
+  color: #fff;
+}
+.b-acc-top__hidden-items a.active:after, .b-acc-top__hidden-items a:focus:after, .b-acc-top__hidden-items a:hover:after {
+  content: none;
 }
 
 .b-account-form {
