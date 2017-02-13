@@ -208,6 +208,12 @@ class ControllerAccountLogin extends Controller {
 	protected function validate() {
 		$this->event->trigger('pre.customer.login');
 
+		
+		if(!isset($this->request->post['email'])){
+			$this->error['warning'] = $this->language->get('error_login');
+			return !$this->error;
+		}
+		
 		// Check how many login attempts have been made.
 		$login_info = $this->model_account_customer->getLoginAttempts($this->request->post['email']);
 

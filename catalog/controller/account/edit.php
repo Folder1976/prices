@@ -3,10 +3,14 @@ class ControllerAccountEdit extends Controller {
 	private $error = array();
 
 	public function index() {
+		
+		$data['logged'] = 0;
 		if (!$this->customer->isLogged()) {
 			$this->session->data['redirect'] = $this->url->link('account/edit', '', 'SSL');
 
 			$this->response->redirect($this->url->link('account/login', '', 'SSL'));
+			
+			$data['logged'] = 1;
 		}
 
 		$this->load->language('account/edit');
