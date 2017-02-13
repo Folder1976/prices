@@ -71,7 +71,8 @@ class ControllerCommonHome extends Controller {
 		//Массив магазинов
 		$this->load->model('catalog/shops');
 		$data['shops'] = $this->model_catalog_shops->getShops();
-		
+	
+	
 		//Массив Брендов
 	 	$this->load->model('catalog/manufacturer');
 		$data['manufacturers'] = $this->model_catalog_manufacturer->getManufacturers();

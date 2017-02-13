@@ -79,7 +79,7 @@ $data['email'] = $this->config->get('config_email');
 				
 				
 				$this->response->setOutput($this->load->view($this->config->get('config_template') . '/template/information/brands_and_shops.tpl', $data));
-
+;
 			}elseif(isset($this->request->get['_route_']) AND $this->request->get['_route_'] == 'membership'){
 
 				$this->response->setOutput($this->load->view($this->config->get('config_template') . '/template/information/membership.tpl', $data));

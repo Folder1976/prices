@@ -219,15 +219,10 @@ if(isset($_GET['shop_id']) AND is_numeric($_GET['shop_id'])){
 				<td></td>
 				<td></td>
 				<td>
-					<table><tr><td>
-						<br>Название</b></td><td><input type="text" name="name" class="name" data-id="0" style="width:400px;" value="" placeholder="Название магазина">
-						</td></tr><tr><td>
-						<br>Сайт</b></td><td><input type="text" name="siteurl" class="name" data-id="0" style="width:400px;" value="" placeholder="Сайт">
-						</td></tr><tr><td>
-						<br>ЧПУ</b></td><td><input type="text" name="href" id="href" class="href" data-id="0" style="width:400px;" value="" placeholder="URL">
-						</td></tr><tr><td>
-						<br>Сортировка</b></td><td><input type="sort" name="sort" class="sort" data-id="0" style="width:400px;" value="0" placeholder="0">
-					</td></tr></table>
+					<br><b>Название</b> : <input type="text" name="name" class="name" data-id="0" style="width:400px;" value="" placeholder="Название магазина">
+					<br><b>Сайт</b> : <input type="text" name="siteurl" class="name" data-id="0" style="width:400px;" value="" placeholder="Сайт">
+					<br><b>ЧПУ</b> : <input type="text" name="href" id="href" class="href" data-id="0" style="width:400px;" value="" placeholder="URL">
+					<br><b>Сортировка</b> : <input type="sort" name="sort" class="sort" data-id="0" style="width:40px;" value="0" placeholder="0">
 				</td>
 				<td colspan="1"><input type="submit" name="key" value="add" style="width:50px;"></td>
 				<td colspan="2">Фото после добавляния</td>
@@ -236,10 +231,10 @@ if(isset($_GET['shop_id']) AND is_numeric($_GET['shop_id'])){
 	<?php while($value = $r->fetch_assoc()){ ?>
 	 <tr id="<?php echo $value['id']; ?>">
 		  <td><?php echo $value['id']; ?></td>
-		  <td><img src="<?php echo $uploaddir.$value['image']; ?>" width="125" height="125">
+		  <td><img src="<?php echo $value['image']; ?>" width="125" height="125">
 		  </td>
 		  <td><input type="checkbox" id="status<?php echo $value['id']; ?>" class="status edit" data-id="<?php echo $value['id']; ?>" <?php if($value['status'] == 1) echo ' checked '; ?> ></td>
-		  <td><input type="checkbox" id="on_main_page" class="on_main_page edit" value="<?php echo $value['id']; ?>" data-id="<?php echo $value['id']; ?>"
+		  <td><input type="checkbox" id="on_main_page<?php echo $value['id']; ?>" class="on_main_page edit" value="<?php echo $value['id']; ?>" data-id="<?php echo $value['id']; ?>"
 			<?php if($value['on_main_page'] == 1) echo ' checked '; ?>
 		  ></td>
 		  <td style="text-align: center;">
@@ -247,16 +242,10 @@ if(isset($_GET['shop_id']) AND is_numeric($_GET['shop_id'])){
 			<a href="/<?php echo TMP_DIR;?>backend/index.php?route=shops/address.index.php&shop_id=<?php echo $value['id'];?>">АДРЕСА</a>
 		  </td>
 		  <td>
-			<table><tr><td>
-				<br>Название</b></td><td><input type="text" id="name<?php echo $value['id'];?>" class="name edit" data-id="<?php echo $value['id'];?>" style="width:400px;" value="<?php echo $value['name']; ?>">
-				</td></tr><tr><td>
-				<br>Сайт</b></td><td><input type="text" id="siteurl<?php echo $value['id'];?>" class="siteurl edit" data-id="<?php echo $value['id'];?>" style="width:400px;" value="<?php echo $value['siteurl']; ?>">
-				</td></tr><tr><td>
-				<br>ЧПУ</b></td><td><input type="text" id="href<?php echo $value['id']; ?>" class="href edit" data-id="<?php echo $value['id'];?>" style="width:400px;" value="<?php echo $value['href']; ?>">
-				</td></tr><tr><td>
-				<br>Сортировка</b></td><td><input type="text" id="sort<?php echo $value['id'];?>" class="sort edit" data-id="<?php echo $value['id']; ?>" style="width:400px;" value="<?php echo $value['sort']; ?>">
-				
-			</td></tr></table>
+			<br><b>Название</b> : <input type="text" id="name<?php echo $value['id'];?>" class="name edit" data-id="<?php echo $value['id'];?>" style="width:400px;" value="<?php echo $value['name']; ?>">
+			<br><b>Сайт</b> : <input type="text" id="siteurl<?php echo $value['id'];?>" class="siteurl edit" data-id="<?php echo $value['id'];?>" style="width:400px;" value="<?php echo $value['siteurl']; ?>">
+			<br><b>ЧПУ</b> : <input type="text" id="href<?php echo $value['id']; ?>" class="href edit" data-id="<?php echo $value['id'];?>" style="width:400px;" value="<?php echo $value['href']; ?>">
+			<br><b>Сортировка</b> : <input type="text" id="sort<?php echo $value['id'];?>" class="sort edit" data-id="<?php echo $value['id']; ?>" style="width:40px;" value="<?php echo $value['sort']; ?>">
 		  </td>
 	  
 		  <td>
@@ -360,6 +349,8 @@ if(isset($_GET['shop_id']) AND is_numeric($_GET['shop_id'])){
 	});
 	
 	$(document).on('change','.edit', function(){
+		
+		
 		var id = jQuery(this).parent('td').parent('tr').attr('id');
 		var status = '0';
 		var on_main_page = '0';

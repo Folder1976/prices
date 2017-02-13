@@ -109,7 +109,7 @@ class ControllerBlogHome extends Controller {
 			'date_added_full' => date($this->language->get('date_format_short'), strtotime($result['date_added'])),
 			'author' => $result['author'],
 			'image'   		=> $this->model_tool_image->resize($result['image'], $img_width, $img_height),
-			'href' => $this->url->link('blog/blog', 'blog_id=' . $result['blog_id'])
+			'href' => $result['keyword'],//$this->url->link('blog/blog', 'blog_id=' . $result['blog_id'])
 			);
 		}
 		

@@ -77,7 +77,8 @@ class ControllerBlogCategory extends Controller {
 		
 		foreach ($parts as $path_id) {
 			$blog_category_info = $this->model_blog_blog_category->getBlogCategory($path_id);
-				
+	
+	
 			if ($blog_category_info) {
 				if (!$path) {
 					$path = $path_id;
@@ -86,7 +87,7 @@ class ControllerBlogCategory extends Controller {
 				}
 
 	       		$data['breadcrumbs'] [] = array(
-   	    			'href'      => $this->url->link('blog/category', 'blogpath=' . $path),
+   	    			'href'      => $blog_category_info['keyword'],//$this->url->link('blog/category', 'blogpath=' . $path),
     	   			'text'      => $blog_category_info['name']
         		);
 			}
@@ -167,7 +168,7 @@ class ControllerBlogCategory extends Controller {
         		'description' => html_entity_decode($result['description']),
         		'short_description' => html_entity_decode($result['short_description'], ENT_QUOTES, 'UTF-8'),
         		'image' => $this->model_tool_image->resize($result['image'], $img_width, $img_height),
-				'href'  => $this->url->link('blog/blog', 'blogpath=' . $this->request->get['blogpath'] . '&blog_id=' . $result['blog_id'])
+				'href'  => $result['keyword'],//$this->url->link('blog/blog', 'blogpath=' . $this->request->get['blogpath'] . '&blog_id=' . $result['blog_id'])
 				
       		);
     		}

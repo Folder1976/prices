@@ -20,7 +20,7 @@ class ModelCatalogManufacturer extends Model {
 		$return = $query->row;
 		
 		$return['name'] = html_entity_decode(html_entity_decode($return['name']));
-		$return['title_h1'] = html_entity_decode(html_entity_decode($return['title_h1']));
+		$return['title_h1'] = html_entity_decode(html_entity_decode($return['name']));
 		$return['description'] = html_entity_decode(html_entity_decode($return['description']));
 		$return['meta_title'] = html_entity_decode(html_entity_decode($return['meta_title']));
 		$return['meta_description'] = html_entity_decode(html_entity_decode($return['meta_description']));

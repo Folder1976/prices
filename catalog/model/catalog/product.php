@@ -597,7 +597,7 @@ class ModelCatalogProduct extends Model {
 			$sql .= " LEFT JOIN " . DB_PREFIX . "product_to_shop p2sh ON (p.product_id = p2sh.product_id)";
 		}
 		
-		
+		$sql .= " LEFT JOIN " . DB_PREFIX . "product_to_shop p2shop ON (p.product_id = p2shop.product_id)";
 		
 		
 		$sql .= "
@@ -613,6 +613,8 @@ class ModelCatalogProduct extends Model {
 			$sql .= "AND p.price >= '".$data['filter_price']['price_from']."'
 					AND p.price <= '".$data['filter_price']['price_to']."' ";
 		}
+		
+		
 		
 		//Фильтр по размерам
 		if (!empty($data['filter_sizes']) AND count($data['filter_sizes']) > 0) {
@@ -745,6 +747,10 @@ class ModelCatalogProduct extends Model {
 			}
 		}
 
+		if (!empty($data['filter_shop'])) {
+			$sql .= " AND p2shop.shop_id = '" . (int)$data['filter_shop'] . "'";
+		}
+		
 		$sql .= " GROUP BY p.product_id";
 
 		$sort_data = array(
@@ -1338,6 +1344,7 @@ class ModelCatalogProduct extends Model {
 			$sql .= " FROM " . DB_PREFIX . "product p";
 		}
 		
+	
 		//Фильтр по размерам
 		if (!empty($data['filter_sizes']) AND count($data['filter_sizes']) > 0) {
 			$sql .= " LEFT JOIN " . DB_PREFIX . "product_option_value pov ON (p.product_id = pov.product_id)";
@@ -1349,7 +1356,7 @@ class ModelCatalogProduct extends Model {
 		}
 		
 		//Фильтр по магазину
-		if (isset($data['filter_shop_id']) AND (int)($data['filter_shop_id']) > 0) {
+		if (isset($data['filter_shop']) AND (int)($data['filter_shop']) > 0) {
 			$sql .= " LEFT JOIN " . DB_PREFIX . "product_to_shop p2sh ON (p.product_id = p2sh.product_id)";
 		}
 		
@@ -1389,8 +1396,8 @@ class ModelCatalogProduct extends Model {
 		}
 	
 		//Фильтр по магазину
-		if (isset($data['filter_shop_id']) AND (int)($data['filter_shop_id']) > 0) {
-			$sql .= ' AND p2sh.shop_id = '.(int)($data['filter_shop_id']).'';
+		if (isset($data['filter_shop']) AND (int)($data['filter_shop']) > 0) {
+			$sql .= ' AND p2sh.shop_id = '.(int)($data['filter_shop']).'';
 		}
 	
 		//Фильтр по атрибутам
@@ -1481,6 +1488,7 @@ class ModelCatalogProduct extends Model {
 			}
 		}
 
+	
 		$query = $this->db->query($sql);
 		
 		return $query->row['total'];
@@ -1514,6 +1522,10 @@ class ModelCatalogProduct extends Model {
 			$sql .= " FROM " . DB_PREFIX . "product p";
 		}
 
+		if (!empty($data['filter_shop'])) {
+			$sql .= " LEFT JOIN " . DB_PREFIX . "product_to_shop p2shop ON (p.product_id = p2shop.product_id)";
+		}
+		
 		//Фильтр по размерам
 		if (!empty($data['filter_sizes']) AND count($data['filter_sizes']) > 0) {
 			$sql .= " LEFT JOIN " . DB_PREFIX . "product_option_value pov ON (p.product_id = pov.product_id)";
@@ -1642,6 +1654,10 @@ class ModelCatalogProduct extends Model {
 				$sql .= " AND p.manufacturer_id = '" . (int)$data['filter_manufacturer_id'] . "'";
 			}
 		}
+		
+		if (!empty($data['filter_shop'])) {
+			$sql .= " AND p2shop.shop_id = '" . (int)$data['filter_shop'] . "'";
+		}
 
 		$query = $this->db->query($sql);
 //echo '<hr>'.$sql;
@@ -1677,6 +1693,7 @@ class ModelCatalogProduct extends Model {
 			$sql .= " FROM " . DB_PREFIX . "product p";
 		}
 
+		$sql .= " LEFT JOIN " . DB_PREFIX . "product_to_shop p2shop ON (p.product_id = p2shop.product_id)";
 		//Фильтр по размерам
 		if (!empty($data['filter_sizes']) AND count($data['filter_sizes']) > 0) {
 			$sql .= " LEFT JOIN " . DB_PREFIX . "product_option_value pov ON (p.product_id = pov.product_id)";
@@ -1794,6 +1811,11 @@ class ModelCatalogProduct extends Model {
 				$sql .= " AND p.manufacturer_id = '" . (int)$data['filter_manufacturer_id'] . "'";
 			}
 		}
+		
+		if (!empty($data['filter_shop'])) {
+			$sql .= " AND p2shop.shop_id = '" . (int)$data['filter_shop'] . "'";
+		}
+		
 		$query = $this->db->query($sql);
 //echo $sql;
 		$return = array();

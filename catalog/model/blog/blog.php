@@ -2,13 +2,20 @@
 class ModelBlogBlog extends Model {
 	
 	public function getBlog($blog_id) {
-		$query = $this->db->query("SELECT DISTINCT * FROM " . DB_PREFIX . "blog i LEFT JOIN " . DB_PREFIX . "blog_description id ON (i.blog_id = id.blog_id) LEFT JOIN " . DB_PREFIX . "blog_to_store i2s ON (i.blog_id = i2s.blog_id) WHERE i.blog_id = '" . (int)$blog_id . "' AND id.language_id = '" . (int)$this->config->get('config_language_id') . "' AND i2s.store_id = '" . (int)$this->config->get('config_store_id') . "' AND i.status = '1'");
+		$query = $this->db->query("SELECT DISTINCT * FROM " . DB_PREFIX . "blog i
+								  LEFT JOIN " . DB_PREFIX . "blog_description id ON (i.blog_id = id.blog_id)
+								  LEFT JOIN " . DB_PREFIX . "blog_to_store i2s ON (i.blog_id = i2s.blog_id)
+								  LEFT JOIN " . DB_PREFIX . "url_alias ua ON (ua.query = CONCAT('blog_id=',i.blog_id))
+								  WHERE i.blog_id = '" . (int)$blog_id . "' AND id.language_id = '" . (int)$this->config->get('config_language_id') . "' AND i2s.store_id = '" . (int)$this->config->get('config_store_id') . "' AND i.status = '1'");
 	
 		return $query->row;
 	}
 	
 	public function getBlogs($data, $start = 0, $limit = 30) {
-		$sql = "SELECT * FROM " . DB_PREFIX . "blog i LEFT JOIN " . DB_PREFIX . "blog_description id ON (i.blog_id = id.blog_id) LEFT JOIN " . DB_PREFIX . "blog_to_store i2s ON (i.blog_id = i2s.blog_id) WHERE id.language_id = '" . (int)$this->config->get('config_language_id') . "' AND i2s.store_id = '" . (int)$this->config->get('config_store_id') . "' AND i.status = '1' AND i.sort_order <> '-1'";
+		$sql = "SELECT * FROM " . DB_PREFIX . "blog i LEFT JOIN " . DB_PREFIX . "blog_description id ON (i.blog_id = id.blog_id)
+		LEFT JOIN " . DB_PREFIX . "blog_to_store i2s ON (i.blog_id = i2s.blog_id)
+		LEFT JOIN " . DB_PREFIX . "url_alias ua ON (ua.query = CONCAT('blog_id=',i.blog_id))
+		WHERE id.language_id = '" . (int)$this->config->get('config_language_id') . "' AND i2s.store_id = '" . (int)$this->config->get('config_store_id') . "' AND i.status = '1' AND i.sort_order <> '-1'";
 		
 		if(!empty($data['filter_tag'])){
 			$parts = explode (",",$data['filter_tag'] );
@@ -68,7 +75,12 @@ class ModelBlogBlog extends Model {
 	}
 	
 	public function getBlogsByBlogCategoryId($blog_category_id, $start = 0, $limit = 40) {
-		$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "blog n LEFT JOIN " . DB_PREFIX . "blog_description nd ON (n.blog_id = nd.blog_id) LEFT JOIN " . DB_PREFIX . "blog_to_store n2s ON (n.blog_id = n2s.blog_id) LEFT JOIN " . DB_PREFIX . "blog_to_category n2c ON (n.blog_id = n2c.blog_id) WHERE nd.language_id = '" . (int)$this->config->get('config_language_id') . "' AND n2s.store_id = '" . (int)$this->config->get('config_store_id') . "' AND n2c.blog_category_id = '" . (int)$blog_category_id . "' AND n.status = '1' AND n.sort_order <> '-1' ORDER BY n.sort_order, n.blog_id DESC LIMIT " . (int)$start . "," . (int)$limit);
+		$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "blog n
+								  LEFT JOIN " . DB_PREFIX . "blog_description nd ON (n.blog_id = nd.blog_id)
+								  LEFT JOIN " . DB_PREFIX . "blog_to_store n2s ON (n.blog_id = n2s.blog_id)
+								  LEFT JOIN " . DB_PREFIX . "blog_to_category n2c ON (n.blog_id = n2c.blog_id)
+								  LEFT JOIN " . DB_PREFIX . "url_alias ua ON (ua.query = CONCAT('blog_id=',n.blog_id))
+								  WHERE nd.language_id = '" . (int)$this->config->get('config_language_id') . "' AND n2s.store_id = '" . (int)$this->config->get('config_store_id') . "' AND n2c.blog_category_id = '" . (int)$blog_category_id . "' AND n.status = '1' AND n.sort_order <> '-1' ORDER BY n.sort_order, n.blog_id DESC LIMIT " . (int)$start . "," . (int)$limit);
 		
 		return $query->rows;
 	}
@@ -83,14 +95,15 @@ class ModelBlogBlog extends Model {
 											nd.title,
 											nd.page_title,
 											nd.meta_keyword,
-											nd.meta_description
-											
+											nd.meta_description,
+											ua.keyword
 								  
 								  FROM " . DB_PREFIX . "blog n
 								  LEFT JOIN " . DB_PREFIX . "blog_description nd ON (n.blog_id = nd.blog_id)
 								  LEFT JOIN " . DB_PREFIX . "url_alias u ON (u.query = CONCAT('blog_id=',n.blog_id))
 								  LEFT JOIN " . DB_PREFIX . "blog_to_store n2s ON (n.blog_id = n2s.blog_id)
 								  LEFT JOIN " . DB_PREFIX . "blog_to_category n2c ON (n.blog_id = n2c.blog_id)
+								  LEFT JOIN " . DB_PREFIX . "url_alias ua ON (ua.query = CONCAT('blog_id=',n.blog_id))
 								  WHERE nd.language_id = '" . (int)$this->config->get('config_language_id') . "' AND
 								  n2s.store_id = '" . (int)$this->config->get('config_store_id') . "' AND
 								  n2c.blog_category_id = '" . (int)$blog_category_id . "' AND

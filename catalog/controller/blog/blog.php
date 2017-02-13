@@ -50,7 +50,7 @@ class ControllerBlogBlog extends Controller {
 				if ($category_info) {
 					$data['breadcrumbs'][] = array(
 						'text' => $category_info['name'],
-						'href' => $this->url->link('blog/category', 'blogpath=' . $path)
+						'href' => $category_info['keyword'],//$this->url->link('blog/category', 'blogpath=' . $path)
 					);
 				}
 			}
@@ -63,7 +63,7 @@ class ControllerBlogBlog extends Controller {
 
 				$data['breadcrumbs'][] = array(
 					'text' => $category_info['name'],
-					'href' => $this->url->link('blog/category', 'blogpath=' . $this->request->get['blogpath'] . $url)
+					'href' => $category_info['keyword'],//$this->url->link('blog/category', 'blogpath=' . $this->request->get['blogpath'] . $url)
 				);
 			}
 		}		
@@ -84,8 +84,8 @@ class ControllerBlogBlog extends Controller {
 			}
 			
 			$data['breadcrumbs'][] = array(
-			'text'      => $blog_info['title'],
-			'href' => $this->url->link('blog/blog', $url . '&blog_id=' . $this->request->get['blog_id'])
+			'text'  => $blog_info['title'],
+			'href' 	=> $blog_info['keyword'],//$this->url->link('blog/blog', $url . '&blog_id=' . $this->request->get['blog_id'])
 			);
 			
 			$data['new_read_counter_value'] = $blog_info['count_read']+1;
@@ -193,7 +193,7 @@ class ControllerBlogBlog extends Controller {
 				'comment_total' => $this->model_blog_blog->getTotalCommentsByBlogId($result['blog_id']),
         		'date_added_full' => date($this->language->get('date_format_short'), strtotime($result['date_added'])),
         		'image' => $this->model_tool_image->resize($result['image'], $rel_img_width, $rel_img_height),
-	    		'href'  => $this->url->link('blog/blog', 'blog_id=' . $result['blog_id'])
+	    		'href'  => $result['keyword'],//$this->url->link('blog/blog', 'blog_id=' . $result['blog_id'])
       			);
     		  }
     		}

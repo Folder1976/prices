@@ -11,7 +11,7 @@ class ControllerProductCategory extends Controller {
 
 		$data['language_href'] = $this->session->data['language_href'];
 		
-		
+	
 		$this->load->model('setting/setting');
 		$this->load->model('module/megareviews');
 		$settings=$this->model_setting_setting->getSetting('megareviews');	
@@ -309,9 +309,11 @@ class ControllerProductCategory extends Controller {
 		}
 		
 		$short_tags = array();
-		
 		if ($category_info) {
-			
+	
+	//header("Content-Type: text/html; charset=UTF-8");
+	//echo "<pre>";  print_r(var_dump( $category_info )); echo "</pre>";
+		
 			$short_tags['@block_name@'] 			= '';
 			$short_tags['@block_name_rod@'] 		= '';
 			$short_tags['@block_name_several@'] 	= '';
@@ -524,6 +526,9 @@ class ControllerProductCategory extends Controller {
 			$filter_manufacturer_id = '';
 			if(isset($this->request->get['filter_manufacturer_id'])) $filter_manufacturer_id = $this->request->get['filter_manufacturer_id'];
 			
+			$filter_shop = '';
+			if(isset($this->request->get['shop_id'])) $filter_shop = $this->request->get['shop_id'];
+			
 			$filter_sale = '';
 			if(isset($this->request->get['sale'])) $filter_sale = $this->request->get['sale'];
 			
@@ -532,6 +537,7 @@ class ControllerProductCategory extends Controller {
 				'filter_sub_category' 	=> true,
 				'filter_sizes'      	=> $sizes,
 				'filter_name'      		=> $search,
+				'filter_shop'      	=> $filter_shop,
 				'filter_manufacturer_id'=> $filter_manufacturer_id,
 				'filter_price'      	=> $price,
 				'filter_sale'      		=> $filter_sale,
@@ -542,6 +548,7 @@ class ControllerProductCategory extends Controller {
 				'start'              	=> ($page - 1) * $limit,
 				'limit'              	=> $limit
 			);
+	
 	
 			//Фиксированные ЧПУ
 			if (isset($this->request->get['_route_']) AND $this->request->get['_route_']== 'lovedproducts') {
@@ -569,7 +576,8 @@ class ControllerProductCategory extends Controller {
 			$product_total = count($product_ids);
 
 			$results = $this->model_catalog_product->getProducts($filter_data);
-		
+
+			
 			//Соберем все атрибуты
 			$attr_ids = array();
 			if(count($attributes) > 0){
@@ -969,6 +977,7 @@ class ControllerProductCategory extends Controller {
 					
 				}
 			}
+	
 		
 		
 			if(isset($this->request->get['filtered_category'])){
@@ -1032,9 +1041,11 @@ class ControllerProductCategory extends Controller {
 		`	*/
 			$url = '';
 
-			$data['subcategories'] = $this->model_catalog_category->getCategoriesTree($category_id, true);
-			$data['categories_is_filter'] = $this->model_catalog_category->getCategoriesIsFilter($category_id, true);
+			
+			//$data['subcategories'] = $this->model_catalog_category->getCategoriesTree($category_id, true);
+			//$data['categories_is_filter'] = $this->model_catalog_category->getCategoriesIsFilter($category_id, true);
 		
+			
 			
 			if (isset($this->request->get['filter'])) {
 				$url .= '&filter=' . $this->request->get['filter'];
@@ -1282,6 +1293,7 @@ class ControllerProductCategory extends Controller {
 			$data['footer'] = $this->load->controller('common/footer');
 			$data['header'] = $this->load->controller('common/header');
 	
+	
 			
 			if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/product/category.tpl')) {
 				$this->response->setOutput($this->load->view($this->config->get('config_template') . '/template/product/category.tpl', $data));
@@ -1339,6 +1351,9 @@ class ControllerProductCategory extends Controller {
 			$data['footer'] = $this->load->controller('common/footer');
 			$data['header'] = $this->load->controller('common/header');
 
+			
+			
+			
 			if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/error/not_found.tpl')) {
 				$this->response->setOutput($this->load->view($this->config->get('config_template') . '/template/error/not_found.tpl', $data));
 			} else {

@@ -45,7 +45,7 @@ $count=0;
 	 }
 	 
 	 if($type == 'shops'){
-		$sql = 'UPDATE '.DB_PREFIX.'shop SET image = \''. $filename .'\' WHERE id=\''.$_POST['filename'].'\';';
+		$sql = 'UPDATE '.DB_PREFIX.'shop SET image = \'/image/shops/'. $filename .'\' WHERE id=\''.$_POST['filename'].'\';';
 	 }
 	 
 	 if($type == 'brands'){
@@ -56,6 +56,7 @@ $count=0;
 	 
 		//echo $sql;
 		//echo "<font color=\"green\">Файл корректен и был успешно загружен.</font>";
+		//die();
   } else {
 	  //echo "<font color=\"green\">Возможная атака с помощью файловой загрузки!</font>";
   }

@@ -3,8 +3,6 @@ class ControllerCommonSeoUrl extends Controller {
 	public function index() {
 		
 		
-		
-		
 		//Если прилетел мусор в УРЛ (-)
 		if (isset($this->request->get['_route_']) AND substr($this->request->get['_route_'], -1, 1) == '-') {
 	
@@ -12,11 +10,14 @@ class ControllerCommonSeoUrl extends Controller {
 
 			if($redirect == '') $redirect = '/';
 			header('HTTP/1.1 301 Moved Permanently');
+			
+			die($redirect);
+			
 			header("Location: ".$redirect ."");
 			exit(0);
 		}
 
-		
+	
 		//Смена языка
 		// перенесено в index.php
 		$this->session->data['language_href'] = '';
@@ -77,7 +78,7 @@ class ControllerCommonSeoUrl extends Controller {
 		}
 
 		
-		
+	
 	
 		//Уберем ошибки и дубляжи
 		if(isset($this->request->get['_route_'])){
@@ -594,8 +595,8 @@ class ControllerCommonSeoUrl extends Controller {
 			
         }
 		//end А это блог Новостей
-		
-		
+	
+			
 		//Проверим блоги статей
 		if(isset($this->request->get['_route_'])){
 			
@@ -645,7 +646,9 @@ class ControllerCommonSeoUrl extends Controller {
 			if ($query->num_rows) {
 			
 				$this->request->get['shop_id'] = $_GET['shop_id'] = $shop_id = $query->row['shop_id'];
-				$this->request->get['route'] = 'product/manufacturer/info';
+				$this->request->get['route'] = 'product/category';
+				$this->request->get['path'] = true;
+				$this->request->get['category_id'] = 0;
 				return new Action($this->request->get['route']);
 			
 			}
@@ -715,9 +718,11 @@ class ControllerCommonSeoUrl extends Controller {
 						}
 						$this->request->get['category_id'] = $url[1];
 					}
-;
+
+
 					if ($url[0] == 'manufacturer_id') {
 						
+						//$this->request->get['route'] = $url[0];
 						$this->request->get['manufacturer_id'] = $url[1];
 						$this->request->get['filter_manufacturer_id'][$url[1]] = $url[1];
 						$this->request->get['manufacturer_main_category'] = true;
@@ -943,6 +948,8 @@ class ControllerCommonSeoUrl extends Controller {
 				}
 			}
 
+			
+			
 			if (!isset($this->request->get['route'])) {
 				if (isset($this->request->get['product_id'])) {
 					$this->request->get['route'] = 'product/product';
@@ -955,9 +962,8 @@ class ControllerCommonSeoUrl extends Controller {
 				} 
 			}
 
-
+			
 			if (isset($this->request->get['route'])) {
-				
 				return new Action($this->request->get['route']);
 			}else{
 				
