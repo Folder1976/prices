@@ -15,6 +15,11 @@
     <!-- Хлебные крошки. END -->
   </div>
 
+  <?php
+  // топ-меню для авторизированых пользователей
+  if ($logged) { echo $content_top; }
+  ?>
+
   <div class="l-main_account-content">
 <!-- Левая колонка. START -->
     <div class="l-main_account-left">
