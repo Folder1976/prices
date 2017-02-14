@@ -107,6 +107,20 @@ a:hover {
     text-decoration: underline;
 }
 
+.text-center {
+    text-align: center;
+}
+.text-left {
+    text-align: left;
+}
+.text-right {
+    text-align: right;
+}
+
+button {
+  cursor: pointer;
+}
+
 .b-select {
     // for WebKit
     -webkit-appearance: none;
@@ -861,6 +875,25 @@ a.f-button {
             vertical-align: middle;
         }
     }
+}
+
+.table-responsive {
+    width: 100%;
+    margin-bottom: 15px;
+    overflow-y: hidden;
+    overflow-x: auto;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+    border: 1px solid #ddd;
+    -webkit-overflow-scrolling: touch;
+}
+.table > thead {
+    font-weight: bold;
+}
+.table > thead > tr > th, .table > tbody > tr > th, .table > tfoot > tr > th, .table > thead > tr > td, .table > tbody > tr > td, .table > tfoot > tr > td {
+    padding: 8px;
+    line-height: 1.42857143;
+    vertical-align: top;
+    border: 1px solid #ddd;
 }
 
 // ******************************************

@@ -7,15 +7,23 @@ $text_messages = 'Мои сообщения';
 $text_reviews = 'Мои отзывы';
 $text_questions = 'Мои вопросы';
 $text_more = 'Еще...';
+
+// вревенные переменные:
+$href_history = '#';
+$href_order = '/index.php?route=account/order';
+$href_messages = '#';
+$href_reviews = '#';
+$href_questions = '#';
+$href_edit = '/index.php?route=account/edit';
 ?>
 
 <div class="b-acc-top">
-  <a href="<?php echo $href_history; ?>" class="b-acc-top__item"><span class="ic-acc-history"></span> <?php echo $text_history; ?></a>
-  <a href="<?php echo $href_order; ?>" class="b-acc-top__item"><span class="ic-acc-order"></span> <?php echo $text_order; ?></a>
-  <a href="<?php echo $href_messages; ?>" class="b-acc-top__item active"><span class="ic-acc-message"></span> <?php echo $text_messages; ?></a>
-  <a href="<?php echo $href_reviews; ?>" class="b-acc-top__item"><span class="ic-acc-reviews"></span> <?php echo $text_reviews; ?></a>
-  <a href="<?php echo $href_questions; ?>" class="b-acc-top__item"><span class="ic-acc-questions"></span> <?php echo $text_questions; ?></a>
-  <a href="<?php echo $href_edit; ?>" class="b-acc-top__item"><span class="ic-acc-profile"></span> <?php echo $text_edit; ?></a>
+  <a href="<?php echo $href_history; ?>" class="b-acc-top__item <?php if($_GET['route'] == 'account/history') echo 'active'; ?>"><span class="ic-acc-history"></span> <?php echo $text_history; ?></a>
+  <a href="<?php echo $href_order; ?>" class="b-acc-top__item <?php if($_GET['route'] == 'account/order') echo 'active'; ?>"><span class="ic-acc-order"></span> <?php echo $text_order; ?></a>
+  <a href="<?php echo $href_messages; ?>" class="b-acc-top__item <?php if($_GET['route'] == 'account/messages') echo 'active'; ?>"><span class="ic-acc-message"></span> <?php echo $text_messages; ?></a>
+  <a href="<?php echo $href_reviews; ?>" class="b-acc-top__item <?php if($_GET['route'] == 'account/reviews') echo 'active'; ?>"><span class="ic-acc-reviews"></span> <?php echo $text_reviews; ?></a>
+  <a href="<?php echo $href_questions; ?>" class="b-acc-top__item <?php if($_GET['route'] == 'account/questions') echo 'active'; ?>"><span class="ic-acc-questions"></span> <?php echo $text_questions; ?></a>
+  <a href="<?php echo $href_edit; ?>" class="b-acc-top__item <?php if($_GET['route'] == 'account/edit') echo 'active'; ?>"><span class="ic-acc-profile"></span> <?php echo $text_edit; ?></a>
   <span class="b-acc-top__item js-custom-toggler js-acc-top__hidden-items-title"
         data-slide=".js-acc-top__hidden-items"
         data-toggle-class="g-minimized"

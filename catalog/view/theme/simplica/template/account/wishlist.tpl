@@ -1,6 +1,6 @@
 <?php echo $header; ?>
 
-<main class="l-main_account g-container">
+<main class="l-main_account l-main_account-wishlist g-container">
 
 <div class="l-main_account__header">
     <!-- Хлебные крошки. START -->
@@ -34,9 +34,9 @@
               <td class="text-center"><?php echo $column_image; ?></td>
               <td class="text-left"><?php echo $column_name; ?></td>
               <td class="text-left"><?php echo $column_model; ?></td>
-              <td class="text-right"><?php echo $column_stock; ?></td>
-              <td class="text-right"><?php echo $column_price; ?></td>
-              <td class="text-right"><?php echo $column_action; ?></td>
+              <td class="text-center"><?php echo $column_stock; ?></td>
+              <td class="text-center"><?php echo $column_price; ?></td>
+              <td class="text-center"><?php echo $column_action; ?></td>
             </tr>
           </thead>
           <tbody>
@@ -47,8 +47,8 @@
                 <?php } ?></td>
               <td class="text-left"><a href="<?php echo $product['href']; ?>"><?php echo $product['name']; ?></a></td>
               <td class="text-left"><?php echo $product['model']; ?></td>
-              <td class="text-right"><?php echo $product['stock']; ?></td>
-              <td class="text-right"><?php if ($product['price']) { ?>
+              <td class="text-center"><?php echo $product['stock']; ?></td>
+              <td class="text-center"><?php if ($product['price']) { ?>
                 <div class="price">
                   <?php if (!$product['special']) { ?>
                   <?php echo $product['price']; ?>
@@ -57,7 +57,7 @@
                   <?php } ?>
                 </div>
                 <?php } ?></td>
-              <td><button type="button" onclick="cart.add('<?php echo $product['product_id']; ?>');" title="<?php echo $button_cart; ?>"><span class="ic-acc-order"></span></button>
+              <td class="text-center"><button type="button" onclick="cart.add('<?php echo $product['product_id']; ?>');" title="<?php echo $button_cart; ?>"><span class="ic-acc-order"></span></button>
                 <a href="<?php echo $product['remove']; ?>" title="<?php echo $button_remove; ?>"><span class="ic-delete"></span></a></td>
             </tr>
             <?php } ?>

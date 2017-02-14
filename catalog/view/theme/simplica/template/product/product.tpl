@@ -127,6 +127,9 @@
 
                 <div class="b-prod-img__carousel owl-carousel js-prod_owl-carousel js-prod_thumb-list">
 
+                  <div class="b-prod-img__item">
+                    <img src="<?php echo $thumb; ?>" alt="<?php echo $heading_title; ?>" alt="<?php echo $heading_title; ?>" data-img="<?php echo $thumb; ?>">
+                  </div>
                   <?php foreach ($images as $img) { ?>
                   <div class="b-prod-img__item">
                     <img src="<?php echo $img['thumb'];?>" alt="<?php echo $heading_title; ?>" alt="<?php echo $heading_title; ?>" data-img="<?php echo $img['thumb'];?>">

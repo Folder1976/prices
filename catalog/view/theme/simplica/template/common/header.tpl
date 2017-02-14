@@ -106,6 +106,7 @@ if (typeof jQuery == 'undefined') {
 
 <body class="<?php echo $class; ?>">
 
+<?php if (!$logged) { ?>
 <div class="b-popup b-account-popup js-popup-account mfp-hide">
   <div class="b-popup__title"><?php echo $text_login; ?></div>
   <div class="b-popup__content">
@@ -154,7 +155,7 @@ if (typeof jQuery == 'undefined') {
     <span class="g-span-link_dotted"><a href="/<?php echo $language_href; ?>index.php?route=account/forgotten"><?php echo $text_password_reset; ?></a></span>
   </div>
 </div>
-
+<?php } ?>
 
   <div class="page-wrapper">
 
@@ -398,10 +399,19 @@ if (typeof jQuery == 'undefined') {
                   <span class="g-tablet-hidden b-header-cart__title"><?php echo $text_cart; ?></span>
                 </a>
               </div>
+
+              <?php if ($logged) { ?>
+              <div class="b-header-account">
+                <span class="ic-account"></span>
+                <span class="g-tablet-hidden b-header-account__title"><a href="/<?php echo $language_href; ?>index.php?route=account/account"><?php echo $text_profile; ?></a></span>
+              </div>
+              <?php } else { ?>
               <div class="b-header-account js-open-popup-link" data-mfp-src=".js-popup-account">
                 <span class="ic-account"></span>
                 <span class="g-tablet-hidden b-header-account__title"><?php echo $text_profile; ?></span>
               </div>
+              <?php } ?>
+
             </div>
           </div>
 
