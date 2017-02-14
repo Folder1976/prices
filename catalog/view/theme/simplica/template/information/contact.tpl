@@ -1,166 +1,192 @@
 <?php echo $header; ?>
 
-<main role="main" class="l-main_customer_service">
-    <div class="l-customer_service">
-        <div class="l-customer_service-top">
+<main role="main" class="l-main-information g-container">
 
-            <div class="html-slot-container b-slot--customer-service-top">
-                <div class="b-customer_service-sub_header" style="padding-left:31%">
-                    <div class="b-customer_service-sub_header-sub_title">
-                        <div class="b-customer_service-sub_header-right">
-                            <div class="b-customer_service-sub_header-title"><?php echo $text_contact; ?></div>
-                            <div class="b-customer_service-sub_header-sub_title"><?php echo $text_info; ?></div>
-                            <a class="b-customer_service-sub_header-link" href="index.php?route=information/contact"><?php echo $email; ?></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="b-customer_service_navigation-mob-button js-toggler"
-                 data-slide=".js-l-customer_service-left"
-                 data-toggle-class="h-minimized-customer_service-left"
-                 data-toggle-elem-class="h-toggled"></div>
-            <div class="l-customer_service-left js-l-customer_service-left h-minimized-customer_service-left">
-                <div class="b-customer_service_navigation">
-                    <?php echo $leftmenu; ?>
-                 </div>
-            </div>
-
-            <div class="l-customer_service-right">
-
-                <div class="js-customer_service_content b-customer_service_content">
-                    <h1 class="b-customer_service_content-title"><?php echo $text_contact_us; ?></h1>
-                    <div class="b-content_asset b-content_asset--contact-form-text content-asset">
-                        <div class="content">
-                            <?php echo $text_for_contact ?>
-                            
-                        </div>
-                        <div class="b-customer_service_content">
-                            <form action="<?php echo $action; ?>" method="post" class="js-contactus_form b-customer_service_content-form" novalidate="novalidate">
-
-                                <div class=" f-field f-field-textinput f-type-firstname f-state-required" data-required-text="<?php echo $error_form_name; ?>">
-                                    <label class="f-label" for="firstname">
-                                        <span class="f-label-value"><?php echo $entry_name; ?></span>
-                                    </label>
-                                    <div class="f-field-wrapper">
-                                        <input id="firstname" name="name" class="f-textinput f-state-required" maxlength="50" value="<?php echo $name; ?>" type="text">
-                                        <span class="f-error_message">
-                                            <span class="f-error_message-block js-error_firstname"></span>
-                                        </span>
-                                    </div>
-                                </div>
-
-                                <div class=" f-field f-field-textinput f-type-lastname f-state-required" data-required-text="<?php echo $error_form_lastname;?>">
-                                    <label class="f-label" for="lastname">
-                                        <span class="f-label-value"><?php echo $entry_lastname; ?></span>
-                                    </label>
-                                    <div class="f-field-wrapper">
-                                        <input id="lastname" name="lastname" class="f-textinput f-state-required" maxlength="50" value="<?php echo $lastname; ?>" type="text">
-                                        <span class="f-error_message">
-                                            <span class="f-error_message-block js-error_lastname"></span>
-                                        </span>
-                                    </div>
-                                </div>
-
-                                <div class=" f-field f-field-email f-type-email f-state-required" data-required-text="<?php echo $error_form_email; ?>">
-                                    <label class="f-label" for="email">
-                                        <span class="f-label-value"><?php echo $entry_email;?></span>
-                                    </label>
-                                    <div class="f-field-wrapper">
-                                        <input id="email" name="email" class="f-email f-state-required" maxlength="50" value="" type="email">
-                                        <span class="f-error_message">
-                                            <span class="f-error_message-block js-error_email"></span>
-                                        </span>
-                                    </div>
-                                </div>
-
-                                <div class=" f-field f-field-textinput f-type-ordernumber" data-required-text="<?php echo $error_form_ordernum; ?>">
-                                    <label class="f-label" for="ordernumber">
-                                        <span class="f-label-value"><?php echo $entry_ordernum; ?></span>
-                                    </label>
-                                    <div class="f-field-wrapper">
-                                        <input id="ordernumber" name="ordernumber" class="f-textinput  " maxlength="2147483647" value="<?php echo $ordernumber; ?>" type="text">
-                                        <span class="f-error_message">
-                                            <span class="f-error_message-block js-error_ordernumber"></span>
-                                        </span>
-                                    </div>
-                                </div>
-
-                                <div class=" f-field f-field-select f-type-myquestion f-state-required" data-required-text="<?php echo $error_form_theme; ?>">
-                                    <label class="f-label" for="myquestion">
-                                        <span class="f-label-value">
-                                            <?php echo $entry_theme; ?>
-                                        </span>
-                                    </label>
-                                    <div class="f-field-wrapper">
-                                        <div class="f-select-wrapper">
-                                            <select class="f-select f-state-required" id="myquestion" name="myquestion">
-                                                <?php foreach ($contact_theme as $theme) { ?>
-                                                    <option class="f-select_option" value="<?php echo $theme['key'];?>"><?php echo $theme['value'];?></option>
-                                                <?php } ?>
-                                            </select>
-                                        </div>                      
-                                        <span class="f-error_message">
-                                            <span class="f-error_message-block js-error_myquestion"></span>
-                                        </span>
-                                    </div>
-                                </div>  
-
-                                <div class="f-field f-field-textarea f-type-comment f-state-required" data-required-text="<?php echo $error_form_message; ?>">
-                                    <label class="f-label" for="input-enquiry">
-                                        <span class="f-label-value"><?php echo $entry_message; ?></span>
-                                    </label>
-                                    <div class="f-field-wrapper">
-                                        <textarea id="input-enquiry" name="input-enquiry" class="f-textarea f-state-required" data-character-limit="3000" maxlength="3000"></textarea><div class="char-count"><?php echo $text_form_message_count; ?></div>
-                                        <span class="f-error_message">
-                                            <span class="f-error_message-block js-error_input-enquiry"></span>
-                                        </span>
-                                    </div>
-                                </div>
-
-                                <div class="f-field f-field-select f-type-country f-state-required" data-required-text="<?php echo $error_form_country; ?>">
-                                    <label class="f-label" for="countries_country">
-                                        <span class="f-label-value"><?php echo $entry_country; ?></span>
-                                    </label>
-                                    <div class="f-field-wrapper">
-                                        <div class="f-select-wrapper">
-                                            <select class="f-select country f-state-required" id="countries_country" name="countries_country">
-                                                <option class="f-select_option" value="" selected="selected" disabled=""><?php echo $entry_chose_country; ?></option>
-                                                <?php foreach ($countries as $country) { ?>
-                                                    <option class="f-select_option" value="<?php echo $country['iso_code_2'];?>" ><?php echo $country['name'];?></option>
-                                                <?php } ?>
-
-                                            </select>
-                                        </div>
-                                        <span class="f-error_message">
-                                            <span class="f-error_message-block js-error_countries_country"></span>
-                                        </span>
-                                    </div>
-                                </div>
-
-                                <div class="b-contact_us_mandatory_field"></div>
-                                <div class="b-customer_service_content-asset">
-                                    <div class="b-content_asset b-content_asset--contact_us content-asset">
-                                    </div><!-- End content-asset contact_us -->
-                                </div>
-
-                                <button type="submit" value="<?php echo $entry_send; ?>" name="contactus_send" class="b-customer_service_content-submit_button js-contactus_submit">
-                                    <?php echo $button_submit; ?>
-                                </button>       
-                            </form>
-                        </div>
-
-                    </div>
-                </div>
-
-
-
-
-            </div>
-
-        </div>
+  <div class="l-main-information__header">
+    <!-- Хлебные крошки. START -->
+    <div class="b-breadcrumb">
+    <?php $count = 0; ?>
+    <?php foreach ($breadcrumbs as $breadcrumb) { ?>
+      <?php if ($count == 0) { ?>
+        <a href="<?php echo $breadcrumb['href']; ?>" title=""><span class="ic-home"></span><?php echo $breadcrumb['text']; ?></a>
+      <?php } else { ?>
+        <span>&nbsp;>&nbsp;</span><a href="<?php echo $breadcrumb['href']; ?>" title="<?php echo $breadcrumb['text']; ?>"><?php echo $breadcrumb['text']; ?></a>
+      <?php } ?>
+    <?php $count++;} ?>
     </div>
+    <!-- Хлебные крошки. END -->
+  </div>
+
+  <div class="html-slot-container b-slot--customer-service-top" style="display: none;">
+      <div class="b-customer_service-sub_header" style="padding-left:31%">
+          <div class="b-customer_service-sub_header-sub_title">
+              <div class="b-customer_service-sub_header-right">
+                  <div class="b-customer_service-sub_header-title"><?php echo $text_contact; ?></div>
+                  <div class="b-customer_service-sub_header-sub_title"><?php echo $text_info; ?></div>
+                  <a class="b-customer_service-sub_header-link" href="index.php?route=information/contact"><?php echo $email; ?></a>
+              </div>
+          </div>
+      </div>
+  </div>
+
+  <div class="l-main-information__content">
+    <div class="b-customer_service_navigation-mob-button js-toggler"
+         data-slide=".js-l-customer_service-left"
+         data-toggle-class="h-minimized-customer_service-left"
+         data-toggle-elem-class="h-toggled"></div>
+    <div class="l-main-information__left js-l-customer_service-left h-minimized-customer_service-left">
+      <div class="b-customer-service-navigation">
+        <?php echo $leftmenu; ?>
+      </div>
+    </div>
+
+    <div class="l-main-information__right">
+      <h1><?php echo $text_contact_us; ?></h1>
+      <div class="content">
+        <?php echo $text_for_contact ?>
+      </div>
+      <div class="b-account-form">
+        <form action="<?php echo $action; ?>" method="post" class="js-contactus_form b-customer_service_content-form">
+
+          <div class="f-group f-required">
+            <div class="f-field-wrapper">
+              <div class="f-label">
+                <label for="firstname"><?php echo $entry_name; ?></label>
+              </div>
+              <div class="f-field">
+                <input type="text"
+                       name="name"
+                       value="<?php echo $name; ?>"
+                       placeholder="<?php echo $entry_name; ?>"
+                       id="firstname"
+                       class="f-input"
+                       maxlength="50"
+                       required="required"
+                       pattern=".{3,}"
+                       title="минимум 3 символа" />
+              </div>
+            </div>
+          </div>
+
+          <div class="f-group f-required">
+            <div class="f-field-wrapper">
+              <div class="f-label">
+                <label for="lastname"><?php echo $entry_lastname; ?></label>
+              </div>
+              <div class="f-field">
+                <input type="text"
+                       name="lastname"
+                       value="<?php echo $lastname; ?>"
+                       placeholder="<?php echo $entry_lastname; ?>"
+                       id="lastname"
+                       class="f-input"
+                       required="required"
+                       pattern=".{3,}"
+                       title="минимум 3 символа" />
+              </div>
+            </div>
+          </div>
+
+          <div class="f-group f-required">
+            <div class="f-field-wrapper">
+              <div class="f-label">
+                <label for="input-email"><?php echo $entry_email; ?></label>
+              </div>
+              <div class="f-field">
+                <input type="email"
+                       name="email"
+                       value="<?php echo $email; ?>"
+                       placeholder="<?php echo $entry_email; ?>"
+                       id="email"
+                       class="f-input"
+                       required="required"
+                       pattern=".{3,}"
+                       title="минимум 3 символа" />
+              </div>
+            </div>
+          </div>
+
+          <div class="f-group">
+            <div class="f-field-wrapper">
+              <div class="f-label">
+                <label for="input-email"><?php echo $entry_ordernum; ?></label>
+              </div>
+              <div class="f-field">
+                <input type="text"
+                       name="ordernumber"
+                       value="<?php echo $ordernumber; ?>"
+                       placeholder="<?php echo $entry_ordernum; ?>"
+                       id="ordernumber"
+                       class="f-input" />
+              </div>
+            </div>
+          </div>
+
+          <div class="f-group f-required">
+            <div class="f-field-wrapper">
+              <div class="f-label">
+                <label for="myquestion"><?php echo $entry_theme; ?></label>
+              </div>
+              <div class="f-field">
+                <select name="myquestion" id="myquestion" class="f-select">
+                  <?php foreach ($contact_theme as $theme) { ?>
+                    <option value="<?php echo $theme['key'];?>"><?php echo $theme['value'];?></option>
+                  <?php } ?>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="f-group f-required">
+            <div class="f-field-wrapper">
+              <div class="f-label">
+                <label for="input-enquiry"><?php echo $entry_message; ?></label>
+              </div>
+              <div class="f-field">
+                <textarea id="input-enquiry" name="input-enquiry" class="f-textarea" data-character-limit="3000" maxlength="3000"></textarea><div class="char-count"><?php echo $text_form_message_count; ?></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="f-group f-required">
+            <div class="f-field-wrapper">
+              <div class="f-label">
+                <label for="countries_country"><?php echo $entry_country; ?></label>
+              </div>
+              <div class="f-field">
+                <select name="countries_country" id="countries_country" class="f-select">
+                  <option value=""><?php echo $entry_chose_country; ?></option>
+                  <?php foreach ($countries as $country) { ?>
+                    <option value="<?php echo $country['iso_code_2'];?>" ><?php echo $country['name'];?></option>
+                  <?php } ?>
+                </select>
+              </div>
+            </div>
+          </div>
+
+
+            <div class="b-contact_us_mandatory_field"></div>
+            <div class="b-customer_service_content-asset">
+                <div class="b-content_asset b-content_asset--contact_us content-asset">
+                </div><!-- End content-asset contact_us -->
+            </div>
+
+            <button type="submit" value="<?php echo $entry_send; ?>" name="contactus_send" class="f-button js-contactus_submit">
+                <?php echo $button_submit; ?>
+            </button>       
+        </form>
+      </div>
+
+    </div>
+  </div>
+
 </main>
+
+
+
+
+
+
 
 <script>
     $(document).ready(function() {

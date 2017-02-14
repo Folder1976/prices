@@ -1,23 +1,18 @@
-                    <div class="b-customer_service_navigation-section  b-customer_service_navigation-section--first ">
-                        <div class="b-customer_service_navigation-category">
-                            <ul class="b-customer_service_navigation-list">
-                                 
-                                <?php if ( isset($informations) && $informations ) { ?>
-                                <?php foreach ($informations as $information) { ?>
-                                <li class="b-customer_service_navigation-list-li ">
-                                    <a class="b-customer_service_navigation-link" href="<?php echo $language_href.$information['keyword']; ?>" title="<?php echo $information['title']; ?>"><?php echo $information['title']; ?></a>
-                                    <div class="b-customer_service_navigation-description">
-                                    </div>
-                                </li>
-                                <?php } ?>
-                                <?php } ?>
+<ul class="b-customer-service-navigation__list">
 
-                                <li class="b-customer_service_navigation-list-li ">
-                                    <a class="b-customer_service_navigation-link" href="/<?php echo $language_href; ?>contact_us"><?php echo $text_contact; ?></a></h6>
-                                    <div class="b-customer_service_navigation-description">
-                                    </div>
-                                </li>
-                     
-                            </ul>
-                        </div>
-                    </div>
+  <?php if ( isset($informations) && $informations ) { ?>
+  <?php foreach ($informations as $information) { ?>
+  <li class="b-customer-service-navigation__list-li">
+      <a class="b-customer-service-navigation__link <?php if ($_GET['_route_'] == $information['keyword']) echo 'active'; ?>"
+         href="<?php echo $language_href.$information['keyword']; ?>"
+         title="<?php echo $information['title']; ?>"><?php echo $information['title']; ?></a>
+  </li>
+  <?php } ?>
+  <?php } ?>
+
+  <li class="b-customer-service-navigation__list-li">
+      <a class="b-customer-service-navigation__link <?php if ($_GET['_route_'] == 'contact_us') echo 'active'; ?>"
+         href="/<?php echo $language_href; ?>contact_us"><?php echo $text_contact; ?></a></h6>
+  </li>
+
+</ul>

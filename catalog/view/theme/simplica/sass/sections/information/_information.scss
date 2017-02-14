@@ -1,0 +1,38 @@
+.l-main-information {
+    &__header {}
+    &__content {
+        margin: 30px 0;
+        display: flex;
+        &_full {
+            margin: 30px 0;
+        }
+    }
+    &__top {}
+    &__left {
+        width: 270px;
+        padding-top: 1em;
+    }
+    &__right {
+        width: calc(100% - 270px - 15px);
+        padding-left: 15px;
+    }
+}
+
+.b-customer-service-navigation {
+    &__list {
+        &-li {}
+    }
+    &__link {
+        display: block;
+        width: 100%;
+        line-height: 1.5em;
+        padding: 0 15px;
+        font-size: 15px;
+        &:hover,
+        &.active {
+            background: #39adff;
+            color: #fff;
+            text-decoration: none;
+        }
+    }
+}
