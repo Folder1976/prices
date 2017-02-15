@@ -116,7 +116,7 @@ if (typeof jQuery == 'undefined') {
           <div class="f-field-wrapper">
             <input type="text"
                    class="f-input"
-                   name="login"
+                   name="email"
                    value=""
                    placeholder="Логин"
                    required="required"

@@ -31,6 +31,10 @@
         <p><?php echo $text_i_am_returning_customer; ?></p>
         <form action="<?php echo $action; ?>" method="post" enctype="multipart/form-data">
 
+          <?php if ( isset($error_warning) && $error_warning != ''  ) { ?>
+            <div class="f-alert f-alert_error"><?php echo $error_warning; ?></div>
+          <?php } ?>
+
           <div class="f-group f-required">
             <div class="f-field-wrapper">
               <div class="f-label">

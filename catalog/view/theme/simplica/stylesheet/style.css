@@ -708,6 +708,21 @@ button {
   border: 0px solid #39adff !important;
 }
 
+.f-alert {
+  padding: 10px;
+  margin: 5px 0;
+  color: #fff;
+}
+.f-alert_error {
+  background: #fc7171;
+}
+.f-alert_warning {
+  background: #fc7171;
+}
+.f-alert_success {
+  background: #5cb85c;
+}
+
 .f-form-wrap {
   width: 100%;
 }
@@ -1588,6 +1603,9 @@ a.f-button:hover {
   padding: 10px 60px;
   color: #fff;
   position: relative;
+}
+.b-header__news-text p {
+  padding: 0;
 }
 .b-header__news-img {
   position: absolute;

@@ -196,6 +196,20 @@ button {
 // ******************************************
 //             Form
 // ******************************************
+.f-alert {
+    padding: 10px;
+    margin: 5px 0;
+    color: #fff;
+    &_error {
+        background: #fc7171;
+    }
+    &_warning {
+        background: #fc7171;
+    }
+    &_success {
+        background: #5cb85c;
+    }
+}
 .f-form-wrap {
     width: 100%;
 }
