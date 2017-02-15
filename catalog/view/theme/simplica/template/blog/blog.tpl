@@ -148,47 +148,86 @@
      <!-- Comment Area start -->
       <?php if($allow_comment){ ?>
         <h3><i class="fa fa-comments"></i><?php echo $text_comments; ?></h3>
-        <form id="comment_form">
-                <div id="comment"></div>
-                <h3><i class="fa fa-pencil"></i><?php echo $text_write_comment; ?></h3>
-                <div class="row">
-                <div class="form-group col-sm-6 required">
-                <label class="control-label" for="input-name"><?php echo $entry_name; ?></label>
-                <input type="text" name="name" value="" id="input-name" class="form-control" />
-                </div>
-                <div class="form-group col-sm-6 required">
-                <label class="control-label" for="input-email"><?php echo $entry_email; ?></label>
-                <input type="text" name="email" value="" id="input-email" class="form-control" />
-                </div>
-                </div>
-                
-                <div class="row">
-                <div class="form-group col-sm-12 required">
-                <label class="control-label" for="input-review"><?php echo $entry_comment; ?></label>
-                <textarea name="comment" rows="5" id="input-comment" class="form-control"></textarea>
-                </div>
-                </div>
-                
-                
-                <div class="row">
-                <div class="col-sm-12">
-                  <div class="form-group required">
-                  <label class="control-label" for="input-captcha_comment"><?php echo $entry_captcha; ?></label>
-                    <div class="input-group">
-                    <span class="input-group-addon captcha_wrap" style="background:#ffffff;padding:0 10px;"><img src="index.php?route=blog/blog/captcha" alt="" id="captcha_comment" /></span>
-                    <input type="text" name="captcha_comment" value="" id="input-captcha_comment" class="form-control" />
-                    </div>
-                  </div>
-                </div>
-                </div>
-                
-                <div class="row">
-                <div class="form-group col-sm-12 text-right">
-                <button type="button" id="button-comment" class="btn btn-primary"><?php echo $button_send; ?></button>
-                </div>
-                </div>
-                
-                </div>
+        <form id="comment_form" class="f-form">
+          <div id="comment"></div>
+          <h3><i class="fa fa-pencil"></i><?php echo $text_write_comment; ?></h3>
+
+          <div class="f-group f-required">
+            <div class="f-field-wrapper">
+              <div class="f-label">
+                <label for="input-name"><?php echo $entry_name; ?></label>
+              </div>
+              <div class="f-field">
+                <input type="text"
+                       name="name"
+                       value=""
+                       placeholder="<?php echo $entry_name; ?>"
+                       id="input-name"
+                       class="f-input"
+                       required="required"
+                       pattern=".{3,}"
+                       title="минимум 3 символа" />
+              </div>
+            </div>
+          </div>
+
+          <div class="f-group f-required">
+            <div class="f-field-wrapper">
+              <div class="f-label">
+                <label for="input-email"><?php echo $entry_email; ?></label>
+              </div>
+              <div class="f-field">
+                <input type="email"
+                       name="email"
+                       value=""
+                       placeholder="<?php echo $entry_email; ?>"
+                       id="input-email"
+                       class="f-input"
+                       required="required"
+                       pattern=".{3,}"
+                       title="минимум 3 символа" />
+              </div>
+            </div>
+          </div>
+
+          <div class="f-group f-required">
+            <div class="f-field-wrapper">
+              <div class="f-label">
+                <label for="input-rewiew"><?php echo $entry_comment; ?></label>
+              </div>
+              <div class="f-field">
+                <textarea id="input-comment"
+                          name="comment"
+                          class="f-textarea"
+                          rows="5"
+                          required="required"
+                          pattern=".{10,}"
+                          title="минимум 10 символов"></textarea>
+              </div>
+            </div>
+          </div>
+
+          <div class="f-group f-required">
+            <div class="f-field-wrapper">
+              <div class="f-label">
+                <label for="input-captcha_comment"><?php echo $entry_captcha; ?></label><span class="input-group-addon captcha_wrap"><img src="index.php?route=blog/blog/captcha" alt="" id="captcha_comment" /></span>
+              </div>
+              <div class="f-field">
+                <input type="text"
+                       name="captcha_comment"
+                       value=""
+                       id="input-captcha_comment"
+                       class="f-input"
+                       required="required"
+                       pattern=".{1,}"
+                       title="минимум 1 символ" />
+              </div>
+            </div>
+          </div>
+
+          <div class="buttons text-right">
+            <button type="button" id="button-comment" class="f-button"><?php echo $button_send; ?></button>
+          </div>
         </form>
       <?php } ?>
       </div>

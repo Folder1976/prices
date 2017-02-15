@@ -362,7 +362,61 @@ a.f-button {
     text-align: right;
 }
 
-
+.f-form {
+    margin-bottom: 20px;
+    &__title {
+        font-size: 16px;
+        font-weight: bold;
+        text-transform: uppercase;
+        padding-bottom: 1em;
+    }
+    .f-field.f-radio-group {
+        padding: 10px;
+    }
+    .f-field-wrapper .f-label {
+        width: 37%;
+        line-height: 35px;
+    }
+    .f-field-wrapper .f-label + .f-field {
+        width: 61%;
+    }
+    .f-group {
+        width: 100%;
+        margin-bottom: 15px;
+        &.f-required label:after {
+            content: '*';
+        }
+    }
+    .f-label {
+        color: #303030;
+        font-size: 16px;
+    }
+    .f-input {
+        padding: 10px;
+        color: #303030;
+        &:focus {
+            border: 1px solid #39adff;
+        }
+    }
+    .f-select {
+        width: 100%;
+        padding: 10px;
+        color: #303030;
+        border: 1px solid #aaa;
+    }
+    .f-radio {
+        margin-right: 20px;
+    }
+    .f-field-group {
+        width: 61%;
+        &_radio {
+            width: 61%;
+        }
+    }
+    .f-buttons {
+        margin-top: 10px;
+    }
+}
 
 // ******************************************
 //             ico

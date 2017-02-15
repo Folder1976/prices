@@ -880,6 +880,62 @@ a.f-button:hover {
   text-align: right;
 }
 
+.f-form {
+  margin-bottom: 20px;
+}
+.f-form__title {
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase;
+  padding-bottom: 1em;
+}
+.f-form .f-field.f-radio-group {
+  padding: 10px;
+}
+.f-form .f-field-wrapper .f-label {
+  width: 37%;
+  line-height: 35px;
+}
+.f-form .f-field-wrapper .f-label + .f-field {
+  width: 61%;
+}
+.f-form .f-group {
+  width: 100%;
+  margin-bottom: 15px;
+}
+.f-form .f-group.f-required label:after {
+  content: '*';
+}
+.f-form .f-label {
+  color: #303030;
+  font-size: 16px;
+}
+.f-form .f-input {
+  padding: 10px;
+  color: #303030;
+}
+.f-form .f-input:focus {
+  border: 1px solid #39adff;
+}
+.f-form .f-select {
+  width: 100%;
+  padding: 10px;
+  color: #303030;
+  border: 1px solid #aaa;
+}
+.f-form .f-radio {
+  margin-right: 20px;
+}
+.f-form .f-field-group {
+  width: 61%;
+}
+.f-form .f-field-group_radio {
+  width: 61%;
+}
+.f-form .f-buttons {
+  margin-top: 10px;
+}
+
 [class*="ic-"] {
   display: inline-block;
   vertical-align: middle;
@@ -4233,6 +4289,8 @@ main.b-product .b-brands {
 .b-prod-info__title {
   color: #0a0a0a;
   font-size: 20px;
+  font-weight: initial;
+  text-transform: none;
   line-height: 1.2em;
   margin-bottom: 32px;
   padding: 0 60px 24px 0;
