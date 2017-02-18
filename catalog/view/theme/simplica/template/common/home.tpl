@@ -47,7 +47,20 @@ $text_popular_products = 'Самые просматриваемые товары
             </div>  <!-- end b-home-slider -->
 
 
-            <?php if ( isset($medium_banners) && count($medium_banners) > 0 ) { ?>
+            <?php
+            if ( !isset($_SESSION['medium_banners_type']) ) {
+              $medium_banners_type = 1;
+            } else {
+              $medium_banners_type = $_SESSION['medium_banners_type'];
+              if ( $medium_banners_type == 1 ) {
+                $medium_banners_type = 0;
+              } else {
+                $medium_banners_type = 1;
+              }
+            }
+            $_SESSION['medium_banners_type'] = $medium_banners_type;
+            ?>
+            <?php if ( $medium_banners_type == 1 ) { ?>
             <div class="b-upcoming-prod b-upcoming-prod_type1">
             <?php } else { ?>
             <div class="b-upcoming-prod b-upcoming-prod_type2">
@@ -58,7 +71,7 @@ $text_popular_products = 'Самые просматриваемые товары
 
               <div class="b-upcoming-prod__content">
 
-                <?php if ( isset($medium_banners) && count($medium_banners) > 0 ) { ?>
+                <?php if ( $medium_banners_type == 1 ) { ?>
                 <?php foreach ($medium_banners as $baner) { ?>
                 <div class="b-upcoming-prod__banner">
                   <a href="<?php echo $baner['baner_url']; ?>" class="b-upcoming-prod__block-link">
@@ -69,16 +82,15 @@ $text_popular_products = 'Самые просматриваемые товары
                 <?php } ?>
                 <?php } else { ?>
 
-                <?php for ($i = 0; $i < 7; $i++) { ?>
+                <?php foreach($medium_banner_products as $prod) { ?>
                 <div class="b-upcoming-prod__block">
-                  <a href="product.html" class="b-upcoming-prod__block-link">
+                  <a href="<?php echo $prod['href']; ?>" class="b-upcoming-prod__block-link">
                     <div class="b-upcoming-prod__block-text">
-                      Женские пальто больших размеров
-                      <img src="catalog/view/theme/simplica/img/product/violanti.png" alt="">
-                      <div class="b-upcoming-prod__block-price">$ 25.50</div>
+                    <span class="b-upcoming-prod__block-name"><?php echo $prod['name']; ?></span>
+                      <div class="b-upcoming-prod__block-price"><?php echo $currencies[$_SESSION ['currency']]['symbol_left'].' '.sprintf("%.2f", $prod['price']).' '.$currencies[$_SESSION ['currency']]['symbol_right']; ?></div>
                     </div>
                     <div class="b-upcoming-prod__block-img">
-                      <img src="catalog/view/theme/simplica/img/product/7384-02.png" alt="">
+                      <img src="/image/<?php if ($prod['image'] != 0 ) { echo $prod['image']; }else{ echo 'no_image.png'; } ?>" alt="<?php echo $prod['name']; ?>">
                     </div>
                   </a>
                 </div>

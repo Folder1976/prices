@@ -476,6 +476,11 @@ $width_col_right: 0;
             a {
                 font-size: 14px;
                 color: #000;
+                &:after {
+                    content: '';
+                    display: block;
+                    height: 3em;
+                }
             }
         }
         &__photo,

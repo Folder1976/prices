@@ -78,111 +78,263 @@
 
 
     <?php if ($products) { ?>
-    <div class="">
+    <div class="g-container">
+      <div class="g-col-left">
 
-          <div class="b-products-container__sort-row">
+        <div class="b-filter__title">  <!-- Фильтры START -->
+          <h3>Подбор по параметрам <span class="ic-arrow-down-white"></span></h3>
+        </div>
 
-            <div class="b-filter-header b-filter-header_mob js-open-popup-link" data-mfp-src=".js-popup-filter">
-              <span class="ic-mob-filter"></span>
-              <span>Фильтрация</span>
-            </div>
+        <div class="b-filter js-popup-filter">
 
-            <div class="b-view-header">
-              <div class="b-change_view__list js-change_view">
-                <span class="ic-view_list active" data-view="list"></span>
-                <span class="ic-view_grid-3" data-view="grid-3"></span>
-                <span class="ic-view_grid-4" data-view="grid-4"></span>
-              </div>
-            </div>
+          <?php if ( isset($categories['categories']) && count($categories['categories'])>0 ) { ?>
+          <div class="b-filter-block b-filter-block_price b-filter-block_open">
+            <div class="b-filter-block__title js-filter-block-toggle">Подкатегории</div>
+            <div class="b-filter-block__content">
 
-            <div class="b-count-product">3125 Найдено</div>
-
-            <div class="b-sort-header">
-              <?php echo $text_sort; ?>
-              <div class="g-span-select js-span-select">
-                <span class="g-span-select__title">от дешевых к дорогим</span>
-                <ul class="g-span-select__ul g-span-select__hidden js-popup-sort">
-                <?php foreach ($sorts as $sorts) { ?>
-                  <?php if ($sorts['value'] == $sort . '-' . $order) { ?>
-                    <li class="active"><a href="/<?php echo ltrim($selected_attributes_alias.$category_alias,'-'); ?><?php echo substr_replace($sorts['href'],'?',0,1); ?>"><?php echo $sorts['text']; ?></a></li>
-                  <?php } else { ?>
-                    <li><a href="/<?php echo ltrim($selected_attributes_alias.$category_alias,'-'); ?><?php echo substr_replace($sorts['href'],'?',0,1); ?>""><?php echo $sorts['text']; ?></a></li>
-                  <?php } ?>
+              <div class="f-group-wrap_1col">
+                <?php foreach($categories['categories'] as $cat) { ?>
+                <div class="f-group">
+                  <a href="<?php echo $cat['href']; ?>"><?php echo $cat['name']; ?></a>
+                </div>
                 <?php } ?>
-                </ul>
+              </div>
+
+            </div>
+          </div>  <!-- end b-filter-block -->
+          <?php } ?>
+
+          <div class="b-filter-block b-filter-block_price b-filter-block_open">
+            <div class="b-filter-block__title js-filter-block-toggle">Цена</div>
+            <div class="b-filter-block__content">
+
+            <div class="f-group-wrap_2col">
+              <div class="f-group">
+                <div class="f-field-wrapper">
+                  <div class="f-label">
+                    <span class="f-label-value">от</span>
+                  </div>
+                  <div class="f-field">
+                    <input type="text"
+                           name="price_min"
+                           value=""
+                           placeholder=""
+                           class="f-input">
+                  </div>
+                </div>
+              </div>
+
+              <div class="f-group">
+                <div class="f-field-wrapper">
+                  <div class="f-label">
+                    <span class="f-label-value">до</span>
+                  </div>
+                  <div class="f-field">
+                    <input type="text"
+                           name="price_max"
+                           value=""
+                           placeholder=""
+                           class="f-input">
+                  </div>
+                </div>
+              </div>
+
+              <div class="f-group">
+                <div class="f-field-wrapper">
+                  <div class="f-label">
+                    <span class="f-label-value">грн</span>
+                  </div>
+                </div>
               </div>
             </div>
 
-            <div class="b-sort-header b-sort-header_mob js-open-popup-link" data-mfp-src=".js-popup-sort">
-              <span class="ic-mob-sotr"></span>
-              <span>Сортировать</span>
             </div>
+          </div>  <!-- end b-filter-block -->
 
-          </div>  <!-- end b-products-container__sort-row -->
 
-          <div class="g-row">
-            <div class="b-products-container">
+          <?php if ( isset($manufacturers) AND count($manufacturers) > 0 AND is_array($manufacturers)) { ?>
+          <div class="b-filter-block b-filter-block_open">
+            <div class="b-filter-block__title js-filter-block-toggle"><?php echo $text_manufacturer; ?></div>
+            <div class="b-filter-block__content">
+              <ul class="f-group-wrap_2col"><?php // тут можно проставить классы: f-group-wrap_1col, f-group-wrap_2col, f-group-wrap_3col. ?>
 
-              <div class="b-products-container__content b-products-container__content_list js-view-content">
+              <?php foreach ($manufacturers as $attribut) { ?>
 
-              <?php foreach ($products as $product) { ?>
-                <div class="b-prod__wrapper">
-                  <div class="b-prod">
-                    <div class="b-prod__title"><a href="/<?php echo $language_href; ?><?php echo $product['href']; ?>"><?php echo $product['name']; ?></a></div>
-                    <div class="b-prod__options">
-                      <span class="b-prod__options-color"></span>
-                      <?php if ($product['options']) { ?>
-                      <ul class="b-prod__options-list">
-                        <?php foreach ($product['options'] as $option) { ?>
-                        <?php foreach ($option['product_option_value'] as $option_value) { ?>
-                        <li class="b-prod__options-list-item"><?php echo $option_value['name']; ?></li>
-                        <?php } ?>
-                        <?php } ?>
-                      </ul>
-                      <?php } ?>
-                      <a href="/<?php echo $language_href; ?><?php echo $product['href']; ?>" class="g-btn b-prod__btn_buy">Купить</a>
-                      <a href="/<?php echo $language_href; ?><?php echo $product['href']; ?>" class="b-prod__comments-link">Отзывы (<?php echo $product['total_comments']; ?>)</a>
-                    </div>
-                    <div class="b-prod__photo">
-                      <a href="/<?php echo $language_href; ?><?php echo $product['href']; ?>"><img src="<?php echo $product['thumb']; ?>" alt="<?php echo $product['name']; ?>"></a>
-                    </div>
-                    <div class="b-prod__brand-img">
-                      <a href="javascript:void(0)" class="js-business-card-href js-open-popup-link" data-shop-id="<?php echo $product['shop_id']; ?>" data-shop-name="<?php echo $product['shop_name']; ?>" data-mfp-src=".js-popup-business-card">
-                        <img src="/image/<?php if ( $product['manufacturer_image'] != NULL ) { echo $product['manufacturer_image']; }else{ echo 'no_image.png';} ?>" alt="<?php echo $product['name']; ?>">
-                      </a>
-                    </div>
-                    <div class="b-prod__links">
-                      <ul>
-                        <li><a href="/<?php echo $language_href; ?><?php echo $product['href']; ?>"><span class="ic-prod_more"></span>Подробнее</a></li>
-                        <li><a href="/<?php echo $language_href; ?><?php echo $product['href']; ?>"><span class="ic-prod_photos"></span>Все фото (<?php echo $product['total_images']; ?>)</a></li>
-                        <li><a href="/<?php echo $language_href; ?><?php echo $product['href']; ?>"><span class="ic-prod_video"></span>Все видео (<?php echo count($product['videos']); ?>)</a></li>
-                        <li><button type="button" data-toggle="tooltip" class="btn btn-default" title="" onclick="wishlist.add('<?php echo $product['product_id'];?>');" data-original-title="В закладки">В ЗАКЛАДКИ</button>
-                 </li>
-                      </ul>
-                      <div class="b-prod__color">
-                        <span style="background: #474747;"></span>
-                      </div>
-                      <a href="/<?php echo $language_href; ?><?php echo $product['href']; ?>" class="b-prod__links-more-btn">Подробнее</a>
-                    </div>
-                    <div class="b-prod__price-block">
-                      <div class="b-price">
-                        <span class="b-price__number">9999 - 20000</span> <span class="b-price__currency">грн</span>
+                <li class="f-group">
+                  <div class="f-field-wrapper f-field-wrapper_checkbox">
+                    <div class="f-field">
+                      <input type="checkbox"
+                             name="<?php echo 'option_'.$attribut['code'].'_value_'.$attribut['manufacturer_id']; ?>"
+                             id="<?php echo 'option_'.$attribut['code'].'_value_'.$attribut['manufacturer_id']; ?>"
+                             value=""
+                             <?php if ( strpos($selected_attributes_alias, $attribut['code']) !== false) { echo ' checked ';} ?>
+                             class="f-checkbox">
+                      <div class="f-label">
+                        <label for="<?php echo 'option_'.$attribut['code'].'_value_'.$attribut['manufacturer_id']; ?>">
+                          <?php if ( strpos($selected_attributes_alias, $attribut['code']) !== false) { ?>
+                            <a href="<?php echo str_replace($attribut['code'].'-','',$selected_attributes_alias).$category_alias; ?>"><?php echo $attribut['name']; ?></a>
+                          <?php } else { ?>
+                            <a href="<?php echo $attribut['code'].'-'.$selected_attributes_alias.$category_alias; ?>"><?php echo $attribut['name']; ?></a>
+                          <?php } ?>
+                          </label>
                       </div>
                     </div>
                   </div>
-                </div>  <!-- end b-prod__wrapper -->
+                </li>
+
               <?php } ?>
-
-              </div>  <!-- end b-products-container__content -->
-
-              <div class="b-products-container__pagination">
-              <?php echo $pagination; ?>
-              </div>
+              </ul>
             </div>
-          </div>  <!-- end g-row -->
+          </div>  <!-- end b-filter-block -->
+          <?php } ?>
 
-        </div>  <!-- end g-col-center -->
 
+          <?php if ( isset($product_attributes) AND count($product_attributes) > 0 AND is_array($manufacturers)) { ?>
+          <?php foreach ($product_attributes as $prod_attr) { ?>
+          <div class="b-filter-block b-filter-block_open">
+            <div class="b-filter-block__title js-filter-block-toggle"><?php echo $prod_attr['attribute_group_name']; ?></div>
+            <div class="b-filter-block__content">
+              <ul class="f-group-wrap_2col"><?php // тут можно проставить классы: f-group-wrap_1col, f-group-wrap_2col, f-group-wrap_3col. ?>
+
+              <?php foreach ($prod_attr['attributes'] as $attribut) { ?>
+
+                <li class="f-group">
+                  <div class="f-field-wrapper f-field-wrapper_checkbox">
+                    <div class="f-field">
+                      <input type="checkbox"
+                             name="<?php echo 'option_'.$prod_attr['attribute_group_id'].'_value_'.$attribut['attribute_id']; ?>"
+                             id="<?php echo 'option_'.$prod_attr['attribute_group_id'].'_value_'.$attribut['attribute_id']; ?>"
+                             value=""
+                             <?php if ( strpos($selected_attributes_alias, $attribut['attribute_id']) !== false) { echo ' checked ';} ?>
+                             class="f-checkbox">
+                      <div class="f-label">
+                        <label for="<?php echo 'option_'.$prod_attr['attribute_group_id'].'_value_'.$attribut['attribute_id']; ?>">
+                          <?php if ( strpos($selected_attributes_alias, $attribut['attribute_id']) !== false) { ?>
+                            <a href="<?php echo str_replace($attribut['attribute_id'].'-','',$selected_attributes_alias).$category_alias; ?>"><?php echo $attribut['name']; ?></a>
+                          <?php } else { ?>
+                            <a href="<?php echo $attribut['attribute_id'].'-'.$selected_attributes_alias.$category_alias; ?>"><?php echo $attribut['name']; ?></a>
+                          <?php } ?>
+                          </label>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+
+              <?php } ?>
+              </ul>
+            </div>
+          </div>  <!-- end b-filter-block -->
+          <?php } ?>
+          <?php } ?>
+
+        </div>  <!-- end b-filter -->
+      </div>  <!-- end g-col-left -->
+      <div class="g-col-center">
+
+            <div class="b-products-container__sort-row">
+
+              <div class="b-filter-header b-filter-header_mob js-open-popup-link" data-mfp-src=".js-popup-filter">
+                <span class="ic-mob-filter"></span>
+                <span>Фильтрация</span>
+              </div>
+
+              <div class="b-view-header">
+                <div class="b-change_view__list js-change_view">
+                  <span class="ic-view_list active" data-view="list"></span>
+                  <span class="ic-view_grid-3" data-view="grid-3"></span>
+                  <span class="ic-view_grid-4" data-view="grid-4"></span>
+                </div>
+              </div>
+
+              <div class="b-count-product">3125 Найдено</div>
+
+              <div class="b-sort-header">
+                <?php echo $text_sort; ?>
+                <div class="g-span-select js-span-select">
+                  <span class="g-span-select__title">от дешевых к дорогим</span>
+                  <ul class="g-span-select__ul g-span-select__hidden js-popup-sort">
+                  <?php foreach ($sorts as $sorts) { ?>
+                    <?php if ($sorts['value'] == $sort . '-' . $order) { ?>
+                      <li class="active"><a href="/<?php echo ltrim($selected_attributes_alias.$category_alias,'-'); ?><?php echo substr_replace($sorts['href'],'?',0,1); ?>"><?php echo $sorts['text']; ?></a></li>
+                    <?php } else { ?>
+                      <li><a href="/<?php echo ltrim($selected_attributes_alias.$category_alias,'-'); ?><?php echo substr_replace($sorts['href'],'?',0,1); ?>""><?php echo $sorts['text']; ?></a></li>
+                    <?php } ?>
+                  <?php } ?>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="b-sort-header b-sort-header_mob js-open-popup-link" data-mfp-src=".js-popup-sort">
+                <span class="ic-mob-sotr"></span>
+                <span>Сортировать</span>
+              </div>
+
+            </div>  <!-- end b-products-container__sort-row -->
+
+            <div class="g-row">
+              <div class="b-products-container">
+
+                <div class="b-products-container__content b-products-container__content_list js-view-content">
+
+                <?php foreach ($products as $product) { ?>
+                  <div class="b-prod__wrapper">
+                    <div class="b-prod">
+                      <div class="b-prod__title"><a href="/<?php echo $language_href; ?><?php echo $product['href']; ?>"><?php echo $product['name']; ?></a></div>
+                      <div class="b-prod__options">
+                        <span class="b-prod__options-color"></span>
+                        <?php if ($product['options']) { ?>
+                        <ul class="b-prod__options-list">
+                          <?php foreach ($product['options'] as $option) { ?>
+                          <?php foreach ($option['product_option_value'] as $option_value) { ?>
+                          <li class="b-prod__options-list-item"><?php echo $option_value['name']; ?></li>
+                          <?php } ?>
+                          <?php } ?>
+                        </ul>
+                        <?php } ?>
+                        <a href="/<?php echo $language_href; ?><?php echo $product['href']; ?>" class="g-btn b-prod__btn_buy">Купить</a>
+                        <a href="/<?php echo $language_href; ?><?php echo $product['href']; ?>" class="b-prod__comments-link">Отзывы (<?php echo $product['total_comments']; ?>)</a>
+                      </div>
+                      <div class="b-prod__photo">
+                        <a href="/<?php echo $language_href; ?><?php echo $product['href']; ?>"><img src="<?php echo $product['thumb']; ?>" alt="<?php echo $product['name']; ?>"></a>
+                      </div>
+                      <div class="b-prod__brand-img">
+                        <a href="javascript:void(0)" class="js-business-card-href js-open-popup-link" data-shop-id="<?php echo $product['shop_id']; ?>" data-shop-name="<?php echo $product['shop_name']; ?>" data-mfp-src=".js-popup-business-card">
+                          <img src="/image/<?php if ( $product['manufacturer_image'] != NULL ) { echo $product['manufacturer_image']; }else{ echo 'no_image.png';} ?>" alt="<?php echo $product['name']; ?>">
+                        </a>
+                      </div>
+                      <div class="b-prod__links">
+                        <ul>
+                          <li><a href="/<?php echo $language_href; ?><?php echo $product['href']; ?>"><span class="ic-prod_more"></span>Подробнее</a></li>
+                          <li><a href="/<?php echo $language_href; ?><?php echo $product['href']; ?>"><span class="ic-prod_photos"></span>Все фото (<?php echo $product['total_images']; ?>)</a></li>
+                          <li><a href="/<?php echo $language_href; ?><?php echo $product['href']; ?>"><span class="ic-prod_video"></span>Все видео (<?php echo count($product['videos']); ?>)</a></li>
+                          <li><button type="button" data-toggle="tooltip" class="btn btn-default" title="" onclick="wishlist.add('<?php echo $product['product_id'];?>');" data-original-title="В закладки">В ЗАКЛАДКИ</button>
+                   </li>
+                        </ul>
+                        <div class="b-prod__color">
+                          <span style="background: #474747;"></span>
+                        </div>
+                        <a href="/<?php echo $language_href; ?><?php echo $product['href']; ?>" class="b-prod__links-more-btn">Подробнее</a>
+                      </div>
+                      <div class="b-prod__price-block">
+                        <div class="b-price">
+                          <span class="b-price__number">9999 - 20000</span> <span class="b-price__currency">грн</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>  <!-- end b-prod__wrapper -->
+                <?php } ?>
+
+                </div>  <!-- end b-products-container__content -->
+
+                <div class="b-products-container__pagination">
+                <?php echo $pagination; ?>
+                </div>
+              </div>
+            </div>  <!-- end g-row -->
+
+      </div>  <!-- end g-col-center -->
+      <div class="g-clear"></div>
+    </div>
     <?php } else { ?>
     <p><?php echo $text_empty; ?></p>
     <?php } ?>

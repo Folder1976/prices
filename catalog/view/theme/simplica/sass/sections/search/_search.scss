@@ -33,4 +33,36 @@
     .f-buttons {
         margin-top: 10px;
     }
+
+    .g-col-center {
+        width: calc(100% - 270px);
+    }
+    .b-filter {
+        .f-field-wrapper .f-label {
+            line-height: initial;
+            float: left;
+        }
+        .f-field-wrapper .f-label + .f-field {
+            width: 69%;
+            float: right;
+        }
+        .f-input {
+            padding: 0;
+        }
+    }
+}
+
+@media screen and (max-width: 1190px) {
+    .b-search {
+        .g-container {
+            padding: 0;
+        }
+        .g-col-left {
+            display: none;
+        }
+        .g-col-center {
+            width: 100%;
+            padding: 0;
+        }
+    }
 }

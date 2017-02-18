@@ -91,6 +91,24 @@ $text_sort = 'Выводить: ';
           </div>
 
           <div class="b-filter js-popup-filter">
+
+            <?php if ( isset($categories['categories']) && count($categories['categories'])>0 ) { ?>
+            <div class="b-filter-block b-filter-block_price b-filter-block_open">
+              <div class="b-filter-block__title js-filter-block-toggle">Подкатегории</div>
+              <div class="b-filter-block__content">
+
+                <div class="f-group-wrap_1col">
+                  <?php foreach($categories['categories'] as $cat) { ?>
+                  <div class="f-group">
+                    <a href="<?php echo $cat['href']; ?>"><?php echo $cat['name']; ?></a>
+                  </div>
+                  <?php } ?>
+                </div>
+
+              </div>
+            </div>  <!-- end b-filter-block -->
+            <?php } ?>
+
             <div class="b-filter-block b-filter-block_price b-filter-block_open">
               <div class="b-filter-block__title js-filter-block-toggle">Цена</div>
               <div class="b-filter-block__content">

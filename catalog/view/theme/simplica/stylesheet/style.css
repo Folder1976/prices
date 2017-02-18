@@ -2777,6 +2777,39 @@ a.f-button:hover {
 .b-upcoming-prod_type2 .b-upcoming-prod__block-text img {
   display: none;
 }
+.b-upcoming-prod_type2 .b-upcoming-prod__block-name {
+  display: block;
+  line-height: 1.2;
+  margin-bottom: 6px;
+  height: 3em;
+  overflow: hidden;
+  position: relative;
+}
+.b-upcoming-prod_type2 .b-upcoming-prod__block-name:before {
+  content: '';
+  display: block;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 19px;
+  background: rgba(255, 255, 255, 0);
+  /* Old browsers */
+  background: -moz-linear-gradient(top, rgba(255, 255, 255, 0) 0%, #fff 100%);
+  /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(255, 255, 255, 0)), color-stop(100%, #fff));
+  /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0) 0%, #fff 100%);
+  /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, rgba(255, 255, 255, 0) 0%, #fff 100%);
+  /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, rgba(255, 255, 255, 0) 0%, #fff 100%);
+  /* IE10+ */
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, #fff 100%);
+  /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#000000',GradientType=0 );
+  /* IE6-9 */
+}
 .b-upcoming-prod_type2 .b-upcoming-prod__block-price {
   margin-top: 5px;
   font-weight: 600;
@@ -2790,6 +2823,7 @@ a.f-button:hover {
 .b-upcoming-prod_type2 .b-upcoming-prod__block-img img {
   width: auto;
   max-height: 65px;
+  max-width: 100%;
 }
 
 .b-block-product {
@@ -3155,7 +3189,7 @@ a.f-button:hover {
     justify-content: space-around;
   }
   .b-upcoming-prod__block {
-    width: 250px;
+    width: 45%;
     margin-right: 20px;
   }
 
@@ -3912,6 +3946,11 @@ a.f-button:hover {
   .b-prod__title a, .b-products-container__content_grid-3 .b-prod__title a, .b-products-container__content_grid-4 .b-prod__title a {
     font-size: 14px;
     color: #000;
+  }
+  .b-prod__title a:after, .b-products-container__content_grid-3 .b-prod__title a:after, .b-products-container__content_grid-4 .b-prod__title a:after {
+    content: '';
+    display: block;
+    height: 3em;
   }
   .b-prod__photo, .b-products-container__content_grid-3 .b-prod__photo, .b-products-container__content_grid-4 .b-prod__photo {
     order: 1;
@@ -6064,7 +6103,33 @@ main.b-product .b-brands {
 .b-search .f-buttons {
   margin-top: 10px;
 }
+.b-search .g-col-center {
+  width: calc(100% - 270px);
+}
+.b-search .b-filter .f-field-wrapper .f-label {
+  line-height: initial;
+  float: left;
+}
+.b-search .b-filter .f-field-wrapper .f-label + .f-field {
+  width: 69%;
+  float: right;
+}
+.b-search .b-filter .f-input {
+  padding: 0;
+}
 
+@media screen and (max-width: 1190px) {
+  .b-search .g-container {
+    padding: 0;
+  }
+  .b-search .g-col-left {
+    display: none;
+  }
+  .b-search .g-col-center {
+    width: 100%;
+    padding: 0;
+  }
+}
 .l-main-information__content {
   margin: 30px 0;
   display: flex;

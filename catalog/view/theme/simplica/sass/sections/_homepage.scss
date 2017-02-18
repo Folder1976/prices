@@ -161,6 +161,24 @@ $width_col_right: 0;
                     display: none;
                 }
             }
+            &-name {
+                display: block;
+                line-height: 1.2;
+                margin-bottom: 6px;
+                height: 3em;
+                overflow: hidden;
+                position: relative;
+                &:before {
+                    content: '';
+                    display: block;
+                    position: absolute;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    height: 19px;
+                    @include linearGradient(rgba(255, 255, 255, 0), #fff);
+                }
+            }
             &-price {
                 margin-top: 5px;
                 font-weight: 600;
@@ -173,6 +191,7 @@ $width_col_right: 0;
                 img {
                     width: auto;
                     max-height: 65px;
+                    max-width: 100%;
                 }
             }
         }
@@ -525,7 +544,7 @@ $width_col_right: 0;
             //justify-content: flex-start;
         }
         &__block {
-            width: 250px;
+            width: 45%;
             margin-right: 20px;
         }
     }
