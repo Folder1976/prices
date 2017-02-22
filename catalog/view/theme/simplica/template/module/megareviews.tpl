@@ -36,10 +36,14 @@ error_reporting(0); ?>
 				</div>
 				<div class="b-reviews__message_plus">
 					<div class="b-reviews__message-title"><h4>Достоинства</h4> <span class="ic-reviews_plus_mob"></span></div>
-					<p><?php echo $review['text']; ?></p>
+					<p><?php echo $review['text_plus']; ?></p>
 				</div>
 				<div class="b-reviews__message_minus">
 					<div class="b-reviews__message-title"><h4>Недостатки</h4> <span class="ic-reviews_minus_mob"></span></div>
+					<p><?php echo $review['text_minus']; ?></p>
+				</div>
+				<div class="b-reviews__message_minus">
+					<div class="b-reviews__message-title"><h4>Опыт использования</h4> <span class="ic-reviews_minus_mob"></span></div>
 					<p><?php echo $review['text']; ?></p>
 				</div>
 			</div>
@@ -186,6 +190,17 @@ error_reporting(0); ?>
 						<div class="mr-row"><div class="mr-cell top mr-optcaption"><?php echo $text_reviewtitle; if($settings['title']==2) echo"<span class='mr-required'>*</span>";?></div><div class="mr-cell"><input type="text" name="title" value=""><div class="mr-error-wrapper" for="title"></div>
 							<?php if( $settings['titlehint']!=''){ echo "<p class='mr-hint'>".htmlspecialchars_decode(stripslashes($settings['titlehint']))."</p>"; } ?>
 						</div></div><?php }?>
+						
+						<div class="mr-row"><div class="mr-cell top mr-optcaption"><?php echo $text_reviewtext_plus; ?></div><div class="mr-cell"><textarea name="text_plus" ></textarea><div class="mr-error-wrapper" for="text"></div>
+							<?php if( $settings['texthint']!=''){ echo "<p class='mr-hint'>".htmlspecialchars_decode(stripslashes($settings['texthint']))."</p>"; } ?>
+						</div></div>
+						
+						
+						<div class="mr-row"><div class="mr-cell top mr-optcaption"><?php echo $text_reviewtext_minus; ?></div><div class="mr-cell"><textarea name="text_minus" ></textarea><div class="mr-error-wrapper" for="text"></div>
+							<?php if( $settings['texthint']!=''){ echo "<p class='mr-hint'>".htmlspecialchars_decode(stripslashes($settings['texthint']))."</p>"; } ?>
+						</div></div>
+						
+						
 						<?php if($settings['text']>0){ ?>
 						<div class="mr-row"><div class="mr-cell top mr-optcaption"><?php echo $text_reviewtext;if($settings['text']==2) echo"<span class='mr-required'>*</span>";?></div><div class="mr-cell"><textarea name="text" ></textarea><div class="mr-error-wrapper" for="text"></div>
 							<?php if( $settings['texthint']!=''){ echo "<p class='mr-hint'>".htmlspecialchars_decode(stripslashes($settings['texthint']))."</p>"; } ?>

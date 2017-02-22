@@ -97,7 +97,6 @@ $_['entry_product']     = 'Product';
 $_['entry_author']      = 'Author';
 $_['entry_rating']      = 'Rating';
 $_['entry_status']      = 'Status';
-
 $_['entry_text_plus']   = 'Нравится';
 $_['entry_text_minus']  = 'Не нравится';
 $_['entry_text']        = 'Опыт использования';

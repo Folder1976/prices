@@ -14,6 +14,11 @@ $_['text_no'] = 'No';
 $_['text_yourreview'] = 'Your review';
 $_['text_reviewtitle'] = 'Review title';
 $_['text_reviewtext'] = 'Your review';
+
+$_['text_reviewtext_plus'] = 'Нравится';
+$_['text_reviewtext_minus'] = 'Не нравится';
+
+
 $_['text_videourl'] = 'Link to the video';
 $_['text_videotitle'] = 'Video title';
 $_['text_addreview'] = 'Add review';

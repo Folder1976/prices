@@ -8,6 +8,8 @@ class ModelModuleMegareviews extends Model {
 						 videourl= '" . $this->db->escape($data['videourl']) . "',
 						 product_id = '" . (int)($data['product_id']) . "',
 						 text = '" . $this->db->escape(strip_tags($data['text'])) . "',
+						 text_plus = '" . $this->db->escape(strip_tags($data['text_plus'])) . "',
+						 text_minus = '" . $this->db->escape(strip_tags($data['text_minus'])) . "',
 						 rating = '" . (int)$data['rating'] . "',
 						 recommend = '" . (int)$data['recommend'] . "',
 						 status = '" . (int)$data['status'] . "',
@@ -49,7 +51,15 @@ class ModelModuleMegareviews extends Model {
 	}
 
 	public function editReview($review_id, $data) {
-		$this->db->query("UPDATE " . DB_PREFIX . "review SET author = '" . $this->db->escape($data['author']) . "', product_id = '" . $this->db->escape($data['product_id']) . "', text = '" . $this->db->escape(strip_tags($data['text'])) . "', rating = '" . (int)$data['rating'] . "', status = '" . (int)$data['status'] . "', date_added = NOW() WHERE review_id = '" . (int)$review_id . "'");
+		$this->db->query("UPDATE " . DB_PREFIX . "review SET
+						 author = '" . $this->db->escape($data['author']) . "',
+						 product_id = '" . $this->db->escape($data['product_id']) . "',
+						 text = '" . $this->db->escape(strip_tags($data['text'])) . "',
+						 text_plus = '" . $this->db->escape(strip_tags($data['text_plus'])) . "',
+						 text_minus = '" . $this->db->escape(strip_tags($data['text_minus'])) . "',
+						 rating = '" . (int)$data['rating'] . "',
+						 status = '" . (int)$data['status'] . "',
+						 date_added = NOW() WHERE review_id = '" . (int)$review_id . "'");
 
 		$this->cache->delete('product');
 	}
@@ -79,7 +89,7 @@ class ModelModuleMegareviews extends Model {
 	}
 
 	public function getReviews($data = array()) {
-		$sql = "SELECT r.review_id, r.author, r.rating, r.status, r.date_added, r.videotitle,r.upvotes,r.downvotes, r.text,r.title,r.recommend,r.videourl FROM " . DB_PREFIX . "megareviews r WHERE product_id='".$data['product_id']."' AND status=1";																																					  
+		$sql = "SELECT r.review_id, r.author, r.rating, r.status, r.date_added, r.videotitle,r.upvotes,r.downvotes, r.text_plus, r.text_minus, r.text,r.title,r.recommend,r.videourl FROM " . DB_PREFIX . "megareviews r WHERE product_id='".$data['product_id']."' AND status=1";																																					  
 		
 		$sort_data = array(
 			'pd.name',

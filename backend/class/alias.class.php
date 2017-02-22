@@ -22,14 +22,11 @@ class Alias
 		if($r->num_rows > 0){
 			
 			$row = $r->fetch_assoc();
-			$alias = $this->getCategoryAlias($row['category_id']);
+			$alias_c = $this->getCategoryAlias($row['category_id']);
 			
 		}
 		
-		
-		$alias = trim($alias,'-');
-	
-		
+		$alias_c = trim($alias_c,'-');
 		
 		$sql = 'SELECT sku, name, code
 					FROM `'.$pp.'product` P
@@ -44,17 +41,14 @@ class Alias
 			$row['sku'] = urldecode($row['sku']);
 			
 			if($row['code'] != ''){
-				$alias .= '/'.strtolower($this->translitArtkl(strtolower($row['code'])));
+				$alias .= strtolower($this->translitArtkl(strtolower($row['code'])));
 			}elseif($row['sku'] != ''){
-				$alias .= '/'.strtolower($this->translitArtkl($row['name'].'-'.$row['sku']));
+				$alias .= strtolower($this->translitArtkl($row['name']));
 			}else{
-				$alias .= '/'.strtolower($this->translitArtkl($row['name'].'-'.$product_id));
+				$alias .= strtolower($this->translitArtkl($row['name']));
 			}
 		}
-		
-		
-		
-		
+			
 		$alias = trim($alias);
 		$alias = str_replace('"','-', $alias);
 		$alias = str_replace('%20','-', $alias);
@@ -64,9 +58,36 @@ class Alias
 		$alias = str_replace('--','-', $alias);
 		$alias = str_replace('--','-', $alias);
 		
-		echo $alias.'<br>';
+		$alias = trim($alias, '-');
 		
-		return $alias;
+		$tmp = explode('-', $alias);
+		
+		$alias = '/';
+		if(isset($tmp[0])){
+			$alias .= $tmp[0];
+		}
+		if(isset($tmp[1])){
+			$alias .= '-'.$tmp[1];
+		}
+		if(isset($tmp[2])){
+			$alias .= '-'.$tmp[2];
+		}
+		
+		
+			if($row['code'] != ''){
+				//$alias .= '/'.strtolower($this->translitArtkl(strtolower($row['code'])));
+			}elseif($row['sku'] != ''){
+				$alias .= '-'.$product_id;
+			}else{
+				$alias .= '-'.$product_id;
+			}
+	
+		
+		
+		
+		echo $alias_c.$alias.'<br>';
+		
+		return $alias_c.$alias;
 		
 	}
 	

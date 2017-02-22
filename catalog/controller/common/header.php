@@ -20,14 +20,22 @@ class ControllerCommonHeader extends Controller {
 		}
 		$data['loc_array'] = $loc_array;
 		
-		//Погода
-		if($data['language_href'] == ''){
-			$api = 'http://api.openweathermap.org/data/2.5/weather?lat='.$loc_array['lat'].'&lon='.$loc_array['lon'].'&units=metric&lang=ru&apikey=696ae1f68d3357bed87558d884706976';
-		}else{
-			$api = 'api.openweathermap.org/data/2.5/weather?lat='.$loc_array['lat'].'&lon='.$loc_array['lon'].'&units=metric&lang=en&apikey=696ae1f68d3357bed87558d884706976';
-		}
-		$data['weather'] = json_decode(file_get_contents($api), true);
+		if($_SERVER['REMOTE_ADDR'] != '127.0.0.1'){
 		
+			//Погода
+			if($data['language_href'] == ''){
+				$api = '//api.openweathermap.org/data/2.5/weather?lat='.$loc_array['lat'].'&lon='.$loc_array['lon'].'&units=metric&lang=ru&apikey=696ae1f68d3357bed87558d884706976';
+			}else{
+				$api = '//api.openweathermap.org/data/2.5/weather?lat='.$loc_array['lat'].'&lon='.$loc_array['lon'].'&units=metric&lang=en&apikey=696ae1f68d3357bed87558d884706976';
+			}
+			$data['weather'] = json_decode(file_get_contents($api), true);
+		}else{
+			$data['weather'] = array('main' => array(
+										'temp' => 25,
+										'weather' => 'да'
+										)
+									);
+		}
 		
 		//Получим строку прям из базы
 		$this->load->model('design/banner');

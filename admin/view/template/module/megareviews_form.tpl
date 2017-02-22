@@ -46,6 +46,21 @@ error_reporting(0);?><?php echo $header; ?><?php echo $column_left; ?>
               <?php } ?>
             </div>
           </div>
+         
+          <div class="form-group">
+            <label class="col-sm-2 control-label" for="input-text"><?php echo $entry_text_plus; ?></label>
+            <div class="col-sm-10">
+              <textarea name="text_plus" cols="60" rows="8" placeholder="<?php echo $entry_text_plus; ?>" id="input-text_plus" class="form-control"><?php echo $text_plus; ?></textarea>
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label class="col-sm-2 control-label" for="input-text_minus"><?php echo $entry_text_minus; ?></label>
+            <div class="col-sm-10">
+              <textarea name="text_minus" cols="60" rows="8" placeholder="<?php echo $entry_text_minus; ?>" id="input-text" class="form-control"><?php echo $text_minus; ?></textarea>
+            </div>
+          </div>
+          
           <div class="form-group required">
             <label class="col-sm-2 control-label" for="input-text"><?php echo $entry_text; ?></label>
             <div class="col-sm-10">
@@ -56,6 +71,7 @@ error_reporting(0);?><?php echo $header; ?><?php echo $column_left; ?>
               <?php } ?>
             </div>
           </div>
+          
           <div class="form-group required">
             <label class="col-sm-2 control-label" for="input-name"><?php echo $entry_rating; ?></label>
             <div class="col-sm-10">

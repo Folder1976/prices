@@ -1,7 +1,14 @@
 <?php
 class ModelModuleMegareviews extends Model {
 	public function addReview($data) {
-		$this->db->query("INSERT INTO " . DB_PREFIX . "review SET author = '" . $this->db->escape($data['author']) . "', product_id = '" . $this->db->escape($data['product_id']) . "', text = '" . $this->db->escape(strip_tags($data['text'])) . "', rating = '" . (int)$data['rating'] . "', status = '" . (int)$data['status'] . "', date_added = NOW()");
+		$this->db->query("INSERT INTO " . DB_PREFIX . "review SET
+						 author = '" . $this->db->escape($data['author']) . "',
+						 product_id = '" . $this->db->escape($data['product_id']) . "',
+						 text = '" . $this->db->escape(strip_tags($data['text'])) . "',
+						 text_plus = '" . $this->db->escape(strip_tags($data['text_plus'])) . "',
+						 text_minus = '" . $this->db->escape(strip_tags($data['text_minus'])) . "',
+						 rating = '" . (int)$data['rating'] . "',
+						 status = '" . (int)$data['status'] . "', date_added = NOW()");
 
 		$this->cache->delete('product');
 	}
@@ -43,7 +50,15 @@ class ModelModuleMegareviews extends Model {
 	}
 
 	public function editReview($review_id, $data) {
-		$this->db->query("UPDATE " . DB_PREFIX . "megareviews SET author = '" . $this->db->escape($data['author']) . "',recommend = '" . (int)$data['recommend'] . "', product_id = '" . $this->db->escape($data['product_id']) . "', text = '" . $this->db->escape(strip_tags($data['text'])) . "', rating = '" . (int)$data['rating'] . "', status = '" . (int)$data['status'] . "', date_modified = NOW() WHERE review_id = '" . (int)$review_id . "'");
+		$this->db->query("UPDATE " . DB_PREFIX . "megareviews SET
+						 author = '" . $this->db->escape($data['author']) . "',
+						 recommend = '" . (int)$data['recommend'] . "',
+						 product_id = '" . $this->db->escape($data['product_id']) . "',
+						 text = '" . $this->db->escape(strip_tags($data['text'])) . "',
+						 text_plus = '" . $this->db->escape(strip_tags($data['text_plus'])) . "',
+						 text_minus = '" . $this->db->escape(strip_tags($data['text_minus'])) . "',
+				
+						 rating = '" . (int)$data['rating'] . "', status = '" . (int)$data['status'] . "', date_modified = NOW() WHERE review_id = '" . (int)$review_id . "'");
         $this->db->query("DELETE FROM " . DB_PREFIX . "megareviewsoptions_to_review WHERE review_id = '" . (int)$review_id . "'");
         if(isset($data['options']))
         foreach($data['options'] as $id=>$value)
@@ -93,7 +108,19 @@ class ModelModuleMegareviews extends Model {
 	}
 
 	public function getReviews($data = array()) {
-		$sql = "SELECT pd.name,r.review_id,r.product_id, r.author, r.rating, r.status, r.date_added, r.videotitle,r.upvotes,r.downvotes, r.text,r.title,r.recommend,r.videourl FROM " . DB_PREFIX . "megareviews r
+		$sql = "SELECT pd.name,r.review_id,r.product_id,
+						r.author,
+						r.rating,
+						r.status,
+						r.date_added,
+						r.videotitle,
+						r.upvotes,
+						r.downvotes,
+						r.text_plus,
+						r.text_minus,
+						r.text,r.title,
+						r.recommend,
+						r.videourl FROM " . DB_PREFIX . "megareviews r
 					LEFT JOIN " . DB_PREFIX . "product_description pd ON (r.product_id = pd.product_id AND pd.language_id = '" . (int)$this->config->get('config_language_id') . "')
 					WHERE TRUE";																																					  
 		if (!empty($data['filter_product'])) {

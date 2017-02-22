@@ -225,6 +225,6 @@
     </ul>
   </li>
   
-  <li id="backend"><a href="/<?php echo TMP_DIR; ?>backend"<span>>> Администрация</span></a>
+  <li id="backend"><a href="/<?php echo TMP_DIR; ?>backend"><i class="fa fa-cog fa-fw"></i> <span>Администрация</span></a>
   </li>
 </ul>

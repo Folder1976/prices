@@ -558,6 +558,22 @@ class ControllerModuleMegareviews extends Controller {
 			$data['author'] = '';
 		}
 
+		if (isset($this->request->post['text_plus'])) {
+			$data['text_plus'] = $this->request->post['text_plus'];
+		} elseif (!empty($review_info)) {
+			$data['text_plus'] = $review_info['text_plus'];
+		} else {
+			$data['text_plus'] = '';
+		}
+
+		if (isset($this->request->post['text_minus'])) {
+			$data['text_minus'] = $this->request->post['text_minus'];
+		} elseif (!empty($review_info)) {
+			$data['text_minus'] = $review_info['text_minus'];
+		} else {
+			$data['text_minus'] = '';
+		}
+
 		if (isset($this->request->post['text'])) {
 			$data['text'] = $this->request->post['text'];
 		} elseif (!empty($review_info)) {

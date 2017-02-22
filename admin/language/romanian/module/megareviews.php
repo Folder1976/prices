@@ -102,6 +102,7 @@ $_['entry_text_plus']   = 'Нравится';
 $_['entry_text_minus']  = 'Не нравится';
 $_['entry_text']        = 'Опыт использования';
 
+
 $_['entry_date_added']  = 'Date Added';
 $_['entry_good']        = 'Good';
 $_['entry_bad']         = 'Bad';
