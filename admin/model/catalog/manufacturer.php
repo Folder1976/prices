@@ -138,8 +138,6 @@ class ModelCatalogManufacturer extends Model {
 				
 				if(!isset($alternative['enable'])) $alternative['enable'] = 0;
 				
-				
-				
 				$this->db->query("INSERT INTO " . DB_PREFIX . "manufacturer_alternative SET
 								 brand_id = '" . (int)$manufacturer_id . "',
 								 shop_id = '" . $this->db->escape($alternative['shop_id']) . "',

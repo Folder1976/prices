@@ -252,7 +252,7 @@ class ControllerProductCategory extends Controller {
 			);
 			
 			$category_info = $manufacturer_info = $this->model_catalog_manufacturer->getManufacturer((int)$this->request->get['manufacturer_id']);
-			$selected_attributes_alias = $manufacturer_info['keyword'];
+			$selected_attributes_alias .= $manufacturer_info['keyword'].'-';
 			
 			$category_info['category_id'] = $category_id;
 			$category_info['image'] = array();
@@ -307,6 +307,8 @@ class ControllerProductCategory extends Controller {
 			}
 		
 		}
+		
+		$data['clear_url'] = ''.$data['language_href'].$category_info['keyword'];
 		
 		$short_tags = array();
 		if ($category_info) {

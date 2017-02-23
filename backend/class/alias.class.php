@@ -127,7 +127,48 @@ class Alias
 		return trim($alias,'-');
 		
 	}
+	
+	public function getManufacturerAlias($manufacturer_id){
+		$pp = $this->pp;
+		$alias = '';
+		
+		$sql = 'SELECT name FROM `'.$pp.'manufacturer` WHERE manufacturer_id = "'.$manufacturer_id.'";';
+		$r = $this->db->query($sql) or die($sql);
+	
+		if($r->num_rows > 0){
+			$row = $r->fetch_assoc();
+			
+			$alias = strtolower($this->translitArtkl(trim($row['name']))).'-'.$alias;	
+			
+		}else{
+			$alias = 'brand*'.$manufacturer_id;
+		}
+		
+		
+		$alias = str_replace('-','', $alias);
+		$alias = str_replace('&amp;','', $alias);
+		$alias = str_replace('&','', $alias);
+	
+		return trim($alias,'-');
+		
+	}
 
+	public function setManufacturerAlias($alias, $manufacturer_id){
+		
+		$pp = $this->pp;
+		
+		$sql = 'UPDATE `'.$pp.'manufacturer` SET code = "'.$alias.'", href = "'.$alias.'" where manufacturer_id="'.$manufacturer_id.'";';
+		$this->db->query($sql);// or die($sql);
+		
+		$sql = 'DELETE FROM `'.$pp.'url_alias` WHERE query = "manufacturer_id='.$manufacturer_id.'";';
+		$this->db->query($sql);// or die($sql);		
+		
+		$sql = 'INSERT INTO `'.$pp.'url_alias` SET query = "manufacturer_id='.$manufacturer_id.'", keyword="'.$alias.'";';
+		$this->db->query($sql) or die($sql);		
+		
+		
+	}
+	
 	public function setProductAlias($alias, $product_id){
 		
 		$pp = $this->pp;

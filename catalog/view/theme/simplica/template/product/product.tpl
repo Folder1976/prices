@@ -264,6 +264,7 @@
                 <ul>
                   <?php foreach($videos as $video) { ?>
                   <li>
+                    <?php //echo "<pre>";  print_r(var_dump( $video )); echo "</pre>"; ?>
                     <div class="b-video__list-mini"><?php echo htmlspecialchars_decode($video['video']); ?></div>
                     <h3 class="b-video__list-title">Топ 5 элитных домов на колесах</h3>
                     <p class="b-video__list-author">Авто тайм</p>

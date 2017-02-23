@@ -91,6 +91,11 @@ $text_sort = 'Выводить: ';
           </div>
 
           <div class="b-filter js-popup-filter">
+            <a class="g-btn b-prod__btn_buy" style="border: 1px solid red;" href="/<?php echo $language_href; ?><?php echo $clear_url; ?>">Сбросить</a>
+            <div style="clear: both"></div>
+          </div>
+          
+          <div class="b-filter js-popup-filter">
 
             <?php if ( isset($categories['categories']) && count($categories['categories'])>0 ) { ?>
             <div class="b-filter-block b-filter-block_price b-filter-block_open">
@@ -114,6 +119,7 @@ $text_sort = 'Выводить: ';
               <div class="b-filter-block__content">
 
               <div class="f-group-wrap_2col">
+                <form method="GET">
                 <div class="f-group">
                   <div class="f-field-wrapper">
                     <div class="f-label">
@@ -121,10 +127,11 @@ $text_sort = 'Выводить: ';
                     </div>
                     <div class="f-field">
                       <input type="text"
-                             name="price_min"
-                             value=""
-                             placeholder=""
-                             class="f-input">
+                              id="price_from"
+                              name="price_from"
+                              value="<?php echo (isset($_GET['price_from'])) ? $_GET['price_from'] : '';?>"
+                              placeholder="<?php echo (isset($total_product_info['min_price'])) ? number_format($total_product_info['min_price'], 0, '','') : '';?>"
+                              class="f-input">
                     </div>
                   </div>
                 </div>
@@ -136,10 +143,11 @@ $text_sort = 'Выводить: ';
                     </div>
                     <div class="f-field">
                       <input type="text"
-                             name="price_max"
-                             value=""
-                             placeholder=""
-                             class="f-input">
+                              id="price_to"
+                              name="price_to"
+                              value="<?php echo (isset($_GET['price_to'])) ? $_GET['price_to'] : '';?>"
+                              placeholder="<?php echo (isset($total_product_info['max_price'])) ? number_format($total_product_info['max_price'], 0, '','') : '';?>"
+                              class="f-input">
                     </div>
                   </div>
                 </div>
@@ -151,8 +159,12 @@ $text_sort = 'Выводить: ';
                     </div>
                   </div>
                 </div>
+                 
               </div>
-
+              <button class="g-btn b-prod__btn_buy">Применить</button>
+            </form>
+             
+             <div style="clear: both"></div>
               </div>
             </div>  <!-- end b-filter-block -->
 
@@ -166,8 +178,10 @@ $text_sort = 'Выводить: ';
                 <?php foreach ($manufacturers as $attribut) { ?>
 
                   <li class="f-group">
+                 
                     <div class="f-field-wrapper f-field-wrapper_checkbox">
                       <div class="f-field">
+                        
                         <input type="checkbox"
                                name="<?php echo 'option_'.$attribut['code'].'_value_'.$attribut['manufacturer_id']; ?>"
                                id="<?php echo 'option_'.$attribut['code'].'_value_'.$attribut['manufacturer_id']; ?>"
@@ -210,14 +224,14 @@ $text_sort = 'Выводить: ';
                                name="<?php echo 'option_'.$prod_attr['attribute_group_id'].'_value_'.$attribut['attribute_id']; ?>"
                                id="<?php echo 'option_'.$prod_attr['attribute_group_id'].'_value_'.$attribut['attribute_id']; ?>"
                                value=""
-                               <?php if ( strpos($selected_attributes_alias, $attribut['attribute_id']) !== false) { echo ' checked ';} ?>
+                               <?php if ( strpos($selected_attributes_alias, $attribut['filter_name']) !== false) { echo ' checked ';} ?>
                                class="f-checkbox">
                         <div class="f-label">
                           <label for="<?php echo 'option_'.$prod_attr['attribute_group_id'].'_value_'.$attribut['attribute_id']; ?>">
-                            <?php if ( strpos($selected_attributes_alias, $attribut['attribute_id']) !== false) { ?>
-                              <a href="<?php echo str_replace($attribut['attribute_id'].'-','',$selected_attributes_alias).$category_alias; ?>"><?php echo $attribut['name']; ?></a>
+                            <?php if ( strpos($selected_attributes_alias, $attribut['filter_name']) !== false) { ?>
+                              <a href="<?php echo str_replace($attribut['filter_name'].'-','',$selected_attributes_alias).$category_alias; ?>"><?php echo $attribut['name']; ?></a>
                             <?php } else { ?>
-                              <a href="<?php echo $attribut['attribute_id'].'-'.$selected_attributes_alias.$category_alias; ?>"><?php echo $attribut['name']; ?></a>
+                              <a href="<?php echo $attribut['filter_name'].'-'.$selected_attributes_alias.$category_alias; ?>"><?php echo $attribut['name']; ?></a>
                             <?php } ?>
                             </label>
                         </div>

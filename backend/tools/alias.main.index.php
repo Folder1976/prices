@@ -62,6 +62,20 @@ error_reporting(E_ALL ^ E_DEPRECATED);
 		//echo '<br>'.$alias;	
 	}
 	
+	
+	//Сгенерим алиасы для пустых брендов
+		//перегенерим алиасы категорий
+	$sql = 'SELECT manufacturer_id FROM `'.DB_PREFIX.'manufacturer` WHERE code="";';
+	$r = $mysqli->query($sql) or die($sql);
+	
+	while($row = $r->fetch_assoc()){
+		
+		$alias = $Alias->getManufacturerAlias($row['manufacturer_id']);
+		$Alias->setManufacturerAlias($alias, $row['manufacturer_id']);
+		//echo '<br>'.$category_alias;	
+	}
+
+	
 	echo '<h3>Обновил алиасы</h3>';
 	
 	
