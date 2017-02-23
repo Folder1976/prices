@@ -222,6 +222,7 @@ class ControllerCatalogManufacturer extends Controller {
 			'limit' => $this->config->get('config_limit_admin')
 		);
 
+		
 		$manufacturer_total = $this->model_catalog_manufacturer->getTotalManufacturers();
 
 		$results = $this->model_catalog_manufacturer->getManufacturers($filter_data);
@@ -497,6 +498,12 @@ class ControllerCatalogManufacturer extends Controller {
 		} else {
 			$data['name_several'] = '';
 		}
+		
+		$this->load->model('marketing/shop');
+		$data['shops'] = $this->model_marketing_shop->getShops();
+		
+		$data['alternatives'] = $this->model_catalog_manufacturer->getManufacturerAlternative($this->request->get['manufacturer_id']);;
+		
 
 		$this->load->model('tool/image');
 

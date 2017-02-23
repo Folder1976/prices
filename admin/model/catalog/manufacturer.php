@@ -48,6 +48,23 @@ class ModelCatalogManufacturer extends Model {
 			$this->db->query("INSERT INTO " . DB_PREFIX . "url_alias SET query = 'manufacturer_id=" . (int)$manufacturer_id . "', keyword = '" . $this->db->escape($data['keyword']) . "'");
 		}
 
+		$this->db->query("DELETE FROM " . DB_PREFIX . "manufacturer_alternative WHERE brand_id=" . (int)$manufacturer_id . "");
+		if (isset($data['alternative'])) {
+			foreach ($data['alternative'] as $alternative) {
+				
+				if(!isset($alternative['enable'])) $alternative['enable'] = 0;
+			
+				$this->db->query("INSERT INTO " . DB_PREFIX . "manufacturer_alternative SET
+								 brand_id = '" . (int)$manufacturer_id . "',
+								 shop_id = '" . $this->db->escape($alternative['shop_id']) . "',
+								 name = '" . $this->db->escape($alternative['name']) . "',
+								 enable = '" . (int)$alternative['enable'] . "',
+								 sort = '" . (int)$alternative['sort'] . "'
+								 ");
+			}
+		}
+		
+				
 		$this->cache->delete('manufacturer');
 
 		$this->event->trigger('post.admin.manufacturer.add', $manufacturer_id);
@@ -115,6 +132,25 @@ class ModelCatalogManufacturer extends Model {
 			$this->db->query("INSERT INTO " . DB_PREFIX . "url_alias SET query = 'manufacturer_id=" . (int)$manufacturer_id . "', keyword = '" . $this->db->escape($data['keyword']) . "'");
 		}
 
+		$this->db->query("DELETE FROM " . DB_PREFIX . "manufacturer_alternative WHERE brand_id=" . (int)$manufacturer_id . "");
+		if (isset($data['alternative'])) {
+			foreach ($data['alternative'] as $alternative) {
+				
+				if(!isset($alternative['enable'])) $alternative['enable'] = 0;
+				
+				
+				
+				$this->db->query("INSERT INTO " . DB_PREFIX . "manufacturer_alternative SET
+								 brand_id = '" . (int)$manufacturer_id . "',
+								 shop_id = '" . $this->db->escape($alternative['shop_id']) . "',
+								 name = '" . $this->db->escape($alternative['name']) . "',
+								 enable = '" . (int)$alternative['enable'] . "',
+								 sort = '" . (int)$alternative['sort'] . "'
+								 ");
+			}
+		}
+
+		
 		$this->cache->delete('manufacturer');
 
 		$this->event->trigger('post.admin.manufacturer.edit', $manufacturer_id);
@@ -253,6 +289,16 @@ class ModelCatalogManufacturer extends Model {
 		}
 		
 	}
+	
+	public function getManufacturerAlternative($manufacturer_id){
+	
+		$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "manufacturer_alternative WHERE brand_id = '" . (int)$manufacturer_id . "' ORDER BY shop_id ASC, `name` ASC;");
+
+	
+		return $query->rows;
+	}
+	
+	
 
 
 }

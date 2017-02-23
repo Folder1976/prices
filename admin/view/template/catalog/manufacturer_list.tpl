@@ -29,7 +29,7 @@
         <h3 class="panel-title"><i class="fa fa-list"></i> <?php echo $text_list; ?></h3>
       </div>
       <div class="panel-body">
-        <form action="<?php echo $delete; ?>" method="post" enctype="multipart/form-data" id="form-manufacturer">
+        <!--form action="<?php echo $delete; ?>" method="post" enctype="multipart/form-data" id="form-manufacturer"-->
           <div class="table-responsive">
             <table class="table table-bordered table-hover">
               <thead>
@@ -88,7 +88,7 @@
               </tbody>
             </table>
           </div>
-        </form>
+        <!--/form-->
         <div class="row">
           <div class="col-sm-6 text-left"><?php echo $pagination; ?></div>
           <div class="col-sm-6 text-right"><?php echo $results; ?></div>

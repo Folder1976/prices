@@ -34,6 +34,70 @@
               <?php } ?>
             </div>
           </div>
+          
+          <div class="form-group required">
+            <label class="col-sm-2 control-label" for="input-name">Альтернативные</label>
+              <div class="col-sm-10">
+              <div class="table-responsive">
+                <table id="alternative" class="table table-striped table-bordered table-hover">
+                  <thead>
+                    <tr>
+                      <td class="text-left">Альтернативное название</td>
+                      <td class="text-left">Магазин</td>
+                      <td class="text-left">Активно</td>
+                      <td class="text-right"><?php echo $entry_sort_order; ?></td>
+                      <td>
+                      </td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <?php $image_row = 0; ?>
+                    <?php foreach ($alternatives as $alternative) { ?>
+                    <tr id="image-row<?php echo $image_row; ?>">
+                      <td class="text-right"><input type="text" name="alternative[<?php echo $image_row; ?>][name]" value="<?php echo $alternative['name']; ?>" placeholder="" class="form-control" /></td>
+                      
+                      <td class="text-right">
+                        <select name="alternative[<?php echo $image_row; ?>][shop_id]" class="form-control">
+                            <option value="0">Всем</option>
+                            <?php foreach ($shops as $shop) { ?>
+                            <?php if ($alternative['shop_id'] == $shop['id']) { ?>
+                            <option value="<?php echo $shop['id']; ?>" selected="selected"><?php echo $shop['name']; ?></option>
+                            <?php } else { ?>
+                            <option value="<?php echo $shop['id']; ?>"><?php echo $shop['name']; ?></option>
+                            <?php } ?>
+                            <?php } ?>
+                        </select>
+                      </td>
+                      
+                      <td class="text-right">
+                        <div class="checkbox">
+                          <label>
+                            <?php if ($alternative['enable'] == 1) { ?>
+                              <input type="checkbox" name="alternative[<?php echo $image_row; ?>][enable]" value="1" checked="checked" />
+                            <?php } else { ?>
+                              <input type="checkbox" name="alternative[<?php echo $image_row; ?>][enable]" value="1" />
+                            <?php } ?>
+                          </label>
+                        </div>
+                      </td>
+                      
+                      <td class="text-right"><input type="text" name="alternative[<?php echo $image_row; ?>][sort]" value="<?php echo $alternative['sort']; ?>" placeholder="0" class="form-control" /></td>
+                      <td class="text-left"><button type="button" onclick="$('#image-row<?php echo $image_row; ?>').remove();" data-toggle="tooltip" title="Удалить" class="btn btn-danger"><i class="fa fa-minus-circle"></i></button></td>
+                    </tr>
+                    <?php $image_row++; ?>
+                    <?php } ?>
+                  </tbody>
+                  <tfoot>
+                    <tr>
+                      <td colspan="4"></td>
+                      <td class="text-left"><button type="button" onclick="addImage();" data-toggle="tooltip" title="Добавить" class="btn btn-primary"><i class="fa fa-plus-circle"></i></button></td>
+                    </tr>
+                  </tfoot>
+                </table>
+              </div>
+            </div>
+          </div>
+          
           <div class="form-group">
             <label class="col-sm-2 control-label"><?php echo $entry_store; ?></label>
             <div class="col-sm-10">
@@ -184,8 +248,29 @@
   </div>
 </div>
 <script>
-  $('#input-description').summernote({
+$('#input-description').summernote({
 	height: 300
 });
+
+var image_row = <?php echo $image_row; ?>;
+
+function addImage() {
+  
+  html  = '<tr id="image-row' + image_row + '">';
+  html += '<td class="text-right"><input type="text" name="alternative[' + image_row + '][name]" value="" placeholder="" class="form-control"></td>';
+  html += '<td class="text-right"> <select name="alternative[' + image_row + '][shop_id]" class="form-control"><option value="0">Всем</option>';
+    <?php foreach ($shops as $shop) { ?>
+      html += '<option value="<?php echo $shop['id']; ?>"><?php echo $shop['name']; ?></option>';
+    <?php } ?>
+  html += '</select></td>';
+  html += '<td class="text-right"><div class="checkbox"><label><input type="checkbox" name="alternative[' + image_row + '][enable]" value="1"></label></div></td>';
+  html += '<td class="text-right"><input type="text" name="alternative[' + image_row + '][sort]" value="0" placeholder="0" class="form-control"></td>';
+  html += '<td class="text-left"><button type="button" onclick="$(\'#image-row1\').remove();" data-toggle="tooltip" title="" class="btn btn-danger" data-original-title="Удалить"><i class="fa fa-minus-circle"></i></button></td>';
+  html += '</tr>';
+
+	$('#alternative tbody').append(html);
+
+	image_row++;
+}
 </script>
 <?php echo $footer; ?>
