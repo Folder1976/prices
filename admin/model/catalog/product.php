@@ -161,6 +161,9 @@ class ModelCatalogProduct extends Model {
 								 product_id = '" . (int)$product_id . "',
 								 status = '" . (int)$product_video['status'] . "',
 								 video = '" . $this->db->escape($product_video['video']) . "',
+								 title = '" . $this->db->escape($product_video['title']) . "',
+								 chanel = '" . $this->db->escape($product_video['chanel']) . "',
+								 `time` = '" . $this->db->escape($product_video['time']) . "',
 								 sort = '" . (int)$product_video['sort'] . "'");
 			}
 		}
@@ -453,6 +456,9 @@ class ModelCatalogProduct extends Model {
 								 product_id = '" . (int)$product_id . "',
 								 status = '" . (int)$product_video['status'] . "',
 								 video = '" . $this->db->escape($product_video['video']) . "',
+								 title = '" . $this->db->escape($product_video['title']) . "',
+								 chanel = '" . $this->db->escape($product_video['chanel']) . "',
+								 `time` = '" . $this->db->escape($product_video['time']) . "',
 								 sort = '" . (int)$product_video['sort'] . "'");
 			}
 		}

@@ -45,11 +45,66 @@ class ControllerCatalogManufacturer extends Controller {
 	}
 
 	public function edit() {
+		
 		$this->language->load('catalog/manufacturer');
+		$this->load->model('catalog/manufacturer');
+		
+		
+		
+		if(isset($_FILES['userfile'])){
+			$product_image = array();
+			
+			if($_FILES['userfile']['error'][0] != 0){
+				switch($_FILES['userfile']['error']){
+					case 1: echo "UPLOAD_MAX_FILE_SIZE error!<br>";break;
+					case 2: echo "MAX_FILE_SIZE erroe!<br>";break;
+					case 3: echo "Not file loading, breaking process.<br>";break;
+					case 4: echo "Not load<br>";break;
+					case 6: echo "tmp folder error<br>";break;
+					case 7: echo "write file error<br>";break;
+					case 8: echo "php stop your load<br>";break;
+				}
+			}else{
+				
+				
+				$filecount=0;
+				while(isset($_FILES['userfile']['name'][$filecount])){
+					
+					$image = DIR_IMAGE.'catalog/'.$_FILES['userfile']['name'][$filecount];
+					//$image = ''.$_FILES['userfile']['name'][$filecount];
+					
+					if ( ! preg_match( '|(.+/)(.+)\.(\w+)$|', $image, $m ) ){	return false;}
+					$path = $m[1]; $file_name = $m[2]; $extension = $m[3];
+					
+					$count = 0;
+					$image = $path.$file_name.'.'.$extension;
+					/*
+					while(file_exists($image)){
+						$count++;
+						$image = $path.$file_name.$count.'.'.$extension;
+					}*/
+					
+					//die($image);
+					
+					copy($_FILES['userfile']['tmp_name'][$filecount], $image);
+					$product_image[] = str_replace(DIR_IMAGE,'',$image);
+					
+					$filecount++;
+				}
+				
+			}
+			if(isset($product_image) AND count($product_image)){
+				$this->model_catalog_manufacturer->updateManufacturerImages($this->request->post['manufacturer_id'], $product_image);
+			}
+			
+			
+			$this->response->redirect($this->url->link('catalog/manufacturer', 'manufacturer_id=' . $this->request->get['manufacturer_id'] . '&page=' . $this->request->get['page'] . '&token=' . $this->session->data['token'] , 'SSL'));
+
+		}
+		
+			
 
 		$this->document->setTitle($this->language->get('heading_title'));
-
-		$this->load->model('catalog/manufacturer');
 
 		if (($this->request->server['REQUEST_METHOD'] == 'POST') && $this->validateForm()) {
 			$this->model_catalog_manufacturer->editManufacturer($this->request->get['manufacturer_id'], $this->request->post);
@@ -175,6 +230,7 @@ class ControllerCatalogManufacturer extends Controller {
 			$data['manufacturers'][] = array(
 				'manufacturer_id' => $result['manufacturer_id'],
 				'name'            => $result['name'],
+				'image'            => '/image/'.$result['image'],
 				'enable'            => $result['enable'],
 				'sort_order'      => $result['sort_order'],
 				'edit'            => $this->url->link('catalog/manufacturer/edit', 'token=' . $this->session->data['token'] . '&manufacturer_id=' . $result['manufacturer_id'] . $url, 'SSL')

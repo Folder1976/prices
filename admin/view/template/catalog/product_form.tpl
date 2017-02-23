@@ -1012,6 +1012,9 @@
                     <tr>
                       <td class="text-left">Код для видео</td>
                       <td class="text-left">Активный</td>
+                      <td class="text-left">Канал</td>
+                      <td class="text-left">Название</td>
+                      <td class="text-left">Время</td>
                       <td class="text-right"><?php echo $entry_sort_order; ?></td>
                       <td>
                       </td>
@@ -1031,6 +1034,10 @@
                           <?php } ?>
                          </label>
                       </td>
+                      <td class="text-right"><input type="text" name="product_videos[<?php echo $video_row; ?>][chanel]" value="<?php echo $product_video['chanel']; ?>" placeholder="html code" class="form-control" /></td>
+                      <td class="text-right"><input type="text" name="product_videos[<?php echo $video_row; ?>][title]" value="<?php echo $product_video['title']; ?>" placeholder="html code" class="form-control" /></td>
+                      <td class="text-right"><input type="text" name="product_videos[<?php echo $video_row; ?>][time]" value="<?php echo $product_video['time']; ?>" placeholder="html code" class="form-control" /></td>
+                    
                       <td class="text-right"><input type="text" name="product_videos[<?php echo $video_row; ?>][sort]" value="<?php echo $product_video['sort']; ?>" placeholder="<?php echo $entry_sort_order; ?>" class="form-control" /></td>
                       <td class="text-left"><button type="button" onclick="$('#video-row<?php echo $video_row; ?>').remove();" data-toggle="tooltip" title="<?php echo $button_remove; ?>" class="btn btn-danger"><i class="fa fa-minus-circle"></i></button></td>
                     </tr>
@@ -1039,7 +1046,7 @@
                   </tbody>
                   <tfoot>
                     <tr>
-                      <td colspan="3"></td>
+                      <td colspan="6"></td>
                       <td class="text-left"><button type="button" onclick="addVideo();" data-toggle="tooltip" title="<?php echo $button_image_add; ?>" class="btn btn-primary"><i class="fa fa-plus-circle"></i></button></td>
                     </tr>
                   </tfoot>

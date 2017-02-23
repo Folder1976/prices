@@ -40,6 +40,8 @@
                     <?php } else { ?>
                     <a href="<?php echo $sort_name; ?>"><?php echo $column_name; ?></a>
                     <?php } ?></td>
+                   <td class="text-right" style="width:320px;">
+                   </td>
                   <td class="text-right"><?php if ($sort == 'sort_order') { ?>
                     <a href="<?php echo $sort_sort_order; ?>" class="<?php echo strtolower($order); ?>"><?php echo $column_sort_order; ?></a>
                     <?php } else { ?>
@@ -58,13 +60,29 @@
                     <input type="checkbox" name="selected[]" value="<?php echo $manufacturer['manufacturer_id']; ?>" />
                     <?php } ?></td>
                   <td class="text-left"><?php echo $manufacturer['name']; ?></td>
+                  <td class="text-left">
+                    
+                    <div class="load_photo photo">
+                      <img src="<?php echo $manufacturer['image']; ?>" style="max-width: 70px;">
+                    </div>
+                    <div class="load_photo photo">
+                      <b style="color:#005100;">Загрузить фото</b>
+                        <form enctype="multipart/form-data" method="post" action="/admin/index.php?route=catalog/manufacturer/edit&token=<?php echo $_GET['token']; ?>&page=<?php echo isset($_GET['page']) ? $_GET['page'] : 1; ?>&manufacturer_id=<?php echo $manufacturer['manufacturer_id']; ?>">
+                          <input type="hidden" name="MAX_FILE_SIZE" value="<?php echo (1048*1048*1048); ?>">
+                          <input type="hidden"' name="type" value="manufacturer">
+                          <input type="hidden"' name="manufacturer_id" value="<?php echo $manufacturer['manufacturer_id']; ?>">
+                          <input type="file" min="1" max="1" multiple="false" style="width:160px"  name="userfile[]" OnChange="submit();"/>
+                        </form>
+                    </div>
+                    
+                  </td>
                   <td class="text-right"><?php echo $manufacturer['sort_order']; ?></td>
                   <td class="text-right"><a href="<?php echo $manufacturer['edit']; ?>" data-toggle="tooltip" title="<?php echo $button_edit; ?>" class="btn btn-primary"><i class="fa fa-pencil"></i></a></td>
                 </tr>
                 <?php } ?>
                 <?php } else { ?>
                 <tr>
-                  <td class="text-center" colspan="4"><?php echo $text_no_results; ?></td>
+                  <td class="text-center" colspan="5"><?php echo $text_no_results; ?></td>
                 </tr>
                 <?php } ?>
               </tbody>
@@ -79,4 +97,12 @@
     </div>
   </div>
 </div>
+<style>
+  .photo{
+    display: block;
+    position: relative;
+    float: left;
+    margin-left: 20px;
+  }
+</style>
 <?php echo $footer; ?>

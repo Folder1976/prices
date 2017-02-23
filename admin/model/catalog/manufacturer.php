@@ -241,5 +241,19 @@ class ModelCatalogManufacturer extends Model {
 		$this->db->query("DELETE FROM " . DB_PREFIX . "url_alias WHERE query LIKE 'manufacturer_id=%'");
 
 	}
+	
+	
+	
+	public function updateManufacturerImages($manufacturer_id, $images) {
+		
+		foreach($images as $image){
+			$sql = "UPDATE " . DB_PREFIX . "manufacturer SET image = '" . $this->db->escape($image) . "' WHERE manufacturer_id = '" . (int)$manufacturer_id . "'";
+			$this->db->query($sql);
+			//echo '<br>'.$sql;
+		}
+		
+	}
+
+
 }
 
