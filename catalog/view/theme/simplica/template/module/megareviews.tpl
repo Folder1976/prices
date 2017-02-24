@@ -42,7 +42,7 @@ error_reporting(0); ?>
 					<div class="b-reviews__message-title"><h4>Недостатки</h4> <span class="ic-reviews_minus_mob"></span></div>
 					<p><?php echo $review['text_minus']; ?></p>
 				</div>
-				<div class="b-reviews__message_minus">
+				<div class="b-reviews__message_practice">
 					<div class="b-reviews__message-title"><h4>Опыт использования</h4> <span class="ic-reviews_minus_mob"></span></div>
 					<p><?php echo $review['text']; ?></p>
 				</div>

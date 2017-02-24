@@ -1,5 +1,5 @@
 <?php
-
+require_once('krumo/class.krumo.php');
 
 ini_set('error_reporting', E_ALL);
 ini_set('display_errors', 1);

@@ -7,7 +7,7 @@ $text_sort = 'Выводить: ';
     
 //echo "<pre>";  print_r(var_dump( get_defined_vars() )); echo "</pre>";
 
-
+//krumo(get_defined_vars());
 
 ?>
 
@@ -90,36 +90,36 @@ $text_sort = 'Выводить: ';
             <h3>Подбор по параметрам <span class="ic-arrow-down-white"></span></h3>
           </div>
 
+          <form method="GET">
+
           <div class="b-filter js-popup-filter">
-            <a class="g-btn b-prod__btn_buy" style="border: 1px solid red;" href="/<?php echo $language_href; ?><?php echo $clear_url; ?>">Сбросить</a>
-            <div style="clear: both"></div>
-          </div>
-          
-          <div class="b-filter js-popup-filter">
+
+            <div class="b-filter-block b-filter-block_button">
+              <a class="g-btn f-button" href="/<?php echo $language_href; ?><?php echo $clear_url; ?>">Сбросить</a>
+              <button class="g-btn f-button">Применить</button>
+            </div>
+
 
             <?php if ( isset($categories['categories']) && count($categories['categories'])>0 ) { ?>
-            <div class="b-filter-block b-filter-block_price b-filter-block_open">
+            <div class="b-filter-block b-filter-block_open">
               <div class="b-filter-block__title js-filter-block-toggle">Подкатегории</div>
-              <div class="b-filter-block__content">
-
-                <div class="f-group-wrap_1col">
+              <div class="b-filter-block__content b-filter-block__content_categories">
+                <div class="parent"><?php echo $categories['header']; ?></div>
+                <ul class="children">
                   <?php foreach($categories['categories'] as $cat) { ?>
-                  <div class="f-group">
-                    <a href="<?php echo $cat['href']; ?>"><?php echo $cat['name']; ?></a>
-                  </div>
+                    <li><a href="<?php echo $cat['href']; ?>"><?php echo $cat['name']; ?></a></li>
                   <?php } ?>
-                </div>
-
+                </ul>
               </div>
             </div>  <!-- end b-filter-block -->
             <?php } ?>
+
 
             <div class="b-filter-block b-filter-block_price b-filter-block_open">
               <div class="b-filter-block__title js-filter-block-toggle">Цена</div>
               <div class="b-filter-block__content">
 
               <div class="f-group-wrap_2col">
-                <form method="GET">
                 <div class="f-group">
                   <div class="f-field-wrapper">
                     <div class="f-label">
@@ -161,10 +161,8 @@ $text_sort = 'Выводить: ';
                 </div>
                  
               </div>
-              <button class="g-btn b-prod__btn_buy">Применить</button>
-            </form>
-             
-             <div style="clear: both"></div>
+
+              <div style="clear: both"></div>
               </div>
             </div>  <!-- end b-filter-block -->
 
@@ -247,6 +245,7 @@ $text_sort = 'Выводить: ';
             <?php } ?>
 
           </div>  <!-- end b-filter -->
+          </form>
         </div>  <!-- end g-col-left -->
 
         <div class="g-col-center">

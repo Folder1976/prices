@@ -131,16 +131,22 @@ MegaReviews.prototype = {
 	    
 	    if(self._options.counter){
 	    	
+	    	//var ta_plus=$('#addreviewform').find('textarea[name="text_plus"]');
+	    	//var ta_minus=$('#addreviewform').find('textarea[name="text_minus"]');
+	    	//var ta=$('#addreviewform').find('textarea[name="text"]');
+	    	//var message_plus=ta_plus.parent().find('p').text();
+	    	//var message_minus=ta_minus.parent().find('p').text();
 	    	var ta=$('#addreviewform').find('textarea');
 	    	var message=ta.parent().find('p').text();
 	    	
 	    	ta.bind('input propertychange', function() {
 	    		
-	    		var left=self._options.textcount-ta.val().length;	
+	    		//var left=self._options.textcount-ta.val().length;
+	    		var left=self._options.textcount-$(this).val().length;
 	    		
-	    		if(left==self._options.textcount) ta.parent().find('p').html(message); else
-	    		if(left<1) ta.parent().find('p').html('<img src="'+$('#path').val()+'/image/mr/check.png" width="12">'+self.text_minreached); else
-	    		ta.parent().find('p').html(self.text_minreqleft+left); 	 
+	    		if(left==self._options.textcount) $(this).parent().find('p').html(message); else
+	    		if(left<1) $(this).parent().find('p').html('<img src="'+$('#path').val()+'/image/mr/check.png" width="12">'+self.text_minreached); else
+	    		$(this).parent().find('p').html(self.text_minreqleft+left); 	 
 			
 	    	});
 	    }

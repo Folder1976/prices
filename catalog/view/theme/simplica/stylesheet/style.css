@@ -3479,6 +3479,17 @@ a.f-button:hover {
   padding-top: 15px;
   display: none;
 }
+.b-filter-block__content_categories ul.children {
+  padding-left: 10px;
+  margin-top: 10px;
+}
+.b-filter-block__content_categories ul.children li {
+  padding: 3px 0;
+}
+.b-filter-block_button {
+  display: flex;
+  justify-content: space-between;
+}
 .b-filter-block_price .f-group-wrap_2col .f-group {
   width: 37%;
 }
@@ -4966,7 +4977,7 @@ main.b-product .b-brands {
   width: 17px;
   height: 17px;
   position: absolute;
-  top: 0;
+  top: 4px;
   left: -30px;
 }
 .b-tab-reviews .b-reviews__message_minus:before {

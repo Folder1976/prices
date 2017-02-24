@@ -266,8 +266,11 @@
                   <li>
                     <?php //echo "<pre>";  print_r(var_dump( $video )); echo "</pre>"; ?>
                     <div class="b-video__list-mini"><?php echo htmlspecialchars_decode($video['video']); ?></div>
-                    <h3 class="b-video__list-title">Топ 5 элитных домов на колесах</h3>
-                    <p class="b-video__list-author">Авто тайм</p>
+                    <h3 class="b-video__list-title"><?php echo $video['title']; ?></h3>
+                    <?php if ( count($video['time']) > 0 ) { ?>
+                      <p class="b-video__list-time"><?php echo $video['time']; ?></p>
+                    <?php } ?>
+                    <p class="b-video__list-author"><?php echo $video['chanel']; ?></p>
                   </li>
                   <?php } ?>
                 </ul>
