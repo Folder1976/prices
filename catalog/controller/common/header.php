@@ -24,9 +24,9 @@ class ControllerCommonHeader extends Controller {
 		
 			//Погода
 			if($data['language_href'] == ''){
-				$api = '//api.openweathermap.org/data/2.5/weather?lat='.$loc_array['lat'].'&lon='.$loc_array['lon'].'&units=metric&lang=ru&apikey=696ae1f68d3357bed87558d884706976';
+				$api = 'http://api.openweathermap.org/data/2.5/weather?lat='.$loc_array['lat'].'&lon='.$loc_array['lon'].'&units=metric&lang=ru&apikey=696ae1f68d3357bed87558d884706976';
 			}else{
-				$api = '//api.openweathermap.org/data/2.5/weather?lat='.$loc_array['lat'].'&lon='.$loc_array['lon'].'&units=metric&lang=en&apikey=696ae1f68d3357bed87558d884706976';
+				$api = 'http://api.openweathermap.org/data/2.5/weather?lat='.$loc_array['lat'].'&lon='.$loc_array['lon'].'&units=metric&lang=en&apikey=696ae1f68d3357bed87558d884706976';
 			}
 			$data['weather'] = json_decode(file_get_contents($api), true);
 		}else{
