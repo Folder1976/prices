@@ -356,10 +356,15 @@ main.b-product {
             text-transform: uppercase;
             padding-left: 38%;
         }
-        &-author {
-            color: #131313;
+        &-time {
+            color: #767676;
             font-size: 12px;
-            padding-left: 38%;
+            padding: 0.3em 0 0.3em 38%;
+        }
+        &-author {
+            color: #767676;
+            font-size: 12px;
+            padding: 0.3em 0 0.3em 38%;
         }
     }
 }

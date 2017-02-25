@@ -4551,10 +4551,15 @@ main.b-product .b-brands {
   text-transform: uppercase;
   padding-left: 38%;
 }
-.b-video__list-author {
-  color: #131313;
+.b-video__list-time {
+  color: #767676;
   font-size: 12px;
-  padding-left: 38%;
+  padding: 0.3em 0 0.3em 38%;
+}
+.b-video__list-author {
+  color: #767676;
+  font-size: 12px;
+  padding: 0.3em 0 0.3em 38%;
 }
 
 .b-block-product_brands .b-product-carousel__img {
