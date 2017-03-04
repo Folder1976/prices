@@ -81,7 +81,7 @@ $(document).ready(function() {
 
 	/* Search */
 	$('#search input[name=\'search\']').parent().find('button').on('click', function() {
-		url = $('base').attr('href') + 'index.php?route=product/search';
+		url = "/"+language_href+$('base').attr('href') + 'index.php?route=product/search';
 
 		var value = $('header input[name=\'search\']').val();
 		var value2 = $('header input[name=\'category_id\']').val();
@@ -166,7 +166,7 @@ $(document).ready(function() {
 var cart = {
 	'add': function(product_id, quantity) {
 		$.ajax({
-			url: 'index.php?route=checkout/cart/add',
+			url: '/'+language_href+'index.php?route=checkout/cart/add',
 			type: 'post',
 			data: 'product_id=' + product_id + '&quantity=' + (typeof(quantity) != 'undefined' ? quantity : 1),
 			dataType: 'json',
@@ -198,7 +198,7 @@ var cart = {
 
 					$('html, body').animate({ scrollTop: 0 }, 'slow');
 
-					$('#cart').load('index.php?route=common/cart/info');
+					$('#cart').load('/'+language_href+'index.php?route=common/cart/info');
 
 					$('.js-mini_cart').removeClass('h-minimized');
 				    setTimeout(function() {
@@ -213,7 +213,7 @@ var cart = {
 	},
 	'update': function(key, quantity) {
 		$.ajax({
-			url: 'index.php?route=checkout/cart/edit',
+			url: '/'+language_href+'index.php?route=checkout/cart/edit',
 			type: 'post',
 			data: 'key=' + key + '&quantity=' + (typeof(quantity) != 'undefined' ? quantity : 1),
 			dataType: 'json',
@@ -250,7 +250,7 @@ var cart = {
 	},
 	'remove': function(key) {
 		$.ajax({
-			url: 'index.php?route=checkout/cart/remove',
+			url: '/'+language_href+'index.php?route=checkout/cart/remove',
 			type: 'post',
 			data: 'key=' + key,
 			dataType: 'json',
@@ -274,9 +274,9 @@ var cart = {
 				}, 100);
 
 				if (getURLVar('route') == 'checkout/cart' || getURLVar('route') == 'checkout/checkout') {
-					location = 'index.php?route=checkout/cart';
+					location = '/'+language_href+'index.php?route=checkout/cart';
 				} else {
-					$('#cart').load('index.php?route=common/cart/info');
+					$('#cart').load('/'+language_href+'index.php?route=common/cart/info');
 				}
 			},
 	        error: function(xhr, ajaxOptions, thrownError) {
@@ -292,7 +292,7 @@ var voucher = {
 	},
 	'remove': function(key) {
 		$.ajax({
-			url: 'index.php?route=checkout/cart/remove',
+			url: '/'+language_href+'index.php?route=checkout/cart/remove',
 			type: 'post',
 			data: 'key=' + key,
 			dataType: 'json',
@@ -309,9 +309,9 @@ var voucher = {
 				}, 100);
 
 				if (getURLVar('route') == 'checkout/cart' || getURLVar('route') == 'checkout/checkout') {
-					location = 'index.php?route=checkout/cart';
+					location = '/'+language_href+'index.php?route=checkout/cart';
 				} else {
-					$('#cart').load('index.php?route=common/cart/info');
+					$('#cart').load('/'+language_href+'index.php?route=common/cart/info');
 				}
 			},
 	        error: function(xhr, ajaxOptions, thrownError) {
@@ -324,7 +324,7 @@ var voucher = {
 var wishlist = {
 	'add': function(product_id) {
 		$.ajax({
-			url: 'index.php?route=account/wishlist/add',
+			url: '/'+language_href+'index.php?route=account/wishlist/add',
 			type: 'post',
 			data: 'product_id=' + product_id,
 			dataType: 'json',
@@ -364,7 +364,7 @@ var wishlist = {
 var compare = {
 	'add': function(product_id) {
 		$.ajax({
-			url: 'index.php?route=product/compare/add',
+			url: '/'+language_href+'index.php?route=product/compare/add',
 			type: 'post',
 			data: 'product_id=' + product_id,
 			dataType: 'json',

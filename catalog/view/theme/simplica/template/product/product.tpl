@@ -3,6 +3,8 @@
 <?php
 //echo "<pre>";  print_r(var_dump( get_defined_vars() )); echo "</pre>";
 //echo "<pre>";  print_r(var_dump( $content_megareviews )); echo "</pre>";
+//echo "<pre>";  print_r(var_dump( $_SESSION )); echo "</pre>";
+
 ?>
 
 <div class="b-popup b-prod-img-popup js-popup-prod-img mfp-hide">
@@ -12,9 +14,9 @@
       <span>
       <?php
       if ( $model_price['max_price'] == $model_price['min_price'] ) {
-        echo $model_price['max_price'];
+        echo $model_price['formated_max_price'];
       } else {
-        echo $model_price['max_price'].' - '.$model_price['min_price'];
+        echo $model_price['formated_min_price'].' - '.$model_price['formated_max_price'];
       }
       ?>
       </span>
@@ -101,7 +103,7 @@
       <?php $count = 0; ?>
       <?php foreach ($breadcrumbs as $breadcrumb) { ?>
         <?php if ($count == 0) { ?>
-          <a href="<?php echo $language_href; ?><?php echo $breadcrumb['href']; ?>" title=""><span class="ic-home"></span><?php echo $breadcrumb['text']; ?></a>
+          <a href="/<?php echo $language_href; ?><?php echo $breadcrumb['href']; ?>" title=""><span class="ic-home"></span><?php echo $breadcrumb['text']; ?></a>
         <?php } else { ?>
           <span>&nbsp;>&nbsp;</span><a href="<?php echo $language_href; ?><?php echo $breadcrumb['href']; ?>" title="<?php echo $breadcrumb['text']; ?>"><?php echo $breadcrumb['text']; ?></a>
         <?php } ?>
@@ -118,7 +120,7 @@
                 <h2 class="b-prod-img__title"><?php echo $heading_title; ?></h2>
 
                 <div class="b-prod-img__brand">
-                  <img src="img/brands/brand_acer.png" alt="">
+                  <img src="/image/<?php echo $product_manufacturer_info['image']; ?>" alt="<?php echo $product_manufacturer_info['name']; ?>">
                 </div>
 
                 <div class="b-prod-img__main-image js-open-popup-link" data-mfp-src=".js-popup-prod-img">
@@ -164,9 +166,9 @@
                     <span>
                     <?php
                     if ( $model_price['max_price'] == $model_price['min_price'] ) {
-                      echo $model_price['max_price'];
+                      echo $model_price['formated_max_price'];
                     } else {
-                      echo $model_price['max_price'].' - '.$model_price['min_price'];
+                      echo $model_price['formated_max_price'].' - '.$model_price['formated_min_price'];
                     }
                     ?>
                     </span>
@@ -312,12 +314,14 @@
         <div class="b-prod__tabs js-prod_tabs">
           <div class="g-scroll-line js-scroll-line">
             <ul>
-              <?php if ( isset($attribute_groups) ) { ?>
+              <?php if ( isset($attribute_groups) AND count($attribute_groups)) { ?>
               <li><a href="/<?php echo $language_href; ?><?php echo $_GET['_route_']; ?>#js-block-product_tabs-1">Характеристики</a></li>
+              <?php }else{ ?>
+                <script>$(document).ready(function(){setTimeout(function(){$("#js-tab-product_tabs-4").trigger("click");},300);});</script>
               <?php } ?>
               <li><a href="/<?php echo $language_href; ?><?php echo $_GET['_route_']; ?>#js-block-product_tabs-2">Предложения</a></li>
               <li><a href="/<?php echo $language_href; ?><?php echo $_GET['_route_']; ?>#js-block-product_tabs-3">Отзывы</a></li>
-              <li><a href="/<?php echo $language_href; ?><?php echo $_GET['_route_']; ?>#js-block-product_tabs-4">Вопросы и ответы</a></li>
+              <li><a href="/<?php echo $language_href; ?><?php echo $_GET['_route_']; ?>#js-block-product_tabs-4" id="js-tab-product_tabs-4">Вопросы и ответы</a></li>
             </ul>
           </div>
 
@@ -719,7 +723,7 @@
 <!-- ==================================================================================== -->
 <!-- ==================================================================================== -->
          
-        
+    
 
 <!-- =====Старый коментарий=============================================================================== -->
 <!-- ==================================================================================== -->
@@ -983,14 +987,14 @@ $('.b-video__list').on('click', 'li', function(){
             return false;
         });
 
-        $('#review').load('/index.php?route=product/product/review&product_id=<?php echo $product_id; ?>');
+        $('#review').load('/<?php echo $language_href; ?>index.php?route=product/product/review&product_id=<?php echo $product_id; ?>');
 
 		
         $("#btn-review").on("click", function () {
            //debugger;
 		    
             $.ajax({
-                url: '/index.php?route=product/product/write&product_id=170487',
+                url: '/<?php echo $language_href; ?>index.php?route=product/product/write&product_id=170487',
                 type: 'post',
                 dataType: 'json',
                 data: 'name=' + encodeURIComponent($('input[name=\'name\']').val()) + '&text=' + encodeURIComponent($('textarea[name=\'text\']').val()) + '&rating=' + encodeURIComponent($('input[name=\'rating\']:checked').val() ? $('input[name=\'rating\']:checked').val() : '') + '&captcha=' + encodeURIComponent($('input[name=\'captcha\']').val()),
@@ -1028,4 +1032,6 @@ $('.b-video__list').on('click', 'li', function(){
 	console.log('product_page111');
 });
 </script>
+
+
 <?php echo $footer; ?>

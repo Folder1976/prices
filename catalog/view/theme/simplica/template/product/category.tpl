@@ -281,10 +281,26 @@ $text_sort = 'Выводить: ';
                 <?php foreach ( $category_page_products as $prod) { ?>
                 <div class="b-product-carousel__item">
                   <div class="b-product-carousel__img">
-                    <img src="<?php echo $prod['image']; ?>" alt="<?php echo $prod['name']; ?>">
+                    <img src="/image/<?php echo $prod['image']; ?>" alt="<?php echo $prod['name']; ?>">
                   </div>
                   <a href="/<?php echo $language_href; ?><?php echo $prod['href']; ?>" class="b-product-carousel__link"><?php echo $prod['name']; ?></a>
-                  <span class="b-product-carousel__price"><?php echo /*$currencies[$_SESSION ['currency']]['symbol_left'].' '.*/sprintf("%.2f", $prod['price'])/*.' '.$currencies[$_SESSION ['currency']]['symbol_right']*/; ?></span>
+                  <span class="b-product-carousel__price">
+                    
+                    <?php if ( $prod['model_price']['max_price'] > 0 ) { ?>
+                          
+                      <?php if ( $prod['model_price']['max_price'] == $prod['model_price']['min_price'] ) { ?>
+                        <span class="b-price__number"><?php echo $prod['model_price']['formated_min_price']; ?></span> <!--span class="b-price__currency">грн</span-->
+                      <?php } else { ?>
+                        <span class="b-price__number"><?php echo $prod['model_price']['formated_min_price']; ?> - <?php echo $prod['model_price']['formated_max_price']; ?></span> <!--span class="b-price__currency">грн</span-->
+                      <?php } ?>
+                      
+                    <?php }else{ ?>
+                      
+                      <span class="b-price__number"><?php echo $prod['price']; ?></span> <!--span class="b-price__currency">грн</span-->  
+                      
+                    <?php }  ?>
+                    
+                  </span>
                 </div>
                 <?php } ?>
 
@@ -343,6 +359,7 @@ $text_sort = 'Выводить: ';
               <div class="b-products-container__content b-products-container__content_list js-view-content">
 
               <?php foreach ($products as $product) { ?>
+             
                 <div class="b-prod__wrapper">
                   <div class="b-prod">
                     <div class="b-prod__title"><a href="/<?php echo $language_href; ?><?php echo $product['href']; ?>"><?php echo $product['name']; ?></a></div>
@@ -382,7 +399,22 @@ $text_sort = 'Выводить: ';
                     </div>
                     <div class="b-prod__price-block">
                       <div class="b-price">
-                        <span class="b-price__number">9999 - 20000</span> <span class="b-price__currency">грн</span>
+                          
+                          <?php if ( $product['model_price']['max_price'] > 0 ) { ?>
+                          
+                            <?php if ( $product['model_price']['max_price'] == $product['model_price']['min_price'] ) { ?>
+                              <span class="b-price__number"><?php echo $product['model_price']['formated_min_price']; ?></span> <!--span class="b-price__currency">грн</span-->
+                            <?php } else { ?>
+                              <span class="b-price__number"><?php echo $product['model_price']['formated_min_price']; ?> - <?php echo $product['model_price']['formated_max_price']; ?></span> <!--span class="b-price__currency">грн</span-->
+                            <?php } ?>
+                            
+                          <?php }else{ ?>
+                            
+                            <span class="b-price__number"><?php echo $product['price']; ?></span> <!--span class="b-price__currency">грн</span-->  
+                            
+                          <?php }  ?>
+    
+                        <!--span class="b-price__number">9999 - 20000</span> <span class="b-price__currency">грн</span-->
                       </div>
                     </div>
                   </div>
@@ -431,7 +463,7 @@ $('.js-business-card-href').on('click', function(){
   var shop_name = $(this).data('shop-name');
 
   $.ajax({
-      url: 'index.php?route=product/shops/getShopInfoAjax',
+      url: '/<?php echo $language_href; ?>index.php?route=product/shops/getShopInfoAjax',
       type: 'post',
       data: "shop_id="+shop_id,
       dataType: 'json',

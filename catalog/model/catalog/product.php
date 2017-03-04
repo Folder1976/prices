@@ -318,17 +318,20 @@ class ModelCatalogProduct extends Model {
 		
 		$price = array(
 					'max_price' => '0',
-					'min_price' => '0'
+					'min_price' => '0',
+					'formated_min_price' => '',
+					'formated_max_price' => ''
 					   );
 		
 		if($model == '') return $price;
 		
 		//
-		$sql = "SELECT MAX(price) AS max_price FROM " . DB_PREFIX . "product WHERE model LIKE '$model'";
+		$sql = "SELECT MAX(price) AS max_price, tax_class_id FROM " . DB_PREFIX . "product WHERE model LIKE '$model'";
 		$r = $this->db->query($sql);
 				
 		if($r->num_rows){
 			$price['max_price']	= (float)$r->row['max_price'];
+			$price['tax_class_id']	= (float)$r->row['tax_class_id'];
 		}
 		
 		//
@@ -338,6 +341,9 @@ class ModelCatalogProduct extends Model {
 		if($r->num_rows){
 			$price['min_price']	= (float)$r->row['min_price'];
 		}
+		
+		$price['formated_min_price'] = $this->currency->format($this->tax->calculate($price['min_price'], $price['tax_class_id'], $this->config->get('config_tax')));	 
+		$price['formated_max_price'] = $this->currency->format($this->tax->calculate($price['max_price'], $price['tax_class_id'], $this->config->get('config_tax')));	 	
 		
 		return $price;
 		
@@ -381,6 +387,7 @@ class ModelCatalogProduct extends Model {
 							pd.description,
 							pd.name AS name,
 							p.image,
+							p.model,
 							m.name AS manufacturer,
 							m.image AS manufacturer_image,
 							ua.keyword AS manufacturer_href,
@@ -421,6 +428,7 @@ class ModelCatalogProduct extends Model {
 				'product_id'       => $product_id,
 				'category_id'       => $query->row['category_id'],
 				'loved'       		=> $query->row['loved'],
+				'model'       		=> $query->row['model'],
 				'name'             => $query->row['name'],
 				'videos'			=> $this->getProductVideos($product_id),
 				'count_view'             => $query->row['count_view'],
@@ -872,7 +880,7 @@ class ModelCatalogProduct extends Model {
 			$product_ids[] = $row['product_id'];
 		}
 		
-		$sql = "SELECT DISTINCT product_id FROM " . DB_PREFIX . "product
+		$sql = "SELECT DISTINCT product_id, model FROM " . DB_PREFIX . "product
 											WHERE on_main_category = '1' AND
 											product_id IN (".implode(',', $product_ids).");";
 		
@@ -882,6 +890,12 @@ class ModelCatalogProduct extends Model {
 		
 		foreach ($query->rows as $result) {
 			$product_data[$result['product_id']] = $this->getProduct($result['product_id']);
+			$product_data[$result['product_id']]['model_price'] = $this->model_catalog_product->getProductPricesOnModel($result['model']);
+			
+			if($product_data[$result['product_id']]['image'] == ''){
+				$product_data[$result['product_id']]['image'] = '/cache/placeholder-200x200.png';
+			}
+			
 		}
 
 		return $product_data;

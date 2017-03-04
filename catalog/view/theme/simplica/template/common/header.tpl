@@ -49,6 +49,10 @@ if($_SERVER['REQUEST_URI'] == '/'){
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <title><?php echo $title; ?></title>
 <base href="<?php echo $base; ?>" />
+<script>
+    var language_href = "<?php echo $language_href; ?>";
+</script>
+
 
 <?php foreach($extra_tags as $extra_tag) {?>
 <meta <?php echo ($extra_tag['name']) ? 'name="' . $extra_tag['name'] . '" ' : ''; ?><?php echo (!in_array($extra_tag['property'], array("noprop", "noprop1", "noprop2", "noprop3", "noprop4"))) ? 'property="' . $extra_tag['property'] . '" ' : ''; ?> content="<?php echo addslashes($extra_tag['content']); ?>" />

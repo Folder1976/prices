@@ -121,6 +121,8 @@ class ControllerProductProduct extends Controller {
 
 		$this->load->model('catalog/manufacturer');
 
+		
+		
 		if (isset($this->request->get['manufacturer_id'])) {
 			$data['breadcrumbs'][] = array(
 				'text' => $this->language->get('text_brand'),
@@ -237,6 +239,8 @@ class ControllerProductProduct extends Controller {
 
 		$product_info = $this->model_catalog_product->getProduct($product_id);
 
+		$data['product_manufacturer_info'] = $this->model_catalog_manufacturer->getManufacturer($product_info['manufacturer_id']);
+		
 		if ($product_info) {
 			$url = '';
 
@@ -389,6 +393,7 @@ class ControllerProductProduct extends Controller {
 			$data['description_detail'] = html_entity_decode($product_info['description_detail'], ENT_QUOTES, 'UTF-8');
 			$data['model_price'] = $this->model_catalog_product->getProductPricesOnModel($product_info['model']);
 			
+			
 			$this->load->model('catalog/attribute');
 			
 			//$data['sizes'] = $this->model_catalog_attribute->getSisezOnProductNoGroup(array((int)$this->request->get['product_id']));
@@ -408,13 +413,13 @@ class ControllerProductProduct extends Controller {
 			if ($product_info['image']) {
 				$data['popup'] = $this->model_tool_image->resize($product_info['image'], $this->config->get('config_image_popup_width'), $this->config->get('config_image_popup_height'));
 			} else {
-				$data['popup'] = '';
+				$data['popup'] = '/image/cache/placeholder-200x200.png';
 			}
 
 			if ($product_info['image']) {
 				$data['thumb'] = $this->model_tool_image->resize($product_info['image'], $this->config->get('config_image_thumb_width'), $this->config->get('config_image_thumb_height'));
 			} else {
-				$data['thumb'] = '';
+				$data['thumb'] = '/image/cache/placeholder-200x200.png';
 			}
 
 			$data['images'] = array();

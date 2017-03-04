@@ -853,6 +853,7 @@ class ControllerProductCategory extends Controller {
 					'garant'        		=> $result['garant'],
 					'total_comments' => $this->model_module_megareviews->getProductTotalReviews($result['product_id']),
 					'total_images' => $this->model_catalog_product->getProductTotalImages($result['product_id']),
+					'model_price' => $this->model_catalog_product->getProductPricesOnModel($result['model']),
 					/*'size'        		=> $result['size'],*/
 					'shop_id'        	=> $result['shop_id'],
 					'shop_name'        	=> $result['shop_name'],
@@ -873,7 +874,7 @@ class ControllerProductCategory extends Controller {
 					'href'        => $this->model_catalog_product->getProductAlias($result['product_id'])
 				);
 			}
-			
+		
 			//Флаг на распродажу
 			$this->document->setSale(true);
 			

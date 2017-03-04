@@ -136,11 +136,11 @@ MegaReviews.prototype = {
 	    	
 	    	ta.bind('input propertychange', function() {
 	    		
-	    		var left=self._options.textcount-$(this).val().length;
+	    		var left=self._options.textcount-ta.val().length;	
 	    		
-	    		if(left==self._options.textcount) $(this).parent().find('p').html(message); else
-	    		if(left<1) $(this).parent().find('p').html('<img src="'+$('#path').val()+'/image/mr/check.png" width="12">'+self.text_minreached); else
-	    		$(this).parent().find('p').html(self.text_minreqleft+left); 	 
+	    		if(left==self._options.textcount) ta.parent().find('p').html(message); else
+	    		if(left<1) ta.parent().find('p').html('<img src="'+$('#path').val()+'/image/mr/check.png" width="12">'+self.text_minreached); else
+	    		ta.parent().find('p').html(self.text_minreqleft+left); 	 
 			
 	    	});
 	    }
