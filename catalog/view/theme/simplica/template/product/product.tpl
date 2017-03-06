@@ -315,13 +315,13 @@
           <div class="g-scroll-line js-scroll-line">
             <ul>
               <?php if ( isset($attribute_groups) AND count($attribute_groups)) { ?>
-              <li><a href="/<?php echo $language_href; ?><?php echo $_GET['_route_']; ?>#js-block-product_tabs-1">Характеристики</a></li>
+              <li><a href="/<?php echo $_GET['_route_']; ?>#js-block-product_tabs-1">Характеристики</a></li>
               <?php }else{ ?>
                 <script>$(document).ready(function(){setTimeout(function(){$("#js-tab-product_tabs-4").trigger("click");},300);});</script>
               <?php } ?>
-              <li><a href="/<?php echo $language_href; ?><?php echo $_GET['_route_']; ?>#js-block-product_tabs-2">Предложения</a></li>
-              <li><a href="/<?php echo $language_href; ?><?php echo $_GET['_route_']; ?>#js-block-product_tabs-3">Отзывы</a></li>
-              <li><a href="/<?php echo $language_href; ?><?php echo $_GET['_route_']; ?>#js-block-product_tabs-4" id="js-tab-product_tabs-4">Вопросы и ответы</a></li>
+              <li><a href="/<?php echo $_GET['_route_']; ?>#js-block-product_tabs-2">Предложения</a></li>
+              <li><a href="/<?php echo $_GET['_route_']; ?>#js-block-product_tabs-3">Отзывы</a></li>
+              <li><a href="/<?php echo $_GET['_route_']; ?>#js-block-product_tabs-4" id="js-tab-product_tabs-4">Вопросы и ответы</a></li>
             </ul>
           </div>
 
