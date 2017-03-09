@@ -36,7 +36,7 @@ class ControllerProductManufacturer extends Controller {
 
 		$data['categories'] = array();
 
-		die('manufactura 39');
+		//die('manufactura 39');
 		
 		$results = $this->model_catalog_manufacturer->getManufacturers();
 

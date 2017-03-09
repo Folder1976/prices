@@ -225,8 +225,9 @@ class ControllerProductCategory extends Controller {
 		}
 
 		
-		
+		$selected_attributes_alias = '';
 		$search = '';
+		
 		if (isset($this->request->get['search'])) {
 			
 			$this->load->model('catalog/information'); 
@@ -999,7 +1000,7 @@ class ControllerProductCategory extends Controller {
 			}
 		
 		
-		
+			
 			$data['product_attributes'] = $product_attributes;
 		
 			if(isset($this->request->get['attributes_name'])){

@@ -2,6 +2,7 @@
 class ControllerCommonHome extends Controller {
 	public function index() {
 		
+		
 		$data['language_href'] = $this->session->data['language_href'];
 				
 		$this->load->model('catalog/category');

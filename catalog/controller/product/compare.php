@@ -171,6 +171,8 @@ class ControllerProductCompare extends Controller {
 
 		if (isset($this->request->post['product_id'])) {
 			$product_id = $this->request->post['product_id'];
+		} else if (isset($this->request->get['product_id'])) {
+			$product_id = $this->request->get['product_id'];
 		} else {
 			$product_id = 0;
 		}
@@ -180,15 +182,15 @@ class ControllerProductCompare extends Controller {
 		$product_info = $this->model_catalog_product->getProduct($product_id);
 
 		if ($product_info) {
-			if (!in_array($this->request->post['product_id'], $this->session->data['compare'])) {
+			if (!in_array($product_id, $this->session->data['compare'])) {
 				if (count($this->session->data['compare']) >= 4) {
 					array_shift($this->session->data['compare']);
 				}
 
-				$this->session->data['compare'][] = $this->request->post['product_id'];
+				$this->session->data['compare'][] = $product_id;
 			}
 
-			$json['success'] = sprintf($this->language->get('text_success'), $this->url->link('product/product', 'product_id=' . $this->request->post['product_id']), $product_info['name'], $this->url->link('product/compare'));
+			$json['success'] = sprintf($this->language->get('text_success'), $this->url->link('product/product', 'product_id=' . $product_id), $product_info['name'], $this->url->link('product/compare'));
 
 			$json['total'] = sprintf($this->language->get('text_compare'), (isset($this->session->data['compare']) ? count($this->session->data['compare']) : 0));
 		}

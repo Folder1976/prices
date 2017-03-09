@@ -17,6 +17,19 @@ class ControllerCommonSeoUrl extends Controller {
 			exit(0);
 		}
 
+		//Если прилетел кривой язык на главной
+		if (isset($this->request->get['_route_']) AND (
+													   $this->request->get['_route_'] == 'en' OR
+													   $this->request->get['_route_'] == 'ro'
+													  )
+			) {
+	
+			$redirect = $this->request->get['_route_'].'/';
+			header('HTTP/1.1 301 Moved Permanently');
+			header("Location: ".$redirect ."");
+			exit(0);
+		}
+
 	
 		//Смена языка
 		// перенесено в index.php
