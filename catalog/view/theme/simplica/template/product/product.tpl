@@ -149,7 +149,8 @@
                 <a href="/<?php echo $language_href; ?>#"><span class="ic-linked-in-grey"></span></a>
                 <a href="/<?php echo $language_href; ?>#"><span class="ic-pininterest-grey"></span></a>
                 <div class="b-compare-btn">
-                  <a href="/<?php echo $language_href; ?>#">Сравнить</a>
+                  <a href="javascript:void(0)" id="compare" onclick="compare.add('<?php echo $product_id; ?>');">Сравнить</a>
+                  <a href="/<?php echo $language_href; ?>index.php?route=product/compare" id="compare-total"></a>
                 </div>
               </div>
             </div>

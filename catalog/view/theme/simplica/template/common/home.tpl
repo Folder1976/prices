@@ -211,10 +211,10 @@ $text_popular_products = 'Самые просматриваемые товары
               <div class="b-block-product__content js-block-product_tabs">
                 <div class="g-scroll-line js-scroll-line">
                   <ul>
-                    <li><a href="#js-block-product_tabs-1">Все</a></li>
+                    <li><a href="/<?php if (isset($_GET['_route_'])) echo $_GET['_route_']; ?>#js-block-product_tabs-1">Все</a></li>
                     <?php $count_cat = 2; ?>
                     <?php foreach ( $main_product_sorted_by_categs as $cat ) { ?>
-                    <li><a href="#js-block-product_tabs-<?php echo $count_cat++; ?>"><?php echo $cat['name']; ?></a></li>
+                    <li><a href="/<?php if (isset($_GET['_route_'])) echo $_GET['_route_']; ?>#js-block-product_tabs-<?php echo $count_cat++; ?>"><?php echo $cat['name']; ?></a></li>
                     <?php } ?>
                   </ul>
                 </div>
