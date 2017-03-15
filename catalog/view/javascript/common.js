@@ -372,19 +372,11 @@ var compare = {
 				$('.alert').remove();
 
 				if (json['success']) {
-					$.magnificPopup.open({
-					  items: {
-					  	src: '<div class="b-popup alert alert-success"><div class="b-popup__content">' + json['success'] + '</div><div class="b-popup__footer"><button type="button" class="f-button" onclick="$.magnificPopup.close();">ОК</button></div></div>',
-					    type: 'inline'
-					  },
-					  showCloseBtn: false
-					});
-					//$('#content').parent().before('<div class="alert alert-success"><i class="fa fa-check-circle"></i> ' + json['success'] + ' <button type="button" class="close" data-dismiss="alert">&times;</button></div>');
+					$('#content').parent().before('<div class="alert alert-success"><i class="fa fa-check-circle"></i> ' + json['success'] + ' <button type="button" class="close" data-dismiss="alert">&times;</button></div>');
 
 					$('#compare-total').html(json['total']);
-					$('#compare').remove();
 
-					//$('html, body').animate({ scrollTop: 0 }, 'slow');
+					$('html, body').animate({ scrollTop: 0 }, 'slow');
 				}
 			},
 	        error: function(xhr, ajaxOptions, thrownError) {

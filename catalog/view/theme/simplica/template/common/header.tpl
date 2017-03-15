@@ -68,13 +68,13 @@ if($_SERVER['REQUEST_URI'] == '/'){
 <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700&amp;subset=cyrillic,cyrillic-ext" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
 
-<link href="catalog/view/theme/simplica/js/lib/jquery-ui/jquery-ui.css" rel="stylesheet">
-<link href="catalog/view/theme/simplica/js/lib/jquery-ui/jquery-ui.theme.css" rel="stylesheet">
-<link rel="stylesheet" type="text/css" href="catalog/view/theme/simplica/stylesheet/owl.carousel.css" />
+<link href="/catalog/view/theme/simplica/js/lib/jquery-ui/jquery-ui.css" rel="stylesheet">
+<link href="/catalog/view/theme/simplica/js/lib/jquery-ui/jquery-ui.theme.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="/catalog/view/theme/simplica/stylesheet/owl.carousel.css" />
 
-<link rel="stylesheet" type="text/css" href="catalog/view/theme/simplica/stylesheet/style.css" />
+<link rel="stylesheet" type="text/css" href="/catalog/view/theme/simplica/stylesheet/style.css" />
 
-<link rel="shortcut icon" href="catalog/view/theme/simplica/img/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="/catalog/view/theme/simplica/img/favicon.ico" type="image/x-icon">
 <!-- 
 <link rel="shortcut icon" href="catalog/view/theme/simplica/img/favicon.png" type="image/png">
 <link rel="shortcut icon" href="catalog/view/theme/simplica/img/favicon.gif" type="image/gif">
@@ -92,7 +92,7 @@ if (typeof jQuery == 'undefined') {
 <?php foreach ($styles as $style) { ?>
 <link href="<?php echo $style['href']; ?>" type="text/css" rel="<?php echo $style['rel']; ?>" media="<?php echo $style['media']; ?>" />
 <?php } ?>
-<link rel="stylesheet" type="text/css" href="catalog/view/theme/simplica/stylesheet/style.develop.css" />
+<link rel="stylesheet" type="text/css" href="/catalog/view/theme/simplica/stylesheet/style.develop.css" />
 
 <script src="/catalog/view/javascript/common.js" type="text/javascript"></script>
 
@@ -174,7 +174,7 @@ if (typeof jQuery == 'undefined') {
             <span class="b-header-account__title"><?php echo $text_profile; ?></span>
           </div>
 
-          <a href="/" class="b-logo"><img src="catalog/view/theme/simplica/img/logo.png" alt="Prices.md"></a>
+          <a href="/<?php echo $language_href; ?>" class="b-logo"><img src="/catalog/view/theme/simplica/img/logo.png" alt="Prices.md"></a>
 
           <div class="b-header-top__setings g-tablet-hidden">
             <div class="b-header-top__setings-lang">
@@ -197,7 +197,7 @@ if (typeof jQuery == 'undefined') {
 
           <ul class="b-header-top__menu g-tablet-hidden">
           <?php foreach ($menu as $item) { ?>
-            <li><a href="/<?php echo $item['keyword']; ?>"><?php echo $item['title']; ?></a></li>
+            <li><a href="/<?php echo $language_href.$item['keyword']; ?>"><?php echo $item['title']; ?></a></li>
           <?php } ?>
           </ul>
 
@@ -264,7 +264,7 @@ if (typeof jQuery == 'undefined') {
             <nav class="b-nav-level-1 js-nav-level-1 js-popup-mob-menu">
               <div class="b-nav__mob-header">
                 <div class="b-nav__mob-header-title">
-                  <a href="/"><span class="ic-mob-menu-home"></span><?php echo $text_main; ?></a>
+                  <a href="/<?php echo $language_href;?>"><span class="ic-mob-menu-home"></span><?php echo $text_main; ?></a>
                 </div>
                 <div class="b-nav__mob-tabs js-nav__mob-tabs">
                   <span class="active" data-tabs=".b-nav__mob-tabs-1"><?php echo $text_categories; ?></span>
@@ -284,7 +284,7 @@ if (typeof jQuery == 'undefined') {
                           <?php foreach (array_chunk($category['children'], 10) as $cat) { ?>
                           <ul>
                             <?php foreach ($cat as $child2) { ?>
-                              <li><a href="<?php echo $child2['href']; ?>"><?php echo $child2['name']; ?></a></li>
+                              <li><a href="<?php echo $language_href.$child2['href']; ?>"><?php echo $child2['name']; ?></a></li>
                             <?php } ?>
                           </ul>
                           <?php } ?>
@@ -292,7 +292,7 @@ if (typeof jQuery == 'undefined') {
                       </div>
                     <?php } else { ?>
                       <div class="b-nav__item b-nav__item_link">
-                        <a href="<?php echo $category['href']; ?>"><?php echo $category['name']; ?></a>
+                        <a href="<?php echo $language_href.$category['href']; ?>"><?php echo $category['name']; ?></a>
                       </div>
                     <?php } ?>
                   </li>
@@ -305,7 +305,7 @@ if (typeof jQuery == 'undefined') {
                   <?php foreach ($menu as $item) { ?>
                   <li>
                     <div class="b-nav__item b-nav__item_link">
-                      <a href="/<?php echo $item['keyword']; ?>"><?php echo $item['title']; ?></a>
+                      <a href="/<?php echo $language_href.$item['keyword']; ?>"><?php echo $item['title']; ?></a>
                     </div>
                   </li>
                   <?php } ?>
@@ -429,7 +429,7 @@ if (typeof jQuery == 'undefined') {
 
 <script>
 $('#lang').on('change', function() {
-  window.location.replace( "/"+$(this).val()+"/<?php if ($url_no_lang == '/') { echo $url_no_lang; } else { echo $url_no_lang; }?>");
+  window.location.replace( "/"+$(this).val()+"/<?php if ($url_no_lang == '/') { echo ''; } else { echo $url_no_lang; }?>");
 });
 </script>
 

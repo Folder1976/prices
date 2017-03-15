@@ -17,7 +17,7 @@
   <div class="b-shops_content">
     <ul>
       <?php foreach($shops as $shop){ ?>
-      <li><a href="http://<?php echo $_SERVER['HTTP_HOST'].'/'.TMP_URL; ?><?php echo $shop['href']; ?>"><?php echo $shop['name']; ?></a></li>
+      <li><a href="http://<?php echo $_SERVER['HTTP_HOST'].'/'.TMP_URL; ?><?php echo $language_href; ?><?php echo $shop['href']; ?>"><?php echo $shop['name']; ?></a></li>
       <?php } ?>
     </ul>
   </div>
@@ -39,9 +39,9 @@
                   <!--category menu-->
                   <nav class="category-menu">
                       <ul>
-							<li><a href="http://<?php echo $_SERVER['HTTP_HOST'].'/'.TMP_URL; ?>about">О проекте</a></li>
-							<li><a href="http://<?php echo $_SERVER['HTTP_HOST'].'/'.TMP_URL; ?>brands_and_shops">Бренды и магазины</a></li>
-							<li><a href="http://<?php echo $_SERVER['HTTP_HOST'].'/'.TMP_URL; ?>user-license">Пользовательское соглашение</a></li>
+							<li><a href="http://<?php echo $_SERVER['HTTP_HOST'].'/'.TMP_URL; ?><?php echo $language_href; ?>about">О проекте</a></li>
+							<li><a href="http://<?php echo $_SERVER['HTTP_HOST'].'/'.TMP_URL; ?><?php echo $language_href; ?>brands_and_shops">Бренды и магазины</a></li>
+							<li><a href="http://<?php echo $_SERVER['HTTP_HOST'].'/'.TMP_URL; ?><?php echo $language_href; ?>user-license">Пользовательское соглашение</a></li>
                       </ul>
                   </nav>
                   <!--end category menu-->
@@ -82,7 +82,7 @@
 											
 										<?php foreach($shops as $shop){ ?>
 									 
-											<li><a href="http://<?php echo $_SERVER['HTTP_HOST'].'/'.TMP_URL; ?><?php echo $shop['href']; ?>"><?php echo $shop['name']; ?></a></li>
+											<li><a href="http://<?php echo $_SERVER['HTTP_HOST'].'/'.TMP_URL; ?><?php echo $language_href; ?><?php echo $shop['href']; ?>"><?php echo $shop['name']; ?></a></li>
 										
 											<?php
 												$count--; 

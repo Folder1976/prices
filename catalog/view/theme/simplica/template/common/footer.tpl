@@ -72,10 +72,10 @@ if($_SERVER['REQUEST_URI'] == '/'){
                     <img src="<?php echo $prod['image']; ?>" alt="<?php echo $prod['name']; ?>">
                   </div>
                   <div class="b-footer-popup__content-block-title">
-                    <a href="product.html"><?php echo $prod['name']; ?></a>
+                    <a href="/<?php echo $language_href; ?>product.html"><?php echo $prod['name']; ?></a>
                   </div>
                   <ul class="b-footer-popup__content-block-list">
-                    <li><span><?php echo $prod['price']; ?></span><a href="<?php echo $prod['manufacturer_href']; ?>"><?php echo $prod['manufacturer']; ?></a></li>
+                    <li><span><?php echo $prod['price']; ?></span><a href="/<?php echo $language_href; ?><?php echo $prod['manufacturer_href']; ?>"><?php echo $prod['manufacturer']; ?></a></li>
                   </ul>
                 </div>
                 <?php } ?>
@@ -131,7 +131,7 @@ if($_SERVER['REQUEST_URI'] == '/'){
           </div>
           <ul>
             <?php foreach($blog_group['children'] as $link) { ?>
-            <li><a href="/<?php echo $link['keyword']; ?>"><?php echo $link['title']; ?></a></li>
+            <li><a href="/<?php echo $language_href; ?><?php echo $link['keyword']; ?>"><?php echo $link['title']; ?></a></li>
             <?php } ?>
           </ul>
         </li>
@@ -146,12 +146,10 @@ if($_SERVER['REQUEST_URI'] == '/'){
     </div>
   </footer> 
 
-<script src="catalog/view/theme/simplica/js/lib/jquery-ui/jquery-ui.js"></script>
-<script src="catalog/view/theme/simplica/js/lib/owl.carousel.js"></script>
+<script src="/catalog/view/theme/simplica/js/lib/jquery-ui/jquery-ui.js"></script>
+<script src="/catalog/view/theme/simplica/js/lib/owl.carousel.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.touchswipe/1.6.18/jquery.touchSwipe.js"></script>
-<script src="catalog/view/theme/simplica/js/lib/jquery.magnific-popup.min.js"></script>
-
-<script src="catalog/view/theme/simplica/js/scripts.js" type="text/javascript"></script>
-
+<script src="/catalog/view/theme/simplica/js/lib/jquery.magnific-popup.min.js"></script>
+<script src="/catalog/view/theme/simplica/js/scripts.js" type="text/javascript"></script>
 
 </body></html>

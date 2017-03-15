@@ -2,18 +2,9 @@
 <?php
 // поправить текст в переменных:
 $text_sort = 'Выводить: ';
-
-
-    
 //echo "<pre>";  print_r(var_dump( get_defined_vars() )); echo "</pre>";
-
 //krumo(get_defined_vars());
-
 ?>
-
-
-
-
 
 <div class="b-popup b-business-card-popup js-popup-business-card mfp-hide">
   <div class="b-popup__content">
@@ -58,7 +49,7 @@ $text_sort = 'Выводить: ';
 
         <!-- Показать карту -->
         <div id="js-business-card_tabs-2" class="b-business-card_tabs-map">
-          <img src="catalog/view/theme/simplica/img/map.jpg" alt="">
+          <img src="/catalog/view/theme/simplica/img/map.jpg" alt="">
         </div>
       </div>
 
@@ -107,7 +98,7 @@ $text_sort = 'Выводить: ';
                 <div class="parent"><?php echo $categories['header']; ?></div>
                 <ul class="children">
                   <?php foreach($categories['categories'] as $cat) { ?>
-                    <li><a href="<?php echo $cat['href']; ?>"><?php echo $cat['name']; ?></a></li>
+                    <li><a href="/<?php echo $language_href; ?><?php echo $cat['href']; ?>"><?php echo $cat['name']; ?></a></li>
                   <?php } ?>
                 </ul>
               </div>
@@ -189,9 +180,9 @@ $text_sort = 'Выводить: ';
                         <div class="f-label">
                           <label for="<?php echo 'option_'.$attribut['code'].'_value_'.$attribut['manufacturer_id']; ?>">
                             <?php if ( strpos($selected_attributes_alias, $attribut['code']) !== false) { ?>
-                              <a href="<?php echo str_replace($attribut['code'].'-','',$selected_attributes_alias).$category_alias; ?>"><?php echo $attribut['name']; ?></a>
+                              <a href="/<?php echo $language_href; ?><?php echo str_replace($attribut['code'].'-','',$selected_attributes_alias).$category_alias; ?>"><?php echo $attribut['name']; ?></a>
                             <?php } else { ?>
-                              <a href="<?php echo $attribut['code'].'-'.$selected_attributes_alias.$category_alias; ?>"><?php echo $attribut['name']; ?></a>
+                              <a href="/<?php echo $language_href; ?><?php echo $attribut['code'].'-'.$selected_attributes_alias.$category_alias; ?>"><?php echo $attribut['name']; ?></a>
                             <?php } ?>
                             </label>
                         </div>
@@ -227,9 +218,9 @@ $text_sort = 'Выводить: ';
                         <div class="f-label">
                           <label for="<?php echo 'option_'.$prod_attr['attribute_group_id'].'_value_'.$attribut['attribute_id']; ?>">
                             <?php if ( strpos($selected_attributes_alias, $attribut['filter_name']) !== false) { ?>
-                              <a href="<?php echo str_replace($attribut['filter_name'].'-','',$selected_attributes_alias).$category_alias; ?>"><?php echo $attribut['name']; ?></a>
+                              <a href="/<?php echo $language_href; ?><?php echo str_replace($attribut['filter_name'].'-','',$selected_attributes_alias).$category_alias; ?>"><?php echo $attribut['name']; ?></a>
                             <?php } else { ?>
-                              <a href="<?php echo $attribut['filter_name'].'-'.$selected_attributes_alias.$category_alias; ?>"><?php echo $attribut['name']; ?></a>
+                              <a href="/<?php echo $language_href; ?><?php echo $attribut['filter_name'].'-'.$selected_attributes_alias.$category_alias; ?>"><?php echo $attribut['name']; ?></a>
                             <?php } ?>
                             </label>
                         </div>
@@ -337,9 +328,9 @@ $text_sort = 'Выводить: ';
                 <ul class="g-span-select__ul g-span-select__hidden js-popup-sort">
                 <?php foreach ($sorts as $sorts) { ?>
                   <?php if ($sorts['value'] == $sort . '-' . $order) { ?>
-                    <li class="active"><a href="/<?php echo ltrim($selected_attributes_alias.$category_alias,'-'); ?><?php echo substr_replace($sorts['href'],'?',0,1); ?>"><?php echo $sorts['text']; ?></a></li>
+                    <li class="active"><a href="/<?php echo $language_href; ?><?php echo ltrim($selected_attributes_alias.$category_alias,'-'); ?><?php echo substr_replace($sorts['href'],'?',0,1); ?>"><?php echo $sorts['text']; ?></a></li>
                   <?php } else { ?>
-                    <li><a href="/<?php echo ltrim($selected_attributes_alias.$category_alias,'-'); ?><?php echo substr_replace($sorts['href'],'?',0,1); ?>""><?php echo $sorts['text']; ?></a></li>
+                    <li><a href="/<?php echo $language_href; ?><?php echo ltrim($selected_attributes_alias.$category_alias,'-'); ?><?php echo substr_replace($sorts['href'],'?',0,1); ?>""><?php echo $sorts['text']; ?></a></li>
                   <?php } ?>
                 <?php } ?>
                 </ul>
