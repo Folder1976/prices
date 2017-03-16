@@ -471,9 +471,20 @@ $('.js-prod_owl-carousel').owlCarousel({
   }
 });
 $('.js-prod_thumb-list .b-prod-img__item').clone().appendTo('.js-prod_popup-thumb-list');
+$('.js-prod_thumb-list, .js-prod_popup-thumb-list .b-prod-img__item').first().addClass('active');
 $('.js-prod_thumb-list, .js-prod_popup-thumb-list').on('mouseover', '.b-prod-img__item img', function(){
   $('.js-main-image').attr('src', $(this).data('img'));
+  $('.js-prod_thumb-list, .js-prod_popup-thumb-list .b-prod-img__item').removeClass('active');
+  $(this).closest('.b-prod-img__item').addClass('active');
 });
+
+$('.b-prod-img__main-image .prev').on('click', function(){
+  $('.js-prod_thumb-list, .js-prod_popup-thumb-list .b-prod-img__item.active').prev().find('img').mouseover();
+})
+
+$('.b-prod-img__main-image .next').on('click', function(){
+  $('.js-prod_thumb-list, .js-prod_popup-thumb-list .b-prod-img__item.active').next().find('img').mouseover();
+})
 // слайдер для главного фото END
 
 
