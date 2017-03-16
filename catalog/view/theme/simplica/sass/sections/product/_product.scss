@@ -42,6 +42,51 @@ main.b-product {
     }
     .b-popup &__main-image {
         width: calc(100% - 100px);
+        .nav {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            .prev,
+            .next {
+                content: '';
+                position: absolute;
+                display: block;
+                height: 100%;
+                width: 30%;
+                opacity: 0;
+                left: 0;
+                &:hover {
+                    opacity: 0.5;
+                }
+                &:before {
+                    content: '';
+                    width: 35px;
+                    height: 35px;
+                    display: block;
+                    transform: rotate(45deg);
+                    position: absolute;
+                    border-bottom-width: 1px;
+                    border-color: #000;
+                    border-style: solid;
+                    border-top-width: 0;
+                    border-right-width: 0;
+                    border-left-width: 1px;
+                    left: 50px;
+                    top: 50%;
+                }
+            }
+            .next {
+                right: 0;
+                left: auto;
+                &:before {
+                    transform: rotate(-135deg);
+                    left: auto;
+                    right: 50px;
+                }
+            }
+        }
     }
     &__carousel {
         margin-top: 20px;
@@ -103,6 +148,9 @@ main.b-product {
                     & img {
                         width: 100%;
                         height: auto;
+                    }
+                    &.active {
+                        border: 1px solid #39adff;
                     }
                 }
                 &-wrapper {

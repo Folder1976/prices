@@ -73,6 +73,7 @@
             &__content {
                 max-height: 285px;
                 min-height: 100px;
+                max-width: 385px;
                 overflow-x: auto;
             }
             &_history {
@@ -90,7 +91,8 @@
                         }
                         &-title {
                             margin-left: 25%;
-                            font-size: 16px;
+                            font-size: 14px;
+                            max-width: 276px;
                         }
                         &-list {
                             margin-left: 25%;
@@ -107,6 +109,52 @@
                                     float: left;
                                 }
                             }
+                        }
+                    }
+                }
+            }
+            &_compare {
+                & .b-footer-popup {
+                    &__content-block {
+                        width: 100%;
+                        overflow: hidden;
+                        margin-top: 20px;
+                        position: relative;
+                        padding-right: 25px;
+                        &-img {
+                            width: 20%;
+                            float: left;
+                            & img {
+                                width: 100%;
+                            }
+                        }
+                        &-title {
+                            margin-left: 25%;
+                            font-size: 14px;
+                        }
+                        &-list {
+                            margin-left: 25%;
+                            margin-top: 10px;
+                            & li {
+                                font-size: 13px;
+                                color: #000;
+                                width: 100%;
+                                line-height: 1.1em;
+                                & span:first-child {
+                                    color: #007fd8;
+                                    display: block;
+                                    width: 35%;
+                                    float: left;
+                                }
+                            }
+                        }
+                        &-delete {
+                            position: absolute;
+                            top: 0;
+                            right: 0;
+                            height: 20px;
+                            width: 26px;
+                            cursor: pointer;
                         }
                     }
                 }

@@ -35,6 +35,10 @@
 
       <div class="b-prod-img__main-image">
         <img src="<?php echo $thumb; ?>" alt="<?php echo $heading_title; ?>" title="<?php echo $heading_title; ?>" class="js-main-image">
+        <div class="nav">
+          <div class="prev"></div>
+          <div class="next"></div>
+        </div>
       </div>
 
       <div class="b-prod-img__thumb-list-wrapper">
