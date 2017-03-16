@@ -68,6 +68,7 @@ if($_SERVER['REQUEST_URI'] == '/'){
 <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700&amp;subset=cyrillic,cyrillic-ext" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
 
+<script src="/catalog/view/javascript/mf/jquery-ui.min.js" type="text/javascript"></script>
 <link href="/catalog/view/theme/simplica/js/lib/jquery-ui/jquery-ui.css" rel="stylesheet">
 <link href="/catalog/view/theme/simplica/js/lib/jquery-ui/jquery-ui.theme.css" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="/catalog/view/theme/simplica/stylesheet/owl.carousel.css" />
