@@ -70,33 +70,13 @@ class ControllerCommonContentTop extends Controller {
 		$modules = $this->model_design_layout->getLayoutModules($layout_id, 'content_top');
 
 		foreach ($modules as $module) {
-			$code = $module['code'];
 			$part = explode('.', $module['code']);
 
-			if( $part[0] == 'mega_filter' ) {
-					if( ! isset( $part[1] ) ) {
-						continue;
-					}
-				
-					$mfp_setting = $this->config->get($part[0] . '_module');
-					$mfp_setting['_idx'] = $part[1];
-					$mfp_setting['position'] = $module['position'];
-				
-					if( NULL != ( $mfp = $this->load->controller('module/' . $part[0], $mfp_setting) ) ) {
-						$data['modules'][] = $mfp;
-					}
-			} else if (isset($part[0]) && $this->config->get($part[0] . '_status')) {
+			if (isset($part[0]) && $this->config->get($part[0] . '_status')) {
 				$data['modules'][] = $this->load->controller('module/' . $part[0]);
 			}
 
-			if( $code == 'mega_filter' ) {
-					$setting['_idx'] = $part[1];
-					$setting['position'] = $module['position'];
-				
-					if( NULL != ( $mfp = $this->load->controller('module/' . $code, $setting) ) ) {
-						$data['modules'][] = $mfp;
-					}
-			} else if (isset($part[1])) {
+			if (isset($part[1])) {
 				$setting_info = $this->model_extension_module->getModule($part[1]);
 
 				if ($setting_info && $setting_info['status']) {

@@ -50,8 +50,7 @@ class ControllerModuleCategory extends Controller {
 
 			$filter_data = array(
 				'filter_category_id'  => $category['category_id'],
-				'filter_sub_category' => true,
-				'mfp_disabled' => true
+				'filter_sub_category' => true
 			);
 
 			$data['categories'][] = array(
