@@ -69,6 +69,9 @@
         color: #0087e7;
         font-size: 16px;
     }
+    .b-col__summa {
+        display: none;
+    }
     .b-col__quantity {
         width: 16%;
         .b-quantity {
@@ -81,6 +84,9 @@
                 width: 25px;
                 &:hover {
                     opacity: 0.7;
+                }
+                &.h-disabled {
+                    opacity: 0.25;
                 }
             }
             &__input {

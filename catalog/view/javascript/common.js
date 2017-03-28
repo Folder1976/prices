@@ -185,25 +185,31 @@ var cart = {
 				}
 
 				if (json['success']) {
-					$('#content').parent().before('<div class="alert alert-success"><i class="fa fa-check-circle"></i> ' + json['success'] + ' <button type="button" class="close" data-dismiss="alert">&times;</button></div>');
+					//$('#content').parent().before('<div class="alert alert-success"><i class="fa fa-check-circle"></i> ' + json['success'] + ' <button type="button" class="close" data-dismiss="alert">&times;</button></div>');
 
 					// Need to set timeout otherwise it wont update the total
 					setTimeout(function () {
-						$('#cart .js-cart-total').html(json['total']);
-						$('#b-mini_cart-subtotal_qty').html(json['int_total']);
-						$('.b-mini_cart-subtotal_qty').html(json['int_total']);
-						$('.js-minicart-quantity_value').html(json['int_total']);
-						$('.js-minicart-quantity_value').removeClass('h-hidden');
+						//$('#cart .js-cart-total').html(json['total']);
+						//$('#b-mini_cart-subtotal_qty').html(json['int_total']);
+						//$('.b-mini_cart-subtotal_qty').html(json['int_total']);
+						//$('.js-minicart-quantity_value').html(json['int_total']);
+						//$('.js-minicart-quantity_value').removeClass('h-hidden');
+
+						$('.b-header-cart__quantity').html(json['int_total']);
 					}, 100);
 
 					$('html, body').animate({ scrollTop: 0 }, 'slow');
 
-					$('#cart').load('/'+language_href+'index.php?route=common/cart/info');
+					//$('#cart').load('/'+language_href+'index.php?route=common/cart/info');
 
-					$('.js-mini_cart').removeClass('h-minimized');
-				    setTimeout(function() {
-				         $('.js-mini_cart').addClass('h-minimized');
-				    }, 5000);
+					$.magnificPopup.open({
+					  items: {
+					  	src: '<div class="b-popup alert alert-success"><div class="b-popup__content">' + json['success'] + '</div><div class="b-popup__footer"><button type="button" class="f-button" onclick="$.magnificPopup.close();">ОК</button></div></div>',
+					    type: 'inline'
+					  },
+					  showCloseBtn: false
+					});
+
 				}
 			},
 	        error: function(xhr, ajaxOptions, thrownError) {

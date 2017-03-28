@@ -202,8 +202,8 @@ if (typeof jQuery == 'undefined') {
           </ul>
 
           <div class="b-header-cart g-tablet-show">
-            <a href="<?php echo $shopping_cart; ?>">
-              <span class="b-header-cart__quantity">2</span>
+            <a href="/<?php echo $language_href; ?>index.php?route=checkout/cart">
+              <span class="b-header-cart__quantity"><?php echo $cart_products_total; ?></span>
               <span class="ic-cart"></span>
               <span class="b-header-cart__title"><?php echo $text_cart; ?></span>
             </a>
@@ -397,8 +397,8 @@ if (typeof jQuery == 'undefined') {
           <div class="g-col-right">
             <div class="b-header-box-cart-account">
               <div class="b-header-cart">
-                <a href="<?php echo $shopping_cart; ?>">
-                  <span class="b-header-cart__quantity">2</span>
+                <a href="/<?php echo $language_href; ?>index.php?route=checkout/cart">
+                  <span class="b-header-cart__quantity"><?php echo $cart_products_total; ?></span>
                   <span class="ic-cart"></span>
                   <span class="g-tablet-hidden b-header-cart__title"><?php echo $text_cart; ?></span>
                 </a>

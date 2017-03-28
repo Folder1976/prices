@@ -4309,7 +4309,7 @@ main.b-product .b-brands {
   position: absolute;
   display: block;
   height: 100%;
-  width: 30%;
+  width: 49%;
   opacity: 0;
   left: 0;
 }
@@ -5474,6 +5474,9 @@ main.b-product .b-brands {
   color: #0087e7;
   font-size: 16px;
 }
+.b-checkout .b-col__summa {
+  display: none;
+}
 .b-checkout .b-col__quantity {
   width: 16%;
 }
@@ -5486,6 +5489,9 @@ main.b-product .b-brands {
 }
 .b-checkout .b-col__quantity .b-quantity__minus:hover, .b-checkout .b-col__quantity .b-quantity__plus:hover {
   opacity: 0.7;
+}
+.b-checkout .b-col__quantity .b-quantity__minus.h-disabled, .b-checkout .b-col__quantity .b-quantity__plus.h-disabled {
+  opacity: 0.25;
 }
 .b-checkout .b-col__quantity .b-quantity__input {
   background: #ebebeb;
