@@ -7,7 +7,8 @@ class ControllerCommonFooter extends Controller {
 		$this->load->language('common/footer');
 		$this->load->model('catalog/category');
 		$this->load->model('catalog/product');
-
+		$this->load->model('tool/image');
+		
 		$data['scripts'] = $this->document->getScripts('footer');
 
 		//Урл для блока выбора языка
