@@ -289,7 +289,7 @@ var cart = {
 	            alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
 	        }
 		});
-	}
+	},
 	'clear': function() {
 		$.ajax({
 			url: '/'+language_href+'index.php?route=checkout/cart/clear',
