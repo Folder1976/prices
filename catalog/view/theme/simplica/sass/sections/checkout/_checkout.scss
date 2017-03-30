@@ -172,7 +172,7 @@
     &__button {
         float: right;
         height: 58px;
-        a {
+        a, button {
             background: $color_button_bg1;
             border: 1px solid $color_button_bg1;
             color: $color_button_text1;

@@ -5572,7 +5572,7 @@ main.b-product .b-brands {
   float: right;
   height: 58px;
 }
-.b-checkout__button a {
+.b-checkout__button a, .b-checkout__button button {
   background: #39adff;
   border: 1px solid #39adff;
   color: #fff;
@@ -5585,7 +5585,7 @@ main.b-product .b-brands {
   -moz-box-shadow: 0 5px 12px rgba(0, 0, 0, 0.23);
   box-shadow: 0 5px 12px rgba(0, 0, 0, 0.23);
 }
-.b-checkout__button a:hover {
+.b-checkout__button a:hover, .b-checkout__button button:hover {
   color: #39adff;
   background: #fff;
   text-decoration: none;

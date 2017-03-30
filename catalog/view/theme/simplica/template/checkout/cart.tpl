@@ -113,7 +113,7 @@
             <a href="/<?php echo $language_href; ?>index.php">< Вернуться назад</a>
           </div>
           <div class="b-checkout__clear">
-            <a href="#">Очистить корзину <span class="ic-delete"></span></a>
+            <a href="javascript:void(0)" onclick="cart.clear()">Очистить корзину <span class="ic-delete"></span></a>
           </div>
         </div>
       </div>
@@ -296,9 +296,6 @@ $('.js-quantity-plus').on('click', function(){
   updateTotal();
 });
 // Плюс/минус для товара END
-
 </script>
-
-
 
 <?php echo $footer; ?> 

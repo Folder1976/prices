@@ -290,6 +290,30 @@ var cart = {
 	        }
 		});
 	}
+	'clear': function() {
+		$.ajax({
+			url: '/'+language_href+'index.php?route=checkout/cart/clear',
+			type: 'post',
+			data: '',
+			dataType: 'json',
+			beforeSend: function() {
+				$('#cart .js-cart-total').button('loading');
+			},
+			complete: function() {
+				$('#cart .js-cart-total').button('reset');
+			},
+			success: function(json) {
+				if (getURLVar('route') == 'checkout/cart' || getURLVar('route') == 'checkout/checkout') {
+					location = '/'+language_href+'index.php?route=checkout/cart';
+				} else {
+					$('#cart').load('/'+language_href+'index.php?route=common/cart/info');
+				}
+			},
+	        error: function(xhr, ajaxOptions, thrownError) {
+	            alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+	        }
+		});
+	}
 }
 
 var voucher = {

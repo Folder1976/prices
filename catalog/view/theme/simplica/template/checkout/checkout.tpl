@@ -91,7 +91,8 @@ $text_error_agreement = 'Это обязательное для заполнен
 $text_order_q = 'Вопрос%20по%20заказа';
 
 
-
+//echo "<pre>";  print_r(var_dump( get_defined_vars() )); echo "</pre>";
+//krumo(get_defined_vars());
 
 ?>
 
@@ -131,10 +132,10 @@ $text_order_q = 'Вопрос%20по%20заказа';
             <div class="f-group">
               <div class="f-field-wrapper">
                 <div class="f-label">
-                  <label for="email">Email</label>
+                  <label for="address_email">Email</label>
                 </div>
                 <div class="f-field">
-                  <input type="text" class="f-input" name="email" id="email" value="">
+                  <input type="text" class="f-input" name="address_email" id="address_email" value="">
                 </div>
               </div>
             </div>
@@ -142,10 +143,10 @@ $text_order_q = 'Вопрос%20по%20заказа';
             <div class="f-group">
               <div class="f-field-wrapper">
                 <div class="f-label">
-                  <label for="phone">Телефон</label>
+                  <label for="fields_phone">Телефон</label>
                 </div>
                 <div class="f-field">
-                  <input type="text" class="f-input" name="phone" id="phone" value="">
+                  <input type="text" class="f-input" name="phone" id="fields_phone" value="">
                 </div>
               </div>
             </div>
@@ -153,14 +154,14 @@ $text_order_q = 'Вопрос%20по%20заказа';
             <div class="f-group">
               <div class="f-field-wrapper">
                 <div class="f-label">
-                <label for="sity">Город</label> / <label for="address">Адрес</label>
+                <label for="city">Город</label> / <label for="address1">Адрес</label>
                 </div>
                 <div class="f-field-group">
                   <div class="f-field">
-                    <input type="text" class="f-input" name="sity" id="sity" value="">
+                    <input type="text" class="f-input" name="city" id="city" value="">
                   </div>
                   <div class="f-field">
-                    <input type="text" class="f-input" name="address" id="address" value="">
+                    <input type="text" class="f-input" name="address1" id="address1" value="">
                   </div>
                 </div>
               </div>
@@ -235,23 +236,28 @@ $text_order_q = 'Вопрос%20по%20заказа';
             <div class="b-checkout-form__summary">
               <div class="b-total">
                 <div class="b-total__cost">
-                  <span>Итого:&nbsp;&nbsp;25 000 руб</span>
+                  <span><?php echo $totals[2]['title'].': '.$totals[2]['text']; ?></span>
                 </div>
                 <div class="b-total__delivery">
-                  <span>Цена за доставку 30 000 руб</span>
+                  <span>Цена за доставку <?php echo $totals[1]['text'] ;?></span>
                 </div>
               </div>
 
               <div class="b-checkout__button">
-                <a href="#" class="g-btn">Продолжить</a>
+                <form action="/<?php echo $language_href; ?>index.php?route=checkout/checkout" method="post">
+                  <!-- <a href="#" class="g-btn">Продолжить</a> -->
+                  <button class="g-btn js-submit-button" name="submit" value="0">
+                    Продолжить
+                  </button>
+                </form>
               </div>
 
               <div class="b-checkout-form__summary-bottom">
                 <div class="b-back_to_shopping">
-                  <a href="category.html">< Вернуться назад</a>
+                  <a href="/<?php echo $language_href; ?>index.php?route=checkout/cart">< Вернуться назад</a>
                 </div>
                 <div class="b-checkout__clear">
-                  <a href="#">Очистить корзину <span class="ic-delete"></span></a>
+                  <a href="javascript:void(0)" onclick="cart.clear()">Очистить корзину <span class="ic-delete"></span></a>
                 </div>
                 <div class="g-clear"></div>
               </div>
@@ -576,90 +582,7 @@ $('#step').on('change', function(){
 
 </script>
 
-<div class="container h-hidden">
 
-  <?php if ($error_warning) { ?>
-  <div class="alert alert-danger"><i class="fa fa-exclamation-circle"></i> <?php echo $error_warning; ?>
-    <button type="button" class="close" data-dismiss="alert">&times;</button>
-  </div>
-  <?php } ?>
-
-  <div class="row"><?php echo $column_left; ?>
-    <?php if ($column_left && $column_right) { ?>
-    <?php $class = 'col-sm-6'; ?>
-    <?php } elseif ($column_left || $column_right) { ?>
-    <?php $class = 'col-sm-9'; ?>
-    <?php } else { ?>
-    <?php $class = 'col-sm-12'; ?>
-    <?php } ?>
-    <div id="content" class="<?php echo $class; ?>"><?php echo $content_top; ?>
-      <h1><?php echo $heading_title; ?></h1>
-      <div class="panel-group" id="accordion">
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            <h4 class="panel-title"><?php echo $text_checkout_option; ?></h4>
-          </div>
-          <div class="panel-collapse collapse" id="collapse-checkout-option">
-            <div class="panel-body"></div>
-          </div>
-        </div>
-        <?php if (!$logged && $account != 'guest') { ?>
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            <h4 class="panel-title"><?php echo $text_checkout_account; ?></h4>
-          </div>
-          <div class="panel-collapse collapse" id="collapse-payment-address">
-            <div class="panel-body"></div>
-          </div>
-        </div>
-        <?php } else { ?>
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            <h4 class="panel-title"><?php echo $text_checkout_payment_address; ?></h4>
-          </div>
-          <div class="panel-collapse collapse" id="collapse-payment-address">
-            <div class="panel-body"></div>
-          </div>
-        </div>
-        <?php } ?>
-        <?php if ($shipping_required) { ?>
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            <h4 class="panel-title"><?php echo $text_checkout_shipping_address; ?></h4>
-          </div>
-          <div class="panel-collapse collapse" id="collapse-shipping-address">
-            <div class="panel-body"></div>
-          </div>
-        </div>
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            <h4 class="panel-title"><?php echo $text_checkout_shipping_method; ?></h4>
-          </div>
-          <div class="panel-collapse collapse" id="collapse-shipping-method">
-            <div class="panel-body"></div>
-          </div>
-        </div>
-        <?php } ?>
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            <h4 class="panel-title"><?php echo $text_checkout_payment_method; ?></h4>
-          </div>
-          <div class="panel-collapse collapse" id="collapse-payment-method">
-            <div class="panel-body"></div>
-          </div>
-        </div>
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            <h4 class="panel-title"><?php echo $text_checkout_confirm; ?></h4>
-          </div>
-          <div class="panel-collapse collapse" id="collapse-checkout-confirm">
-            <div class="panel-body"></div>
-          </div>
-        </div>
-      </div>
-      <?php echo $content_bottom; ?></div>
-    <?php echo $column_right; ?></div>
-</div>
 
 
 
